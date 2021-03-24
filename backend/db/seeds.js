@@ -19,11 +19,10 @@ const seedDatabase = async () => {
     console.log(`🌱 DB seeded with ${pubs.length} members and ${users.length} friend`)
 
     await mongoose.connection.close()
-    console.log ('*********CLOSED********')
-
-  } catch(error) {
+    console.log('*********CLOSED********')
+  } catch (error) {
     await mongoose.connection.close()
-    console.log ('********ERROR - CLOSED  SEE BELOW********')
+    console.log('********ERROR - CLOSED  SEE BELOW********')
     console.log(error)
   }
 }

@@ -14,7 +14,7 @@ export const addOneUser = async (req, res) => {
     return res.status(201).json( { message: 'User succesfully created' }, userToAdd)
   } catch (error) {
     console.log('failed to add user')
-    console.log(err)
+    console.log(error)
     return res.status(422).json(error)
   }
 }
