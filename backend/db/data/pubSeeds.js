@@ -18,8 +18,8 @@ export default [
   {
     nameOfPub: 'Southampton Arms',
     address: {
-      line1: '139' ,
-      line2: 'Highgate Rd',
+      line1: '139 Highgate Rd' ,
+      line2: '',
       town: '',
       city: 'London',
       postCode: 'NW5 1LE'
@@ -34,8 +34,8 @@ export default [
   {
     nameOfPub: 'French House',
     address: {
-      line1: '49',
-      line2: 'Dean Street',
+      line1: '49 Dean Street',
+      line2: '',
       town: '',
       city: 'London',
       postCode: 'W1D 5BG'
@@ -48,35 +48,35 @@ export default [
     image: 'https://media.timeout.com/images/100684369/750/422/image.jpg'
   },
   {
-    nameOfPub: ,
+    nameOfPub: 'Chesham Arms',
     address: {
-      line1: ,
-      line2: ,
-      town: ,
-      city: ,
-      postCode: 
+      line1: '15 Mehetabel Road',
+      line2: '',
+      town: '',
+      city: 'London',
+      postCode: 'E9 6DU'
     },
-    description: ,
-    isOutsideSeating: ,
-    isPetFriendly: ,
-    isFoodServed: ,
-    isLiveSports: 
-    image: 
+    description: 'Stroll down a quiet back road in Hackney and you’ll be delighted to come across this handsome pub, its exterior like something on a postcard from the countryside, all light lilac frontage and classic lampposts. You can immediately see why the neighbourhood fought so hard to preserve the Chesham – the pub recently won its status as an Asset of Community Value after a fight that lasted years – and stepping inside just confirms things.' ,
+    isOutsideSeating: true,
+    isPetFriendly: true,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Chesham_Arms.jpg/240px-Chesham_Arms.jpg'
   }
   {
-    nameOfPub: ,
+    nameOfPub: 'The Mayflower',
     address: {
-      line1: ,
-      line2: ,
-      town: ,
-      city: ,
-      postCode: 
+      line1: '117 Rotherhithe St',
+      line2: '',
+      town: '',
+      city: 'London',
+      postCode: 'SE16 4NF' 
     },
-    description: ,
-    isOutsideSeating: ,
-    isPetFriendly: ,
-    isFoodServed: ,
-    isLiveSports: 
-    image: 
+    description: 'Of all the Thamesside pubs, this one is the most special, the most atmospheric, the most tucked-away – and its wooden deck at the back has probably the best view of the river too. If there’s a better accompaniment to an evening pint than the sound of the river slapping away through the slats under your feet, and the lights of the City twinkling away in the distance, we’ve yet to find it. Inside is brilliant too – it dates back to 1620, with ecclesiastical wooden pews, real ales, an open fire and a friendly hubbub of chatter. A real find of a pub.',
+    isOutsideSeating: true,
+    isPetFriendly: true,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://cdn.diffords.com/contrib/bar/2020/02/5e4c0712c1378.jpg'
   }
 ]
