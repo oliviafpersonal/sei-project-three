@@ -11,7 +11,8 @@ export const addOneUser = async (req, res) => {
     const newUser = { ...req.body, id: req._id }
     console.log('🚀 ~ file: user.js ~ line 12 ~ addOneUser ~ newUser', newUser)
     const userToAdd = await User.create(newUser)
-    return res.status(201).json( { message: 'User succesfully created' }, userToAdd)
+    return res.status(201).json( { userToAdd })
+    
   } catch (error) {
     console.log('failed to add user')
     console.log(error)
@@ -40,7 +41,7 @@ export const deleteUser = async (req, res) => {
     const userToDelete = await User.findById(id)
     if (!userToDelete) throw new Error()
     await userToDelete.remove()
-    return res.status(204).json({ 'message': 'item deleted' })
+    return res.status(204).json({ message: 'item deleted' })
   } catch (err) {
     console.log(err)
     return res.status(404).json({ message: err.message })

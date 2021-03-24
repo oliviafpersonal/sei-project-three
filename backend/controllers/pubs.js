@@ -12,7 +12,7 @@ export const addOnePub = async (req, res) => {
     const newPub = { ...req.body, id: req._id }
     console.log('🚀 ~ file: pubs.js ~ line 14 ~ addOnePub ~ newPub', newPub)
     const pubToAdd = await Pub.create(newPub)
-    return res.status(201).json( { message: 'Pub succesfully created' }, pubToAdd)
+    return res.status(201).json(pubToAdd)
   } catch (error) {
     console.log('failed to add pub')
     console.log(error)

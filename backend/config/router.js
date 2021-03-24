@@ -1,6 +1,6 @@
 import express from 'express'
-import { addOnePub, deletePub, getAllPubs, getOnePub, updatePub } from '../controllers/pubs'
-import { addOneUser, deleteUser, getAllUsers, getOneUser, updateUser } from '../controllers/user'
+import { addOnePub, deletePub, getAllPubs, getOnePub, updatePub } from '../controllers/pubs.js'
+import { addOneUser, deleteUser, getAllUsers, getOneUser, updateUser } from '../controllers/user.js'
 
 
 const router = express.Router()
@@ -20,7 +20,7 @@ router.route('/users/:id')
   .delete(deleteUser)
 
 
-router.route('users/:d')
+router.route('pubs/:id')
   .get(getOnePub)
   .post(updatePub)
   .delete(deletePub)

@@ -1,6 +1,7 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import { dbURI, port } from './config/environment.js'
+import router from './config/router.js'
 
 const app = express()
 
@@ -23,3 +24,4 @@ const startServer = async () => {
 }
 
 startServer()
+app.use('/api', router)
