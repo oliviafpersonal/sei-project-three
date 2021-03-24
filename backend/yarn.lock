@@ -2,8 +2,6 @@
 # yarn lockfile v1
 
 
-<<<<<<< HEAD
-=======
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
@@ -16,7 +14,6 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
->>>>>>> 4c7b22fad9be5e52f3c40f4e995e2b32e7082969
 "@types/bson@*":
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/@types/bson/-/bson-4.0.3.tgz#30889d2ffde6262abbe38659364c631454999fbf"
