@@ -1,6 +1,7 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import { dbURI, port } from './config/environment.js'
+
 const app = express()
 
 app.use((req, _res, next) => {
