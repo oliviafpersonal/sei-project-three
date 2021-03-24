@@ -98,13 +98,20 @@ header {
   border: none;
   width: 100%;
   outline: none;
+  background: none;
 }
 
 .location {
   display: flex;
   flex-direction: column;
+  z-index: 6;
+  border-radius: 60px;
+  cursor: pointer;
 }
-
+.location:hover {
+  background: rgb(244, 241, 241);
+  cursor: pointer;
+}
 .location-label {
   margin-left: 1rem;
   margin-top: 0.2rem;
