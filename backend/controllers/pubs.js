@@ -6,7 +6,6 @@ export const getAllPubs = async (req, res) => {
   console.log('🚀 ~ file: pubs.js ~ line 6 ~ getAllPubs ~ pubs', pubs)
   return res.status(200).json(pubs)
 }
-
 export const addOnePub = async (req, res) => {
   try {
     const newPub = { ...req.body, id: req._id }
@@ -19,6 +18,7 @@ export const addOnePub = async (req, res) => {
     return res.status(422).json(error)
   }
 }
+//! not working
 
 export const getOnePub = async (req, res) => {
   try {
@@ -35,6 +35,8 @@ export const getOnePub = async (req, res) => {
   }
 }
 
+//! not working
+
 export const deletePub = async (req, res) => {
   try {
     const { id } = req.params 
@@ -48,6 +50,7 @@ export const deletePub = async (req, res) => {
   }
 }
 
+//! not working
 export const updatePub = async (req, res) => {
   try {
     const { id } = req.params
@@ -61,4 +64,3 @@ export const updatePub = async (req, res) => {
     return res.status(404).json({ 'message': 'Not found' })
   }
 }
-
