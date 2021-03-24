@@ -8,6 +8,6 @@ export const registerUser = async (req, res) => {
     return res.status(202).json({ message: `Welcome ${ newUser.username }` })
   } catch (error) {
     console.log('🚀 ~ file: auth.js ~ line 12 ~ registerUser ~ error', error)
-    return res.stauts(422).json(error)
+    return res.status(422).json(error)
   }
 }
