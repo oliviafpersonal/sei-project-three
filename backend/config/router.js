@@ -20,9 +20,9 @@ router.route('/users/:id')
   .delete(deleteUser)
 
 
-router.route('pubs/:id')
+router.route('/pubs/:id')
   .get(getOnePub)
-  .post(updatePub)
+  .put(updatePub)
   .delete(deletePub)
 
 export default router

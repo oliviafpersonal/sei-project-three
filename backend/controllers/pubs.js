@@ -18,7 +18,6 @@ export const addOnePub = async (req, res) => {
     return res.status(422).json(error)
   }
 }
-//! not working
 
 export const getOnePub = async (req, res) => {
   try {
@@ -31,36 +30,38 @@ export const getOnePub = async (req, res) => {
   } catch (err) {
     console.log('🆘 Something went wrong')
     console.log(err)
-    return res.status(404).json({ 'message': 'Not found' })
+    return res.status(404).json({ message: err.message })
   }
 }
 
-//! not working
 
 export const deletePub = async (req, res) => {
   try {
     const { id } = req.params 
     const pubToDelete = await Pub.findById(id)
-    if (!pubToDelete) throw new Error()
+    if (!pubToDelete) {
+      throw new Error('no pub exists with this id')
+    }
     await pubToDelete.remove()
-    return res.status(204).json({ 'message': 'item deleted' })
+    return res.status(200).json({ message: 'its all gone' })
   } catch (err) {
     console.log(err)
     return res.status(404).json({ message: err.message })
   }
 }
 
-//! not working
 export const updatePub = async (req, res) => {
   try {
     const { id } = req.params
     const pubToUpdate = await Pub.findById(id)
-    if (!pubToUpdate) throw new Error()
+    if (!pubToUpdate) {
+      throw new Error('no pub with that id exists...')
+    }
     Object.assign(pubToUpdate, req.body)
     await pubToUpdate.save()
     return res.status(202).json(pubToUpdate)
   } catch (err) {
     console.log(err)
-    return res.status(404).json({ 'message': 'Not found' })
+    return res.status(404).json({ message: err.message })
   }
 }

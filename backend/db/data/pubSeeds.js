@@ -233,3 +233,5 @@ const pubSeed = [
     image: ''
   }
 ]
+
+export default pubSeed
