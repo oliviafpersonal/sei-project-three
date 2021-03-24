@@ -1,11 +1,8 @@
-
-
 const userSeed = [
   {
     username: 'admin',
     email: 'SSEI54@admin.com',
     password: 'sherbetlemon',
-    image: 'i am an image',
     isLandlord: true
   },
   {
