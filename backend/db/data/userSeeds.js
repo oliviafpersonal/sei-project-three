@@ -56,219 +56,230 @@ const userSeed = [
     islandlord: true
   },
   {
+    username: 'Francis Hampton',
+    email: 'frampton@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: true
+  },
+  {
+    username: 'Kyson Larsen',
+    email: 'kl92@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: true
+  },
+  {
+    username: 'Mark-Wright',
+    email: 'mark-is-always@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: true
+  },
+  {
+    username: 'Keiji Yamazaki',
+    email: 'yamzak22@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: true
+  },
+  {
     username: 'Smithy_123',
     email: 'smithy_123@gmail.com',
     password: 'password',
     passwordConfirmation: 'password',
     image: '',
     islandlord: true
+  },
+  {
+    username: 'Smithy_123',
+    email: 'smithy_123@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: true
+  },
+  {
+    username: 'Smithy_123',
+    email: 'smithy_123@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: true
+  },
+  {
+    username: 'Smithy_123',
+    email: 'smithy_123@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: true
+  },
+  {
+    username: 'Smithy_123',
+    email: 'smithy_123@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: true
+  },
+  {
+    username: 'Smithy_123',
+    email: 'smithy_123@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: true
+  },
+  {
+    username: 'Smithy_123',
+    email: 'smithy_123@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: true
+  },
+  {
+    username: 'Smithy_123',
+    email: 'smithy_123@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: true
+  },
+  {
+    username: 'Smithy_123',
+    email: 'smithy_123@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: true
+  },
+  {
+    username: 'Smithy_123',
+    email: 'smithy_123@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: true
+  },
+  {
+    username: 'Smithy_123',
+    email: 'smithy_123@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: true
+  },
+  //* ********************** USER SEEDS ************************
+  {
+    username: 'BruceWayne',
+    email: 'defo!batman@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: false
+  },
+  {
+    username: 'DickGrayson',
+    email: 'defo!robin@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: false
+  },
+  {
+    username: 'SelinaKyle',
+    email: 'defo!catwoman@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: false
+  },
+  {
+    username: 'BarbaraGordon',
+    email: 'oracle_batgirl@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: false
+  },
+  {
+    username: 'PeterParker',
+    email: 'neighbourhood_Sp1dey@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: false
+  },
+  {
+    username: 'spidey93',
+    email: 'miles-morales@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: false
+  },
+  {
+    username: '',
+    email: 'smithy_123@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: false
+  },
+  {
+    username: '',
+    email: 'smithy_123@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: false
+  },
+  {
+    username: '',
+    email: 'smithy_123@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: false
+  },
+  {
+    username: '',
+    email: 'smithy_123@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: false
+  },
+  {
+    username: '',
+    email: 'smithy_123@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: false
+  },
+  {
+    username: '',
+    email: 'smithy_123@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: false
+  },
+  {
+    username: '',
+    email: 'smithy_123@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: false
   }
-  // {
-  //   username: 'Smithy_123',
-  //   email: 'smithy_123@gmail.com',
-  //   password: 'password',
-  //   passwordConfirmation: 'password',
-  //   image: '',
-  //   islandlord: true
-  // },
-  // {
-  //   username: 'Smithy_123',
-  //   email: 'smithy_123@gmail.com',
-  //   password: 'password',
-  //   passwordConfirmation: 'password',
-  //   image: '',
-  //   islandlord: true
-  // },
-  // {
-  //   username: 'Smithy_123',
-  //   email: 'smithy_123@gmail.com',
-  //   password: 'password',
-  //   passwordConfirmation: 'password',
-  //   image: '',
-  //   islandlord: true
-  // },
-  // {
-  //   username: 'Smithy_123',
-  //   email: 'smithy_123@gmail.com',
-  //   password: 'password',
-  //   passwordConfirmation: 'password',
-  //   image: '',
-  //   islandlord: true
-  // },
-  // {
-  //   username: 'Smithy_123',
-  //   email: 'smithy_123@gmail.com',
-  //   password: 'password',
-  //   passwordConfirmation: 'password',
-  //   image: '',
-  //   islandlord: true
-  // },
-  // {
-  //   username: 'Smithy_123',
-  //   email: 'smithy_123@gmail.com',
-  //   password: 'password',
-  //   passwordConfirmation: 'password',
-  //   image: '',
-  //   islandlord: true
-  // },
-  // {
-  //   username: 'Smithy_123',
-  //   email: 'smithy_123@gmail.com',
-  //   password: 'password',
-  //   passwordConfirmation: 'password',
-  //   image: '',
-  //   islandlord: true
-  // },
-  // {
-  //   username: 'Smithy_123',
-  //   email: 'smithy_123@gmail.com',
-  //   password: 'password',
-  //   passwordConfirmation: 'password',
-  //   image: '',
-  //   islandlord: true
-  // },
-  // {
-  //   username: 'Smithy_123',
-  //   email: 'smithy_123@gmail.com',
-  //   password: 'password',
-  //   passwordConfirmation: 'password',
-  //   image: '',
-  //   islandlord: true
-  // },
-  // {
-  //   username: 'Smithy_123',
-  //   email: 'smithy_123@gmail.com',
-  //   password: 'password',
-  //   passwordConfirmation: 'password',
-  //   image: '',
-  //   islandlord: true
-  // },
-  // {
-  //   username: 'Smithy_123',
-  //   email: 'smithy_123@gmail.com',
-  //   password: 'password',
-  //   passwordConfirmation: 'password',
-  //   image: '',
-  //   islandlord: true
-  // },
-  // {
-  //   username: 'Smithy_123',
-  //   email: 'smithy_123@gmail.com',
-  //   password: 'password',
-  //   passwordConfirmation: 'password',
-  //   image: '',
-  //   islandlord: true
-  // },
-  // {
-  //   username: 'Smithy_123',
-  //   email: 'smithy_123@gmail.com',
-  //   password: 'password',
-  //   passwordConfirmation: 'password',
-  //   image: '',
-  //   islandlord: true
-  // },
-  // {
-  //   username: 'Smithy_123',
-  //   email: 'smithy_123@gmail.com',
-  //   password: 'password',
-  //   passwordConfirmation: 'password',
-  //   image: '',
-  //   islandlord: true
-  // },
-  // //* ********************** USER SEEDS ************************
-  // {
-  //   username: 'BruceWayne',
-  //   email: 'defo!batman@gmail.com',
-  //   password: 'password',
-  //   passwordConfirmation: 'password',
-  //   image: '',
-  //   islandlord: false
-  // },
-  // {
-  //   username: 'DickGrayson',
-  //   email: 'defo!robin@gmail.com',
-  //   password: 'password',
-  //   passwordConfirmation: 'password',
-  //   image: '',
-  //   islandlord: false
-  // },{
-  //   username: 'SelinaKyle',
-  //   email: 'defo!catwoman@gmail.com',
-  //   password: 'password',
-  //   passwordConfirmation: 'password',
-  //   image: '',
-  //   islandlord: false
-  // },{
-  //   username: 'BarbaraGordon',
-  //   email: 'oracle_batgirl@gmail.com',
-  //   password: 'password',
-  //   passwordConfirmation: 'password',
-  //   image: '',
-  //   islandlord: false
-  // },{
-  //   username: 'PeterParker',
-  //   email: 'neighbourhood_Sp1dey@gmail.com',
-  //   password: 'password',
-  //   passwordConfirmation: 'password',
-  //   image: '',
-  //   islandlord: false
-  // },{
-  //   username: 'spidey93',
-  //   email: 'miles-morales@gmail.com',
-  //   password: 'password',
-  //   passwordConfirmation: 'password',
-  //   image: '',
-  //   islandlord: false
-  // },{
-  //   username: '',
-  //   email: 'smithy_123@gmail.com',
-  //   password: 'password',
-  //   passwordConfirmation: 'password',
-  //   image: '',
-  //   islandlord: false
-  // },{
-  //   username: '',
-  //   email: 'smithy_123@gmail.com',
-  //   password: 'password',
-  //   passwordConfirmation: 'password',
-  //   image: '',
-  //   islandlord: false
-  // },{
-  //   username: '',
-  //   email: 'smithy_123@gmail.com',
-  //   password: 'password',
-  //   passwordConfirmation: 'password',
-  //   image: '',
-  //   islandlord: false
-  // },{
-  //   username: '',
-  //   email: 'smithy_123@gmail.com',
-  //   password: 'password',
-  //   passwordConfirmation: 'password',
-  //   image: '',
-  //   islandlord: false
-  // },{
-  //   username: '',
-  //   email: 'smithy_123@gmail.com',
-  //   password: 'password',
-  //   passwordConfirmation: 'password',
-  //   image: '',
-  //   islandlord: false
-  // },{
-  //   username: '',
-  //   email: 'smithy_123@gmail.com',
-  //   password: 'password',
-  //   passwordConfirmation: 'password',
-  //   image: '',
-  //   islandlord: false
-  // },{
-  //   username: '',
-  //   email: 'smithy_123@gmail.com',
-  //   password: 'password',
-  //   passwordConfirmation: 'password',
-  //   image: '',
-  //   islandlord: false
-  // },
   
 ]
 
