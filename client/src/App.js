@@ -25,8 +25,6 @@ const App = () => {
         <Route exact path="/">
           <Home />
         </Route>
-
-        <Route></Route>
         <Route exact path="/login">
           <Login />
         </Route>
