@@ -1,7 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faUserCircle } from '@fortawesome/free-solid-svg-icons'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 const Hamburger = () => {
   const clickHandler = (e) => {
     e.currentTarget.classList.toggle('is-active')
@@ -24,9 +24,13 @@ const Hamburger = () => {
         </div>
         <div className="dropdown-menu" id="dropdown-menu1" role="menu">
           <div className="dropdown-content dropdown-shape">
-            <a href="#" className="dropdown-item">
+
+
+            <Link to="/login" className="dropdown-item" >
               Login
-            </a>
+            </Link>
+
+
             <a href="#" className="dropdown-item">
               Register
             </a>
