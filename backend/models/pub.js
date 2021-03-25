@@ -1,20 +1,20 @@
 import mongoose from 'mongoose'
 
 const pubSchema = new mongoose.Schema({
-  nameOfPub: { type: String, required: true },
+  nameOfPub: { type: String },
   address: {
-    line1: { type: String, required: true },
+    line1: { type: String },
     line2: { type: String },
     town: { type: String },
-    city: { type: String, required: true },
-    postCode: { type: String, required: true, maxlength: 10 }
+    city: { type: String },
+    postCode: { type: String, maxlength: 10 }
   },
   description: { type: String },
-  isOutsideSeating: { type: Boolean, required: true },
-  isPetFriendly: { type: Boolean, required: true },
-  isFoodServed: { type: Boolean, required: true },
-  isLiveSports: { type: Boolean, required: true },
-  image: { type: String, required: true }
+  isOutsideSeating: { type: Boolean },
+  isPetFriendly: { type: Boolean },
+  isFoodServed: { type: Boolean },
+  isLiveSports: { type: Boolean },
+  image: { type: String }
 })
 
 export default mongoose.model('Pub', pubSchema)
