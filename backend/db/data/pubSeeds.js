@@ -1,21 +1,5 @@
 const pubSeed = [
   {
-    nameOfPub: '19:20',
-    address: {
-      line1: '19-20 Great Sutton Street',
-      line2: 'Islington',
-      town: '',
-      city: 'London',
-      postCode: 'EC1V 0NB'
-    },
-    description: '',
-    isOutsideSeating: true,
-    isPetFriendly: true,
-    isFoodServed: true,
-    isLiveSports: true,
-    image: 'another image'
-  },
-  {
     nameOfPub: 'Southampton Arms',
     address: {
       line1: '139 Highgate Rd',

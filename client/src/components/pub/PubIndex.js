@@ -22,12 +22,14 @@ const PubIndex = () => {
   return (
     <>
       <Header />
-      {console.log(pubs)}
-      <div>I am the Pubs index, welcome</div>
-      <div>
-        {pubs.map(pub => (
-          <PubCard key={pub._id} {...pub} />
-        ))}
+      <div className="columns">
+        <div className="column">
+          {pubs.map(pub => (
+            <PubCard key={pub._id} {...pub} />
+          ))}
+        </div>
+        <div className="column">
+        </div>
       </div>
     </>
   )
