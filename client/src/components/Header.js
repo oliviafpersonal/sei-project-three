@@ -1,12 +1,13 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBeer, faBars, faUserCircle } from '@fortawesome/free-solid-svg-icons'
+import { faBeer } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
-const Header = () => {
-  const clickHandler = (e) => {
-    e.currentTarget.classList.toggle('is-active')
-  }
 
+// components
+
+import Hamburger from './Hamburger'
+
+const Header = () => {
   return (
     <>
       <section className="header-style-hoc">
@@ -24,49 +25,7 @@ const Header = () => {
               <p className="header-links-hoc">Become a Landlord</p>
             </div>
             <div className="column left">
-              <div className="dropdown is-right" onClick={clickHandler}>
-                <div className="dropdown-trigger">
-                  <button
-                    className="hamburger-button-hoc button"
-                    aria-haspopup="true"
-                    aria-controls="dropdown-menu4"
-                  >
-                    <FontAwesomeIcon icon={faBars} />
-                    <span className="logo-space">
-                      <FontAwesomeIcon icon={faUserCircle} />
-                    </span>
-                  </button>
-                </div>
-                <div className="dropdown-menu" id="dropdown-menu3" role="menu">
-                  <div className="dropdown-content">
-                    <a href="#" className="dropdown-item">
-                      Overview
-                    </a>
-                    <a href="#" className="dropdown-item">
-                      Modifiers
-                    </a>
-                    <a href="#" className="dropdown-item">
-                      Grid
-                    </a>
-                    <a href="#" className="dropdown-item">
-                      Form
-                    </a>
-                    <a href="#" className="dropdown-item">
-                      Elements
-                    </a>
-                    <a href="#" className="dropdown-item">
-                      Components
-                    </a>
-                    <a href="#" className="dropdown-item">
-                      Layout
-                    </a>
-                    <hr className="dropdown-divider" />
-                    <a href="#" className="dropdown-item">
-                      More
-                    </a>
-                  </div>
-                </div>
-              </div>
+              <Hamburger />
             </div>
           </div>
         </header>
