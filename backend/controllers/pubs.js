@@ -1,4 +1,5 @@
 import Pub from '../models/pub.js'
+import User from '../models/user.js'
 
 
 export const getAllPubs = async (req, res) => {
@@ -8,8 +9,13 @@ export const getAllPubs = async (req, res) => {
 }
 export const addOnePub = async (req, res) => {
   try {
+    (console.log(req.currentUser._id))
     const newPub = { ...req.body, id: req._id }
     console.log('🚀 ~ file: pubs.js ~ line 14 ~ addOnePub ~ newPub', newPub)
+    const findUser = await User.findById(req.currentUser._id)
+    if (!findUser.isLandlord) { 
+      throw new  Error('user is not a Landlord, access restricted')
+    } else console.log('user is a landlord, access approved')
     const pubToAdd = await Pub.create(newPub)
     return res.status(201).json(pubToAdd)
   } catch (error) {

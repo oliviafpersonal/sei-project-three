@@ -15,7 +15,7 @@ const pubSchema = new mongoose.Schema({
   isFoodServed: { type: Boolean },
   isLiveSports: { type: Boolean },
   image: { type: String },
-  owner: { type: mongoose.Schema.Types.ObjectID, ref: 'User' }
+  pubOwner: { type: mongoose.Schema.Types.ObjectID, ref: 'User' }
 }, { timestamps: true })
 
 export default mongoose.model('Pub', pubSchema)
