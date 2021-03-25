@@ -11,3 +11,4 @@ export const registerUser = async (req, res) => {
     return res.status(422).json(error)
   }
 }
+
