@@ -1,10 +1,33 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from './Header'
+import StickyHeader from '../StickyHeader'
 
 const Home = () => {
+  // const [ isSticky, setIsSticky ] = useState(false)
+
+  useEffect(() => {
+    const header = document.querySelector('.myHeader')
+    const sticky = header.offsetTop
+    const scrollCallBack = window.addEventListener('scroll', () => {
+      if (window.pageYOffset > sticky) {
+        header.classList.add('sticky')
+        header.classList.remove('hide')
+      } else {
+        header.classList.add('hide')
+      }
+    })
+    return () => {
+      window.removeEventListener('scroll', scrollCallBack)
+    }
+  }, [])
+
   return (
     <div className="home-container">
+      <div className="myHeader hide">
+        <StickyHeader />
+      </div>
       <Header />
+
       <main>
         <div className="content-container">
           <div className="pubs-heading">
