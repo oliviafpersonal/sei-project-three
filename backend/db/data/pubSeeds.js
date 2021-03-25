@@ -897,7 +897,7 @@ const pubSeed = [
     image: 'https://i2-prod.walesonline.co.uk/incoming/article8643419.ece/ALTERNATES/s615b/JS56786720.jpg'
   },
 
-{
+  {
     nameOfPub: 'The Alchemist Cardiff',
     address: {
       line1: '117 St Mary St',
@@ -1083,9 +1083,9 @@ const pubSeed = [
     isFoodServed: true,
     isLiveSports: false,
     image: 'https://s3-media0.fl.yelpcdn.com/bphoto/u9nEFEVnWGiOoXfNdtew3w/l.jpg'
-  }
+  },
 
-{
+  {
     nameOfPub: 'The Ty Mawr',
     address: {
       line1: 'Graig Road',
