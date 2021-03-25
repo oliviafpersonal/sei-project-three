@@ -1,5 +1,4 @@
 @charset "utf-8";
-@import '~bulma/bulma.sass';
 
 // Import a Google Font
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
@@ -9,10 +8,128 @@
 $darkblue: #282d4f;
 $darkblue-hover: #363d6c;
 $brand-black: #000000;
+$brand-green: #3a6351;
 
 // Update Bulma's global variables
 $family-sans-serif: 'Nunito', sans-serif;
 
+@import '~bulma/bulma.sass';
+
 .header-style {
   background: $brand-black;
+}
+
+header {
+  padding: 1rem;
+}
+
+.logo {
+  font-family: stratos, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: white;
+  font-size: 2em;
+  padding-left: 5rem;
+}
+.logo-space {
+  padding-left: 0.5rem;
+}
+
+.header-bg {
+  background: url('./assets/pubhub-header-img.png'), no-repeat;
+  background-size: cover;
+  width: 95%;
+  margin: 0 auto;
+  z-index: 1;
+  margin-top: 2rem;
+}
+
+.header-cta {
+  font-family: stratos, sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  color: white;
+  font-size: 2em;
+  padding-left: 3rem;
+  text-align: center;
+}
+
+.cta-container {
+  padding: 2rem;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+}
+
+.header-links {
+  color: white;
+  margin-top: 1rem;
+  text-align: right;
+}
+
+.hamburger-button {
+  border-radius: 20px;
+  background: rgb(237, 237, 237);
+}
+
+.left {
+  justify-content: left;
+  text-align: left;
+  padding-top: 1rem;
+}
+
+.search-bar {
+  padding: 0.5rem 0.5rem;
+  width: 40%;
+  background: white;
+  border-radius: 60px;
+  justify-content: center;
+  z-index: 5;
+  outline: none;
+  border: none;
+  position: absolute;
+  top: 0;
+  left: 32%;
+  margin-top: 5rem;
+}
+
+.search-input {
+  padding: 0rem 1rem;
+  border: none;
+  width: 100%;
+  outline: none;
+  background: none;
+}
+
+.location {
+  display: flex;
+  flex-direction: column;
+  z-index: 6;
+  border-radius: 60px;
+  cursor: pointer;
+}
+.location:hover {
+  background: rgb(244, 241, 241);
+  cursor: pointer;
+}
+.location-label {
+  margin-left: 1rem;
+  margin-top: 0.2rem;
+}
+
+.search-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-button {
+  height: 50px;
+  width: 50px;
+  background-color: $brand-green;
+  border-radius: 50%;
+  display: inline-block;
+}
+.search-icon {
+  color: white;
+  transform: scale(1);
 }

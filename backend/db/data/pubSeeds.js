@@ -6,14 +6,14 @@ const pubSeed = [
       city: 'london',
       postCode: 'postcode',
       description: 'description of bad pub'
-    },
+    }
   },
   {
     nameOfPub: '19:20',
     address: {
       line1: '19-20 Great Sutton Street',
-      line2:'Islington', 
-      town:'',
+      line2: 'Islington', 
+      town: '',
       city: 'London',
       postCode: 'EC1V 0NB'
     },
@@ -65,7 +65,7 @@ const pubSeed = [
       city: 'London',
       postCode: 'E9 6DU'
     },
-    description: 'Stroll down a quiet back road in Hackney and you\ll be delighted to come across this handsome pub, its exterior like something on a postcard from the countryside, all light lilac frontage and classic lampposts. You can immediately see why the neighbourhood fought so hard to preserve the Chesham – the pub recently won its status as an Asset of Community Value after a fight that lasted years – and stepping inside just confirms things.' ,
+    description: 'Stroll down a quiet back road in Hackney and you\'ll be delighted to come across this handsome pub, its exterior like something on a postcard from the countryside, all light lilac frontage and classic lampposts. You can immediately see why the neighbourhood fought so hard to preserve the Chesham – the pub recently won its status as an Asset of Community Value after a fight that lasted years – and stepping inside just confirms things.' ,
     isOutsideSeating: true,
     isPetFriendly: true,
     isFoodServed: true,
@@ -97,7 +97,7 @@ const pubSeed = [
       city: 'London',
       postCode: 'SE15 3BE' 
     },
-    description: 'If this pub were a film, it would be a heartwarming tale of pluck directed by Mike Leigh. In 2012, the owners gave their tenants one week\'s notice to ship out after selling the property to developers. Instead of going quietly, the tenants set about raising £1 million with the help of the local community to buy the pub and turn it into a cooperative. Nowadays friendly, committed staff welcome locals of all ages for a mates-rates pint of locally brewed ale, carefully sourced pub food (including generous Sunday roasts), and events ranging from live music to yoga classes, knitting circles and kids\ dance lessons. It’s all housed in a Grade-II listed building, with original beams, wall-to-wall wood panelling, leaded windows and an open fire.',
+    description: 'If this pub were a film, it would be a heartwarming tale of pluck directed by Mike Leigh. In 2012, the owners gave their tenants one week\'s notice to ship out after selling the property to developers. Instead of going quietly, the tenants set about raising £1 million with the help of the local community to buy the pub and turn it into a cooperative. Nowadays friendly, committed staff welcome locals of all ages for a mates-rates pint of locally brewed ale, carefully sourced pub food (including generous Sunday roasts), and events ranging from live music to yoga classes, knitting circles and kid\'s dance lessons. It’s all housed in a Grade-II listed building, with original beams, wall-to-wall wood panelling, leaded windows and an open fire.',
     isOutsideSeating: true,
     isPetFriendly: true,
     isFoodServed: false,
@@ -145,7 +145,7 @@ const pubSeed = [
       city: 'London',
       postCode: '' 
     },
-    description: 'The added-value attractions at this skinny little Church Street boozer are numerous: sporadic themed music nights, big-screen football, large beer garden. But the Shillelagh is at its best when it keeps things simple, as an honest, uncomplicated Irish pub (as opposed to Irish-themed pub; the difference is crucial) that draws a devoted circle of boozed-up Stoke Newingtonians most nights of the week. It’s the kind of pub where the wine list runs to ‘red or white’, and where the staff are so matey and hospitable that they\ll offer to bring your Guinness over to your table rather than have you hang around at the bar and wait for it to reach perfection. No wonder everybody here always seems to be in such a good mood.',
+    description: 'The added-value attractions at this skinny little Church Street boozer are numerous: sporadic themed music nights, big-screen football, large beer garden. But the Shillelagh is at its best when it keeps things simple, as an honest, uncomplicated Irish pub (as opposed to Irish-themed pub; the difference is crucial) that draws a devoted circle of boozed-up Stoke Newingtonians most nights of the week. It’s the kind of pub where the wine list runs to ‘red or white’, and where the staff are so matey and hospitable that they\'ll offer to bring your Guinness over to your table rather than have you hang around at the bar and wait for it to reach perfection. No wonder everybody here always seems to be in such a good mood.',
     isOutsideSeating: true,
     isPetFriendly: true,
     isFoodServed: true,
@@ -327,7 +327,7 @@ const pubSeed = [
     isFoodServed: true,
     isLiveSports: false,
     image: 'https://media.timeout.com/images/105454822/750/422/image.jpg'
-  }
+  },
   {
     nameOfPub: 'Spread Eagle',
     address: {
