@@ -887,119 +887,119 @@ const pubSeed = [
     isFoodServed: true,
     isLiveSports: false,
     image: 'https://media.timeout.com/images/105377429/750/422/image.jpg'
-  },
-   {
-    nameOfPub: '',
-    address: {
-      line1: '',
-      line2: '',
-      town: '',
-      city: 'London',
-      postCode: '' 
-    },
-    description: '',
-    isOutsideSeating: true,
-    isPetFriendly: true,
-    isFoodServed: true,
-    isLiveSports: false,
-    image: ''
   }
-  {
-    nameOfPub: '',
-    address: {
-      line1: '',
-      line2: '',
-      town: '',
-      city: 'London',
-      postCode: '' 
-    },
-    description: '',
-    isOutsideSeating: true,
-    isPetFriendly: true,
-    isFoodServed: true,
-    isLiveSports: false,
-    image: ''
-  }
-  {
-    nameOfPub: '',
-    address: {
-      line1: '',
-      line2: '',
-      town: '',
-      city: 'London',
-      postCode: '' 
-    },
-    description: '',
-    isOutsideSeating: true,
-    isPetFriendly: true,
-    isFoodServed: true,
-    isLiveSports: false,
-    image: ''
-  }
-  {
-    nameOfPub: '',
-    address: {
-      line1: '',
-      line2: '',
-      town: '',
-      city: 'London',
-      postCode: '' 
-    },
-    description: '',
-    isOutsideSeating: true,
-    isPetFriendly: true,
-    isFoodServed: true,
-    isLiveSports: false,
-    image: ''
-  }
-  {
-    nameOfPub: '',
-    address: {
-      line1: '',
-      line2: '',
-      town: '',
-      city: 'London',
-      postCode: '' 
-    },
-    description: '',
-    isOutsideSeating: true,
-    isPetFriendly: true,
-    isFoodServed: true,
-    isLiveSports: false,
-    image: ''
-  }
-  {
-    nameOfPub: '',
-    address: {
-      line1: '',
-      line2: '',
-      town: '',
-      city: 'London',
-      postCode: '' 
-    },
-    description: '',
-    isOutsideSeating: true,
-    isPetFriendly: true,
-    isFoodServed: true,
-    isLiveSports: false,
-    image: ''
-  }
-  {
-    nameOfPub: '',
-    address: {
-      line1: '',
-      line2: '',
-      town: '',
-      city: 'London',
-      postCode: '' 
-    },
-    description: '',
-    isOutsideSeating: true,
-    isPetFriendly: true,
-    isFoodServed: true,
-    isLiveSports: false,
-    image: ''
-  }
+  //  {
+  //   nameOfPub: '',
+  //   address: {
+  //     line1: '',
+  //     line2: '',
+  //     town: '',
+  //     city: 'London',
+  //     postCode: '' 
+  //   },
+  //   description: '',
+  //   isOutsideSeating: true,
+  //   isPetFriendly: true,
+  //   isFoodServed: true,
+  //   isLiveSports: false,
+  //   image: ''
+  // },
+  // {
+  //   nameOfPub: '',
+  //   address: {
+  //     line1: '',
+  //     line2: '',
+  //     town: '',
+  //     city: 'London',
+  //     postCode: '' 
+  //   },
+  //   description: '',
+  //   isOutsideSeating: true,
+  //   isPetFriendly: true,
+  //   isFoodServed: true,
+  //   isLiveSports: false,
+  //   image: ''
+  // },
+  // {
+  //   nameOfPub: '',
+  //   address: {
+  //     line1: '',
+  //     line2: '',
+  //     town: '',
+  //     city: 'London',
+  //     postCode: '' 
+  //   },
+  //   description: '',
+  //   isOutsideSeating: true,
+  //   isPetFriendly: true,
+  //   isFoodServed: true,
+  //   isLiveSports: false,
+  //   image: ''
+  // },
+  // {
+  //   nameOfPub: '',
+  //   address: {
+  //     line1: '',
+  //     line2: '',
+  //     town: '',
+  //     city: 'London',
+  //     postCode: '' 
+  //   },
+  //   description: '',
+  //   isOutsideSeating: true,
+  //   isPetFriendly: true,
+  //   isFoodServed: true,
+  //   isLiveSports: false,
+  //   image: ''
+  // },
+  // {
+  //   nameOfPub: '',
+  //   address: {
+  //     line1: '',
+  //     line2: '',
+  //     town: '',
+  //     city: 'London',
+  //     postCode: '' 
+  //   },
+  //   description: '',
+  //   isOutsideSeating: true,
+  //   isPetFriendly: true,
+  //   isFoodServed: true,
+  //   isLiveSports: false,
+  //   image: ''
+  // },
+  // {
+  //   nameOfPub: '',
+  //   address: {
+  //     line1: '',
+  //     line2: '',
+  //     town: '',
+  //     city: 'London',
+  //     postCode: '' 
+  //   },
+  //   description: '',
+  //   isOutsideSeating: true,
+  //   isPetFriendly: true,
+  //   isFoodServed: true,
+  //   isLiveSports: false,
+  //   image: ''
+  // },
+  // {
+  //   nameOfPub: '',
+  //   address: {
+  //     line1: '',
+  //     line2: '',
+  //     town: '',
+  //     city: 'London',
+  //     postCode: '' 
+  //   },
+  //   description: '',
+  //   isOutsideSeating: true,
+  //   isPetFriendly: true,
+  //   isFoodServed: true,
+  //   isLiveSports: false,
+  //   image: ''
+  // }
 ]
 
 export default pubSeed
