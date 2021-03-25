@@ -14,7 +14,7 @@ const userSeed = [
     password: 'password',
     passwordConfirmation: 'password',
     image: '',
-    islandlord: false
+    isLandlord: false
   }
   
 ]

@@ -12,16 +12,19 @@ const reviewSchema = new mongoose.Schema({
   timestamps: true
 })
 
+reviewSchema
+  .set('toJSON', { virtuals: true })
 
 reviewSchema
   .virtual('overallRating')
   .get(function() {
-    const ratingsArray = Object.keys(this.subRating)
+    const ratingsArray = Object.values(this.subRating)
     const sum = ratingsArray.reduce((acc, curr) => {
       return acc + curr
     }, 0)
-    return sum / ratingsArray.length
+    const average = sum / ratingsArray.length
+    console.log('average>>>>>>>>>>>>', average)
+    return average
   })
-
 
 export default reviewSchema

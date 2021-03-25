@@ -12,8 +12,8 @@ export const addReviewtoPub = async (req, res) => {
     const { id } = req.params 
     const pub = await Pub.findById(id)
     if (!pub) throw new Error('Cannot find pub')
-    const newComment = { ...req.body, owner: userID }
-    pub.comments.push(newComment)
+    const newReview = { ...req.body, owner: userID }
+    pub.reviews.push(newReview)
     await pub.save()
     return res.status(200).json(pub)
   } catch (err) {
