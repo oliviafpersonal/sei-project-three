@@ -1,7 +1,13 @@
+// packages
+
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+
+// components
+
 import Home from './components/Home/Home'
 import PubIndex from './components/pub/PubIndex'
+import Footer from './components/Footer'
 
 const App = () => {
   return (
@@ -14,6 +20,7 @@ const App = () => {
           <PubIndex />
         </Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   )
 }
