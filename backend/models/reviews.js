@@ -7,7 +7,7 @@ const reviewSchema = new mongoose.Schema({
     comfortability: { type: Number }
   },
   text: { type: String, maxlength: 300 },
-  owner: { type: mongoose.Schema.Types.ObjectID, ref: 'User' }
+  reviewOwner: { type: mongoose.Schema.Types.ObjectID, ref: 'User' }
 }, {
   timestamps: true
 })
