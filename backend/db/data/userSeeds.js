@@ -95,86 +95,7 @@ const userSeed = [
     image: '',
     islandlord: true
   },
-  {
-    username: 'Smithy_123',
-    email: 'smithy_123@gmail.com',
-    password: 'password',
-    passwordConfirmation: 'password',
-    image: '',
-    islandlord: true
-  },
-  {
-    username: 'Smithy_123',
-    email: 'smithy_123@gmail.com',
-    password: 'password',
-    passwordConfirmation: 'password',
-    image: '',
-    islandlord: true
-  },
-  {
-    username: 'Smithy_123',
-    email: 'smithy_123@gmail.com',
-    password: 'password',
-    passwordConfirmation: 'password',
-    image: '',
-    islandlord: true
-  },
-  {
-    username: 'Smithy_123',
-    email: 'smithy_123@gmail.com',
-    password: 'password',
-    passwordConfirmation: 'password',
-    image: '',
-    islandlord: true
-  },
-  {
-    username: 'Smithy_123',
-    email: 'smithy_123@gmail.com',
-    password: 'password',
-    passwordConfirmation: 'password',
-    image: '',
-    islandlord: true
-  },
-  {
-    username: 'Smithy_123',
-    email: 'smithy_123@gmail.com',
-    password: 'password',
-    passwordConfirmation: 'password',
-    image: '',
-    islandlord: true
-  },
-  {
-    username: 'Smithy_123',
-    email: 'smithy_123@gmail.com',
-    password: 'password',
-    passwordConfirmation: 'password',
-    image: '',
-    islandlord: true
-  },
-  {
-    username: 'Smithy_123',
-    email: 'smithy_123@gmail.com',
-    password: 'password',
-    passwordConfirmation: 'password',
-    image: '',
-    islandlord: true
-  },
-  {
-    username: 'Smithy_123',
-    email: 'smithy_123@gmail.com',
-    password: 'password',
-    passwordConfirmation: 'password',
-    image: '',
-    islandlord: true
-  },
-  {
-    username: 'Smithy_123',
-    email: 'smithy_123@gmail.com',
-    password: 'password',
-    passwordConfirmation: 'password',
-    image: '',
-    islandlord: true
-  },
+
   //* ********************** USER SEEDS ************************
   {
     username: 'BruceWayne',
@@ -216,6 +137,7 @@ const userSeed = [
     image: '',
     islandlord: false
   },
+
   {
     username: 'spidey93',
     email: 'miles-morales@gmail.com',
@@ -224,6 +146,7 @@ const userSeed = [
     image: '',
     islandlord: false
   },
+  /*
   {
     username: '',
     email: 'smithy_123@gmail.com',
@@ -280,7 +203,7 @@ const userSeed = [
     image: '',
     islandlord: false
   }
-  
+  */
 ]
 
 

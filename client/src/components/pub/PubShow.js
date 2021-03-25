@@ -5,23 +5,27 @@ import { useParams /*, Link*/ } from 'react-router-dom'
 
 const PubShow = () => {
   const params = useParams()
-  console.log(params)
 
-  const [pubs, setPubs] = useState('')
+  const [pub, setPub] = useState('')
 
   useEffect(() => {
-    console.log(pubs, setPubs)
+    console.log(pub, setPub)
 
     const getData = async () => {
       const response = await axios.get(`/api/pubs/${params.id}`)
-      setPubs(response.data)
+      setPub(response.data)
     }
+    console.log(setPub)
     getData()
   }, [])
 
-  return (
-    <div>
 
+  if (!pub) return null
+  return (
+    <div className="section">
+      <h2>{pub.nameOfPub}</h2>
+      <p>{pub.description}</p>
+      <p>{pub.address.city}</p>
     </div>
   )
 }

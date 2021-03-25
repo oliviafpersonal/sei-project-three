@@ -239,7 +239,28 @@ footer {
 // * mobile optimisation
 
 @media only screen and (max-width: 765px) {
-  .logo {
+  .logo,
+  .logo-brand {
+    text-align: center;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .header-links-hoc,
+  .header-links {
     text-align: center;
   }
+  .hamburger-button-hoc,
+  .hamburger-button {
+    text-emphasis: center;
+  }
+  .left {
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+// * pub card
+.pubcard-image {
+  height: 200px;
+  width: 300px;
 }
