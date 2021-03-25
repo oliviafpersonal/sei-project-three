@@ -895,7 +895,7 @@ const pubSeed = [
     isFoodServed: false,
     isLiveSports: false,
     image: 'https://i2-prod.walesonline.co.uk/incoming/article8643419.ece/ALTERNATES/s615b/JS56786720.jpg'
-  }
+  },
 
 {
     nameOfPub: 'The Alchemist Cardiff',

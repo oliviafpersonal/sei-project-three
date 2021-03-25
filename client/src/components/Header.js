@@ -1,7 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBeer, faBars, faUserCircle } from '@fortawesome/free-solid-svg-icons'
-
+import { Link } from 'react-router-dom'
 const Header = () => {
   return (
     <>
@@ -9,10 +9,12 @@ const Header = () => {
         <header>
           <div className="columns">
             <div className="column is-two-thirds">
-              <div className="logo-brand">
-                <FontAwesomeIcon icon={faBeer} />
-                <span className="logo-space">Pubhub</span>
-              </div>
+              <Link to={'/'}>
+                <div className="logo-brand">
+                  <FontAwesomeIcon icon={faBeer} />
+                  <span className="logo-space">Pubhub</span>
+                </div>
+              </Link>
             </div>
             <div className="column">
               <p className="header-links-hoc">Become a Landlord</p>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faBeer,
@@ -14,10 +15,12 @@ const Header = () => {
         <header>
           <div className="columns">
             <div className="column is-two-thirds">
-              <div className="logo">
-                <FontAwesomeIcon icon={faBeer} />
-                <span className="logo-space">Pubhub</span>
-              </div>
+              <Link to={'/'}>
+                <div className="logo">
+                  <FontAwesomeIcon icon={faBeer} />
+                  <span className="logo-space">Pubhub</span>
+                </div>{' '}
+              </Link>
             </div>
             <div className="column">
               <p className="header-links">Become a Landlord</p>
