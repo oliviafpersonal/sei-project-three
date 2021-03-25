@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import reviewSchema from './reviews.js'
 
 const pubSchema = new mongoose.Schema({
   nameOfPub: { type: String },
@@ -15,7 +16,8 @@ const pubSchema = new mongoose.Schema({
   isFoodServed: { type: Boolean },
   isLiveSports: { type: Boolean },
   image: { type: String },
-  pubOwner: { type: mongoose.Schema.Types.ObjectID, ref: 'User' }
+  pubOwner: { type: mongoose.Schema.Types.ObjectID, ref: 'User' },
+  reviews: [ reviewSchema ]
 }, { timestamps: true })
 
 export default mongoose.model('Pub', pubSchema)
