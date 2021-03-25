@@ -1,6 +1,7 @@
 import express from 'express'
 import { registerUser, loginUser } from '../controllers/auth.js'
 import { addOnePub, deletePub, getAllPubs, getOnePub, updatePub } from '../controllers/pubs.js'
+import { addReviewtoPub, deletePubReview } from '../controllers/reviews.js'
 import { addOneUser, deleteUser, getAllUsers, getOneUser, updateUser } from '../controllers/user.js'
 import { secureRoute } from './secureRoute.js'
 
@@ -21,6 +22,11 @@ router.route('/users/:id')
   .put(secureRoute, updateUser)
   .delete(secureRoute, deleteUser)
 
+router.route('/pubs/:id/comments')
+  .post(secureRoute, addReviewtoPub)
+
+router.route('/pubs/:id/comments/:commentId')
+  .delete(secureRoute, deletePubReview)
 
 router.route('/pubs/:id')
   .get(getOnePub)
