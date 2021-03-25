@@ -8,6 +8,12 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Home from './components/Home/Home'
 import PubIndex from './components/pub/PubIndex'
 import Footer from './components/Footer'
+import Login from './components/auth/Login'
+import Signup from './components/auth/Signup'
+import PubShow from './components/pub/PubShow'
+import PubSaved from './components/loggedin/PubSaved'
+import BecomeLandlord from './components/auth/BecomeLandlord'
+import Profile from './components/loggedin/Profile'
 
 const App = () => {
   return (
@@ -16,11 +22,32 @@ const App = () => {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/pubs">
+        <Route exact path="/pubs">
           <PubIndex />
         </Route>
       </Switch>
-      <Footer />
+      <Route>
+        <Footer />
+      </Route>
+      <Route exact path="/login">
+        <Login />
+      </Route>
+      <Route exact path="/signup">
+        <Signup />
+      </Route>
+      <Route exact path="/pubs/:id">
+        <PubShow />
+      </Route>
+      <Route exact path="/savedpubs">
+        ( not sure what end point this should be)
+        <PubSaved />
+      </Route>
+      <Route exact path='/landlord'>
+        <BecomeLandlord />
+      </Route>
+      <Route exact path="/profile">
+        <Profile />
+      </Route>
     </BrowserRouter>
   )
 }
