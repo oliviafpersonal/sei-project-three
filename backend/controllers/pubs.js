@@ -22,7 +22,7 @@ export const addOnePub = async (req, res) => {
 export const getOnePub = async (req, res) => {
   try {
     const { id } = req.params
-    const singlePub = await Pub.findById(id)
+    const singlePub = await Pub.findById(id).populate('owner')
     if (!singlePub) {
       throw new Error('no Pub exists with that id')
     }
