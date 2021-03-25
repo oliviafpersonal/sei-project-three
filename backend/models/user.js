@@ -1,13 +1,29 @@
 import mongoose from 'mongoose'
 import bcrypt from 'bcrypt'
 
+const reviewSchema = new mongoose.Schema({
+  rating: {
+    isAverageRating: { type: Number },
+    price: { type: Number },
+    availability: { type: Number },
+    comfortability: { type: Number }
+  },
+  text: { type: String, maxlength: 300 },
+  owner: { type: mongoose.Schema.Types.ObjectID, ref: 'User' }
+}, {
+  timestamps: true
+})
+
+
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true, maxlength: 40 },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   profileImage: { type: String },
-  isLandlord: { type: Boolean }
-  //comments/ratings/favourites/
+  isLandlord: { type: Boolean },
+  isFirstTime: { type: Boolean },
+  reviews: [ reviewSchema ]
+  
 })
 //*has access to comments, can CRUD comments and self
 

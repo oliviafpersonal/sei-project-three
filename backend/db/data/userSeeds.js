@@ -16,8 +16,6 @@ const userSeed = [
     image: '',
     islandlord: false
   }
-
-  
   
 ]
 
