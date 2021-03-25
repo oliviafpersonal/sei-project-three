@@ -15,6 +15,8 @@ $family-sans-serif: 'Nunito', sans-serif;
 
 @import '~bulma/bulma.sass';
 
+// * HOME PAGE STYLES
+
 .header-style {
   background: $brand-black;
 }
@@ -130,4 +132,33 @@ header {
 .search-icon {
   color: white;
   transform: scale(1);
+}
+
+// * FOOTER STYLES
+
+footer {
+  margin-top: 4rem;
+  background-color: #f7f7f7 !important;
+  border-top: 1px solid #dddddd !important;
+  padding: 2rem;
+  height: 25vh;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-body {
+  width: 90%;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+}
+.footer-body li {
+  list-style: none;
+  line-height: 2rem;
+}
+.footer-body ul {
+  margin-top: 1rem;
+}
+
+.footer-container {
 }
