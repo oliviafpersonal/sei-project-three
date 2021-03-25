@@ -56,32 +56,32 @@ const userSeed = [
     islandlord: true
   },
   {
-    username: 'Smithy_123',
-    email: 'smithy_123@gmail.com',
+    username: 'Francis Hampton',
+    email: 'frampton@gmail.com',
     password: 'password',
     passwordConfirmation: 'password',
     image: '',
     islandlord: true
   },
   {
-    username: 'Smithy_123',
-    email: 'smithy_123@gmail.com',
+    username: 'Kyson Larsen',
+    email: 'kl92@gmail.com',
     password: 'password',
     passwordConfirmation: 'password',
     image: '',
     islandlord: true
   },
   {
-    username: 'Smithy_123',
-    email: 'smithy_123@gmail.com',
+    username: 'Mark-Wright',
+    email: 'mark-is-always@gmail.com',
     password: 'password',
     passwordConfirmation: 'password',
     image: '',
     islandlord: true
   },
   {
-    username: 'Smithy_123',
-    email: 'smithy_123@gmail.com',
+    username: 'Keiji Yamazaki',
+    email: 'yamzak22@gmail.com',
     password: 'password',
     passwordConfirmation: 'password',
     image: '',
@@ -191,77 +191,40 @@ const userSeed = [
     passwordConfirmation: 'password',
     image: '',
     islandlord: false
-  },{
+  },
+  {
     username: 'SelinaKyle',
     email: 'defo!catwoman@gmail.com',
     password: 'password',
     passwordConfirmation: 'password',
     image: '',
     islandlord: false
-  },{
+  },
+  {
     username: 'BarbaraGordon',
     email: 'oracle_batgirl@gmail.com',
     password: 'password',
     passwordConfirmation: 'password',
     image: '',
     islandlord: false
-  },{
+  },
+  {
     username: 'PeterParker',
     email: 'neighbourhood_Sp1dey@gmail.com',
     password: 'password',
     passwordConfirmation: 'password',
     image: '',
     islandlord: false
-  },{
+  },
+  {
     username: 'spidey93',
     email: 'miles-morales@gmail.com',
     password: 'password',
     passwordConfirmation: 'password',
     image: '',
     islandlord: false
-  },{
-    username: '',
-    email: 'smithy_123@gmail.com',
-    password: 'password',
-    passwordConfirmation: 'password',
-    image: '',
-    islandlord: false
-  },{
-    username: '',
-    email: 'smithy_123@gmail.com',
-    password: 'password',
-    passwordConfirmation: 'password',
-    image: '',
-    islandlord: false
-  },{
-    username: '',
-    email: 'smithy_123@gmail.com',
-    password: 'password',
-    passwordConfirmation: 'password',
-    image: '',
-    islandlord: false
-  },{
-    username: '',
-    email: 'smithy_123@gmail.com',
-    password: 'password',
-    passwordConfirmation: 'password',
-    image: '',
-    islandlord: false
-  },{
-    username: '',
-    email: 'smithy_123@gmail.com',
-    password: 'password',
-    passwordConfirmation: 'password',
-    image: '',
-    islandlord: false
-  },{
-    username: '',
-    email: 'smithy_123@gmail.com',
-    password: 'password',
-    passwordConfirmation: 'password',
-    image: '',
-    islandlord: false
-  },{
+  },
+  {
     username: '',
     email: 'smithy_123@gmail.com',
     password: 'password',
@@ -269,6 +232,54 @@ const userSeed = [
     image: '',
     islandlord: false
   },
+  {
+    username: '',
+    email: 'smithy_123@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: false
+  },
+  {
+    username: '',
+    email: 'smithy_123@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: false
+  },
+  {
+    username: '',
+    email: 'smithy_123@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: false
+  },
+  {
+    username: '',
+    email: 'smithy_123@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: false
+  },
+  {
+    username: '',
+    email: 'smithy_123@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: false
+  },
+  {
+    username: '',
+    email: 'smithy_123@gmail.com',
+    password: 'password',
+    passwordConfirmation: 'password',
+    image: '',
+    islandlord: false
+  }
   
 ]
 
