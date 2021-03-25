@@ -22,10 +22,10 @@ router.route('/users/:id')
   .put(secureRoute, updateUser)
   .delete(secureRoute, deleteUser)
 
-router.route('/pubs/:id/comments')
+router.route('/pubs/:id/reviews')
   .post(secureRoute, addReviewtoPub)
 
-router.route('/pubs/:id/comments/:commentId')
+router.route('/pubs/:id/reviews/:reviewId')
   .delete(secureRoute, deletePubReview)
 
 router.route('/pubs/:id')
