@@ -327,7 +327,7 @@ const pubSeed = [
     isFoodServed: true,
     isLiveSports: false,
     image: 'https://media.timeout.com/images/105454822/750/422/image.jpg'
-  }
+  },
   {
     nameOfPub: 'Spread Eagle',
     address: {
@@ -376,6 +376,614 @@ const pubSeed = [
     isLiveSports: true,
     image: 'https://pubwiki.co.uk/LondonPubs/BethnalGreen/Hackne9.jpg'
   },
+  {
+    nameOfPub: 'BrewDog Manchester Outpost',
+    address: {
+      line1: '144 Oxford Rd' ,
+      line2: '',
+      town: '',
+      city: 'Manchester',
+      postCode: 'M13 9GP'
+    },
+    description: 'No-nonsense chain bar specialising in the Scottish brewery\s craft beers, with regular guest brews.',
+    isOutsideSeating:  false,
+    isPetFriendly: false,
+    isFoodServed:  true,
+    isLiveSports: false,
+    image: 'https://www.brewdog.com/images/cms/blog/1561035870OutpostManchester_1.LEAD.jpg'
+  },
+{
+    nameOfPub: 'The Briton\s Protection',
+    address: {
+      line1: '50 Great Bridgewater St' ,
+      line2: '',
+      town: '',
+      city: 'Manchester',
+      postCode: 'M1 5LE'
+    },
+    description: 'Ornate interiors in a real ale pub with a wide range of whiskies, plus open fires and a beer garden. ',
+    isOutsideSeating: true,
+    isPetFriendly: false,
+    isFoodServed: false,
+    isLiveSports: false,
+    image: 'https://lh3.googleusercontent.com/proxy/lhBjfm6weo010m7MYuJGBYu4IYgz2f-ObUdNe4ePnK3YRfN6waA-NysgeyW3LlMvyMkf0jMoJnSYeZgMPzlTuoexkl8tMKkyN-CoqDaSpG8'
+  },
+{
+    nameOfPub: 'The Wharf',
+    address: {
+      line1: '6 Slate Wharf' ,
+      line2: '',
+      town: '',
+      city: 'Manchester',
+      postCode: 'M15 4ST'
+    },
+    description: 'Large establishment with cosy rooms and alcoves, buzzy open areas, outdoor terrace and boules court.',
+    isOutsideSeating: true,
+    isPetFriendly: true,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://www.manchesterrestaurants.com/photos/british/wharf-outside19.jpg'
+  },
+{
+    nameOfPub: 'Sinclairs Oyster Bar',
+    address: {
+      line1: '2 Cathedral Gates' ,
+      line2: '',
+      town: '',
+      city: 'Manchester',
+      postCode: 'M3 1SW'
+    },
+    description: 'Iconic cash-only tavern with rustic wooden beams, a familiar pub menu & large beer garden.',
+    isOutsideSeating: true,
+    isPetFriendly: true,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://www.spottedbylocals.com/manchester/files/sinclairs-oyster-bar-manchester-by-denise-tench.jpg'
+  },
+{
+    nameOfPub: 'Tib Street Tavern',
+    address: {
+      line1: '74 Tib St' ,
+      line2: '',
+      town: '',
+      city: 'Manchester',
+      postCode: 'M4 1LG'
+    },
+    description: 'Big-screen football matches and acoustic sessions, with quiz nights, booths plus classic pub food.',
+    isOutsideSeating: true,
+    isPetFriendly: false,
+    isFoodServed: true,
+    isLiveSports: true,
+    image: 'https://static.designmynight.com/uploads/2012/11/tibstreettavern7-optimised.jpg'
+  },
+{
+    nameOfPub: 'The Beagle',
+    address: {
+      line1: '456-458 Barlow Moor Rd' ,
+      line2: 'Chorlton-cum-Hardy',
+      town: '',
+      city: 'Manchester',
+      postCode: 'M21 0BQ'
+    },
+    description: 'New York-style pizza, seasonal beers & natural wines in a quirky, retro-vibe pub with a terrace.',
+    isOutsideSeating: true,
+    isPetFriendly: false,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://c.yell.com/t_galleryFit,f_auto/20a7d604-0679-4da1-bd3a-fec9cfe066f2_image_jpeg.jpg'
+  },
+{
+    nameOfPub: 'Castle Hotel',
+    address: {
+      line1: '66 Oldham St',
+      line2: '',
+      town: '',
+      city: 'Manchester',
+      postCode: 'M4 1LE'
+    },
+    description: 'A pub with a long-standing reputation for live music and literary events, as well as its real ales.',
+    isOutsideSeating: false,
+    isPetFriendly: false,
+    isFoodServed: false,
+    isLiveSports: false,
+    image: 'https://live.staticflickr.com/7160/6485961755_2066e2780f_b.jpg'
+  },
+{
+    nameOfPub: 'Port Street Beer House',
+    address: {
+      line1: '39-41 Port St' ,
+      line2: '',
+      town: '',
+      city: 'Manchester',
+      postCode: 'M1 2EQ'
+    },
+    description: 'Beer-enthusiasts drinking hole, hosting special events including regular Meet the Brewer evenings.',
+    isOutsideSeating: true,
+    isPetFriendly: false,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://media-cdn.tripadvisor.com/media/photo-s/13/e0/1b/38/exterior.jpg' 
+  },
+{
+    nameOfPub: 'The Edinburgh Castle Pub',
+    address: {
+      line1: '17-19 Blossom St' ,
+      line2: '',
+      town: '',
+      city: 'Manchester',
+      postCode: 'M4 5AW'
+    },
+    description: 'The Edinburgh Castle Pub has stood in Ancoats since 1811, in the heart of Britain\s first industrial suburb.',
+    isOutsideSeating: false,
+    isPetFriendly: false,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://media-cdn.tripadvisor.com/media/photo-s/1b/26/b2/99/edinburgh-castle-ancoats.jpg'
+  },
+{
+    nameOfPub: 'The Temple',
+    address: {
+      line1: '100 Great Bridgewater St' ,
+      line2: '',
+      town: '',
+      city: 'Manchester',
+      postCode: 'M1 5JW'
+    },
+    description: 'Little bar in a repurposed Victorian public toilet offering a global beer selection & a jukebox.',
+    isOutsideSeating: false,
+    isPetFriendly: false,
+    isFoodServed: false,
+    isLiveSports: false,
+    image: 'https://www.creativetourist.com/app/uploads/2017/10/the-temple-manchester-785x486.jpg'
+  },
+{
+    nameOfPub: 'The King\s Arms',
+    address: {
+      line1: '11 Bloom St' ,
+      line2: '',
+      town: '',
+      city: 'Manchester',
+      postCode: 'M3 6AN'
+    },
+    description: 'Owned by former Beautiful South and Housemartins lead singer Paul Heaton, this Salford institution has tapped into the gentrification of Chapel Street with a lovable mix of old and new styles. Some features date to Victorian times with lovely woodwork and tiled flooring as well as a carved wood, cathedral-esque performance space on the top floor.',
+    isOutsideSeating: true,
+    isPetFriendly: false,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://media.timeout.com/images/101691925/image.jpg'
+  },
+{
+    nameOfPub: 'The Marble Arch',
+    address: {
+      line1: '73 Rochdale Rd' ,
+      line2: '',
+      town: '',
+      city: 'Manchester',
+      postCode: 'M4 4HY'
+    },
+    description: 'Traditional drinking establishment with its own and guest beers, plus food including cheeseboards.',
+    isOutsideSeating: true,
+    isPetFriendly: true,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://manchesterhistory.net/manchester/tours/tour16/marblearch7.jpg'
+  },
+{
+    nameOfPub: 'Grey Horse Inn',
+    address: {
+      line1: '80 Portland St' ,
+      line2: '',
+      town: '',
+      city: 'Manchester',
+      postCode: 'M1 4QX'
+    },
+    description: 'A popular Tavern, it\s reputed to be one of the smallest pubs in the city. Enjoy a wide selection of Cask ales, some great lagers and a super choice of wines and spirits and soak up its unique and inviting atmosphere.',
+    isOutsideSeating: false,
+    isPetFriendly: false,
+    isFoodServed: false,
+    isLiveSports: false,
+    image: 'https://manchesterhistory.net/manchester/pubs/greyhorse5.jpg'
+  },
+{
+    nameOfPub: 'The Angel Pub',
+    address: {
+      line1: '6 Angel St',
+      line2: '',
+      town: '',
+      city: 'Manchester',
+      postCode: 'M4 4BQ'
+    },
+    description: 'Specialist in beer from small independent breweries, has an upstairs restaurant with a log fire.',
+    isOutsideSeating: false,
+    isPetFriendly: false,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://whatpub.com/img/MAN/9642/angel-manchester/298/224'
+  },
+{
+    nameOfPub: 'The Molly House',
+    address: {
+      line1: '26 Richmond St' ,
+      line2: '',
+      town: '',
+      city: 'Manchester',
+      postCode: 'M1 3NB'
+    },
+    description: 'A place for the discerning, eccentric and alternative; serving real ales, beers, wines and spirits; alongside fresh, authentic tapas.',
+    isOutsideSeating: false,
+    isPetFriendly: false,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://media.timeout.com/images/101706041/image.jpg'
+  },
+{
+    nameOfPub: 'The Knott',
+    address: {
+      line1: '374 Deansgate' ,
+      line2: '',
+      town: '',
+      city: 'Manchester',
+      postCode: 'M3 4LY'
+    },
+    description: 'Venue tucked under railway arch, with outdoor seats and food including breakfast and Sunday roasts.',
+    isOutsideSeating: true,
+    isPetFriendly: false,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://images.theskinny.co.uk/assets/production/000/102/842/102842_widescreen.jpg'
+  },
+  {
+    nameOfPub: 'The Adelphi',
+    address: {
+      line1: '3-5 Hunslet Rd',
+      line2: '',
+      town: '',
+      city: 'Leeds',
+      postCode: 'LS10 1JQ'
+    },
+    description: 'Striking period decor in a Victorian tavern with wood panels and old tiles, plus real ale and grub.',
+    isOutsideSeating: false,
+    isPetFriendly: false,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://www.yorkshireeveningpost.co.uk/sttms.blob.core.windows.net/images/QVNIMTExNDY5NzI3.jpg'
+  },
+{
+    nameOfPub: 'The Scarbrough Hotel',
+    address: {
+      line1: 'Bishopgate St',
+      line2: '',
+      town: '',
+      city: 'Leeds',
+      postCode: 'LS1 5DY'
+    },
+    description: 'Traditional pub in a notable building serving local ales and a British-influenced menu.',
+    isOutsideSeating: false,
+    isPetFriendly: false,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://live.staticflickr.com/6022/5919110045_b06ff052cb_b.jpg'
+  },
+{
+    nameOfPub: 'Water Lane BoatHouse',
+    address: {
+      line1: 'Canal Wharf' ,
+      line2: 'Holbeck',
+      town: '',
+      city: 'Leeds',
+      postCode: 'LS11 5PS'
+    },
+    description: 'Bi-level pub by the water offering seasonal fare in a relaxed environment with a roomy outdoor area.',
+    isOutsideSeating: true,
+    isPetFriendly: false,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://www.lifestyledbyjennie.co.uk/wp-content/uploads/2017/06/WLBH-1.jpg'
+  },
+{
+    nameOfPub: 'Editor\s Draught',
+    address: {
+      line1: '88 Wellington St',
+      line2: '',
+      town: '',
+      city: 'Leeds',
+      postCode: 'LS1 4LT'
+    },
+    description: '',
+    isOutsideSeating: true,
+    isPetFriendly: false,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://www.godine.co.uk/assets/restaurant/3577/Image/25225_EditorsDraught_ext1_Jan20_RK.jpg'
+  },
+{
+    nameOfPub: 'The Library',
+    address: {
+      line1: '229 Woodhouse Ln',
+      line2: 'Woodhouse',
+      town: '',
+      city: 'Leeds',
+      postCode: 'LS2 3AP'
+    },
+    description: 'Large, lively Victorian boozer serving British pub food, brunch dishes and desserts, plus sports TV.',
+    isOutsideSeating: true,
+    isPetFriendly: false,
+    isFoodServed: true,
+    isLiveSports: true,
+    image: 'https://media-cdn.tripadvisor.com/media/photo-s/12/72/e1/40/the-library.jpg'
+  },
+{
+    nameOfPub: 'Kirkstall Brewery',
+    address: {
+      line1: '100 Kirkstall Rd' ,
+      line2: '',
+      town: '',
+      city: 'Leeds',
+      postCode: 'LS3 1HJ'
+    },
+    description: 'Brewery tap which opened end of January 2020 on the Kirkstall Brewery site. A room in the modern building has been given a traditional pub feel and is decorated with an array of breweriana. A range of cask and draught beers from the brewery, plus guest beers are available on the bar.',
+    isOutsideSeating: true,
+    isPetFriendly: false,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://lh3.googleusercontent.com/proxy/YB1xSKY5xPyhUanghSRtXjhsLYstAbSNfTUS6XcA-ps68DebccRt2LnaHQtg2ytIQIeppFvMGX4b1gCBzhnOc6Ry6rvCAdKkJJtzb4ZzNl6xxvLBYWa4c3brR1qKchzJMtqBNkhE1SjM_rwa6uh29axRmQ6H5nevvvTIabKEjGJBMtA8ay14FA'
+  },
+{
+    nameOfPub: 'Pack Horse Leeds',
+    address: {
+      line1: 'Pack Horse Yard' ,
+      line2: 'Briggate',
+      town: '',
+      city: 'Leeds',
+      postCode: 'LS1 6AT'
+    },
+    description: 'The Pack Horse is a two storey venue located on busy Woodhouse Lane. The pub is only a stone\s throw from Leed\s University and is close to a variety of other pubs, eateries and shops.',
+    isOutsideSeating: false,
+    isPetFriendly: false,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://static.designmynight.com/uploads/2017/10/026125_PackHorse_exterior_preview-optimised.jpeg'
+  },
+{
+    nameOfPub: 'Lamb and Flag',
+    address: {
+      line1: '1 Church Row' ,
+      line2: '',
+      town: '',
+      city: 'Leeds',
+      postCode: 'LS2 7HD'
+    },
+    description: 'A renovated 19th century building houses this pub with a locally-sourced menu and range of ales.',
+    isOutsideSeating: true,
+    isPetFriendly: false,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://media-cdn.tripadvisor.com/media/photo-s/10/1f/b6/9c/the-lamb-flag-church.jpg'
+  },
+{
+    nameOfPub: 'Town Hall Tavern',
+    address: {
+      line1: '17 Westgate' ,
+      line2: '',
+      town: '',
+      city: 'Leeds',
+      postCode: 'LS1 2RA'
+    },
+    description: 'Historic Leeds pub dating back to 1926. Locally sourced menu.',
+    isOutsideSeating: false,
+    isPetFriendly: false,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://www.spiceuk.photos/1d5d17b5-59d1-43cd-bf8e-089fe3394448.jpg?w=416&h=280&mode=crop&quality=80'
+  },
+{
+    nameOfPub: 'Stew & Oyster Calls Landing',
+    address: {
+      line1: '36-38 The Calls',
+      line2: '',
+      town: '',
+      city: 'Leeds',
+      postCode: 'LS2 7EW'
+    },
+    description: 'Waterfront bar with exposed brickwork, a balcony and a beer garden plus a menu of oysters and stews.',
+    isOutsideSeating: true,
+    isPetFriendly: false,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://whatpub.com/img/LEE/362/calls-landing-leeds/298/224'
+  },
+{
+    nameOfPub: 'The Cross Keys',
+    address: {
+      line1: '107 Water Ln',
+      line2: 'Holbeck',
+      town: '',
+      city: 'Leeds',
+      postCode: 'LS11 5WD'
+    },
+    description: 'Smart gastropub with cosy alcoves and an open fire, serving classic British dishes and local ales.',
+    isOutsideSeating: true,
+    isPetFriendly: false,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://media-cdn.tripadvisor.com/media/photo-s/02/f8/39/27/the-cross-keys.jpg'
+  },
+{
+    nameOfPub: 'Midnight Bell',
+    address: {
+      line1: '101 Water Ln',
+      line2: 'Holbeck',
+      town: '',
+      city: 'Leeds',
+      postCode: 'LS11 5QN'
+    },
+    description: 'Local brewery-run gastropub with courtyard serving menu of British classics and own brand cask ales.',
+    isOutsideSeating: true,
+    isPetFriendly: false,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://cameronsbrewery.com/wp-content/uploads/2016/08/midnight-bell-leeds.jpg'
+  },
+{
+    nameOfPub: 'Tapped Leeds',
+    address: {
+      line1: '51 Boar Ln',
+      line2: '',
+      town: '',
+      city: 'Leeds',
+      postCode: 'LS1 5EL'
+    },
+    description: 'Modern, light-filled brewpub offering cask, keg and bottled beer choices, plus stone-baked pizzas.',
+    isOutsideSeating: false,
+    isPetFriendly: false,
+    isFoodServed: true,
+    isLiveSports: true,
+    image: 'https://www.useyourlocal.com/imgs/pubs/1200x630/240317-022313_tap.jpg'
+  },
+{
+    nameOfPub: 'A Nation of Shopkeepers',
+    address: {
+      line1: '26-27 Cookridge St',
+      line2: '',
+      town: '',
+      city: 'Leeds',
+      postCode: 'LS2 3AG'
+    },
+    description: 'Thrift-store decor with twinkling fairylights for imaginative American diner food and live music.',
+    isOutsideSeating: true,
+    isPetFriendly: false,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://upload.wikimedia.org/wikipedia/commons/c/ca/Nation_of_Shopkeepers%2C_Cookridge_Street%2C_Leeds_%2825th_August_2017%29.jpg'
+  },
+  {
+    nameOfPub: 'Lady Mildmay',
+    address: {
+      line1: '92 Mildmay Park',
+      line2: '',
+      town: '',
+      city: 'London',
+      postCode: 'N1 4PR' 
+    },
+    description: 'Mildmay Park, a road now home to little more than a former railway station and a big tiled library, was the namesake of the HIV hospital that Princess Diana made famous in the 80s. It\s also home to a different Lady: the Lady Mildmay. Welcoming staff, good booze and an irresistible menu are making this spacious pub a favourite with locals, but it’s worth a journey from other parts of town too. On a warm day the Lady\s many side doors are left wide open, and when it\s woolly jumper weather there\s a real fire to curl up next to. This commitment to comfort is typical of the pub\s approach. Staff are subtly eager to please, talking you through any toss-ups between the house gin of the day or that craft lager you\ve not tried before. The Med-leaning gastropubby menu is exotic enough to make you feel they know what they’re doing but not so exotic that your gran would be forced to ask for just chips.',
+    isOutsideSeating: true,
+    isPetFriendly: true,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://whatpub.com/img/NLD/5477/lady-mildmay-london/298/224/27252'
+  },
+  {
+    nameOfPub: 'Duke Of Hamiliton',
+    address: {
+      line1: '23-25 New End',
+      line2: '',
+      town: '',
+      city: 'London',
+      postCode: 'NW3 1JD' 
+    },
+    description: 'Sure, Hampstead has its fair share of loveable old hostelries, but The Duke of Hamilton – a 300-year-old pub – has an unusual recent history, too. Back in 2015, its landlord barred some 800 members of community group Hampstead Neighbourhood Forum after their successful campaign to make the pub an Asset of Community Value against his wishes. Those locals are now being welcomed back with open arms, with the pub under new ownership. It seems the new managers – local brothers Ed and Ben Robson, who also run The Clifton in St John\s Wood, and their friend Adam Gostyn – are looking to the pub’s distant history, rather than its recent strife. They play up the historic pub name, with a story about a duelling duke used in fresh decorative elements. But while a renovation also hams up the best of its old features – including an original bar – a dusky green-grey colour scheme gives the room a cold feel, especially when teamed with old wooden furniture, and not a cosy sofa in sight. The new look seems to have dining first in mind, drinking second.',
+    isOutsideSeating: true,
+    isPetFriendly: true,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://media.timeout.com/images/105377429/750/422/image.jpg'
+  },
+   {
+    nameOfPub: '',
+    address: {
+      line1: '',
+      line2: '',
+      town: '',
+      city: 'London',
+      postCode: '' 
+    },
+    description: '',
+    isOutsideSeating: true,
+    isPetFriendly: true,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: ''
+  }
+  {
+    nameOfPub: '',
+    address: {
+      line1: '',
+      line2: '',
+      town: '',
+      city: 'London',
+      postCode: '' 
+    },
+    description: '',
+    isOutsideSeating: true,
+    isPetFriendly: true,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: ''
+  }
+  {
+    nameOfPub: '',
+    address: {
+      line1: '',
+      line2: '',
+      town: '',
+      city: 'London',
+      postCode: '' 
+    },
+    description: '',
+    isOutsideSeating: true,
+    isPetFriendly: true,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: ''
+  }
+  {
+    nameOfPub: '',
+    address: {
+      line1: '',
+      line2: '',
+      town: '',
+      city: 'London',
+      postCode: '' 
+    },
+    description: '',
+    isOutsideSeating: true,
+    isPetFriendly: true,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: ''
+  }
+  {
+    nameOfPub: '',
+    address: {
+      line1: '',
+      line2: '',
+      town: '',
+      city: 'London',
+      postCode: '' 
+    },
+    description: '',
+    isOutsideSeating: true,
+    isPetFriendly: true,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: ''
+  }
+  {
+    nameOfPub: '',
+    address: {
+      line1: '',
+      line2: '',
+      town: '',
+      city: 'London',
+      postCode: '' 
+    },
+    description: '',
+    isOutsideSeating: true,
+    isPetFriendly: true,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: ''
+  }
   {
     nameOfPub: '',
     address: {
