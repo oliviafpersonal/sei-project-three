@@ -154,6 +154,26 @@ header {
   transform: scale(1);
 }
 
+// * sticky header
+
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 100; /* this is optional and should be different for every project */
+}
+.sticky-wrapper {
+  position: relative;
+  height: 3rem; /* We need to change this value */
+}
+
+.sticky .sticky-inner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
 // Main Styles
 
 main {
@@ -257,4 +277,16 @@ footer {
     text-align: center;
     justify-content: center;
   }
+}
+
+.dropdown-shape {
+  border-radius: 10px;
+  margin-top: 0.8rem;
+}
+
+// * pub card
+
+.pubcard-image {
+  height: 200px;
+  width: 300px;
 }

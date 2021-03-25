@@ -1,12 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faBeer,
-  faBars,
-  faUserCircle,
-  faSearch
-} from '@fortawesome/free-solid-svg-icons'
+import { faBeer, faSearch } from '@fortawesome/free-solid-svg-icons'
+
+/// components
+
+import Hamburger from '../Hamburger'
 
 const Header = () => {
   return (
@@ -26,13 +25,7 @@ const Header = () => {
               <p className="header-links">Become a Landlord</p>
             </div>
             <div className="column left">
-              <button className="hamburger-button button">
-                <FontAwesomeIcon icon={faBars} />
-                <span className="logo-space">
-                  {' '}
-                  <FontAwesomeIcon icon={faUserCircle} />
-                </span>
-              </button>
+              <Hamburger />
             </div>
           </div>
         </header>
