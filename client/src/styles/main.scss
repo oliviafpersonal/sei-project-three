@@ -15,6 +15,8 @@ $family-sans-serif: 'Nunito', sans-serif;
 
 @import '~bulma/bulma.sass';
 
+// * HOME PAGE STYLES
+
 .header-style {
   background: $brand-black;
 }
@@ -40,7 +42,7 @@ header {
   background-size: cover;
   width: 95%;
   margin: 0 auto;
-  z-index: 1;
+
   margin-top: 2rem;
 }
 
@@ -73,8 +75,6 @@ header {
 }
 
 .left {
-  justify-content: left;
-  text-align: left;
   padding-top: 1rem;
 }
 
@@ -132,4 +132,61 @@ header {
 .search-icon {
   color: white;
   transform: scale(1);
+}
+
+// Main Styles
+
+main {
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+h1,
+h2,
+h3 {
+  font-family: stratos, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: $brand-black;
+  font-size: 2em;
+}
+.content-container {
+  height: 25vh;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.content-container img {
+  border-radius: 8px;
+}
+.content-container p {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+.pubs-heading {
+  margin-bottom: 2rem;
+}
+
+// * FOOTER STYLES
+
+footer {
+  margin-top: 4rem;
+  background-color: #f7f7f7 !important;
+  border-top: 1px solid #dddddd !important;
+  padding: 2rem;
+
+  width: 100%;
+}
+
+.footer-body {
+  width: 90%;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+}
+.footer-body li {
+  list-style: none;
+  line-height: 2rem;
+}
+.footer-body ul {
+  margin-top: 1rem;
 }
