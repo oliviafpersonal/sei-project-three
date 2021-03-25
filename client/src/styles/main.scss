@@ -20,6 +20,9 @@ $family-sans-serif: 'Nunito', sans-serif;
 .header-style {
   background: $brand-black;
 }
+.header-style-hoc {
+  border-bottom: 1px solid #dddddd !important;
+}
 
 header {
   padding: 1rem;
@@ -30,6 +33,14 @@ header {
   font-weight: 700;
   font-style: normal;
   color: white;
+  font-size: 2em;
+  padding-left: 5rem;
+}
+.logo-brand {
+  font-family: stratos, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: $brand-green;
   font-size: 2em;
   padding-left: 5rem;
 }
@@ -68,10 +79,19 @@ header {
   margin-top: 1rem;
   text-align: right;
 }
+.header-links-hoc {
+  color: $brand-black;
+  margin-top: 1rem;
+  text-align: right;
+}
 
 .hamburger-button {
   border-radius: 20px;
   background: rgb(237, 237, 237);
+}
+.hamburger-button-hoc {
+  border-radius: 20px;
+  border: 1px solid #dddddd;
 }
 
 .left {
@@ -199,7 +219,7 @@ footer {
   background-color: #f7f7f7 !important;
   border-top: 1px solid #dddddd !important;
   padding: 2rem;
-
+  bottom: 0;
   width: 100%;
 }
 
@@ -214,4 +234,12 @@ footer {
 }
 .footer-body ul {
   margin-top: 1rem;
+}
+
+// * mobile optimisation
+
+@media only screen and (max-width: 765px) {
+  .logo {
+    text-align: center;
+  }
 }
