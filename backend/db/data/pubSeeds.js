@@ -327,7 +327,7 @@ const pubSeed = [
     isFoodServed: true,
     isLiveSports: false,
     image: 'https://media.timeout.com/images/105454822/750/422/image.jpg'
-  }
+  },
   {
     nameOfPub: 'Spread Eagle',
     address: {
