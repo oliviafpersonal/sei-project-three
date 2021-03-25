@@ -25,6 +25,20 @@ const Home = () => {
             </div>
           </div>
         </div>
+        <section>
+          <div className="share-box">
+            <div className="columns">
+              <div className="column">
+                <div className="share-text">
+                  <h1>Your world is worth sharing</h1>
+                  <p>Turn your pub into your next opportunity</p>
+                  <button className="button">Become a Landlord</button>
+                </div>
+              </div>
+              <div className="column"></div>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   )

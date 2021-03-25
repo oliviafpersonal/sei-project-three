@@ -151,7 +151,6 @@ h3 {
   font-size: 2em;
 }
 .content-container {
-  height: 25vh;
   width: 90%;
   margin: 0 auto;
 }
@@ -165,6 +164,32 @@ h3 {
 }
 .pubs-heading {
   margin-bottom: 2rem;
+}
+
+.share-box {
+  background: url('./assets/share.png');
+  background-size: cover;
+  width: 90%;
+
+  margin: 0 auto;
+  border-radius: 20px;
+  margin-top: 4rem;
+  padding: 3rem;
+  color: white;
+}
+.share-box h1 {
+  font-size: 3em;
+  color: white;
+}
+
+.share-box p {
+  font-size: 1.4em;
+  margin-bottom: 1rem;
+}
+
+.share-text {
+  width: 90%;
+  margin-left: 1.5rem;
 }
 
 // * FOOTER STYLES
