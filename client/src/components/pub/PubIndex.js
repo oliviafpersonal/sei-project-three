@@ -22,9 +22,10 @@ const PubIndex = () => {
   return (
     <>
       <Header />
-      <div className="pub-index-container">
-        <div className="columns">
-          <div className="column">
+
+      <div className="columns">
+        <div className="column">
+          <div className="pub-index-container">
             <div className="pub-index-text">
               <p>{`${pubs.length}+ pubs`}</p>
               <h3>Pubs in London</h3>
@@ -54,8 +55,8 @@ const PubIndex = () => {
               <PubCard key={pub._id} {...pub} />
             ))}
           </div>
-          <div className="column"></div>
         </div>
+        <div className="column is-two-thirds"></div>
       </div>
     </>
   )

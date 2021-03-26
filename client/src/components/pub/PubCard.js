@@ -11,9 +11,9 @@ const PubCard = ({ _id, nameOfPub, image, description }) => {
           </Link>
         </div>
         <div className="column">
-          <h3>{nameOfPub}</h3>
-
-          <p>{description}</p>
+          <h4>{nameOfPub}</h4>
+          <hr className="card-hr" />
+          <p>{description.substring(0, 100)}...</p>
         </div>
       </div>
 
