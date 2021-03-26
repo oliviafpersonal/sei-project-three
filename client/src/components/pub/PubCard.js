@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const PubCard = ({ _id, nameOfPub, image, description }) => {
+const PubCard = ({ _id, nameOfPub, image, description, averageRating }) => {
+  console.log(averageRating)
   return (
     <div className="column">
       <div className="columns">
@@ -14,6 +15,7 @@ const PubCard = ({ _id, nameOfPub, image, description }) => {
           <h4>{nameOfPub}</h4>
           <hr className="card-hr" />
           <p>{description.substring(0, 100)}...</p>
+          <p>{averageRating}</p>
         </div>
       </div>
 
