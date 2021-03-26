@@ -8,7 +8,7 @@ const pubSeed = [
       city: 'London',
       postCode: 'NW5 1LE'
     },
-    description: 'The sign outside announces "ale, cider, meat", and that pretty much sums up what\'s on offer at the best pub in Gospel Oak. The interior might make you think it\'s still 1936, as would the cash-only policy. The addition of cheese and charcuterie boards to the offering of meaty bar snacks is about as modern as it gets here. The roster of lovingly tended ales and ciders, all from small independent producers, changes regularly. There\'s also mulled cider. One of the many great things about the Southampton is that it retains its mixed clientele, long-time residents and newcomers alike – and of all ages. There/s also a pub dog. This is a true local hero.',
+    description: 'The sign outside announces "ale, cider, meat", and that pretty much sums up what\'s on offer at the best pub in Gospel Oak. The interior might make you think it\'s still 1936, as would the cash-only policy. The addition of cheese and charcuterie boards to the offering of meaty bar snacks is about as modern as it gets here. The roster of lovingly tended ales and ciders, all from small independent producers, changes regularly. There\'s also mulled cider. One of the many great things about the Southampton is that it retains its mixed clientele, long-time residents and newcomers alike – and of all ages. There\s also a pub dog. This is a true local hero.',
     isOutsideSeating: false,
     isPetFriendly: true,
     isFoodServed: true,
@@ -1182,8 +1182,199 @@ const pubSeed = [
     isFoodServed: true,
     isLiveSports: false,
     image: 'https://www.dovehammersmith.co.uk/-/media/sites/microsites/d/the-dove-_-p028/images/archive/gallery/the-dove-7.ashx?w=1024'
+  },
+  {
+    nameOfPub: 'Hemingford Arms',
+    address: {
+      line1: '158 Hemingford Rd',
+      line2: '',
+      town: '',
+      city: 'London',
+      postCode: 'N1 1DF'
+    },
+    description: 'Given that it\s hidden among some of N1\s most covetable residential streets and the barbed-wire-decked back of Pentonville Prison, the Hemingford Arms has to cater for a wide range of locals. It does so beautifully in its own kooky way via the means of drag bingo nights, an out-of-tune piano, Thai food and a scrappy pub dog. The building is made extra beautiful on the outside by leafy swathes of ivy and pretty hanging baskets, but it\s as much a sight to see inside, too; its walls and ceilings covered with dusty old curios. Prosthetic legs wearing old trainers stick out of a treasure chest; a pair of taidermy ducks preside over a pew; vintage film posters and beer adverts tile the wall behind a big screen that shows the football on mute. It\s pretty standard pub fare, drinks-wise, though the selection of cask ales is well-curated, presumably to appease the jumble of old men and trendy young locals who take up the majority of the bar stools and tables. The outdoor benches are a popular spot to soak up some afternoon sun during the summer months, but make sure to spend some time inside, too – between the countless treasures and the ivy-vignettes on the windows you could be sinking a pint in a Lewis Carroll poem.',
+    isOutsideSeating: true,
+    isPetFriendly: true,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://media.timeout.com/images/103160891/750/422/image.jpg'
+  },
+  {
+    nameOfPub: 'The Sun Tavern',
+    address: {
+      line1: '441 Bethnal Green Road',
+      line2: '',
+      town: '',
+      city: 'London',
+      postCode: 'E2 0AN'
+    },
+    description: 'Brewed up by the people behind the Discount Suit Company, the newly made-over Sun Tavern (a pub since 1851) focuses on nearly 40 brands of Irish spirits: whiskey and the (formerly illegal) home-distilled potion called poitín (pronounced poe-CHEEN). Whiskeys include the poignantly named Writers Tears, and the selection of poitín – some scarily strong – is the UK\s largest. There is also a short cocktail list (£7.50-£8) and good beers, both bottled and on tap (£4.20-£5). The latter will soon be joined by products from the Sun\s own brewery. The owners have followed the now-standard bare-brick formula, but have handled it beautifully, with walls comprising a palimpsest of plaster old and new, plus ancient block-print wallpaper. If you can\t bag a red-leather banquette, the bar stools are comfortable. The Sun is a smallish pub with DJs on Wednesday to Saturday evenings, and on other nights you can spin your own vinyl on the turntables. There is a limited food offering: charcuterie, cheese and the like. They even make a good espresso. On a bright Saturday afternoon people trickle in, drinking beer and cocktails. In the evenings, it gets busy. Not surprising: there\s a lot to love here.',
+    isOutsideSeating: false,
+    isPetFriendly: false,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://www.telegraph.co.uk/content/dam/food-and-drink/2019/02/27/Exterior-The-Sun-Tavern-bethnal-green-01_trans_NvBQzQNjv4BqOj5_Rmr3MNcQcsRkzAbTbSE1dB_6odjt3Rxl4W5DlKE.jpg?imwidth=1400'
+  },
+  {
+    nameOfPub: 'City Barge',
+    address: {
+      line1: '27 Strand-on-the-Green',
+      line2: '',
+      town: '',
+      city: 'London',
+      postCode: 'W4 3PH'
+    },
+    description: 'Riverside pubs are among London\s finest features, from the windswept old pirates haunts of the East End to the handsome havens that dot the more placid Thames upstream of Chelsea. So it\s always pleasing when someone puts a bit of effort into doing one up properly – and here\s a refurbished boozer (in 2014) that takes its place among the city\s best. To call it a new pub would be misleading, by quite a few centuries. There’s history dating back to the 1300s, although the current building is mainly postwar. But a lot of cash has clearly been splashed on the beautifully panelled dining room, complete with heritage paintjob, well-stuffed leather banquettes and well-stuffed birds. It\s curious how the shooting-lodge look feels less ironic the further west up the Thames you go, as if it\s flowed down from the Cotswolds. Spring tides mean the Thames floods the path, so keep an eye on the lunar cycle if you don’t want to get Stranded-on-the-Green. The fish and chips or burgers will please the casual Thames stroller stopping off for a bite of superior gastropub food, but the likes of mille-feuille of white and green asparagus with morel beurre blanc and the 50-strong wine list leave no doubt that this is also now a serious dining operation.',
+    isOutsideSeating: true,
+    isPetFriendly: true,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://media.timeout.com/images/101627987/750/422/image.jpg'
+  },
+  {
+    nameOfPub: 'White Horse',
+    address: {
+      line1: '1-3 Parsons Green',
+      line2: '',
+      town: '',
+      city: 'London',
+      postCode: 'SW6 4UL'
+    },
+    description: 'Despite a refurb in November 2012, this renowned hostelry can still feel like something from the days of the Raj. The Victorian ceilings are airily high, and wide windows let plenty of light into the bar. Chesterfield-style sofas surround huge tables, ideal for families and groups of friends, though the umbrella-covered outdoor tables are most coveted from spring on. This is rugbyland, and you can expect plenty of turned-up collars and white shirts with roses on, but the spread of customers is wider than you might imagine. Beer is the great leveller: there are eight ales on offer at the mahogany bar, among them Harveys Sussex Best and Jaipur IPA from the Thornbridge Brewery in Derbyshire, while the glorious list of bottled brews is particularly strong on Belgian and American beers. Regular beer festivals usually come with a tight focus, with May\s London Beer Festival and November\s Old Ale Festival well worth marking in the calendar.',
+    isOutsideSeating: true,
+    isPetFriendly: true,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://www.realweddings.co.uk/detail/the-white-horse-on-parsons-green/m/v/showcase_hero/41305/b369f5c5c47e4e76b4a31fdae8c0abf1.jpg'
+  },
+  {
+    nameOfPub: 'Railway Tavern',
+    address: {
+      line1: '2 St Jude St',
+      line2: '',
+      town: '',
+      city: 'London',
+      postCode: 'N16 8JT'
+    },
+    description: 'The Railway Tavern, on a residential street in the fringes of Islington, is essentially a local – but it\s to its credit that drinkers from locales further afield will travel to visit. The owners of the Pineapple in Kentish Town returned this pub to its original name and gave it a thoughtful, mid-century-style makeover, with a few bits of artful railway ephemera here and there. Food is Thai; there\s occasional live music and a quiz. But the beer selection is something special, and served with a dedication that prospective London publicans would do well to emulate. There are six regularly changing real ales on tap, and they\re often made in London – from Redemption, Brodie\s or the East London Brewing Company, for instance. No mainstream sops for the unadventurous sipper in sight, and brews are served in handled, dimpled pint mugs: magic. The RT is a handsome fellow too, with framed vintage tube scenes on the walls and a few tasteful bits of golden-age railway nostalgia dotted here and there. One of the best pubs in London - fact.',
+    isOutsideSeating: true,
+    isPetFriendly: true,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://whatpub.com/img/NLD/5792/railway-tavern-ale-house-dalston-kingsland/298/224/89211'
+  },
+  {
+    nameOfPub: 'Culpeper',
+    address: {
+      line1: '40 Commercial Street',
+      line2: '',
+      town: '',
+      city: 'London',
+      postCode: 'E1 6LP'
+    },
+    description: 'Culpeper (formerly the Princess Alice) occupies a corner site facing Petticoat Lane Market. It was a Truman\s pub for much of the last 130 years, and remains a handsome Victorian inn, with the brewery signage preserved. The new owners have improved the frontage, laid beautiful parquet floors, installed a curvaceous bar and added industrial-style lighting – the result is a treat, fitting perfectly with both building and location. The Culpeper public house sits on the corner of Commercial Street, opposite Petticoat Lane. It\s set over four floors, to include a pub, restaurant, rooms and rooftop greenhouse and garden. Delicious food, good booze, friendly staff and a beautiful restored building provide its unique atmosphere.',
+    isOutsideSeating: true,
+    isPetFriendly: true,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://www.venuemap.co.uk/resize/297/0/900'
+  },
+  {
+    nameOfPub: 'Prospect of Whitby',
+    address: {
+      line1: '57 Wapping Wall',
+      line2: '',
+      town: '',
+      city: 'London',
+      postCode: 'E1W 3SH'
+    },
+    description: 'If you\ve ever taken a boat up the Thames, you\ll have probably noticed a scaffold and hangman\s noose outside an appealingly aged tavern by the Wapping riverside. It\s a grim reminder of Execution Dock, a nearby gallows where many a pirate met his end (yes, really). And the tavern in question is the Prospect of Whitby, London’s oldest riverside pub and the best of three by the river in Wapping. Wood panelling, dark corners and uneven stone floors help to make it one of the city\s most atmospheric old drinking dens. Indeed, it seems hardly to have changed since the days of dock workers and deckhands. The neighbouring old warehouses might have been converted into luxury flats, but the pub still feels like the shadowy haunt of weatherbeaten sailors, smugglers and pirates, all just a few gulps of rum and a fist fight away from their next voyage.',
+    isOutsideSeating: true,
+    isPetFriendly: true,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'http://www.thecriticalcouple.com/uploads/2/8/1/1/2811540/1846525_orig.jpg'
+  },
+  {
+    nameOfPub: 'Hare & Billet',
+    address: {
+      line1: '1A Elliot Cottages',
+      line2: '',
+      town: '',
+      city: 'London',
+      postCode: 'SE3 0QJ'
+    },
+    description: 'With Greenwich\s Meantime Brewery becoming a global colossus beloved of Waitrose customers up and down the land, good on the Hare & Billet for offering some craft beer alternatives to the residents of Blackheath and SE10. Always a decent local boozer, the H&B\s crafty reinvention has made it something quite special. Small London breweries are well represented on the pumps, which might feature Brockley Brewery\s Red Ale; there are kegs from the likes of Wales\s Tiny Rebel and a good bottled selection from Beavertown, Kernel, Partizan, Weird Beard, plus some US visitors such as Evil Twin and Brooklyn. In summer, take your ale on to the heath, and it’s like the 70s, 80s, 90s and noughties never happened.',
+    isOutsideSeating: true,
+    isPetFriendly: true,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://media.timeout.com/images/102174513/750/422/image.jpg'
+  },
+  {
+    nameOfPub: 'The Hansom Cab',
+    address: {
+      line1: '84-86 Earl’s Court Road',
+      line2: '',
+      town: '',
+      city: 'London',
+      postCode: 'W8 6EG'
+    },
+    description: 'Situated away from the chaos of Earl\s Court Road – past Cromwell Road and a good few paces further – this little place is well worth finding. Fourth in the growing Pubs of Distinction chain, it\s small enough to feel busy at quiet times, yet big enough to house a comfortable drinking and dining area. For the locals, it seems, the food is top priority. And the menu reads as you might expect from a Kensington pub – lobster nachos and pheasant breast, as well as classic pub staples, like beef and mushroom pie and fish and chips',
+    isOutsideSeating: true,
+    isPetFriendly: true,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://media.timeout.com/images/105083527/750/422/image.jpg'
+  },
+  {
+    nameOfPub: 'East Dulwich Tavern',
+    address: {
+      line1: '1 Lordship Lane',
+      line2: '',
+      town: '',
+      city: 'London',
+      postCode: 'SE22 8EW'
+    },
+    description: 'Like all good local pubs, the East Dulwich Tavern varies greatly depending on when you visit. On a week night you might wander into a film club or a quiz; at prime-time it\s standing room only as packs of pals knock back bottles of local craft beer; weekends are all about board games and grub in the airy, sky-lit main room. Crucially, it caters to all these needs without alienating anyone, and its upcycled aesthetic and well-priced, accessible menu add to the impression that everyone\s welcome to use the pub\s considerable space as they see fit – even if that\s just getting quietly sloshed in the corner.',
+    isOutsideSeating: true,
+    isPetFriendly: true,
+    isFoodServed: true,
+    isLiveSports: true,
+    image: 'https://media-cdn.tripadvisor.com/media/photo-s/0b/45/83/01/quintessentially-english.jpg'
+  },
+  {
+    nameOfPub: 'Prince Alfred & Formosa Dining Rooms',
+    address: {
+      line1: '5A Formosa Street',
+      line2: '',
+      town: '',
+      city: 'London',
+      postCode: 'W9 1EE'
+    },
+    description: 'Tucked away among the imposing mansions and canals around Warwick Avenue is a little slice of nineteenth-century London. No, not a workhouse filled with criminal orphans, but something much nicer than that – a Victorian pub, complete with spectacularly intricate carved woodwork and snob screens separating the different sections of the bar. The low doorways between them are a nightmare if you\ve got a bad back, but perfect if you\re very short and need to escape a pub bore. It sort of helps that the Prince Alfred is a Young\s pub instead of some chichi craft beer palace – it\s simple, old fashioned, no nonsense. Peanuts, yup. Pint of bitter, yup. Sticky floors, yup. And all combined with the joy of watching your fellow drinkers playing a constant game of limbo.',
+    isOutsideSeating: true,
+    isPetFriendly: true,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://media.timeout.com/images/102309791/630/472/image.jpg'
+  },
+  {
+    nameOfPub: 'MC & Sons',
+    address: {
+      line1: '160 Union Street',
+      line2: '',
+      town: '',
+      city: 'London',
+      postCode: 'SE1 0LH'
+    },
+    description: 'Irish pubs with Thai food: a combo first trailed by Notting Hill\s Churchill Arms at the tail end of the 80s. With it being a winning way for pubs with smaller kitchens to diversify beyond pie and mash, the trend spread. But let\s face it: beer and spice just go really well together. That\s definitely proved at Mc & Sons, a new pub and Thai kitchen near London Bridge from the Irish family-operated Windmill Taverns Group Beers from near and far are in regular rotation on tap. Options can include pale ales from Eight Degrees in County Cork, as well as more familiar Beavertown, Belleville and Hammerton brews, while Continental bottles are also in ready supply. All noodle and curry dishes come in under a tenner, and a bartender with a twinkle in his eye advertised the khao soi as the ultimate hangover cure (not that I was suffering). It was a generous noodle dish with an unctuous coconut milk base, chicken that fell off the bone and a nest of crispy noodles and shallots on top. A massaman curry fell flat by comparison. A less common sight in London\s Irish pubs these days is actual Irish punters, but on a weeknight trip we found the bar swarming with ex-pats who had to squeeze together to let us through to the rear restaurant. I\d previously tried visiting on a Thursday and could barely get through the door while a live folk band played. Yep, the old formulas are still the best.',
+    isOutsideSeating: true,
+    isPetFriendly: true,
+    isFoodServed: true,
+    isLiveSports: false,
+    image: 'https://media-cdn.tripadvisor.com/media/photo-s/1a/55/35/95/mc-and-sons-at-christmas.jpg'
   }
-
 ]
 
 export default pubSeed
