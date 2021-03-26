@@ -23,8 +23,8 @@ reviewSchema
       return acc + curr
     }, 0)
     const average = sum / ratingsArray.length
-    console.log('average>>>>>>>>>>>>', average)
-    return average
+    //console.log('average>>>>>>>>>>>>', average)
+    return !average ? 'not yet rated' : average
   })
 
 export default reviewSchema
