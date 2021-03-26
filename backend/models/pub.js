@@ -88,17 +88,21 @@ pubSchema
   .virtual('locationCoordinates')
   .get( async function  () {
     const input = this.address.postCode
+    if (!input) return null
     const externalData = async ()  => {
-      const { data } = await axios.get(`http://api.positionstack.com/v1/forward?access_key=200301239e6a7341c8f45b67284213e7&query=${input}`)
-      const lat =  await data.data[0].latitude
-      const long = await data.data[0].longitude
-      return [lat, long]
+      const { data } = await axios.get(`http://api.getthedata.com/postcode/${input}`)
+      const lat =  await data.data.latitude
+      const long = await data.data.longitude
+      return {
+        longitude: Number(long),
+        latitude: Number(lat)
+      }
     }
 
     externalData()
     const coordinates = await externalData()
-    console.log('coords>>>>>>>>>', await coordinates)
-
+    console.log('coords>>>>>>>>>', coordinates)
+    return coordinates
 
   })
 

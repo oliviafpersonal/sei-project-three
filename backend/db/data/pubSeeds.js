@@ -118,7 +118,7 @@ const pubSeed = [
   //     line2: '',
   //     town: '',
   //     city: 'London',
-  //     postCode: ''
+  //     postCode: 'N16 0UD'
   //   },
   //   description: 'The added-value attractions at this skinny little Church Street boozer are numerous: sporadic themed music nights, big-screen football, large beer garden. But the Shillelagh is at its best when it keeps things simple, as an honest, uncomplicated Irish pub (as opposed to Irish-themed pub; the difference is crucial) that draws a devoted circle of boozed-up Stoke Newingtonians most nights of the week. It’s the kind of pub where the wine list runs to ‘red or white’, and where the staff are so matey and hospitable that they\'ll offer to bring your Guinness over to your table rather than have you hang around at the bar and wait for it to reach perfection. No wonder everybody here always seems to be in such a good mood.',
   //   isOutsideSeating: true,
@@ -158,7 +158,7 @@ const pubSeed = [
   //   isFoodServed: false,
   //   isLiveSports: false,
   //   image: 'https://whatpub.com/img/SEL/13493/beer-shop-london-nunhead/298/224/43658'
-  // }
+  // },
   // {
   //   nameOfPub: 'Faltering Fullback',
   //   address: {
