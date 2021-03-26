@@ -2,6 +2,8 @@ import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { useParams /*, Link*/ } from 'react-router-dom'
 
+//components
+import Header from '../Header'
 
 const PubShow = () => {
   const params = useParams()
@@ -19,14 +21,20 @@ const PubShow = () => {
     getData()
   }, [])
 
-
   if (!pub) return null
   return (
-    <div className="section">
-      <h2>{pub.nameOfPub}</h2>
-      <p>{pub.description}</p>
-      <p>{pub.address.city}</p>
-    </div>
+    <>
+      <Header />
+      <div className="pub-show-container">
+        <div className="section">
+          <h2>{pub.nameOfPub}</h2>
+          <img src={pub.image}></img>
+
+          <p>{pub.description}</p>
+          <p>{pub.address.city}</p>
+        </div>
+      </div>
+    </>
   )
 }
 
