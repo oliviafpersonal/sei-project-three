@@ -1,4 +1,5 @@
 import Pub from '../models/pub.js'
+import User from '../models/user.js'
 
 
 export const getAllPubs = async (req, res) => {
@@ -8,6 +9,11 @@ export const getAllPubs = async (req, res) => {
 }
 export const addOnePub = async (req, res) => {
   try {
+    const userID = req.currentUser._id
+    const findUser = await User.findById(userID)
+    if (!findUser.isLandlord) { 
+      throw new  Error('Only Landlords can add pubs')
+    } else console.log('>>>>>>>> user is a landlord, access approved')
     const newPub = { ...req.body, id: req._id }
     console.log('🚀 ~ file: pubs.js ~ line 14 ~ addOnePub ~ newPub', newPub)
     const pubToAdd = await Pub.create(newPub)
@@ -37,6 +43,11 @@ export const getOnePub = async (req, res) => {
 
 export const deletePub = async (req, res) => {
   try {
+    const userID = req.currentUser._id
+    const findUser = await User.findById(userID)
+    if (!findUser.isLandlord) { 
+      throw new  Error('Only Landlords can update pubs')
+    } else console.log('>>>>>>>>>>> user is a landlord, access approved')
     const { id } = req.params 
     const pubToDelete = await Pub.findById(id)
     if (!pubToDelete) {
@@ -52,6 +63,11 @@ export const deletePub = async (req, res) => {
 
 export const updatePub = async (req, res) => {
   try {
+    const userID = req.currentUser._id
+    const findUser = await User.findById(userID)
+    if (!findUser.isLandlord) { 
+      throw new  Error('Only Landlords can update pubs')
+    } else console.log('user is a landlord, access approved')
     const { id } = req.params
     const pubToUpdate = await Pub.findById(id)
     if (!pubToUpdate) {
