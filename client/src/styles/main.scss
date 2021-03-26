@@ -21,8 +21,9 @@ $family-sans-serif: 'Nunito', sans-serif;
   background: $brand-black;
 }
 .header-style-hoc {
-  border-bottom: 1px solid #dddddd;
+  // border-bottom: 1px solid #dddddd;
   background: white;
+  filter: drop-shadow(0px 5px 4px rgba(196, 196, 196, 0.2));
 }
 
 header {
@@ -300,6 +301,18 @@ footer {
 .card-hr {
   width: 20%;
 }
+.card-rating {
+  margin-top: 1rem;
+  display: flex;
+}
+.card-rating p {
+  margin-left: 1rem;
+}
+.rating-star {
+  color: $brand-green;
+}
+
+//* Pub Show
 
 // * login
 .login-box {
