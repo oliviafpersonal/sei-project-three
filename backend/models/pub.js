@@ -19,7 +19,8 @@ const pubSchema = new mongoose.Schema(
     isLiveSports: { type: Boolean },
     image: { type: String },
     pubOwner: { type: mongoose.Schema.Types.ObjectID, ref: 'User' },
-    reviews: [reviewSchema]
+    reviews: [reviewSchema],
+    //locationCoordinates: {}
   },
   { timestamps: true }
 )
@@ -66,7 +67,8 @@ pubSchema
       return acc + curr
     }, 0)
     const average = sum / availabilityArray.length
-    return !average ? 'is not yet rated' : average
+    return !average ? 'is not yet rated' : {
+      average }
 
   })
 pubSchema
@@ -84,27 +86,39 @@ pubSchema
 
   })
 
+// pubSchema
+//   .virtual('locationCoordinates')
+//   .get( async function  () {
+//     const input = this.address.postCode
+//     if (!input) return null
+//     const externalData = async ()  => {
+//       const { data } = await axios.get(`http://api.getthedata.com/postcode/${input}`)
+//       const lat =  await data.data.latitude
+//       const long = await data.data.longitude
+//       return {
+//         longitude: Number(long),
+//         latitude: Number(lat)
+//       }
+//     }
 pubSchema
   .virtual('locationCoordinates')
-  .get( async function  () {
+  .get( async function () {
     const input = this.address.postCode
     if (!input) return null
-    const externalData = async ()  => {
+    async function externalData() {
       const { data } = await axios.get(`http://api.getthedata.com/postcode/${input}`)
-      const lat =  await data.data.latitude
-      const long = await data.data.longitude
-      return {
-        longitude: Number(long),
-        latitude: Number(lat)
-      }
+      const lat =  data.data.latitude
+      const long = data.data.longitude
+      console.log(lat, long)
+      return { longitude: Number(long), latitude: Number(lat) }
     }
-
-    externalData()
-    const coordinates = await externalData()
-    console.log('coords>>>>>>>>>', coordinates)
-    return coordinates
-
+    const longit = await externalData()
+    console.log('🚀 ~ file: pub.js ~ line 116 ~ longit', longit)
+    
+    return longit
   })
+  
+
 
 
 export default mongoose.model('Pub', pubSchema)
