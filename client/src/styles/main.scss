@@ -269,6 +269,35 @@ footer {
 .pubcard-image {
   height: 200px;
   width: 300px;
+  border-radius: 10px;
+}
+
+//* pub index
+
+.pub-index-text {
+  padding: 2rem;
+}
+
+.pub-filter-button {
+  border-radius: 20px;
+  margin-left: 1rem;
+}
+
+.pub-filter-button:first-child {
+  margin: 0;
+}
+.pub-filter-buttons {
+  margin-top: 2rem;
+  display: flex;
+}
+.pub-filter-cta {
+  margin-top: 2rem;
+}
+
+// * login
+.login-box {
+  border: solid black 1px;
+  border-radius: 25px;
 }
 
 // * mobile optimisation
@@ -292,22 +321,4 @@ footer {
     text-align: center;
     justify-content: center;
   }
-}
-
-.dropdown-shape {
-  border-radius: 10px;
-  margin-top: 0.8rem;
-}
-
-// * pub card
-
-.pubcard-image {
-  height: 200px;
-  width: 300px;
-}
-
-// * login
-.login-box {
-  border: solid black 1px;
-  border-radius: 25px;
 }
