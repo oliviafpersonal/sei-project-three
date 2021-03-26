@@ -17,7 +17,7 @@ const seedDatabase = async () => {
     const users = await User.create(userSeed)
     
     const pubsWithUsers = pubSeed.map(pub => {
-      pub.owner = users[0]._id
+      pub.pubOwner = users[0]._id
       return pub
     })
 

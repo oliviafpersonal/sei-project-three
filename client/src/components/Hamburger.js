@@ -30,10 +30,9 @@ const Hamburger = () => {
               Login
             </Link>
 
-
-            <a href="#" className="dropdown-item">
+            <Link to="/signup" className="dropdown-item">
               Register
-            </a>
+            </Link>
 
             <hr className="dropdown-divider" />
             <a href="#" className="dropdown-item">

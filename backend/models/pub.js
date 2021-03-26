@@ -27,17 +27,17 @@ pubSchema
   .virtual('averageRating')
   .get(function () {
     
-    console.log('🚀 ~ file: pub.js ~ line 31 ~ this.reviews', this.reviews)
+    //console.log('🚀 ~ file: pub.js ~ line 31 ~ this.reviews', this.reviews)
     const ratingsArray = this.reviews.map(rating => {
       return rating.overallRating 
     })
-    console.log('🚀 ~ file: pub.js ~ line 32 ~ ratingsArray', ratingsArray)
+    // console.log('🚀 ~ file: pub.js ~ line 32 ~ ratingsArray', ratingsArray)
 
     const sum = ratingsArray.reduce((acc, curr) => {
       return acc + curr
     }, 0)
     const average = sum / ratingsArray.length
-    console.log('average>>>>>>>>>>>>', average)
+    //console.log('average>>>>>>>>>>>>', average)
     return average
   })
 
