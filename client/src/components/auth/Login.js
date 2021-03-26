@@ -19,7 +19,7 @@ const Login = () => {
     event.preventDefault()
     const response = await axios.post('/api/login', formData)
     window.localStorage.setItem('token', response.data.token)
-    history.push('/pubs')
+    history.push('/profile')
     console.log(response)
   }
 

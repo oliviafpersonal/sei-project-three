@@ -4,7 +4,7 @@ import User from '../models/user.js'
 
 export const getAllPubs = async (req, res) => {
   const pubs = await Pub.find()
-  console.log('🚀 ~ file: pubs.js ~ line 6 ~ getAllPubs ~ pubs', pubs)
+  //console.log('🚀 ~ file: pubs.js ~ line 6 ~ getAllPubs ~ pubs', pubs)
   return res.status(200).json(pubs)
 }
 export const addOnePub = async (req, res) => {
@@ -15,7 +15,7 @@ export const addOnePub = async (req, res) => {
       throw new  Error('Only Landlords can add pubs')
     } else console.log('>>>>>>>> user is a landlord, access approved')
     const newPub = { ...req.body, id: req._id }
-    console.log('🚀 ~ file: pubs.js ~ line 14 ~ addOnePub ~ newPub', newPub)
+    //console.log('🚀 ~ file: pubs.js ~ line 14 ~ addOnePub ~ newPub', newPub)
     const pubToAdd = await Pub.create(newPub)
     return res.status(201).json(pubToAdd)
   } catch (error) {

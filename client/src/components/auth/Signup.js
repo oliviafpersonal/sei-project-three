@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-//import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -17,6 +17,8 @@ const Signup = () => {
     passwordConfirmation: '',
   })
 
+  const history = useHistory()
+
   const handleChange = event => {
     const newFormData = { ...formData, [event.target.name]: event.target.value }
     setFormData(newFormData)
@@ -26,6 +28,7 @@ const Signup = () => {
     try {
       const response = await axios.post('/api/register', formData)
       console.log(response)
+      history.push('/login')
     } catch (err) {
       console.log(err.response)
       setErrors(err.response.data.errors)

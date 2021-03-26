@@ -2,7 +2,7 @@ import User from '../models/user.js'
 
 export const getAllUsers = async (req, res) => {
   const users = await User.find()
-  console.log('🚀 ~ file: user.js ~ line 5 ~ getAllUsers ~ users', users)
+  //console.log('🚀 ~ file: user.js ~ line 5 ~ getAllUsers ~ users', users)
   return res.status(200).json(users)
 }
 

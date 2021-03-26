@@ -22,7 +22,7 @@ const seedDatabase = async () => {
     })
 
     const pubs = await Pub.create(pubsWithUsers)
-    console.log('🚀 ~ file: seeds.js ~ line 25 ~ seedDatabase ~ pubs', pubs)
+    //console.log('🚀 ~ file: seeds.js ~ line 25 ~ seedDatabase ~ pubs', pubs)
 
 
     console.log(`🌱 DB seeded with ${pubs.length} members and ${users.length} friend`)
