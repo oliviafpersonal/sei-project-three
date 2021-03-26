@@ -314,6 +314,59 @@ footer {
 
 //* Pub Show
 
+.pub-show-container {
+  width: 80%;
+  margin: 0 auto;
+}
+.address {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.share-options {
+  display: flex;
+  text-decoration: underline;
+  padding-top: 3rem;
+  justify-content: space-between;
+}
+.share-align {
+  display: flex;
+  text-decoration: underline;
+
+  justify-content: space-between;
+}
+.share-align p {
+  cursor: pointer;
+}
+.align-right {
+  padding: 1rem;
+}
+
+.show-image {
+  border-radius: 10px;
+}
+
+.icon-space {
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.desc-icon {
+  margin-right: 1rem;
+}
+.icon-align {
+  display: flex;
+}
+
+.icon-align p {
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+}
+
+.benefits {
+  display: flex;
+  margin-top: 1rem;
+}
+
 // * login
 .login-box {
   border: solid black 1px;
