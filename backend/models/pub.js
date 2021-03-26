@@ -38,7 +38,7 @@ pubSchema
     }, 0)
     const average = sum / ratingsArray.length
     console.log('average>>>>>>>>>>>>', average)
-    return average
+    return !average ? 'not yet rated' : average
   })
 
 export default mongoose.model('Pub', pubSchema)
