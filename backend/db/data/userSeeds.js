@@ -5,7 +5,8 @@ const userSeed = [
     email: 'SSEI54@admin.com',
     password: 'sherbetlemon',
     passwordConfirmation: 'sherbetlemon',
-    isLandlord: true
+    isLandlord: true,
+    isUser: true
   },
   //* ********************** USER SEEDS ************************
   {
@@ -14,10 +15,9 @@ const userSeed = [
     password: 'password',
     passwordConfirmation: 'password',
     image: '',
-    islandlord: false
+    isLandlord: false,
+    isUser: true
   }
-
-  
   
 ]
 

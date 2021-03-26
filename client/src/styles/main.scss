@@ -21,7 +21,8 @@ $family-sans-serif: 'Nunito', sans-serif;
   background: $brand-black;
 }
 .header-style-hoc {
-  border-bottom: 1px solid #dddddd !important;
+  border-bottom: 1px solid #dddddd;
+  background: white;
 }
 
 header {
@@ -158,12 +159,9 @@ header {
 
 .sticky {
   position: sticky;
+  transition: 1s ease all;
   top: 0;
   z-index: 100; /* this is optional and should be different for every project */
-}
-.sticky-wrapper {
-  position: relative;
-  height: 3rem; /* We need to change this value */
 }
 
 .sticky .sticky-inner {
@@ -172,6 +170,11 @@ header {
   left: 0;
   right: 0;
   z-index: 1;
+}
+
+.hide {
+  display: none;
+  transition: 1s ease all;
 }
 
 // Main Styles
@@ -256,6 +259,54 @@ footer {
   margin-top: 1rem;
 }
 
+.dropdown-shape {
+  border-radius: 10px;
+  margin-top: 0.8rem;
+}
+
+// * pub card
+
+.pubcard-image {
+  height: 200px;
+  width: 300px;
+  border-radius: 10px;
+}
+
+//* pub index
+
+.pub-index-text {
+  padding: 2rem;
+}
+
+.pub-filter-button {
+  border-radius: 20px;
+  margin-left: 1rem;
+}
+
+.pub-filter-button:first-child {
+  margin: 0;
+}
+.pub-filter-buttons {
+  margin-top: 2rem;
+  display: flex;
+}
+.pub-filter-cta {
+  margin-top: 2rem;
+}
+.pub-index-container {
+  width: 95%;
+  margin: 0 auto;
+}
+.card-hr {
+  width: 20%;
+}
+
+// * login
+.login-box {
+  border: solid black 1px;
+  border-radius: 25px;
+}
+
 // * mobile optimisation
 
 @media only screen and (max-width: 765px) {
@@ -278,22 +329,3 @@ footer {
     justify-content: center;
   }
 }
-
-.dropdown-shape {
-  border-radius: 10px;
-  margin-top: 0.8rem;
-}
-
-// * pub card
-
-.pubcard-image {
-  height: 200px;
-  width: 300px;
-}
-
-// * login 
-.login-box {
-  border: solid black 1px;
-  border-radius: 25px;
-}
-

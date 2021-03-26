@@ -237,7 +237,7 @@ const pubSeed = [
     isPetFriendly: true,
     isFoodServed: true,
     isLiveSports: false,
-    image: 'https://www.beerguideldn.com/pubs.php?IDKEY=323'
+    image: 'https://thebluecoatspub.com/wp-content/uploads/2019/04/2018_BM_BlueCoats2-128-2-720x480.jpg'
   },
   {
     nameOfPub: 'Priory Arms',
@@ -381,7 +381,7 @@ const pubSeed = [
     isPetFriendly: false,
     isFoodServed: false,
     isLiveSports: false,
-    image: 'https://lh3.googleusercontent.com/proxy/lhBjfm6weo010m7MYuJGBYu4IYgz2f-ObUdNe4ePnK3YRfN6waA-NysgeyW3LlMvyMkf0jMoJnSYeZgMPzlTuoexkl8tMKkyN-CoqDaSpG8'
+    image: 'https://manchesterhistory.net/manchester/pubs/protection10.jpg'
   },
   {
     nameOfPub: 'The Wharf',
@@ -445,7 +445,7 @@ const pubSeed = [
     isPetFriendly: false,
     isFoodServed: true,
     isLiveSports: false,
-    image: 'https://c.yell.com/t_galleryFit,f_auto/20a7d604-0679-4da1-bd3a-fec9cfe066f2_image_jpeg.jpg'
+    image: 'https://media.timeout.com/images/101695255/630/472/image.jpg'
   },
   {
     nameOfPub: 'Castle Hotel',
@@ -461,7 +461,7 @@ const pubSeed = [
     isPetFriendly: false,
     isFoodServed: false,
     isLiveSports: false,
-    image: 'https://live.staticflickr.com/7160/6485961755_2066e2780f_b.jpg'
+    image: 'https://media.timeout.com/images/101691383/630/472/image.jpg'
   },
   {
     nameOfPub: 'Port Street Beer House',
@@ -701,7 +701,7 @@ const pubSeed = [
     isPetFriendly: false,
     isFoodServed: true,
     isLiveSports: false,
-    image: 'https://lh3.googleusercontent.com/proxy/YB1xSKY5xPyhUanghSRtXjhsLYstAbSNfTUS6XcA-ps68DebccRt2LnaHQtg2ytIQIeppFvMGX4b1gCBzhnOc6Ry6rvCAdKkJJtzb4ZzNl6xxvLBYWa4c3brR1qKchzJMtqBNkhE1SjM_rwa6uh29axRmQ6H5nevvvTIabKEjGJBMtA8ay14FA'
+    image: 'https://static.designmynight.com/uploads/2020/03/kirkstall-2-optimised.jpg'
   },
   {
     nameOfPub: 'Pack Horse Leeds',
@@ -963,7 +963,7 @@ const pubSeed = [
     isPetFriendly: false,
     isFoodServed: true,
     isLiveSports: false,
-    image: 'https://www.top100attractions.com/attractions/images/aMMwU1Wr1v.jpg'
+    image: 'https://lh3.googleusercontent.com/proxy/eq_8JFE6edMmjEQBat7LqGMqNDhjiLT22S1HEEz166Kg_ctJ574Tpa_ZFSkEyNdmTjVHazGwLdaddbXvhc3ck2cVlpaFvlj0URXXFEPV6u6EBB_WLsA4gJtPuu4xPF5Xb5kXcA'
   },
 
 
