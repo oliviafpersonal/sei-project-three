@@ -25,7 +25,7 @@ const seedDatabase = async () => {
     //console.log('🚀 ~ file: seeds.js ~ line 25 ~ seedDatabase ~ pubs', pubs)
 
 
-    console.log(`🌱 DB seeded with ${pubs.length} members and ${users.length} friend`)
+    console.log(`🌱 DB seeded with ${pubs.length} pubs and ${users.length} users`)
 
     await mongoose.connection.close()
     console.log('*********CLOSED********')

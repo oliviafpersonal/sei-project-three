@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 import reviewSchema from './reviews.js'
+import axios from 'axios'
 
 const pubSchema = new mongoose.Schema(
   {
@@ -80,6 +81,24 @@ pubSchema
     }, 0)
     const average = sum / comfortabilityArray.length
     return !average ? 'is not yet rated' : average
+
+  })
+
+pubSchema
+  .virtual('locationCoordinates')
+  .get( async function  () {
+    const input = this.address.postCode
+    const externalData = async ()  => {
+      const { data } = await axios.get(`http://api.positionstack.com/v1/forward?access_key=200301239e6a7341c8f45b67284213e7&query=${input}`)
+      const lat =  await data.data[0].latitude
+      const long = await data.data[0].longitude
+      return [lat, long]
+    }
+
+    externalData()
+    const coordinates = await externalData()
+    console.log('coords>>>>>>>>>', await coordinates)
+
 
   })
 
