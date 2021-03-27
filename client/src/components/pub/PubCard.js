@@ -8,7 +8,7 @@ const PubCard = ({ _id, nameOfPub, image, description, averageRatings }) => {
     <div className="column">
       <div className="columns">
         <div className="column">
-          <Link to={`pubs/${_id}`}>
+          <Link to={`/pubs/${_id}`}>
             <img className="pubcard-image" src={image} alt={nameOfPub} />
           </Link>
         </div>

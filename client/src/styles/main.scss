@@ -16,7 +16,9 @@ $family-sans-serif: 'Nunito', sans-serif;
 @import '~bulma/bulma.sass';
 
 // * HOME PAGE STYLES
-
+a {
+  color: $brand-black;
+}
 .header-style {
   background: $brand-black;
 }

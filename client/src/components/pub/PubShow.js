@@ -221,11 +221,11 @@ const PubShow = () => {
                         type="range"
                         min="0"
                         max="5"
-                        value={averageRatings.averageComfortability.toFixed(1)}
+                        value={averageRatings.averageComfortability}
                         className="slider"
                         id="myRange"
                       ></progress>
-                      <p>{averageRatings.averageComfortability.toFixed(1)}</p>
+                      <p>{averageRatings.averageComfortability}</p>
                     </div>
                   </div>
                 </div>
@@ -245,7 +245,7 @@ const PubShow = () => {
                         className="slider"
                         id="myRange"
                       ></progress>
-                      <p> {averageRatings.averagePrice.toFixed(1)}</p>
+                      <p> {averageRatings.averagePrice}</p>
                     </div>
                   </div>
                 </div>
