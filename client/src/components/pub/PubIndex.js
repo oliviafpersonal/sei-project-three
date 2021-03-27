@@ -48,6 +48,10 @@ const PubIndex = () => {
       console.log('first log>>>>', food)
     } else {
       setFood(false)
+      setPets(false)
+      setSports(false)
+      setSeats(false)
+      setFilterPubs(false)
       console.log('second log>>>>', food)
     }
     
@@ -63,6 +67,10 @@ const PubIndex = () => {
       console.log('first log>>>>', pets)
     } else {
       setPets(false)
+      setSeats(false)
+      setSports(false)
+      setFood(false)
+      setFilterPubs(false)
       console.log('second log>>>>', pets)
     }
   }
@@ -76,6 +84,10 @@ const PubIndex = () => {
       console.log('first log>>>>', sports)
     } else {
       setSports(false)
+      setPets(false)
+      setSeats(false)
+      setFood(false)
+      setFilterPubs(false)
       console.log('second log>>>>', sports)
     }
   }
@@ -89,6 +101,10 @@ const PubIndex = () => {
       console.log('first log>>>>', filterPubs)
     } else {
       setFilterPubs(false)
+      setSports(false)
+      setPets(false)
+      setSeats(false)
+      setFood(false)
       console.log('second log>>>>', filterPubs)
     }
   }
