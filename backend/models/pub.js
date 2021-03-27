@@ -33,7 +33,7 @@ pubSchema.virtual('averageRatings').get(function () {
       return acc + curr
     }, 0)
     const average = sum / ratingsArray.length
-    return !average ? 'is not yet rated' : average
+    return !average ? 'Not Rated' : average
   }
   function averagePrice() {
     const priceArray = review.map((rating) => {
@@ -43,7 +43,7 @@ pubSchema.virtual('averageRatings').get(function () {
       return acc + curr
     }, 0)
     const average = sum / priceArray.length
-    return !average ? 'is not yet rated' : average
+    return !average ? 'Not Rated' : average
   }
   function averageAvailability() {
     const availabilityArray = review.map((rating) => {
@@ -53,7 +53,7 @@ pubSchema.virtual('averageRatings').get(function () {
       return acc + curr
     }, 0)
     const average = sum / availabilityArray.length
-    return !average ? 'is not yet rated' : average
+    return !average ? 'Not Rated' : average
   }
   function averageComfortability() {
     const comfortabilityArray = review.map((rating) => {
@@ -63,7 +63,7 @@ pubSchema.virtual('averageRatings').get(function () {
       return acc + curr
     }, 0)
     const average = sum / comfortabilityArray.length
-    return !average ? 'is not yet rated' : average
+    return !average ? 'Not Rated' : average
   }
   return {
     averageOverall: averageTotal(),
