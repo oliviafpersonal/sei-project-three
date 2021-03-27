@@ -114,11 +114,11 @@ const pubSeed = [
   {
     nameOfPub: 'Auld Shillelagh',
     address: {
-      line1: '',
+      line1: '105 Stoke Newington Church St',
       line2: '',
       town: '',
       city: 'London',
-      postCode: ''
+      postCode: 'N16 0UD'
     },
     description: 'The added-value attractions at this skinny little Church Street boozer are numerous: sporadic themed music nights, big-screen football, large beer garden. But the Shillelagh is at its best when it keeps things simple, as an honest, uncomplicated Irish pub (as opposed to Irish-themed pub; the difference is crucial) that draws a devoted circle of boozed-up Stoke Newingtonians most nights of the week. It’s the kind of pub where the wine list runs to ‘red or white’, and where the staff are so matey and hospitable that they\'ll offer to bring your Guinness over to your table rather than have you hang around at the bar and wait for it to reach perfection. No wonder everybody here always seems to be in such a good mood.',
     isOutsideSeating: true,
@@ -150,7 +150,7 @@ const pubSeed = [
       line2: '',
       town: '',
       city: 'London',
-      postCode: ''
+      postCode: 'SE15 3QF'
     },
     description: 'Despite the name, this lovely bar and shop – one of several independent gems in Nunhead – doesn’\'t look anything like an off-licence. Its website labels it a micro-pub, but its colourful, light-filled, open-plan front room is probably best described as a drop-in centre for beer-lovers. The tiny back counter dispenses three draught beers – on our visit, these included two pale ales, namely Buxton Brewery\'s sharp, citruous Moor Top, and Northern Monk\'s smooth, fruity Monacus. In addition, there’s a 60-strong list of bottled beers, ciders and porters – mostly (but not all) from London brewers, all with clear, succinct tasting notes. These range from familiar names such as Brewdog or Camden Town Hells to properly niche offerings such as By The Horn\'s Sour to the People, a burgundy-aged, sour-mash vintage beer, or 750ml bottles of Siren\'s blended Ratchet artisan ale.',
     isOutsideSeating: true,
@@ -226,13 +226,13 @@ const pubSeed = [
   {
     nameOfPub: 'The Bluecoats',
     address: {
-      line1: '',
+      line1: '614 High Road',
       line2: '',
       town: '',
       city: 'London',
-      postCode: ''
+      postCode: 'N17 9TB'
     },
-    description: 'A former school for girls is now offering an education in beer. The chapel-shaped, Victorian building is a bit of an anomaly on Tottenham/s High Road, in among the corner shops and with a glimmer of Spurs shiny new HQ in the distance. Up until recently, it was The Pride of Tottenham, a rowdy match-day pub that shut up shop following noise complaints. Transforming the empty and unloved building into what they/re hoping will be an all-round more neighbour-friendly hangout is the Night Tales team, as well as Tom Gibson, the man behind Dalston cocktail bar Ruby/s. Although the sight of a bouncer on the door midweek felt intimidating, inside, it was welcoming. The pub should suit the seasons – one side is light-filled and modern, while a partition separates off a dark, distressed room with a mahogany bar and vintage signs bearing old-fashioned crests. But the most important season of all is the footie kind – blinds had come down for better TV viewing when we visited. If football is this pub/s first love, beer would have to be its second. A long blackboard advertises 20 house, craft and cask beers. Local breweries Redemption, Pressure Drop and Beavertown are represented, but you/ll also spy Walthamstow and Bermondsey beers, plus Guinness and Heineken – theres a refreshing absence of craft beer snobbery that seems to have struck a chord with locals already. Burgers from top patty peddlers Lucky Chip also hit the mark, enjoyed in a picnic-bench-filled beer garden overlooking the High Street. A secluded attic bar is even set to open.',
+    description: 'A former school for girls is now offering an education in beer. The chapel-shaped, Victorian building is a bit of an anomaly on Tottenham\'s High Road, in among the corner shops and with a glimmer of Spurs shiny new HQ in the distance. Up until recently, it was The Pride of Tottenham, a rowdy match-day pub that shut up shop following noise complaints. Transforming the empty and unloved building into what they\'re hoping will be an all-round more neighbour-friendly hangout is the Night Tales team, as well as Tom Gibson, the man behind Dalston cocktail bar Ruby\'s. Although the sight of a bouncer on the door midweek felt intimidating, inside, it was welcoming. The pub should suit the seasons – one side is light-filled and modern, while a partition separates off a dark, distressed room with a mahogany bar and vintage signs bearing old-fashioned crests. But the most important season of all is the footie kind – blinds had come down for better TV viewing when we visited. If football is this pub\'s first love, beer would have to be its second. A long blackboard advertises 20 house, craft and cask beers. Local breweries Redemption, Pressure Drop and Beavertown are represented, but you\'ll also spy Walthamstow and Bermondsey beers, plus Guinness and Heineken – theres a refreshing absence of craft beer snobbery that seems to have struck a chord with locals already. Burgers from top patty peddlers Lucky Chip also hit the mark, enjoyed in a picnic-bench-filled beer garden overlooking the High Street. A secluded attic bar is even set to open.',
     isOutsideSeating: true,
     isPetFriendly: true,
     isFoodServed: true,
