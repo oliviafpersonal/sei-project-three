@@ -3,20 +3,20 @@ import reviewSchema from './reviews.js'
 
 const pubSchema = new mongoose.Schema(
   {
-    nameOfPub: { type: String },
+    nameOfPub: { type: String, required: true },
     address: {
-      line1: { type: String },
+      line1: { type: String, required: true },
       line2: { type: String },
       town: { type: String },
-      city: { type: String },
-      postCode: { type: String, maxlength: 10 }
+      city: { type: String, required: true },
+      postCode: { type: String, required: true, maxlength: 10 }
     },
     description: { type: String },
-    isOutsideSeating: { type: Boolean },
-    isPetFriendly: { type: Boolean },
-    isFoodServed: { type: Boolean },
-    isLiveSports: { type: Boolean },
-    image: { type: String },
+    isOutsideSeating: { type: Boolean, required: true },
+    isPetFriendly: { type: Boolean, required: true },
+    isFoodServed: { type: Boolean, required: true },
+    isLiveSports: { type: Boolean, required: true },
+    image: { type: String, default: 'no image provided' },
     pubOwner: { type: mongoose.Schema.Types.ObjectID, ref: 'User' },
     reviews: [reviewSchema]
   },
