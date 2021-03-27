@@ -2,11 +2,11 @@ import mongoose from 'mongoose'
 
 const reviewSchema = new mongoose.Schema({
   subRating: {
-    price: { type: Number },
-    availability: { type: Number },
-    comfortability: { type: Number }
+    price: { type: Number, required: true },
+    availability: { type: Number, required: true },
+    comfortability: { type: Number, required: true }
   },
-  text: { type: String, maxlength: 300 },
+  text: { type: String, maxlength: 300, default: 'No comments submitted' },
   reviewOwner: { type: mongoose.Schema.Types.ObjectID, ref: 'User' }
 }, {
   timestamps: true

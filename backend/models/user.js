@@ -6,9 +6,9 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   profileImage: { type: String },
-  isLandlord: { type: Boolean },
-  isUser: Boolean,
-  isFirstTime: { type: Boolean }
+  isLandlord: { type: Boolean, required: true },
+  isUser: { type: Boolean, required: true },
+  isFirstTime: { type: Boolean, required: true }
   
 })
 //*has access to comments, can CRUD comments and self

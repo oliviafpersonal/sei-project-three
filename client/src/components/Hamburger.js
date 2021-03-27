@@ -35,9 +35,10 @@ const Hamburger = () => {
             </Link>
 
             <hr className="dropdown-divider" />
-            <a href="#" className="dropdown-item">
+
+            <Link to="/profile" className="dropdown-item">
               Profile
-            </a>
+            </Link>
           </div>
         </div>
       </div>

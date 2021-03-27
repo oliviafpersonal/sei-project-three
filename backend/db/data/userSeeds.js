@@ -6,7 +6,8 @@ const userSeed = [
     password: 'sherbetlemon',
     passwordConfirmation: 'sherbetlemon',
     isLandlord: true,
-    isUser: true
+    isUser: true,
+    isFirstTime: true
   },
   //* ********************** USER SEEDS ************************
   {
@@ -16,7 +17,8 @@ const userSeed = [
     passwordConfirmation: 'password',
     image: '',
     isLandlord: false,
-    isUser: true
+    isUser: true,
+    isFirstTime: true
   }
   
 ]
