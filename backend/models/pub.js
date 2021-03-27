@@ -26,62 +26,98 @@ const pubSchema = new mongoose.Schema(
 pubSchema.set('toJSON', { virtuals: true })
 
 pubSchema
-  .virtual('averageRating')
+  .virtual('averageRatings')
   .get(function () {
-  //console.log('🚀 ~ file: pub.js ~ line 31 ~ this.reviews', this.reviews)
-    const ratingsArray = this.reviews.map((rating) => {
-      return rating.overallRating
-    })
-    const sum = ratingsArray.reduce((acc, curr) => {
-      return acc + curr
-    }, 0)
-    const average = sum / ratingsArray.length
-    return !average ? 'is not yet rated' : average
+    const review = this.reviews
+    function averageTotal () {
+      const ratingsArray = review.map((rating) => {
+        return rating.overallRating
+      })
+      const sum = ratingsArray.reduce((acc, curr) => {
+        return acc + curr
+      }, 0)
+      const average = sum / ratingsArray.length
+      return !average ? 'is not yet rated' : average
 
+    }
+    function averagePrice () {
+      const priceArray = review.map(rating => {
+        return rating.subRating.price
+      })
+      const sum = priceArray.reduce((acc, curr) => {
+        return acc + curr
+      }, 0)
+      const average = sum / priceArray.length
+      return !average ? 'is not yet rated' : average
+    }
+    function averageAvailability() {
+      const availabilityArray = review.map(rating => {
+        return rating.subRating.availability
+      })
+      const sum = availabilityArray.reduce((acc, curr) => {
+        return acc + curr
+      }, 0)
+      const average = sum / availabilityArray.length
+      return !average ? 'is not yet rated' : average
+  
+    }
+    function averageComfortability () {
+      const comfortabilityArray = review.map(rating => {
+        return rating.subRating.comfortability
+      })
+      const sum = comfortabilityArray.reduce((acc, curr) => {
+        return acc + curr
+      }, 0)
+      const average = sum / comfortabilityArray.length
+      return !average ? 'is not yet rated' : average
+    }
+    
+    return {
+      averageTotal: averageTotal(),
+      averagePrice: averagePrice(),
+      averageAvailability: averageAvailability(),
+      averageComfortability: averageComfortability()
+    }
   })
 
-pubSchema
-  .virtual('averageRatingPrice')
-  .get(function () {
-    const priceArray = this.reviews.map(rating => {
-      return rating.subRating.price
-    })
-    //console.log('🚀 ~ file: pub.js ~ line 49 ~ priceArray', priceArray)
-    const sum = priceArray.reduce((acc, curr) => {
-      return acc + curr
-    }, 0)
-    const average = sum / priceArray.length
-    return !average ? 'is not yet rated' : average
 
-  })
-pubSchema
-  .virtual('averageRatingAvailability')
-  .get(function () {
-    const availabilityArray = this.reviews.map(rating => {
-      return rating.subRating.availability
-    })
-    //console.log('🚀 ~ file: pub.js ~ line 49 ~ availabilityArray', availabilityArray)
-    const sum = availabilityArray.reduce((acc, curr) => {
-      return acc + curr
-    }, 0)
-    const average = sum / availabilityArray.length
-    return !average ? 'is not yet rated' : average
+// // function getAverage (ratingToCalculateAverage) {
+// //   const ratingsArray = this.reviews.map((rating) => {
+// //     return rating.ratingToCalculateAverage
+// //   })
+// //   const sum = ratingsArray.reduce((acc, curr) => {
+// //     return acc + curr
+// //   }, 0)
+// //   const average = sum / ratingsArray.length
+// //   return !average ? 'is not yet rated' : average
+// // }
+// pubSchema
+//   .virtual('averageRatingPrice')
+//   .get(function () {
+    
+//     return {
 
-  })
-pubSchema
-  .virtual('averageRatingComfortability')
-  .get(function () {
-    const comfortabilityArray = this.reviews.map(rating => {
-      return rating.subRating.comfortability
-    })
-    //console.log('🚀 ~ file: pub.js ~ line 49 ~ comfortabilityArray', comfortabilityArray)
-    const sum = comfortabilityArray.reduce((acc, curr) => {
-      return acc + curr
-    }, 0)
-    const average = sum / comfortabilityArray.length
-    return !average ? 'is not yet rated' : average
+//     }
 
-  })
+
+//   })
+// pubSchema
+//   .virtual('averageRatingAvailability')
+//   .get(
+//   })
+// pubSchema
+//   .virtual('averageRatingComfortability')
+//   .get(function () {
+//     const comfortabilityArray = this.reviews.map(rating => {
+//       return rating.subRating.comfortability
+//     })
+//     const sum = comfortabilityArray.reduce((acc, curr) => {
+//       return acc + curr
+//     }, 0)
+//     const average = sum / comfortabilityArray.length
+//     return !average ? 'is not yet rated' : average
+
+//   })
 
 
 export default mongoose.model('Pub', pubSchema)
