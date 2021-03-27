@@ -73,7 +73,7 @@ pubSchema
     }
     
     return {
-      averageTotal: averageTotal(),
+      averageOverall: averageTotal(),
       averagePrice: averagePrice(),
       averageAvailability: averageAvailability(),
       averageComfortability: averageComfortability()
