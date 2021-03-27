@@ -14,6 +14,7 @@ import {
 
 //components
 import Header from '../Header'
+import PubComments from './PubComments'
 
 const PubShow = () => {
   const params = useParams()
@@ -187,52 +188,79 @@ const PubShow = () => {
           <div className="average-ratings-container">
             <div className="columns">
               <div className="column">
-                <p>
-                  <b>Availability</b>
-                </p>
-              </div>
-              <div className="column">{averageRatings.averageAvailability}</div>
-            </div>
-            <div className="columns">
-              <div className="column"></div>
-              <div className="column"></div>
-            </div>
-            <div className="columns">
-              <div className="column">
-                <p>
-                  <b>Comfortability</b>
-                </p>
-              </div>
-              <div className="column">
-                <div className="range">
-                  <input
-                    type="range"
-                    min="1"
-                    max="5"
-                    value={averageRatings.averageComfortability}
-                    className="slider"
-                    id="myRange"
-                  ></input>
-                  <p> {averageRatings.averageComfortability}</p>
+                <div className="columns">
+                  <div className="column">
+                    <p>
+                      <b>Availability</b>
+                    </p>
+                  </div>
+                  <div className="column">
+                    <div className="range">
+                      <progress
+                        type="range"
+                        min="0"
+                        max="5"
+                        value={averageRatings.averageAvailability}
+                        className="slider"
+                        id="myRange"
+                      ></progress>
+                      <p> {averageRatings.averageAvailability}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="columns">
+                  <div className="column">
+                    <p>
+                      <b>Comfortability</b>
+                    </p>
+                  </div>
+                  <div className="column">
+                    <div className="range">
+                      <progress
+                        type="range"
+                        min="0"
+                        max="5"
+                        value={averageRatings.averageComfortability.toFixed(1)}
+                        className="slider"
+                        id="myRange"
+                      ></progress>
+                      <p>{averageRatings.averageComfortability.toFixed(1)}</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="columns">
+                  <div className="column">
+                    <p>
+                      <b>Price</b>
+                    </p>
+                  </div>
+                  <div className="column">
+                    <div className="range">
+                      <progress
+                        type="range"
+                        min="0"
+                        max="5"
+                        value={averageRatings.averagePrice}
+                        className="slider"
+                        id="myRange"
+                      ></progress>
+                      <p> {averageRatings.averagePrice.toFixed(1)}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="columns">
-              <div className="column">
-                <p>
-                  <b>Price</b>
-                </p>
-              </div>
-              <div className="column">{averageRatings.averagePrice}</div>
+              <div className="column"></div>
             </div>
           </div>
-
           <div className="comments">
-            {reviews.map((review) => {
-              return <li key={review._id}>{review.text}</li>
-            })}
+            <PubComments reviews={reviews} />
+          </div>
+          <div className="reviews-button-container">
+            <button className="reviews-button button">{`Show all ${reviews.length} Reviews`}</button>
           </div>
         </section>
+        <hr />
       </div>
     </>
   )
