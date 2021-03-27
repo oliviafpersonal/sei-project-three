@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 
-const PubCard = ({ _id, nameOfPub, image, description, averageRating }) => {
+const PubCard = ({ _id, nameOfPub, image, description, averageRatings }) => {
   return (
     <div className="column">
       <div className="columns">
@@ -20,7 +20,7 @@ const PubCard = ({ _id, nameOfPub, image, description, averageRating }) => {
             <div className="rating-star">
               <FontAwesomeIcon icon={faStar} />
             </div>
-            <p>{averageRating}</p>
+            <p>{averageRatings.averageOverall}</p>
           </div>
         </div>
       </div>
