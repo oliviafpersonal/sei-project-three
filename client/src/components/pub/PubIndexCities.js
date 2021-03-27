@@ -7,6 +7,8 @@ import PubCard from './PubCard'
 const PubIndexCities = () => {
   const { city } = useParams()
 
+  const title = city[0].toUpperCase() + city.slice(1)
+
 
 
 
@@ -24,8 +26,11 @@ const PubIndexCities = () => {
   if (!pubs) return null
   console.log('pubs list>>>>', pubs)
   const newPubs = pubs.filter(pub => {
-    const cityToCompare = city.toLowercase()
-  }
+    const cityToCompare = city.toLowerCase()
+    const pubCity = (pub.address.city).toLowerCase()
+
+    return pubCity === cityToCompare
+  })
   
   return (
     <>
@@ -36,7 +41,7 @@ const PubIndexCities = () => {
           <div className="pub-index-container">
             <div className="pub-index-text">
               <p>{`${newPubs.length}+ pubs`}</p>
-              <h3>Pubs in London</h3>
+              <h3>Pubs in { title }</h3>
               <div className="pub-filter-buttons">
                 <button className="pub-filter-button button">
                   Outside Seating
