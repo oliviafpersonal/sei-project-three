@@ -14,6 +14,7 @@ import PubShow from './components/pub/PubShow'
 import PubSaved from './components/loggedin/PubSaved'
 import BecomeLandlord from './components/auth/BecomeLandlord'
 import Profile from './components/loggedin/Profile'
+import PubIndexCities from './components/pub/PubIndexCities'
 
 const App = () => {
   return (
@@ -33,6 +34,9 @@ const App = () => {
         </Route>
         <Route exact path="/pubs/:id">
           <PubShow />
+        </Route>
+        <Route exact path="/pubs/filter-pubs/:city">
+          <PubIndexCities />
         </Route>
         <Route exact path="/savedpubs">
           ( not sure what end point this should be)

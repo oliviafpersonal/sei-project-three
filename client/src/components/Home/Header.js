@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBeer, faSearch } from '@fortawesome/free-solid-svg-icons'
 
@@ -8,6 +8,21 @@ import { faBeer, faSearch } from '@fortawesome/free-solid-svg-icons'
 import Hamburger from '../Hamburger'
 
 const Header = () => {
+  const [filterValue, setFilterValue] = useState('')
+  const history = useHistory()
+  const handleChange = (event) => {
+    const value = event.target.value
+    setFilterValue(value)
+
+  }
+  const navigateToFiltered = (city) => {
+    history.push(`/pubs/filter-pubs/${city}`)
+  }
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    navigateToFiltered(filterValue)
+  }
+
   return (
     <>
       <section className="hero is-large header-style">
@@ -33,12 +48,13 @@ const Header = () => {
         </header>
         <div className="hero-body header-bg">
           <div className="search-bar">
-            <form className="search-container">
+            <form className="search-container" onSubmit={handleSubmit}>
               <div className="location">
                 <label className="location-label">Location</label>
                 <input
                   placeholder="Where are you drinking?"
                   className="search-input"
+                  onChange={handleChange}
                 ></input>
               </div>
               <button className="search-button button">
