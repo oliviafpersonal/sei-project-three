@@ -313,7 +313,7 @@ footer {
 }
 .rating-star2 {
   color: $brand-green;
-  padding-top: 0.6rem;
+  padding-top: 0.4rem;
 }
 
 //* Pub Show
@@ -384,25 +384,75 @@ footer {
 
 .slider {
   -webkit-appearance: none; /* Override default CSS styles */
-  appearance: none;
-  border-radius: 30px;
+  width: 50%;
   height: 5px; /* Specified height */
-  background: #1a1a1a; /* Grey background */
+
   outline: none; /* Remove outline */
   opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
   -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
   transition: opacity 0.2s;
-  margin-top: 0.5rem;
+  border-radius: 20px;
   margin-right: 0.5rem;
+  margin-top: 0.4rem;
 }
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
-  appearance: none;
+progress {
+  -webkit-appearance: none;
+  background: #dddddd;
+}
 
-  background: none; /* Green background */
+progress[value]::-webkit-progress-bar {
+  background: none;
 }
+progress[value]::-webkit-progress-value {
+  background: #2a2a2a;
+  border-radius: 20px;
+}
+
 .range {
   display: flex;
+  font-size: 0.8em;
+  font-weight: 600;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px 20px;
+}
+.review-image {
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  margin-right: 1rem;
+}
+.review-image img {
+  border-radius: 50px;
+}
+
+.review-details-container {
+  display: flex;
+
+  margin-bottom: 1rem;
+}
+.review-date {
+  color: #989898;
+  font-weight: 100;
+}
+.comment {
+  font-size: 1.1em;
+}
+.reviews-button-container {
+  margin-top: 3rem;
+}
+
+.reviews-button {
+  font-weight: 700;
+  padding: 1.5rem 2rem;
+  border-radius: 10px;
+}
+.reviews-button:hover {
+  background: #f0f0f0;
 }
 
 // * login
