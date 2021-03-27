@@ -25,7 +25,7 @@ const PubShow = () => {
     nameOfPub,
     image,
     description,
-    averageRating,
+    averageRatings,
     address,
     isPetFriendly,
     isOutsideSeating,
@@ -60,7 +60,7 @@ const PubShow = () => {
                 <div className="rating-star">
                   <FontAwesomeIcon icon={faStar} />
                 </div>
-                <p>{averageRating}</p>
+                <p>{averageRatings.averageOverall}</p>
                 <p className="address">
                   {`${address.line1} 
                     ${address.line2} 
@@ -175,22 +175,59 @@ const PubShow = () => {
         </div>
         <hr />
         <section className="reviews">
-          <div className="card-rating">
-            <div className="rating-star">
-              <FontAwesomeIcon icon={faStar} />
+          <div className="card-rating ">
+            <div className="rating-star2">
+              <FontAwesomeIcon icon={faStar} className="fa-1x" />
             </div>
-            <p>{averageRating}</p>
+            <p className="overall-rating">
+              {averageRatings.averageOverall}
+              {`(${reviews.length} reviews)`}
+            </p>
           </div>
-          <div>
-            <p>Availability</p>
+          <div className="average-ratings-container">
+            <div className="columns">
+              <div className="column">
+                <p>
+                  <b>Availability</b>
+                </p>
+              </div>
+              <div className="column">{averageRatings.averageAvailability}</div>
+            </div>
+            <div className="columns">
+              <div className="column"></div>
+              <div className="column"></div>
+            </div>
+            <div className="columns">
+              <div className="column">
+                <p>
+                  <b>Comfortability</b>
+                </p>
+              </div>
+              <div className="column">
+                <div className="range">
+                  <input
+                    type="range"
+                    min="1"
+                    max="5"
+                    value={averageRatings.averageComfortability}
+                    className="slider"
+                    id="myRange"
+                  ></input>
+                  <p> {averageRatings.averageComfortability}</p>
+                </div>
+              </div>
+            </div>
+            <div className="columns">
+              <div className="column">
+                <p>
+                  <b>Price</b>
+                </p>
+              </div>
+              <div className="column">{averageRatings.averagePrice}</div>
+            </div>
           </div>
-          <div>
-            <p>Comfortability</p>
-          </div>
-          <div>
-            <p>Price</p>
-          </div>
-          <div>
+
+          <div className="comments">
             {reviews.map((review) => {
               return <li key={review._id}>{review.text}</li>
             })}
