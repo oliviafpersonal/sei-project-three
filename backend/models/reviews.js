@@ -7,7 +7,9 @@ const reviewSchema = new mongoose.Schema({
     comfortability: { type: Number, required: true }
   },
   text: { type: String, maxlength: 300, default: 'No comments submitted' },
-  reviewOwner: { type: mongoose.Schema.Types.ObjectID, ref: 'User' }
+  reviewOwner: { type: mongoose.Schema.Types.ObjectID, ref: 'User' },
+  reviewOwnerName: { type: String, ref: 'User' },
+  reviewOwnerImage: { type: String, ref: 'User' }
 }, {
   timestamps: true
 })

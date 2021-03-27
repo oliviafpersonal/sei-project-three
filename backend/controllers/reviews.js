@@ -5,6 +5,9 @@ import isEqual from 'lodash.isequal'
 export const addReviewtoPub = async (req, res) => {
   try {
     const userID = req.currentUser._id
+    const userName = req.currentUser.username
+    const userImage = req.currentUser.profileImage
+    console.log('🚀 ~ file: reviews.js ~ line 9 ~ addReviewtoPub ~ userName', userName)
     const findUser = await User.findById(userID)
     if (findUser.isLandlord && !findUser.isUser) throw new  Error('user is a Landlord, Landlords cannot review pubs')
     else if (findUser.isLandlord && findUser.isUser) console.log('user is both Landlord and User, access approved')
@@ -15,7 +18,7 @@ export const addReviewtoPub = async (req, res) => {
     if (isEqual(pub.pubOwner, userID)) {
       throw new Error('user is pub owner - cannot review your own pubs')
     } else {
-      const newReview = { ...req.body, reviewOwner: userID }
+      const newReview = { ...req.body, reviewOwner: userID, reviewOwnerName: userName, reviewOwnerImage: userImage }
       pub.reviews.push(newReview)
       await pub.save()
       return res.status(200).json(pub)
