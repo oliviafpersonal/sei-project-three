@@ -465,6 +465,76 @@ progress[value]::-webkit-progress-value {
   border-radius: 25px;
 }
 
+// * Become Landlord
+
+.landlord-header-bg {
+  background: 
+    /* top, transparent red, faked with gradient */ radial-gradient(
+      circle at top left,
+      rgba(0, 0, 0, 0.7),
+      rgba(255, 255, 255, 0)
+    ),
+    /* bottom, image */
+      url('https://images.pexels.com/photos/63633/bar-local-cong-ireland-63633.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260'),
+    no-repeat;
+  background-size: cover;
+  width: 100%;
+}
+
+.landlord-hero-body {
+  color: white;
+  width: 50%;
+  margin-left: 1rem;
+}
+.landlord-hero-body h1 {
+  color: white;
+  font-size: 3em;
+}
+.landlord-hero-body h2,
+h3 {
+  color: white;
+  font-size: 1.2em;
+  letter-spacing: 3px;
+}
+
+.landlord-get-started {
+  font-weight: 700;
+  padding: 1.5rem 2rem;
+  border-radius: 10px;
+  border: none;
+  background: $brand-green;
+  color: white;
+  margin-bottom: 2rem;
+}
+.landlord-get-started:hover {
+  color: white;
+  background: #4a7d67;
+}
+.landlord-get-started:focus {
+  color: white;
+  background: #4a7d67;
+}
+.landlord-boxes {
+  margin-top: 3rem;
+}
+
+.lanlord-box {
+  padding: 2rem;
+  font-weight: 100;
+  margin: 1rem;
+}
+.landlord-content {
+  width: 70%;
+  margin: 0 auto;
+}
+.landlord-box h1 {
+  font-weight: 100;
+}
+.landlord-box h5 {
+  font-weight: 700;
+  font-size: 1.3em;
+}
+
 // * mobile optimisation
 
 @media only screen and (max-width: 765px) {
