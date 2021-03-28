@@ -5,7 +5,7 @@ import { convertTimestamp } from '../../helpers/helperFunctions'
 import Header from '../Header'
 //import { ImageUploadField } from '../ImageUploadField'
 
-
+/*eslint-disable no-unused-vars*/
 
 const Profile = () => {
   // const [formdata, setFormdata] = useState({
@@ -35,17 +35,21 @@ const Profile = () => {
     getUser()
   }, [])
 
-  const handleEditButton = (event) => {
-    console.log(event.value)
-    setIsEditActive(!isEditActive)
-    console.log(isEditActive)
+  const handleToggle = (event) => {
+    const buttonValue = event.target.value
+    buttonValue === 'edit-profile' ? setIsEditActive(!isEditActive)
+      : buttonValue === 'delete-proile' ? setIsDeleteActive(!isDeleteActive)
+        : setIsEditActive(!isEditActive), setIsDeleteActive(!isDeleteActive)
   }
-  const handleDeleteButton = () => {
-    setIsDeleteActive(!isDeleteActive)
-  }
-  const cancelEdit = () => {
+
+  const cancelEdit = (event) => {
     //do something to clear the form data
-    handleEditButton()
+    handleToggle(event)
+  }
+
+  const submitEdit = async (event) => {
+    console.log(event.target)
+    event.preventDefault()
   }
 
   if (!user) return null
@@ -73,77 +77,16 @@ const Profile = () => {
               <div>Member Since</div>
               <p>{convertTimestamp(createdAt)}</p>
             </div>
-            <button className="edit-profile-button" value="edit-profile" onClick={handleEditButton}>Edit My Profile</button>
-            <button className="delete-account-button" onClick={handleDeleteButton}>Delete My Account</button>
+            <button className="edit-profile-button" value="edit-profile" onClick={handleToggle}>Edit My Profile</button>
+            <button className="delete-account-button" value="delete-profile" onClick={handleToggle}>Delete My Account</button>
           </div>
         </div>
       </section>
       <div className={`modal ${isEditActive && 'is-active'}` }>
         <div className="modal-background"></div>
         <div className="modal-content">
-          <div className="field">
-            <label className="label">Name</label>
-            <div className="control">
-              <input className="input" type="text" placeholder="Text input" />
-            </div>
-          </div>
-
-          <div className="field">
-            <label className="label">Username</label>
-            <div className="control has-icons-left has-icons-right">
-              <input className="input is-success" type="text" placeholder="Text input" value="bulma" />
-              <span className="icon is-small is-left">
-                <i className="fas fa-user"></i>
-              </span>
-              <span className="icon is-small is-right">
-                <i className="fas fa-check"></i>
-              </span>
-            </div>
-            <p className="help is-success">This username is available</p>
-          </div>
-
-          <div className="field">
-            <label className="label">Email</label>
-            <div className="control has-icons-left has-icons-right">
-              <input className="input is-danger" type="email" placeholder="Email input" value="hello@" />
-              <span className="icon is-small is-left">
-                <i className="fas fa-envelope"></i>
-              </span>
-              <span className="icon is-small is-right">
-                <i className="fas fa-exclamation-triangle"></i>
-              </span>
-            </div>
-            <p className="help is-danger">This email is invalid</p>
-          </div>
-
-          <div className="field">
-            <label className="label">Subject</label>
-            <div className="control">
-              <div className="select">
-                <select>
-                  <option>Select dropdown</option>
-                  <option>With options</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div className="field">
-            <label className="label">Message</label>
-            <div className="control">
-              <textarea className="textarea" placeholder="Textarea"></textarea>
-            </div>
-          </div>
-          <div className="field is-grouped">
-            <div className="control">
-              <button className="button is-link">Submit</button>
-            </div>
-            <div className="control">
-              <button className="button is-link is-light" onClick={cancelEdit}>Cancel</button>
-            </div>
-          </div>
         </div>
-        <button className="modal-close is-large" aria-label="close" onClick={handleEditButton}></button>
+        <button className="modal-close is-large" aria-label="close" onClick={handleToggle}></button>
       </div>
       <section className="account-activity-section">
         <h2>Activity</h2>
