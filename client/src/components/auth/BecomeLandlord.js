@@ -21,7 +21,11 @@ const BecomeLandlord = () => {
             <br />
             <h1>List your Pub on Pubhub and earn up to £200 a month*</h1>
             <br />
-            <button className="landlord-get-started button">Get Started</button>
+            <Link to={'/landlord/signup'}>
+              <button className="landlord-get-started button">
+                Get Started
+              </button>
+            </Link>
             <br />
             <p>How we estimate your earnings potential</p>
           </div>

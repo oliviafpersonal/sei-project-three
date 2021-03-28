@@ -213,7 +213,15 @@ h3 {
 }
 
 .share-box {
-  background: url('./assets/share.png');
+  // background: url('./assets/share.png');
+
+  background: radial-gradient(
+      circle at top left,
+      rgba(0, 0, 0, 0.4),
+      rgba(255, 255, 255, 0)
+    ),
+    /* bottom, image */ url('./assets/share.png'), no-repeat;
+
   background-size: cover;
   width: 90%;
 
@@ -221,7 +229,14 @@ h3 {
   border-radius: 20px;
   margin-top: 4rem;
   padding: 3rem;
+  padding-bottom: 10vh;
   color: white;
+  padding-top: 8rem;
+}
+.share-box button {
+  border-radius: 10px;
+  margin-top: 2rem;
+  padding: 1.3rem 1.7rem;
 }
 .share-box h1 {
   font-size: 3em;
@@ -533,6 +548,22 @@ h3 {
 .landlord-box h5 {
   font-weight: 700;
   font-size: 1.3em;
+}
+
+// * Landlord Sign
+
+.landlord-sign-container {
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 10vh;
+}
+.landlord-sign-up h1,
+h2 {
+  font-weight: 100;
+  color: #454545;
+}
+.landlord-sign-up h2 {
+  font-size: 1.5em;
 }
 
 // * mobile optimisation

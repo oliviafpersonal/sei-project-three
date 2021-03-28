@@ -40,14 +40,12 @@ const Home = () => {
                 <img src="https://www.telegraphmoorgate.co.uk/-/media/sites/microsites/t/the-telegraph-_-p112/images/2019-ray/drink-gallery/01-telegraph-17092019-93.ashx?w=1024"></img>
                 <p>Cool Pubs</p>
               </Link>
-
             </div>
             <div className="column">
               <Link to="/pubs">
                 <img src="https://static.standard.co.uk/s3fs-public/thumbnails/image/2018/12/06/11/the-old-bank-of-england-15.jpg?width=990"></img>
                 <p>Old pubs</p>
               </Link>
-
             </div>
             <div className="column">
               <Link to="/pubs">
@@ -63,6 +61,7 @@ const Home = () => {
               <div className="column">
                 <div className="share-text">
                   <h1>Your world is worth sharing</h1>
+                  <br />
                   <p>Turn your pub into your next opportunity</p>
                   <Link to="/landlord">
                     <button className="button">Become a Landlord</button>
