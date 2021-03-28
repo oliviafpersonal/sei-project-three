@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { convertTimestamp } from '../../helpers/helperFunctions'
 import Header from '../Header'
-//import { Link } from 'react-router-dom'
 import { ImageUploadField } from '../ImageUploadField'
 
 
@@ -14,7 +14,7 @@ const Profile = () => {
   console.log(setFormdata)
 
 
-  const userID = '605fad696b0c0225f0e248a0'
+  const userID = '6060a178fc05a32fdf1cb2d8'
   
   useEffect(() => {
     const getUser = async () => {
@@ -32,32 +32,32 @@ const Profile = () => {
   const handleImageUrl = url => {
     setFormdata({ ...formdata, profileImage: url })
   }
-
+  
   if (!user) return null
   console.log(user)
+  const { isLandlord, profileImage, username, email, createdAt } = user
   return (
 
     <>
-      {/* { const {isLandlord, profileImage, username, email}} */}
       <Header />
       <section className="account-security-section">
         <h2>Account and Security</h2>
         <div className="account-card">
           <div className="account-card-left">
-            <img src="" alt="user profile image"/>
+            <img src={profileImage} alt="user profile image"/>
           </div>
           <div className="account-card-right">
             <div className="account-card-sub">
               <div>Username</div>
-              <p>enter username here</p>
+              <p>{username}</p>
             </div>
             <div className="account-card-sub">
               <div>Email</div>
-              <p>enter email here</p>
+              <p>{email}</p>
             </div>
             <div className="account-card-sub">
               <div>Member Since</div>
-              <p>enter accounted created info here</p>
+              <p>{convertTimestamp(createdAt)}</p>
             </div>
             <button className="edit-profile-button">Edit My Profile</button>
             <button className="delete-account-button">Delete My Account</button>
@@ -70,15 +70,19 @@ const Profile = () => {
         <p>use history to display</p>
         <div>Last Review Submitted</div>
       </section>
-      <section className="account-favourites-section">
-        <h2>Favourites</h2>
-      </section>
-      <section className="account-pub-crawls">
-        <h2>Saved Crawls</h2>
-      </section>
-      <section className="account-owned-pubs">
-        <h2>Your Pubs</h2>
-      </section>
+      {isLandlord && 
+      <>
+        <section className="account-favourites-section">
+          <h2>Favourites</h2>
+        </section>
+        <section className="account-pub-crawls">
+          <h2>Saved Crawls</h2>
+        </section>
+        <section className="account-owned-pubs">
+          <h2>Your Pubs</h2>
+        </section>
+      </>
+      }
 
       <form onSubmit={handleSubmit}>
         <div>
