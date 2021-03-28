@@ -15,7 +15,7 @@ import {
 //components
 import Header from '../Header'
 import PubComments from './PubComments'
-import { userIsAuthenticated } from '../../helpers/auth'
+import { userIsAuthenticated, userIsOwner } from '../../helpers/auth'
 
 const PubShow = () => {
   const params = useParams()
@@ -34,9 +34,7 @@ const PubShow = () => {
     isFoodServed,
     isLiveSports,
     reviews,
-
-
-
+    pubOwner,
   } = pub
 
   console.log(pub)
@@ -278,6 +276,11 @@ const PubShow = () => {
           <div className="reviews-button-container">
             <button className="reviews-button button">{`Show all ${reviews.length} Reviews`}</button>
           </div>
+          {userIsAuthenticated() && !userIsOwner(pubOwner) &&
+            <div className="reviews-button-container">
+              <button className="reviews-button button">Submit a Review</button>
+            </div>
+          }
         </section>
         <hr />
 
