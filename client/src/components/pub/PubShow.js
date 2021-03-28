@@ -281,7 +281,7 @@ const PubShow = () => {
         </section>
         <hr />
 
-        {userIsAuthenticated && <p>hello</p>}
+        {!userIsAuthenticated() && <p>hello</p>}
       </div>
     </>
   )

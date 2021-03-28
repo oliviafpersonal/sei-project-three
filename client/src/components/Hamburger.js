@@ -19,7 +19,7 @@ const Hamburger = () => {
   const location = useLocation()
   useEffect(() => {}, [location.pathname])
 
-  console.log(userIsAuthenticated)
+
 
   return (
     <>
@@ -46,19 +46,23 @@ const Hamburger = () => {
               Register
             </Link>
 
-            <hr className="dropdown-divider" />
 
-            <Link to="/profile" className="dropdown-item">
-              Profile
-            </Link>
-            {userIsAuthenticated && (
+            {userIsAuthenticated() && 
+            <>
+              <hr className="dropdown-divider" />
+              <Link to="/profile" className="dropdown-item">
+                Profile
+              </Link>
+            </>
+            }
+            {userIsAuthenticated() && 
               <>
                 <hr className="dropdown-divider" />
                 <div className="dropdown-item" onClick={handleLogout}>
                   <a>Logout</a>
                 </div>
               </>
-            )}
+            }
           </div>
         </div>
       </div>
