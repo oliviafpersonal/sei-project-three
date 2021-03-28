@@ -13,6 +13,8 @@ const userSchema = new mongoose.Schema({
   isLandlord: { type: Boolean, required: true },
   isUser: { type: Boolean, required: true, default: true },
   isFirstTime: { type: Boolean, required: true, default: true }
+}, {
+  timestamps: true
 })
 //*has access to comments, can CRUD comments and self
 

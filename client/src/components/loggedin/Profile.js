@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import Header from '../Header'
 //import { Link } from 'react-router-dom'
 import { ImageUploadField } from '../ImageUploadField'
@@ -6,11 +7,22 @@ import { ImageUploadField } from '../ImageUploadField'
 
 
 const Profile = () => {
+  const [user, setUser] = useState({})
   const [formdata, setFormdata] = useState({
     profileImage: '',
   })
-
   console.log(setFormdata)
+
+
+  const userID = '605fad696b0c0225f0e248a0'
+  
+  useEffect(() => {
+    const getUser = async () => {
+      const { data } = await axios.get(`/api/users/${userID}`)
+      setUser(data)
+    }
+    getUser()
+  }, [])
 
   const handleSubmit = event => {
     event.preventDefault()
@@ -21,27 +33,36 @@ const Profile = () => {
     setFormdata({ ...formdata, profileImage: url })
   }
 
-
+  if (!user) return null
+  console.log(user)
   return (
 
     <>
+      {/* { const {isLandlord, profileImage, username, email}} */}
       <Header />
       <section className="account-security-section">
         <h2>Account and Security</h2>
-        <div className="account-security-section-sub">
-          <div>Username</div>
-          <p>enter username here</p>
+        <div className="account-card">
+          <div className="account-card-left">
+            <img src="" alt="user profile image"/>
+          </div>
+          <div className="account-card-right">
+            <div className="account-card-sub">
+              <div>Username</div>
+              <p>enter username here</p>
+            </div>
+            <div className="account-card-sub">
+              <div>Email</div>
+              <p>enter email here</p>
+            </div>
+            <div className="account-card-sub">
+              <div>Member Since</div>
+              <p>enter accounted created info here</p>
+            </div>
+            <button className="edit-profile-button">Edit My Profile</button>
+            <button className="delete-account-button">Delete My Account</button>
+          </div>
         </div>
-        <div className="account-security-section-sub">
-          <div>Email</div>
-          <p>enter email here</p>
-        </div>
-        <div className="account-security-section-sub">
-          <div>Member Since</div>
-          <p>enter accounted created info here</p>
-        </div>
-        <button className="edit-profile-button">Edit My Profile</button>
-        <button className="delete-account-button">Delete My Account</button>
       </section>
       <section className="account-activity-section">
         <h2>Activity</h2>
