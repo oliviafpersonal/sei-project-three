@@ -3,24 +3,30 @@ import React, { useEffect, useState } from 'react'
 import { getPayloadFromToken } from '../../helpers/auth'
 import { convertTimestamp } from '../../helpers/helperFunctions'
 import Header from '../Header'
-import { ImageUploadField } from '../ImageUploadField'
+//import { ImageUploadField } from '../ImageUploadField'
 
 
 
 const Profile = () => {
-  const [user, setUser] = useState({})
-  const [formdata, setFormdata] = useState({
-    profileImage: '',
-  })
-  const [isEditActive, setIsEditActive] = useState(false)
-  console.log(setFormdata)
+  // const [formdata, setFormdata] = useState({
+  //   profileImage: '',
+  // })
+  // const handleSubmit = event => {
+  //   event.preventDefault()
+  //   window.alert(`Submitting ${JSON.stringify(formdata, null, 2)}`)
+  // }
+      
+  // const handleImageUrl = url => {
+  //   setFormdata({ ...formdata, profileImage: url })
+  // }
+  // console.log(setFormdata)
 
+  const [user, setUser] = useState({})
+  const [isEditActive, setIsEditActive] = useState(false)
+  const [isDeleteActive, setIsDeleteActive] = useState(false)
 
   const userID = getPayloadFromToken().sub
-  const handleEditButton = () => {
-    setIsEditActive(!isEditActive)
-    console.log(isEditActive)
-  }
+  
   useEffect(() => {
     const getUser = async () => {
       const { data } = await axios.get(`/api/users/${userID}`)
@@ -29,17 +35,20 @@ const Profile = () => {
     getUser()
   }, [])
 
-  const handleSubmit = event => {
-    event.preventDefault()
-    window.alert(`Submitting ${JSON.stringify(formdata, null, 2)}`)
+  const handleEditButton = (event) => {
+    console.log(event.value)
+    setIsEditActive(!isEditActive)
+    console.log(isEditActive)
+  }
+  const handleDeleteButton = () => {
+    setIsDeleteActive(!isDeleteActive)
+  }
+  const cancelEdit = () => {
+    //do something to clear the form data
+    handleEditButton()
   }
 
-  const handleImageUrl = url => {
-    setFormdata({ ...formdata, profileImage: url })
-  }
-  
   if (!user) return null
-  console.log(user)
   const { isLandlord, profileImage, username, email, createdAt } = user
   return (
 
@@ -64,8 +73,8 @@ const Profile = () => {
               <div>Member Since</div>
               <p>{convertTimestamp(createdAt)}</p>
             </div>
-            <button className="edit-profile-button" onClick={handleEditButton}>Edit My Profile</button>
-            <button className="delete-account-button">Delete My Account</button>
+            <button className="edit-profile-button" value="edit-profile" onClick={handleEditButton}>Edit My Profile</button>
+            <button className="delete-account-button" onClick={handleDeleteButton}>Delete My Account</button>
           </div>
         </div>
       </section>
@@ -125,35 +134,12 @@ const Profile = () => {
               <textarea className="textarea" placeholder="Textarea"></textarea>
             </div>
           </div>
-
-          <div className="field">
-            <div className="control">
-              <label className="checkbox">
-                <input type="checkbox" />
-      I agree to the <a href="#">terms and conditions</a>
-              </label>
-            </div>
-          </div>
-
-          <div className="field">
-            <div className="control">
-              <label className="radio">
-                <input type="radio" name="question" />
-      Yes
-              </label>
-              <label className="radio">
-                <input type="radio" name="question" />
-      No
-              </label>
-            </div>
-          </div>
-
           <div className="field is-grouped">
             <div className="control">
               <button className="button is-link">Submit</button>
             </div>
             <div className="control">
-              <button className="button is-link is-light">Cancel</button>
+              <button className="button is-link is-light" onClick={cancelEdit}>Cancel</button>
             </div>
           </div>
         </div>
@@ -184,7 +170,7 @@ const Profile = () => {
       </>
       }
 
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}>
         <div>
           <ImageUploadField
             value={formdata.profileImage}
@@ -192,7 +178,7 @@ const Profile = () => {
             handleImageUrl={handleImageUrl}
           />
         </div>
-      </form>
+      </form> */}
     </>
   )
 }
