@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { useHistory } from 'react-router-dom'
 
+//prettier-ignore
 const Login = () => {
   const [formData, setFormData] = useState({
     email: '',
@@ -19,7 +20,7 @@ const Login = () => {
     event.preventDefault()
     const response = await axios.post('/api/login', formData)
     window.localStorage.setItem('token', response.data.token)
-    history.push('/profile')
+    history.push('/pubs')
     console.log(response)
   }
 
@@ -43,7 +44,7 @@ const Login = () => {
                     value={formData.email}
                   />
                 </div>
-              </div >
+              </div>
               <div className="field">
                 <label className="label">Password</label>
                 <div className="control">
@@ -56,16 +57,16 @@ const Login = () => {
                     value={formData.password}
                   />
                 </div>
-              </div >
+              </div>
               <div className="field">
                 <button type="submit" className="button is-fullwidth">
                   Log Me In!
                 </button>
-              </div >
-            </form >
-          </div >
-        </div >
-      </section >
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
     </>
   )
 }

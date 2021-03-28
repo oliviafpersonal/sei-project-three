@@ -386,6 +386,7 @@ footer {
 
 .slider {
   -webkit-appearance: none; /* Override default CSS styles */
+  -moz-appearance: none;
   width: 50%;
   height: 5px; /* Specified height */
 
@@ -399,6 +400,7 @@ footer {
 }
 progress {
   -webkit-appearance: none;
+  -moz-appearance: none;
   background: #dddddd;
 }
 
