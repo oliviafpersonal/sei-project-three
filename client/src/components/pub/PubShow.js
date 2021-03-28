@@ -15,6 +15,7 @@ import {
 //components
 import Header from '../Header'
 import PubComments from './PubComments'
+import { userIsAuthenticated } from '../../helpers/auth'
 
 const PubShow = () => {
   const params = useParams()
@@ -52,6 +53,11 @@ const PubShow = () => {
   return (
     <>
       <Header />
+
+      {console.log(
+        'typeofe averag>>>>',
+        typeof averageRatings.averageComfortability === 'string'
+      )}
       <div className="pub-show-container">
         <div className="section">
           <div className="columns">
@@ -200,7 +206,11 @@ const PubShow = () => {
                         type="range"
                         min="0"
                         max="5"
-                        value={averageRatings.averageAvailability}
+                        value={
+                          typeof averageRatings.averageAvailability === 'string'
+                            ? 0
+                            : averageRatings.averageAvailability.toFixed(1)
+                        }
                         className="slider"
                         id="myRange"
                       ></progress>
@@ -221,7 +231,12 @@ const PubShow = () => {
                         type="range"
                         min="0"
                         max="5"
-                        value={averageRatings.averageComfortability}
+                        value={
+                          typeof averageRatings.averageComfortability ===
+                          'string'
+                            ? 0
+                            : averageRatings.averageComfortability.toFixed(1)
+                        }
                         className="slider"
                         id="myRange"
                       ></progress>
@@ -241,7 +256,11 @@ const PubShow = () => {
                         type="range"
                         min="0"
                         max="5"
-                        value={averageRatings.averagePrice}
+                        value={
+                          typeof averageRatings.averagePrice === 'string'
+                            ? 0
+                            : averageRatings.averagePrice.toFixed(1)
+                        }
                         className="slider"
                         id="myRange"
                       ></progress>
@@ -261,6 +280,8 @@ const PubShow = () => {
           </div>
         </section>
         <hr />
+
+        {userIsAuthenticated && <p>hello</p>}
       </div>
     </>
   )

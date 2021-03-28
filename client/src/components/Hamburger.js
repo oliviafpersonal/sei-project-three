@@ -1,11 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faUserCircle } from '@fortawesome/free-solid-svg-icons'
-import { Link } from 'react-router-dom'
+import { Link, useHistory, useLocation } from 'react-router-dom'
+import { userIsAuthenticated } from '../helpers/auth'
+
 const Hamburger = () => {
+  const history = useHistory()
+
   const clickHandler = (e) => {
     e.currentTarget.classList.toggle('is-active')
   }
+
+  const handleLogout = () => {
+    window.localStorage.removeItem('token')
+    history.push('/')
+  }
+
+  const location = useLocation()
+  useEffect(() => {}, [location.pathname])
+
+  console.log(userIsAuthenticated)
 
   return (
     <>
@@ -24,9 +38,7 @@ const Hamburger = () => {
         </div>
         <div className="dropdown-menu" id="dropdown-menu1" role="menu">
           <div className="dropdown-content dropdown-shape">
-
-
-            <Link to="/login" className="dropdown-item" >
+            <Link to="/login" className="dropdown-item">
               Login
             </Link>
 
@@ -39,6 +51,14 @@ const Hamburger = () => {
             <Link to="/profile" className="dropdown-item">
               Profile
             </Link>
+            {userIsAuthenticated && (
+              <>
+                <hr className="dropdown-divider" />
+                <div className="dropdown-item" onClick={handleLogout}>
+                  <a>Logout</a>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>

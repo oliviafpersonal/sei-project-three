@@ -72,23 +72,23 @@ pubSchema.virtual('averageRatings').get(function () {
     averageComfortability: averageComfortability()
   }
 })
-pubSchema.virtual('locationCoordinates').get(async function () {
-  const input = this.address.postCode
-  if (!input) return null
-  const externalData = async () => {
-    const { data } = await axios.get(
-      `http://api.getthedata.com/postcode/${input}`
-    )
-    const lat = data.data.latitude
-    const long = data.data.longitude
-    console.log(lat, long)
-    return { longitude: Number(long), latitude: Number(lat) }
-  }
-  const coordinateObject = await externalData()
-  console.log(
-    '🚀 ~ file: pub.js ~ line 100 ~ coordinateObject',
-    coordinateObject
-  )
-  return coordinateObject
-})
+// pubSchema.virtual('locationCoordinates').get(async function () {
+//   const input = this.address.postCode
+//   if (!input) return null
+//   const externalData = async () => {
+//     const { data } = await axios.get(
+//       `http://api.getthedata.com/postcode/${input}`
+//     )
+//     const lat = data.data.latitude
+//     const long = data.data.longitude
+//     console.log(lat, long)
+//     return { longitude: Number(long), latitude: Number(lat) }
+//   }
+//   const coordinateObject = await externalData()
+//   console.log(
+//     '🚀 ~ file: pub.js ~ line 100 ~ coordinateObject',
+//     coordinateObject
+//   )
+//   return coordinateObject
+// })
 export default mongoose.model('Pub', pubSchema)
