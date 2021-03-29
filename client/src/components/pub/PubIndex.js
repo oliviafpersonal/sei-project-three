@@ -134,12 +134,13 @@ const PubIndex = () => {
             <div className="pub-index-text">
               <p>{`${
                 //prettier-ignore
-                sports ? isSports
-                  : pets ? isPets
-                    : seats ? isSeating
-                      : food ? isFood
-                        : pubs
-                          .length
+                (
+                  sports ? isSports
+                    : pets ? isPets
+                      : seats ? isSeating
+                        : food ? isFood
+                          : pubs)
+                  .length
               }+ pubs`}</p>
               <h3>Pubs in London</h3>
               <div className="pub-filter-buttons">
