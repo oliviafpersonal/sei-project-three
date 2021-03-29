@@ -15,13 +15,27 @@ import {
 //components
 import Header from '../Header'
 import PubComments from './PubComments'
-import { userIsAuthenticated } from '../../helpers/auth'
+import { userIsAuthenticated, userIsOwner } from '../../helpers/auth'
+import Review from '../Forms/Review'
+import { displayModal } from '../../helpers/helperFunctions'
+import ModalDummy from '../Forms/ModalDummy'
+
 
 const PubShow = () => {
-  const params = useParams()
-
+  const { id } = useParams()
+  const [isSubmitActive, setIsSubmitActive] = useState(false)
+  const [isShowReviewsActive, setIsShowReviewsActive] = useState(false)
   const [pub, setPub] = useState('')
 
+
+  const handleButtonToggle = (event) => {
+    const buttonName = event.target.name
+    buttonName === 'show-reviews-button' ? setIsShowReviewsActive(!isShowReviewsActive)
+      : buttonName === 'submit-reviews-button' ?
+        setIsSubmitActive(!isSubmitActive)
+        : (setIsSubmitActive(false), setIsShowReviewsActive(false))
+  }
+  console.log(id)
   //prettier-ignore
   const {
     nameOfPub,
@@ -34,20 +48,23 @@ const PubShow = () => {
     isFoodServed,
     isLiveSports,
     reviews,
-
-
-
+    pubOwner,
   } = pub
 
   console.log(pub)
 
   useEffect(() => {
     const getData = async () => {
-      const response = await axios.get(`/api/pubs/${params.id}`)
+      const response = await axios.get(`/api/pubs/${id}`)
       setPub(response.data)
     }
     getData()
   }, [])
+
+  const handleToggle = (event) => {
+    event.preventDefault()
+    setIsSubmitActive(!isSubmitActive)
+  }
 
   if (!pub) return null
   return (
@@ -276,13 +293,23 @@ const PubShow = () => {
             <PubComments reviews={reviews} />
           </div>
           <div className="reviews-button-container">
-            <button className="reviews-button button">{`Show all ${reviews.length} Reviews`}</button>
+            <button className="reviews-button button" name="show-reviews-button" onClick={handleButtonToggle}>{`Show all ${reviews.length} Reviews`}</button> 
+            {displayModal(isShowReviewsActive, ModalDummy, handleButtonToggle)}
           </div>
+          {userIsAuthenticated() && !userIsOwner(pubOwner) &&
+            <>
+              <div className="reviews-button-container">
+                <button className="reviews-button button" name="submit-reviews-button" onClick={handleToggle}>Submit a Review</button>
+              </div>
+              { displayModal(isSubmitActive, Review, handleToggle) }
+            </>
+          }
         </section>
         <hr />
 
-        {userIsAuthenticated && <p>hello</p>}
+        {!userIsAuthenticated() && <p>hello</p>}
       </div>
+
     </>
   )
 }

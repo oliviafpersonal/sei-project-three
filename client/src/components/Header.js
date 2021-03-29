@@ -22,7 +22,9 @@ const Header = () => {
               </Link>
             </div>
             <div className="column">
-              <p className="header-links-hoc">Become a Landlord</p>
+              <Link to="/landlord">
+                <p className="header-links">Become a Landlord</p>
+              </Link>
             </div>
             <div className="column left">
               <Hamburger />

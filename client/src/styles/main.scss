@@ -487,3 +487,32 @@ progress[value]::-webkit-progress-value {
     justify-content: center;
   }
 }
+//** *******PROFILE STYLING***********
+
+.account-card {
+  display: flex;
+  .account-card-left {
+
+  }
+  .account-card-right {
+    display: flex;
+    flex-direction: column;
+    .account-card-sub{
+      display: flex;
+      border: 2px solid red;
+      div {
+
+      }
+      p {
+
+      }
+    }
+  }
+}
+
+
+//! *******STYLING ON STRETCH ELEMENTS *********
+
+.stretch a {
+  cursor: not-allowed
+}
