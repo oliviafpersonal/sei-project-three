@@ -1,10 +1,19 @@
 import React from 'react'
 
 const DeleteProfile = () => {
+
+  const handleDelete = () => {
+
+  }
   return (
-    <div>
-      I am the delete profile modal
-    </div>
+    <>
+      <div className="notification is-danger is-light">
+        <p> WARNING!!! Once your account is deleted, all associated data will be lost. If you are sure you wish to proceed, please click submit. If not, click the close button on the top right to cancel</p>
+        <button className="button is-danger" onClick={handleDelete}>Delete My Account</button>
+
+
+      </div>
+    </>
   )
 }
 
