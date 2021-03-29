@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "dotenv": "^8.2.0",
-    "dotenv-webpack": "^7.0.2",
-    "react-map-gl": "^6.1.11"
-  }
-}
