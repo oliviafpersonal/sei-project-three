@@ -25,18 +25,13 @@ const PubIndex = () => {
   }, [])
   
   const handleSeats = () => {
-    if (!seats) {
-      setSeats(true)
-      setPets(false)
-      setSports(false)
-      setFood(false)
-      setFilterPubs(false)
-      console.log('first log>>>>', seats)
-    } else {
-      setSeats(false)
-      console.log('second log>>>>', seats)
-    }
-    
+    setSeats(!seats)
+    setPets(false)
+    setSports(false)
+    setFood(false)
+    setFilterPubs(false)
+    console.log('first log>>>>', seats)
+  
   }
   const handleFood = () => {
     if (!food) {

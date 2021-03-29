@@ -20,8 +20,9 @@ export const addReviewtoPub = async (req, res) => {
     } else {
       const newReview = { ...req.body, reviewOwner: userID, reviewOwnerName: userName, reviewOwnerImage: userImage, pubName: pub.nameOfPub }
       pub.reviews.push(newReview)
-      findUser.userPubReviews.push(newReview)
+      findUser.allReviews.push(newReview)
       await pub.save()
+      await findUser.save()
       return res.status(200).json(pub)
     }
   } catch (err) {

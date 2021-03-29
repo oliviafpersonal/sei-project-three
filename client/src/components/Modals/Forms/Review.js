@@ -3,9 +3,8 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { getTokenFromLocalStorage } from '../../../helpers/auth'
 
-
+//prettier-ignore
 const Review = ({ id }) => {
-
   const [formData, setFormData] = useState({
     subRating: {
       price: 0,
@@ -21,10 +20,14 @@ const Review = ({ id }) => {
     setFormData(newFormData)
   }
 
+  //prettier-ignore
   const handleSubmit = async (event) => {
     event.preventDefault()
-    const { data } = await axios.post(`/api/pubs/${id}/reviews`, formData, {headers: {
-      'Authorization': `Bearer ${getTokenFromLocalStorage()}` })
+    const { data } = await axios.post(`/api/pubs/${id}/reviews`, formData, {
+      headers: {
+        Authorization: `Bearer ${getTokenFromLocalStorage()}`,
+      },
+    })
   }
 
   return (
@@ -40,7 +43,7 @@ const Review = ({ id }) => {
                 <select onChange={handleChange} name="price">
                   <option value="1">1</option>
                   <option value="2">2</option>
-                  <option  defaultValue="3">3</option>
+                  <option defaultValue="3">3</option>
                   <option value="4">4</option>
                   <option value="5">5</option>
                 </select>
@@ -49,10 +52,10 @@ const Review = ({ id }) => {
           </div>
         </div>
       </div>
-  
+
       <div className="field is-horizontal">
         <div className="field-label is-normal">
-          <label className="label" >Comfortability</label>
+          <label className="label">Comfortability</label>
         </div>
         <div className="field-body">
           <div className="field is-narrow">
@@ -61,7 +64,7 @@ const Review = ({ id }) => {
                 <select onChange={handleChange} name="comfortability">
                   <option value="1">1</option>
                   <option value="2">2</option>
-                  <option  defaultValue="3">3</option>
+                  <option defaultValue="3">3</option>
                   <option value="4">4</option>
                   <option value="5">5</option>
                 </select>
@@ -70,10 +73,10 @@ const Review = ({ id }) => {
           </div>
         </div>
       </div>
-  
+
       <div className="field is-horizontal">
         <div className="field-label is-normal">
-          <label className="label" >Availability</label>
+          <label className="label">Availability</label>
         </div>
         <div className="field-body">
           <div className="field is-narrow">
@@ -82,7 +85,7 @@ const Review = ({ id }) => {
                 <select onChange={handleChange} name="availability">
                   <option value="1">1</option>
                   <option value="2">2</option>
-                  <option  defaultValue="3">3</option>
+                  <option defaultValue="3">3</option>
                   <option value="4">4</option>
                   <option value="5">5</option>
                 </select>
@@ -91,7 +94,7 @@ const Review = ({ id }) => {
           </div>
         </div>
       </div>
-  
+
       <div className="field is-horizontal">
         <div className="field-label is-normal">
           <label className="label">Review</label>
@@ -99,27 +102,30 @@ const Review = ({ id }) => {
         <div className="field-body">
           <div className="field">
             <div className="control">
-              <textarea className="textarea" onChange={handleChange} name="text" placeholder="What did you think? "></textarea>
+              <textarea
+                className="textarea"
+                onChange={handleChange}
+                name="text"
+                placeholder="What did you think? "
+              ></textarea>
             </div>
           </div>
         </div>
       </div>
-  
+
       <div className="field is-horizontal">
-        <div className="field-label">
-        </div>
+        <div className="field-label"></div>
         <div className="field-body">
           <div className="field">
             <div className="control">
               <button className="button is-primary" type="submit">
-                      Submit Review
+                Submit Review
               </button>
             </div>
           </div>
         </div>
       </div>
     </form>
-
   )
 }
 
