@@ -3,8 +3,8 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { getPayloadFromToken/*, getTokenFromLocalStorage*/ } from '../../helpers/auth'
 import { convertTimestamp, displayModal } from '../../helpers/helperFunctions'
+import DeleteProfile from '../Forms/DeleteProfile'
 import EditProfile from '../Forms/EditProfile'
-import ModalDummy from '../Forms/ModalDummy'
 import Header from '../Header'
 //import { ImageUploadField } from '../ImageUploadField'
 
@@ -86,7 +86,7 @@ const Profile = () => {
         </div>
       </section>
       {displayModal(isEditActive, EditProfile, handleToggleEdit)}
-      {displayModal(isDeleteActive, ModalDummy, handleToggleDelete)}
+      {displayModal(isDeleteActive, DeleteProfile, handleToggleDelete)}
       <section className="account-activity-section">
         <h2>Activity</h2>
         <div className="account-card-sub">
