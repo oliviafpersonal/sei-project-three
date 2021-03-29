@@ -1,12 +1,13 @@
+/*eslint-disable no-unused-vars*/
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { getPayloadFromToken, getTokenFromLocalStorage } from '../../helpers/auth'
+import { getPayloadFromToken/*, getTokenFromLocalStorage*/ } from '../../helpers/auth'
 import { convertTimestamp, displayModal } from '../../helpers/helperFunctions'
+import EditProfile from '../Forms/EditProfile'
 import ModalDummy from '../Forms/ModalDummy'
 import Header from '../Header'
 //import { ImageUploadField } from '../ImageUploadField'
 
-/*eslint-disable no-unused-vars*/
 
 const Profile = () => {
   // const [formdata, setFormdata] = useState({
@@ -36,16 +37,17 @@ const Profile = () => {
     getUser()
   }, [])
 
-  const handleToggle = (event) => {
-    const buttonValue = event.target.value
-    buttonValue === 'edit-profile' ? setIsEditActive(!isEditActive)
-      : buttonValue === 'delete-proile' ? setIsDeleteActive(!isDeleteActive)
-        : setIsEditActive(!isEditActive), setIsDeleteActive(!isDeleteActive)
+  const handleToggleEdit = () => {
+    setIsEditActive(!isEditActive)
   }
-  console.log('Bearer', getTokenFromLocalStorage())
+  const handleToggleDelete = () => {
+    setIsDeleteActive(!isDeleteActive)
+  }
+
+  //console.log('Bearer', getTokenFromLocalStorage())
   const cancelEdit = (event) => {
     //do something to clear the form data
-    handleToggle(event)
+    handleToggleEdit(event)
   }
 
   const submitEdit = async (event) => {
@@ -78,13 +80,13 @@ const Profile = () => {
               <div>Member Since</div>
               <p>{convertTimestamp(createdAt)}</p>
             </div>
-            <button className="edit-profile-button" value="edit-profile" onClick={handleToggle}>Edit My Profile</button>
-            <button className="delete-account-button" value="delete-profile" onClick={handleToggle}>Delete My Account</button>
+            <button className="edit-profile-button" name="edit-profile" onClick={handleToggleEdit}>Edit My Profile</button>
+            <button className="delete-account-button" name="delete-profile" onClick={handleToggleDelete}>Delete My Account</button>
           </div>
         </div>
       </section>
-      {displayModal(isEditActive, ModalDummy, handleToggle)}
-      {displayModal(isDeleteActive, ModalDummy, handleToggle)}
+      {displayModal(isEditActive, EditProfile, handleToggleEdit)}
+      {displayModal(isDeleteActive, ModalDummy, handleToggleDelete)}
       <section className="account-activity-section">
         <h2>Activity</h2>
         <div className="account-card-sub">
