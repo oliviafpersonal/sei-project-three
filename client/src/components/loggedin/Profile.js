@@ -3,9 +3,10 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { getPayloadFromToken/*, getTokenFromLocalStorage*/ } from '../../helpers/auth'
 import { convertTimestamp, displayModal } from '../../helpers/helperFunctions'
-import DeleteProfile from '../Forms/DeleteProfile'
-import EditProfile from '../Forms/EditProfile'
+import DeleteProfile from '../Modals/Forms/DeleteProfile'
+import EditProfile from '../Modals/Forms/EditProfile'
 import Header from '../Header'
+import PubComments from '../pub/PubComments'
 //import { ImageUploadField } from '../ImageUploadField'
 
 
@@ -56,7 +57,9 @@ const Profile = () => {
   }
 
   if (!user) return null
-  const { isLandlord, profileImage, username, email, createdAt } = user
+  const { isLandlord, profileImage, username, email, createdAt, allReviews: reviews } = user
+  
+  reviews.reverse()
   return (
 
     <>
@@ -90,12 +93,14 @@ const Profile = () => {
       <section className="account-activity-section">
         <h2>Activity</h2>
         <div className="account-card-sub">
-          <div>Last Viewed Pub</div>
+          <h3>Last Viewed Pub</h3>
           <p>use history to display</p>
         </div>
         <div className="account-card-sub">
-          <div>Last Review Submitted</div>
-          <p>display last review</p>
+          <div className="comments">
+            <h3>Last Review Submitted</h3>
+            {reviews && <PubComments reviews={reviews} displayNumber={2} />}
+          </div>
         </div>
       </section>
       {isLandlord && 
