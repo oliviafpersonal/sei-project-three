@@ -261,6 +261,7 @@ footer {
   border-top: 1px solid #dddddd !important;
   padding: 2rem;
   bottom: 0;
+
   width: 100%;
 }
 
@@ -569,11 +570,53 @@ h2 {
 }
 .landlord-sign-up h2 {
   font-size: 1.5em;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.landlord-sign-up h3 {
+  font-size: 1.1em;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .landlord-sign-up-button {
   margin-top: 2rem;
 }
+
+.feature-checkbox {
+  display: flex;
+  margin-bottom: 2rem;
+}
+.feature-text {
+  display: flex;
+  margin-top: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.feature-icon {
+  margin-right: 2rem;
+}
+
+.checkbox {
+  margin-left: 1rem;
+  margin-top: 0.6rem;
+}
+
+.hide {
+  display: none;
+}
+
+.form-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.back-button {
+  margin-top: 2.5rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 // * mobile optimisation
 
 @media only screen and (max-width: 765px) {
@@ -601,27 +644,23 @@ h2 {
 .account-card {
   display: flex;
   .account-card-left {
-
   }
   .account-card-right {
     display: flex;
     flex-direction: column;
-    .account-card-sub{
+    .account-card-sub {
       display: flex;
       border: 2px solid red;
       div {
-
       }
       p {
-
       }
     }
   }
 }
 
-
 //! *******STYLING ON STRETCH ELEMENTS *********
 
 .stretch a {
-  cursor: not-allowed
+  cursor: not-allowed;
 }
