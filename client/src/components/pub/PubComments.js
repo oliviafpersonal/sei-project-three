@@ -1,11 +1,18 @@
-import React from 'react'
-import { convertTimestamp } from '../../helpers/helperFunctions'
+/* eslint-disable no-unused-vars */
+import React, { useState } from 'react'
+import { userIsOwner } from '../../helpers/auth'
+import { convertTimestamp, displayModal } from '../../helpers/helperFunctions'
+import ModalDummy from '../Forms/ModalDummy'
 
 const PubComments = ({ reviews }) => {
+  const [isDeleteActive, setisDeleteActive] = useState(false)
+  const handleToggle = () => {
+    setisDeleteActive(!isDeleteActive)
+  }
   return (
     <div className="grid-container">
       {reviews.splice(0, 6).map((review) => {
-        const { reviewOwnerImage, reviewOwnerName, createdAt, _id, text } = review
+        const { reviewOwnerImage, reviewOwnerName, createdAt, _id, text, reviewOwner } = review
 
         return (
           <div key={_id}>
@@ -24,6 +31,14 @@ const PubComments = ({ reviews }) => {
             </div>
 
             <div className="comment"> {text}</div>
+            {
+              userIsOwner(reviewOwner) &&
+              <>
+                <button className="delete-review" onClick={handleToggle}>Delete Review</button>
+                {displayModal(isDeleteActive, ModalDummy, handleToggle)}
+              </>
+              
+            }
           </div>
         )
       })}
