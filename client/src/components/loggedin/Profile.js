@@ -7,29 +7,15 @@ import DeleteProfile from '../Modals/Forms/DeleteProfile'
 import EditProfile from '../Modals/Forms/EditProfile'
 import Header from '../Header'
 import PubComments from '../pub/PubComments'
-//import { ImageUploadField } from '../ImageUploadField'
 
 
 const Profile = () => {
-  // const [formdata, setFormdata] = useState({
-  //   profileImage: '',
-  // })
-  // const handleSubmit = event => {
-  //   event.preventDefault()
-  //   window.alert(`Submitting ${JSON.stringify(formdata, null, 2)}`)
-  // }
-      
-  // const handleImageUrl = url => {
-  //   setFormdata({ ...formdata, profileImage: url })
-  // }
-  // console.log(setFormdata)
-
   const [user, setUser] = useState({})
   const [isEditActive, setIsEditActive] = useState(false)
   const [isDeleteActive, setIsDeleteActive] = useState(false)
 
   const userID = getPayloadFromToken().sub
-  
+
   useEffect(() => {
     const getUser = async () => {
       const { data } = await axios.get(`/api/users/${userID}`)
@@ -61,8 +47,8 @@ const Profile = () => {
 
   if (!user) return null
   const { isLandlord, profileImage, username, email, createdAt, allReviews: reviews } = user
-  
- 
+
+
   return (
 
     <>
@@ -71,11 +57,11 @@ const Profile = () => {
         <h2>Account and Security</h2>
         <div className="account-card">
           <div className="account-card-left">
-            <img src={profileImage} alt="user profile image"/>
+            <img src={profileImage} alt="user profile image" />
           </div>
           <div className="account-card-right ">
             <div className="account-card-sub">
-              <div>Username</div>
+              <div>Username: </div>
               <p>{username}</p>
             </div>
             <div className="account-card-sub">
@@ -106,29 +92,20 @@ const Profile = () => {
           </div>
         </div>
       </section>
-      {isLandlord && 
-      <>
-        <section className="account-favourites-section">
-          <h2>Favourites</h2>
-        </section>
-        <section className="account-pub-crawls">
-          <h2>Saved Crawls</h2>
-        </section>
-        <section className="account-owned-pubs">
-          <h2>Your Pubs</h2>
-        </section>
-      </>
+      {isLandlord &&
+        <>
+          <section className="account-favourites-section">
+            <h2>Favourites</h2>
+          </section>
+          <section className="account-pub-crawls">
+            <h2>Saved Crawls</h2>
+          </section>
+          <section className="account-owned-pubs">
+            <h2>Your Pubs</h2>
+          </section>
+        </>
       }
 
-      {/* <form onSubmit={handleSubmit}>
-        <div>
-          <ImageUploadField
-            value={formdata.profileImage}
-            name="profileImage"
-            handleImageUrl={handleImageUrl}
-          />
-        </div>
-      </form> */}
     </>
   )
 }

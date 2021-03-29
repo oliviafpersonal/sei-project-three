@@ -15,12 +15,12 @@ const EditProfile = () => {
     event.preventDefault()
   }
 
-  
+
   return (
     <form onSubmit={handleSubmit}>
-      
+
       <div className="field">
-        <label className="label">Username</label>
+        <label className="label">Username: </label>
         <div className="control has-icons-left has-icons-right">
           <input className="input is-success" type="text" placeholder="Text input" name="username" />
           <span className="icon is-small is-left">
@@ -41,7 +41,7 @@ const EditProfile = () => {
       </div>
 
       <div className="field">
-        <label className="label">Email</label>
+        <label className="label">Email: </label>
         <div className="control has-icons-left has-icons-right">
           <input className="input is-danger" type="email" placeholder="Enter your new email" name="email" />
           <span className="icon is-small is-left">
@@ -67,7 +67,7 @@ const EditProfile = () => {
         </div>
         <p className="help is-danger">Must enter password</p>
       </div>
-      
+
 
       <div className="field is-grouped">
         <div className="control">

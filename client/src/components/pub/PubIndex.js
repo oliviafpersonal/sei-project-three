@@ -139,8 +139,8 @@ const PubIndex = () => {
                     : pets ? isPets
                       : seats ? isSeating
                         : food ? isFood
-                          : pubs)
-                  .length
+                          : pubs
+                ).length
               }+ pubs`}</p>
               <h3>Pubs in London</h3>
               <div className="pub-filter-buttons">
@@ -186,16 +186,16 @@ const PubIndex = () => {
 
             {
               //prettier-ignore
-              ( 
-                sports ? isSports
-                  : pets ? isPets
-                    : seats ? isSeating
-                      : food ? isFood
-                        : filterPubs ? isRating
-                          : pubs
-              ).map((pub) => (
-                <PubCard key={pub._id} {...pub} />
-              ))
+              sports ? isSports
+                : pets ? isPets
+                  : seats ? isSeating
+                    : food ? isFood
+                      : filterPubs ? isRating
+                        : pubs.map(
+                          (pub) => (
+                            <PubCard key={pub._id} {...pub} />
+                          )
+                        )
             }
           </div>
         </div>

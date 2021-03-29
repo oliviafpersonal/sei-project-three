@@ -29,6 +29,8 @@ const Header = () => {
 
   const handleChange = (event) => {
     const newEventValues = { ...eventValues, [event.target.name]: event.target.value }
+    
+    console.log('🚀 ~ file: Header.js ~ line 33 ~ handleChange ~ newEventValues', newEventValues)
     setEventValues(newEventValues)
   }
   
@@ -40,6 +42,21 @@ const Header = () => {
   }
   const handleSubmit = (event) => {
     event.preventDefault()
+    console.log(eventValues)
+    const pubsResult = eventValues.searchPubs
+    const cityResult = eventValues.searchCity
+    if (cityResult === '' && pubsResult === '') return null
+    if (cityResult !== '' && pubsResult !== '') window.alert('please enter a search in one field only')
+    if ( pubsResult === '') navigateToFiltered(cityResult)
+    if (cityResult === '') {
+      const lowerCaseName = pubsResult.toLowerCase()
+      const namesIndex = namesArray.indexOf(lowerCaseName)
+      const pubID = idArray[namesIndex]
+      if (!pubID) window.alert('cannot find pub, please check spelling')
+      else return navigateToSearched(pubID)
+    }
+    
+    
     
   }
   if (!pubs) return null
@@ -77,7 +94,7 @@ const Header = () => {
                 <label className="location-label">Location</label>
                 <input
                   placeholder="Where are you drinking?"
-                  className="search-input" name="search-city"
+                  className="search-input" name="searchCity"
                   onChange={handleChange}
                 ></input>
               </div>
@@ -85,7 +102,7 @@ const Header = () => {
                 <label className="location-label">Search Pubs</label>
                 <input
                   placeholder="Got a specific pub in mind?"
-                  className="search-input" name="search-pubs"
+                  className="search-input" name="searchPubs"
                   onChange={handleChange}
                 ></input>
               </div>

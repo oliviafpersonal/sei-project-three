@@ -11,9 +11,9 @@ const userSchema = new mongoose.Schema({
     default:
       'https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg'
   },
-  isLandlord: { type: Boolean, required: true },
-  isUser: { type: Boolean, required: true },
-  isFirstTime: { type: Boolean, required: true },
+  isLandlord: { type: Boolean, default: false },
+  isUser: { type: Boolean, default: true },
+  isFirstTime: { type: Boolean, default: true },
   favouritePubs: { type: Array },
   allReviews: [reviewSchema]
 }, {
