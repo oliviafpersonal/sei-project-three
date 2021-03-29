@@ -1,5 +1,10 @@
-import React, { useEffect } from 'react'
+/*eslint-disable no-unused-vars*/
+
+import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import axios from 'axios'
+import { getTokenFromLocalStorage } from '../../helpers/helperFunctions'
+import { ImageUploadField } from '../ImageUploadField'
 
 import drinks from '../../styles/assets/drinks.png'
 
@@ -33,6 +38,26 @@ import {
 const LandLordSignUp = () => {
   // const [steps, setSteps] = useState('')
   const history = useHistory()
+
+  const [formData, setFormData] = useState({
+    lineOne: '',
+    lineTwo: '',
+    town: '',
+    city: '',
+    postcode: '',
+    description: '',
+    dogFriendly: false,
+    outdoorSeating: false,
+    servesFood: false,
+    liveSports: false,
+    profileImage: '',
+  })
+  console.log(setFormData)
+
+  const handleChange = event => {
+    const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value
+    setFormData({ ...formData, [event.target.name]: value })
+  }
 
   // console.log(steps, setSteps)
 
@@ -144,27 +169,28 @@ const LandLordSignUp = () => {
             <div className="step-one">
               <b>STEP 1</b>
               <h2>Where is your Pub located?</h2>
-              <br />
-              <input className="input"></input>
-              <br />
+              {//<br />
+                //<input className="input"></input>
+                //<br />
+              }
 
-              <h2>line 1</h2>
-              <input className="input"></input>
+              <h2>Line 1</h2>
+              <input className="input" name="lineOne" value={formData.lineOne} onChange={handleChange}></input>
               <br />
-              <h2>line 2</h2>
-              <input className="input"></input>
+              <h2>Line 2</h2>
+              <input className="input" name="lineTwo" value={formData.lineTwo} onChange={handleChange}></input>
               <br />
-              <h2>town</h2>
-              <input className="input"></input>
+              <h2>Town</h2>
+              <input className="input" name="town" value={formData.town} onChange={handleChange}></input>
               <br />
-              <h2>city</h2>
-              <input className="input"></input>
+              <h2>City</h2>
+              <input className="input" name="city" value={formData.city} onChange={handleChange}></input>
               <br />
               <h2>Postcode</h2>
-              <input className="input"></input>
+              <input className="input" name="postcode" value={formData.postcode} onChange={handleChange}></input>
               <br />
-              <h2>description</h2>
-              <input className="textarea"></input>
+              <h2>Description</h2>
+              <input className="textarea" name="description" value={formData.description} onChange={handleChange}></input>
               <br />
             </div>
             <div className="form-nav">
@@ -190,7 +216,7 @@ const LandLordSignUp = () => {
                 </div>
                 <div className="feature-text">
                   <p>Is your pub dog friendly ?</p>
-                  <input type="checkbox" className="checkbox" value="true" />
+                  <input type="checkbox" className="checkbox" name="dogFriendly" checked={formData.dogFriendly} onChange={handleChange} />
                 </div>
               </div>
               <div className="feature-checkbox">
@@ -199,7 +225,7 @@ const LandLordSignUp = () => {
                 </div>
                 <div className="feature-text">
                   <p>Do you have outdoor seating at your pub ?</p>
-                  <input type="checkbox" className="checkbox" value="true" />
+                  <input type="checkbox" className="checkbox" name="outdoorSeating" checked={formData.outdoorSeating} onChange={handleChange} />
                 </div>
               </div>
               <div className="feature-checkbox">
@@ -208,7 +234,7 @@ const LandLordSignUp = () => {
                 </div>
                 <div className="feature-text">
                   <p>Do you serve food at your pub ?</p>
-                  <input type="checkbox" className="checkbox" value="true" />
+                  <input type="checkbox" className="checkbox" name="servesFood" checked={formData.servesFood} onChange={handleChange} />
                 </div>
               </div>
               <div className="feature-checkbox">
@@ -217,7 +243,7 @@ const LandLordSignUp = () => {
                 </div>
                 <div className="feature-text">
                   <p>Do you your show live sports at your pub?</p>
-                  <input type="checkbox" className="checkbox" value="true" />
+                  <input type="checkbox" className="checkbox" name="liveSports" checked={formData.liveSports} onChange={handleChange} />
                 </div>
               </div>
             </div>
@@ -238,6 +264,11 @@ const LandLordSignUp = () => {
               <b>STEP 3</b>
               <h2>Lets see what your pub looks like?</h2>
               <br />
+              <ImageUploadField
+                name="profileImage"
+                handleImageUrl={handleChange}
+
+              />
             </div>
             <div className="form-nav">
               <div className="hide backthree back-button">
