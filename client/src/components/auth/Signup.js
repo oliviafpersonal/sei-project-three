@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useHistory } from 'react-router-dom'
+import { ImageUploadField } from '../ImageUploadField'
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -34,7 +35,16 @@ const Signup = () => {
       setErrors(err.response.data.errors)
     }
   }
-  
+
+  const [imageData, setImageData] = useState({
+    profileImage: '',
+  })
+  console.log(setImageData)
+
+  const handleImageUrl = url => {
+    setImageData({ ...imageData, profileImage: url })
+  }
+
 
   return (
     <section className="section">
@@ -95,13 +105,23 @@ const Signup = () => {
               </div>
               {errors.passwordConfirmation && <p className="help is-danger">{errors.passwordConfirmation}</p>}
             </div>
+            <div>
+              <p>Upload Profile Picture:</p>
+              <ImageUploadField
+                value={imageData.profileImage}
+                name="profileImage"
+                handleImageUrl={handleImageUrl}
+              />
+            </div>
+
+
             <div className="field">
               <button type="submit" className="button is-fullwidth">Register Me!</button>
             </div>
           </form>
         </div>
       </div>
-    </section>
+    </section >
   )
 }
 
