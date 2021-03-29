@@ -16,9 +16,9 @@ import {
 import Header from '../Header'
 import PubComments from './PubComments'
 import { userIsAuthenticated, userIsOwner } from '../../helpers/auth'
-import Review from '../Forms/Review'
+import Review from '../Modals/Forms/Review'
 import { displayModal } from '../../helpers/helperFunctions'
-import ModalDummy from '../Forms/ModalDummy'
+import DisplayAllReviews from '../Modals/DisplayAllReviews'
 
 
 const PubShow = () => {
@@ -290,11 +290,11 @@ const PubShow = () => {
             </div>
           </div>
           <div className="comments">
-            <PubComments reviews={reviews} />
+            <PubComments reviews={reviews} displayNumber={6} />
           </div>
           <div className="reviews-button-container">
             <button className="reviews-button button" name="show-reviews-button" onClick={handleButtonToggle}>{`Show all ${reviews.length} Reviews`}</button> 
-            {displayModal(isShowReviewsActive, ModalDummy, handleButtonToggle)}
+            {displayModal(isShowReviewsActive, DisplayAllReviews, handleButtonToggle)}
           </div>
           {userIsAuthenticated() && !userIsOwner(pubOwner) &&
             <>
