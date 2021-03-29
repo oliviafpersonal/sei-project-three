@@ -38,13 +38,17 @@ const Hamburger = () => {
         </div>
         <div className="dropdown-menu" id="dropdown-menu1" role="menu">
           <div className="dropdown-content dropdown-shape">
-            <Link to="/login" className="dropdown-item">
+            { !userIsAuthenticated() &&
+              <>
+                <Link to="/login" className="dropdown-item">
               Login
-            </Link>
+                </Link>
 
-            <Link to="/signup" className="dropdown-item">
-              Register
-            </Link>
+                <Link to="/signup" className="dropdown-item">
+                Register
+                </Link>
+              </>
+            }
 
 
             {userIsAuthenticated() && 
@@ -53,15 +57,17 @@ const Hamburger = () => {
               <Link to="/profile" className="dropdown-item">
                 Profile
               </Link>
+            
+              <hr className="dropdown-divider" />
+              <div className="dropdown-item stretch">
+                <a>New Pub Crawl</a>
+              </div>
+
+              <hr className="dropdown-divider" />
+              <div className="dropdown-item" onClick={handleLogout}>
+                <a>Logout</a>
+              </div>
             </>
-            }
-            {userIsAuthenticated() && 
-              <>
-                <hr className="dropdown-divider" />
-                <div className="dropdown-item" onClick={handleLogout}>
-                  <a>Logout</a>
-                </div>
-              </>
             }
           </div>
         </div>
