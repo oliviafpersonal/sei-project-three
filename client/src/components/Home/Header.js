@@ -57,6 +57,14 @@ const Header = () => {
                   onChange={handleChange}
                 ></input>
               </div>
+              <div className="location">
+                <label className="location-label">Search Pubs</label>
+                <input
+                  placeholder="Got a specific pub in mind?"
+                  className="search-input"
+                  onChange={handleChange}
+                ></input>
+              </div>
               <button className="search-button button">
                 <div className="search-icon">
                   <FontAwesomeIcon icon={faSearch} />
