@@ -1,5 +1,9 @@
-import React, { useEffect } from 'react'
+/*eslint-disable no-unused-vars*/
+
+import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import axios from 'axios'
+import { getTokenFromLocalStorage } from '../../helpers/helperFunctions'
 
 import drinks from '../../styles/assets/drinks.png'
 
@@ -33,6 +37,19 @@ import {
 const LandLordSignUp = () => {
   // const [steps, setSteps] = useState('')
   const history = useHistory()
+
+  const [formData, setFormData] = useState({
+    lineone: '',
+    linetwo: '',
+    town: '',
+    city: '',
+    postcode: '',
+    description: '',
+    desscription: '',
+    
+    
+
+  })
 
   // console.log(steps, setSteps)
 
@@ -144,26 +161,27 @@ const LandLordSignUp = () => {
             <div className="step-one">
               <b>STEP 1</b>
               <h2>Where is your Pub located?</h2>
-              <br />
-              <input className="input"></input>
-              <br />
+              {//<br />
+                //<input className="input"></input>
+                //<br />
+              }
 
-              <h2>line 1</h2>
+              <h2>Line 1</h2>
               <input className="input"></input>
               <br />
-              <h2>line 2</h2>
+              <h2>Line 2</h2>
               <input className="input"></input>
               <br />
-              <h2>town</h2>
+              <h2>Town</h2>
               <input className="input"></input>
               <br />
-              <h2>city</h2>
+              <h2>City</h2>
               <input className="input"></input>
               <br />
               <h2>Postcode</h2>
               <input className="input"></input>
               <br />
-              <h2>description</h2>
+              <h2>Description</h2>
               <input className="textarea"></input>
               <br />
             </div>
