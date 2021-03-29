@@ -1,7 +1,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { getPayloadFromToken } from '../../helpers/auth'
-import { convertTimestamp } from '../../helpers/helperFunctions'
+import { getPayloadFromToken, getTokenFromLocalStorage } from '../../helpers/auth'
+import { convertTimestamp, displayModal } from '../../helpers/helperFunctions'
+import ModalDummy from '../Forms/ModalDummy'
 import Header from '../Header'
 //import { ImageUploadField } from '../ImageUploadField'
 
@@ -41,7 +42,7 @@ const Profile = () => {
       : buttonValue === 'delete-proile' ? setIsDeleteActive(!isDeleteActive)
         : setIsEditActive(!isEditActive), setIsDeleteActive(!isDeleteActive)
   }
-
+  console.log('Bearer', getTokenFromLocalStorage())
   const cancelEdit = (event) => {
     //do something to clear the form data
     handleToggle(event)
@@ -82,12 +83,8 @@ const Profile = () => {
           </div>
         </div>
       </section>
-      <div className={`modal ${isEditActive && 'is-active'}` }>
-        <div className="modal-background"></div>
-        <div className="modal-content">
-        </div>
-        <button className="modal-close is-large" aria-label="close" onClick={handleToggle}></button>
-      </div>
+      {displayModal(isEditActive, ModalDummy, handleToggle)}
+      {displayModal(isDeleteActive, ModalDummy, handleToggle)}
       <section className="account-activity-section">
         <h2>Activity</h2>
         <div className="account-card-sub">
