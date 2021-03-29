@@ -213,7 +213,15 @@ h3 {
 }
 
 .share-box {
-  background: url('./assets/share.png');
+  // background: url('./assets/share.png');
+
+  background: radial-gradient(
+      circle at top left,
+      rgba(0, 0, 0, 0.4),
+      rgba(255, 255, 255, 0)
+    ),
+    /* bottom, image */ url('./assets/share.png'), no-repeat;
+
   background-size: cover;
   width: 90%;
 
@@ -221,7 +229,14 @@ h3 {
   border-radius: 20px;
   margin-top: 4rem;
   padding: 3rem;
+  padding-bottom: 10vh;
   color: white;
+  padding-top: 8rem;
+}
+.share-box button {
+  border-radius: 10px;
+  margin-top: 2rem;
+  padding: 1.3rem 1.7rem;
 }
 .share-box h1 {
   font-size: 3em;
@@ -465,11 +480,100 @@ progress[value]::-webkit-progress-value {
   border-radius: 25px;
 }
 // * Map
-  .map-container {
-    height: calc(100vh - 52px);
-    width: 100%;
-  }
-  
+.map-container {
+  height: calc(100vh - 52px);
+  width: 100%;
+}
+
+// * Become Landlord
+
+.landlord-header-bg {
+  background: 
+    /* top, transparent red, faked with gradient */ radial-gradient(
+      circle at top left,
+      rgba(0, 0, 0, 0.7),
+      rgba(255, 255, 255, 0)
+    ),
+    /* bottom, image */
+      url('https://images.pexels.com/photos/63633/bar-local-cong-ireland-63633.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260'),
+    no-repeat;
+  background-size: cover;
+  width: 100%;
+}
+
+.landlord-hero-body {
+  color: white;
+  width: 50%;
+  margin-left: 1rem;
+}
+.landlord-hero-body h1 {
+  color: white;
+  font-size: 3em;
+}
+.landlord-hero-body h2,
+h3 {
+  color: white;
+  font-size: 1.2em;
+  letter-spacing: 3px;
+}
+
+.landlord-get-started {
+  font-weight: 700;
+  padding: 1.5rem 2rem;
+  border-radius: 10px;
+  border: none;
+  background: $brand-green;
+  color: white;
+  margin-bottom: 2rem;
+}
+.landlord-get-started:hover {
+  color: white;
+  background: #4a7d67;
+}
+.landlord-get-started:focus {
+  color: white;
+  background: #4a7d67;
+}
+.landlord-boxes {
+  margin-top: 3rem;
+}
+
+.lanlord-box {
+  padding: 2rem;
+  font-weight: 100;
+  margin: 1rem;
+}
+.landlord-content {
+  width: 70%;
+  margin: 0 auto;
+}
+.landlord-box h1 {
+  font-weight: 100;
+}
+.landlord-box h5 {
+  font-weight: 700;
+  font-size: 1.3em;
+}
+
+// * Landlord Sign
+
+.landlord-sign-container {
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 10vh;
+}
+.landlord-sign-up h1,
+h2 {
+  font-weight: 100;
+  color: #454545;
+}
+.landlord-sign-up h2 {
+  font-size: 1.5em;
+}
+
+.landlord-sign-up-button {
+  margin-top: 2rem;
+}
 // * mobile optimisation
 
 @media only screen and (max-width: 765px) {
@@ -491,6 +595,4 @@ progress[value]::-webkit-progress-value {
     text-align: center;
     justify-content: center;
   }
-
-  
 }

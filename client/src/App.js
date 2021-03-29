@@ -16,6 +16,7 @@ import BecomeLandlord from './components/auth/BecomeLandlord'
 import Profile from './components/loggedin/Profile'
 import PubIndexCities from './components/pub/PubIndexCities'
 import Map from './components/map'
+import LandLordSignUp from './components/auth/LandLordSignUp'
 
 const App = () => {
   return (
@@ -48,6 +49,9 @@ const App = () => {
         </Route>
         <Route exact path="/landlord">
           <BecomeLandlord />
+        </Route>
+        <Route exact path="/landlord/signup">
+          <LandLordSignUp />
         </Route>
         <Route exact path="/profile">
           <Profile />
