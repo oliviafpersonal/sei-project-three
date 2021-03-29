@@ -17,11 +17,24 @@ import Header from '../Header'
 import PubComments from './PubComments'
 import { userIsAuthenticated, userIsOwner } from '../../helpers/auth'
 import Review from '../Forms/Review'
+import { displayModal } from '../../helpers/helperFunctions'
+import ModalDummy from '../Forms/ModalDummy'
+
 
 const PubShow = () => {
   const { id } = useParams()
   const [isSubmitActive, setIsSubmitActive] = useState(false)
+  const [isShowReviewsActive, setIsShowReviewsActive] = useState(false)
   const [pub, setPub] = useState('')
+
+
+  const handleButtonToggle = (event) => {
+    const buttonName = event.target.name
+    buttonName === 'show-reviews-button' ? setIsShowReviewsActive(!isShowReviewsActive)
+      : buttonName === 'submit-reviews-button' ?
+        setIsSubmitActive(!isSubmitActive)
+        : (setIsSubmitActive(false), setIsShowReviewsActive(false))
+  }
   console.log(id)
   //prettier-ignore
   const {
@@ -280,28 +293,22 @@ const PubShow = () => {
             <PubComments reviews={reviews} />
           </div>
           <div className="reviews-button-container">
-            <button className="reviews-button button">{`Show all ${reviews.length} Reviews`}</button>
+            <button className="reviews-button button" name="show-reviews-button" onClick={handleButtonToggle}>{`Show all ${reviews.length} Reviews`}</button> 
+            {displayModal(isShowReviewsActive, ModalDummy, handleButtonToggle)}
           </div>
           {userIsAuthenticated() && !userIsOwner(pubOwner) &&
-            <div className="reviews-button-container">
-              <button className="reviews-button button" onClick={handleToggle}>Submit a Review</button>
-            </div>
+            <>
+              <div className="reviews-button-container">
+                <button className="reviews-button button" name="submit-reviews-button" onClick={handleToggle}>Submit a Review</button>
+              </div>
+              { displayModal(isSubmitActive, Review, handleToggle) }
+            </>
           }
         </section>
         <hr />
 
         {!userIsAuthenticated() && <p>hello</p>}
       </div>
-
-      <div className={`modal ${isSubmitActive && 'is-active'}`}>
-
-        <div className="modal-background"></div>
-        <div className="modal-content">
-          <Review pubId={id}/>
-        </div>
-        <button className="modal-close is-large" aria-label="close" onClick={handleToggle}></button>
-      </div>
-
 
     </>
   )
