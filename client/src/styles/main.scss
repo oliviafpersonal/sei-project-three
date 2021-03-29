@@ -464,7 +464,12 @@ progress[value]::-webkit-progress-value {
   border: solid black 1px;
   border-radius: 25px;
 }
-
+// * Map
+  .map-container {
+    height: calc(100vh - 52px);
+    width: 100%;
+  }
+  
 // * mobile optimisation
 
 @media only screen and (max-width: 765px) {
@@ -486,4 +491,6 @@ progress[value]::-webkit-progress-value {
     text-align: center;
     justify-content: center;
   }
+
+  
 }
