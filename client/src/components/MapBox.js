@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import ReactMapGL, { Marker, Popup } from 'react-map-gl'
 import locationData from './data/location'
 
+//prettier-ignore
 const Map = () => {
   const [viewport, setViewport] = useState({
     latitude: 51.509865,
@@ -19,7 +20,7 @@ const Map = () => {
       <ReactMapGL
         mapboxApiAccessToken={apiKey}
         height='100vh'
-        width='100hvh'
+        width='100vh'
         mapStyle='mapbox://styles/mapbox/streets-v11'
         {...viewport}
         onViewportChange={(viewport) => setViewport(viewport)}
@@ -48,5 +49,3 @@ const Map = () => {
 }
 
 export default Map
-
-
