@@ -2,16 +2,16 @@
 import React, { useState } from 'react'
 import { userIsOwner } from '../../helpers/auth'
 import { convertTimestamp, displayModal } from '../../helpers/helperFunctions'
-import ModalDummy from '../Forms/ModalDummy'
+import ModalDummy from '../Modals/Forms/ModalDummy'
 
-const PubComments = ({ reviews }) => {
+const PubComments = ({ reviews, displayNumber }) => {
   const [isDeleteActive, setisDeleteActive] = useState(false)
   const handleToggle = () => {
     setisDeleteActive(!isDeleteActive)
   }
   return (
     <div className="grid-container">
-      {reviews.splice(0, 6).map((review) => {
+      {reviews.splice(0, displayNumber).map((review) => {
         const { reviewOwnerImage, reviewOwnerName, createdAt, _id, text, reviewOwner } = review
 
         return (
