@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 import bcrypt from 'bcrypt'
+import reviewSchema from './reviews.js'
 
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true, maxlength: 40 },
@@ -12,7 +13,11 @@ const userSchema = new mongoose.Schema({
   },
   isLandlord: { type: Boolean, required: true },
   isUser: { type: Boolean, required: true },
-  isFirstTime: { type: Boolean, required: true }
+  isFirstTime: { type: Boolean, required: true },
+  favouritePubs: { type: Array },
+  allReviews: [reviewSchema]
+}, {
+  timestamps: true
 })
 //*has access to comments, can CRUD comments and self
 

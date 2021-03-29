@@ -34,6 +34,7 @@ const Signup = () => {
       setErrors(err.response.data.errors)
     }
   }
+  
 
   return (
     <section className="section">

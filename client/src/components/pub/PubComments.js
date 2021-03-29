@@ -1,46 +1,44 @@
-import React from 'react'
+/* eslint-disable no-unused-vars */
+import React, { useState } from 'react'
+import { userIsOwner } from '../../helpers/auth'
+import { convertTimestamp, displayModal } from '../../helpers/helperFunctions'
+import ModalDummy from '../Modals/Forms/ModalDummy'
 
-const PubComments = ({ reviews }) => {
+const PubComments = ({ reviews, displayNumber }) => {
+  const [isDeleteActive, setisDeleteActive] = useState(false)
+  const handleToggle = () => {
+    setisDeleteActive(!isDeleteActive)
+  }
   return (
     <div className="grid-container">
-      {reviews.splice(0, 6).map((review) => {
-        const reviewDate = Date.parse(review.createdAt)
-        const newReviewDate = new Date(reviewDate)
-
-        const months = [
-          'Jan',
-          'Feb',
-          'Mar',
-          'April',
-          'May',
-          'June',
-          'July',
-          'Aug',
-          'Sept',
-          'Oct',
-          'Nov',
-          'Dec'
-        ]
+      {reviews.splice(0, displayNumber).map((review) => {
+        const { reviewOwnerImage, reviewOwnerName, createdAt, _id, text, reviewOwner } = review
 
         return (
-          <div key={review._id}>
+          <div key={_id}>
             <div className="review-details-container">
               <div className="review-image">
-                <img src={review.reviewOwnerImage}></img>
+                <img src={reviewOwnerImage}></img>
               </div>
               <div>
                 <div>
-                  <b>{review.reviewOwnerName}</b>
+                  <b>{reviewOwnerName}</b>
                 </div>
                 <div className="review-date">
-                  {months[newReviewDate.getMonth()] +
-                    ' ' +
-                    newReviewDate.getFullYear()}
+                  {convertTimestamp(createdAt)}
                 </div>
               </div>
             </div>
 
-            <div className="comment"> {review.text}</div>
+            <div className="comment"> {text}</div>
+            {
+              userIsOwner(reviewOwner) &&
+              <>
+                <button className="delete-review" onClick={handleToggle}>Delete Review</button>
+                {displayModal(isDeleteActive, ModalDummy, handleToggle)}
+              </>
+              
+            }
           </div>
         )
       })}
