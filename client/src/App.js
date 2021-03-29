@@ -15,7 +15,6 @@ import PubSaved from './components/loggedin/PubSaved'
 import BecomeLandlord from './components/auth/BecomeLandlord'
 import Profile from './components/loggedin/Profile'
 import PubIndexCities from './components/pub/PubIndexCities'
-import Map from './components/map'
 import LandLordSignUp from './components/auth/LandLordSignUp'
 
 const App = () => {
@@ -24,9 +23,6 @@ const App = () => {
       <Switch>
         <Route exact path="/pubs">
           <PubIndex />
-        </Route>
-        <Route exact path="/map">
-          <Map />
         </Route>
         <Route exact path="/">
           <Home />

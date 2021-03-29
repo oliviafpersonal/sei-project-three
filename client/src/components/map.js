@@ -9,7 +9,6 @@ const Map = () => {
     longitude: -0.118092,
     zoom: 11,
   })
-  console.log(locationData.length)
 
   const [popup, setPopup] = useState(null)
 
