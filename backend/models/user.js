@@ -16,6 +16,8 @@ const userSchema = new mongoose.Schema({
   isFirstTime: { type: Boolean, required: true },
   favouritePubs: { type: Array },
   allReviews: [reviewSchema]
+}, {
+  timestamps: true
 })
 //*has access to comments, can CRUD comments and self
 
