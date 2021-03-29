@@ -3,12 +3,13 @@ import React, { useState } from 'react'
 import ReactMapGL, { Marker, Popup } from 'react-map-gl'
 import locationData from './data/location'
 
-const MultipleMarkers = () => {
+const Map = () => {
   const [viewport, setViewport] = useState({
-    latitude: 51.515,
-    longitude: -0.078,
-    zoom: 4,
+    latitude: 51.509865,
+    longitude: -0.118092,
+    zoom: 11,
   })
+  console.log(locationData.length)
 
   const [popup, setPopup] = useState(null)
 
@@ -18,14 +19,14 @@ const MultipleMarkers = () => {
     <div className="map-container"> 
       <ReactMapGL
         mapboxApiAccessToken={apiKey}
-        height='50%'
-        width='50%'
+        height='100vh'
+        width='100hvh'
         mapStyle='mapbox://styles/mapbox/streets-v11'
         {...viewport}
         onViewportChange={(viewport) => setViewport(viewport)}
       >
-        {locationData.map(location => {
-          return <Marker key={location.id} longitude={location.longitude} latitude={location.latitude}>
+        {locationData.map((location, index) => {
+          return <Marker key={index} longitude={location.longitude} latitude={location.latitude}>
             <span onClick={() => setPopup(location)}>
               {location.icon}
             </span>
@@ -47,6 +48,6 @@ const MultipleMarkers = () => {
   )
 }
 
-export default MultipleMarkers
+export default Map
 
 

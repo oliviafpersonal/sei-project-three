@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react'
 //components
 import Header from '../Header'
 import PubCard from './PubCard'
+import Map from '../Map'
 
 const PubIndex = () => {
   const [pubs, setPubs] = useState(null)
@@ -176,7 +177,8 @@ const PubIndex = () => {
               ))}
           </div>
         </div>
-        <div className="column is-two-thirds"></div>
+        <div className="column is-two-thirds"><Map /></div>
+        
       </div>
     </>
   )

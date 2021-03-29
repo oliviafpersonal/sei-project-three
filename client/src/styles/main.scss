@@ -482,7 +482,9 @@ progress[value]::-webkit-progress-value {
 // * Map
 .map-container {
   height: calc(100vh - 52px);
-  width: 100%;
+  width: 100vh;
+  position: sticky;
+  top: 0;
 }
 
 // * Become Landlord
