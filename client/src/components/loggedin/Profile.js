@@ -55,11 +55,14 @@ const Profile = () => {
     console.log(event.target)
     event.preventDefault()
   }
+  // useEffect(() => {
+  //   reviews.reverse()
+  // }, [user])
 
   if (!user) return null
   const { isLandlord, profileImage, username, email, createdAt, allReviews: reviews } = user
   
-  reviews.reverse()
+ 
   return (
 
     <>
