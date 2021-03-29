@@ -19,10 +19,10 @@ import { userIsAuthenticated, userIsOwner } from '../../helpers/auth'
 import Review from '../Forms/Review'
 
 const PubShow = () => {
-  const params = useParams()
+  const { id } = useParams()
   const [isSubmitActive, setIsSubmitActive] = useState(false)
   const [pub, setPub] = useState('')
-
+  console.log(id)
   //prettier-ignore
   const {
     nameOfPub,
@@ -42,7 +42,7 @@ const PubShow = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const response = await axios.get(`/api/pubs/${params.id}`)
+      const response = await axios.get(`/api/pubs/${id}`)
       setPub(response.data)
     }
     getData()
@@ -282,7 +282,7 @@ const PubShow = () => {
           <div className="reviews-button-container">
             <button className="reviews-button button">{`Show all ${reviews.length} Reviews`}</button>
           </div>
-          {userIsAuthenticated() && userIsOwner(pubOwner) &&
+          {userIsAuthenticated() && !userIsOwner(pubOwner) &&
             <div className="reviews-button-container">
               <button className="reviews-button button" onClick={handleToggle}>Submit a Review</button>
             </div>
@@ -297,7 +297,7 @@ const PubShow = () => {
 
         <div className="modal-background"></div>
         <div className="modal-content">
-          <Review />
+          <Review pubId={id}/>
         </div>
         <button className="modal-close is-large" aria-label="close" onClick={handleToggle}></button>
       </div>
