@@ -20,19 +20,19 @@ import Review from '../Modals/Forms/Review'
 import { displayModal } from '../../helpers/helperFunctions'
 import DisplayAllReviews from '../Modals/DisplayAllReviews'
 
-
 const PubShow = () => {
   const { id } = useParams()
   const [isSubmitActive, setIsSubmitActive] = useState(false)
   const [isShowReviewsActive, setIsShowReviewsActive] = useState(false)
   const [pub, setPub] = useState('')
 
-
+  //prettier-ignore
   const handleButtonToggle = (event) => {
     const buttonName = event.target.name
-    buttonName === 'show-reviews-button' ? setIsShowReviewsActive(!isShowReviewsActive)
-      : buttonName === 'submit-reviews-button' ?
-        setIsSubmitActive(!isSubmitActive)
+    buttonName === 'show-reviews-button'
+      ? setIsShowReviewsActive(!isShowReviewsActive)
+      : buttonName === 'submit-reviews-button'
+        ? setIsSubmitActive(!isSubmitActive)
         : (setIsSubmitActive(false), setIsShowReviewsActive(false))
   }
   console.log(id)
@@ -293,23 +293,34 @@ const PubShow = () => {
             <PubComments reviews={reviews} displayNumber={6} />
           </div>
           <div className="reviews-button-container">
-            <button className="reviews-button button" name="show-reviews-button" onClick={handleButtonToggle}>{`Show all ${reviews.length} Reviews`}</button> 
-            {displayModal(isShowReviewsActive, DisplayAllReviews, handleButtonToggle)}
+            <button
+              className="reviews-button button"
+              name="show-reviews-button"
+              onClick={handleButtonToggle}
+            >{`Show all ${reviews.length} Reviews`}</button>
+            {displayModal(
+              isShowReviewsActive,
+              DisplayAllReviews,
+              handleButtonToggle
+            )}
           </div>
-          {userIsAuthenticated() && !userIsOwner(pubOwner) &&
+          {userIsAuthenticated() && !userIsOwner(pubOwner) && (
             <>
               <div className="reviews-button-container">
-                <button className="reviews-button button" name="submit-reviews-button" onClick={handleToggle}>Submit a Review</button>
+                <button
+                  className="reviews-button button"
+                  name="submit-reviews-button"
+                  onClick={handleToggle}
+                >
+                  Submit a Review
+                </button>
               </div>
-              { displayModal(isSubmitActive, Review, handleToggle) }
+              {displayModal(isSubmitActive, Review, handleToggle)}
             </>
-          }
+          )}
         </section>
         <hr />
-
-        {!userIsAuthenticated() && <p>hello</p>}
       </div>
-
     </>
   )
 }

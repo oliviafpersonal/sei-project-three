@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react'
 //components
 import Header from '../Header'
 import PubCard from './PubCard'
+import Map from '../MapBox'
 
 const PubIndex = () => {
   const [pubs, setPubs] = useState(null)
@@ -13,7 +14,7 @@ const PubIndex = () => {
   const [sports, setSports] = useState(false)
   const [food, setFood] = useState(false)
   const [filterPubs, setFilterPubs] = useState(false)
-  
+
 
   useEffect(async () => {
     const getData = async () => {
@@ -23,7 +24,7 @@ const PubIndex = () => {
     }
     getData()
   }, [])
-  
+
   const handleSeats = () => {
     setSeats(!seats)
     setPets(false)
@@ -31,7 +32,7 @@ const PubIndex = () => {
     setFood(false)
     setFilterPubs(false)
     console.log('first log>>>>', seats)
-  
+
   }
   const handleFood = () => {
     if (!food) {
@@ -49,7 +50,7 @@ const PubIndex = () => {
       setFilterPubs(false)
       console.log('second log>>>>', food)
     }
-    
+
   }
 
   const handlePets = () => {
@@ -113,7 +114,7 @@ const PubIndex = () => {
   //   setSearchTeam(filteredArray)
   // }, [filterValue])
 
-  
+
   if (!pubs) return null
 
   const isSeating = pubs.filter(pub => pub.isOutsideSeating === true)
@@ -124,7 +125,7 @@ const PubIndex = () => {
     return b - a
   })
   console.log('🚀 ~ file: PubIndex.js ~ line 115 ~ isRating ~ isRating', isRating)
-  
+
   return (
     <>
       <Header />
@@ -133,7 +134,7 @@ const PubIndex = () => {
         <div className="column">
           <div className="pub-index-container">
             <div className="pub-index-text">
-              <p>{`${( 
+              <p>{`${(
                 sports ? isSports
                   : pets ? isPets
                     : seats ? isSeating
@@ -163,8 +164,8 @@ const PubIndex = () => {
               <hr />
             </div>
 
-            {            
-              ( 
+            {
+              (
                 sports ? isSports
                   : pets ? isPets
                     : seats ? isSeating
@@ -176,7 +177,8 @@ const PubIndex = () => {
               ))}
           </div>
         </div>
-        <div className="column is-two-thirds"></div>
+        <div className="column is-two-thirds"><Map /></div>
+
       </div>
     </>
   )
