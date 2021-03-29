@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router'
-const Review = () => {
-  const { id } = useParams()
+
+
+const Review = ({ id }) => {
 
   const [formData, setFormData] = useState({
     subRating: {
