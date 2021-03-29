@@ -1,18 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { ImageUploadField } from '../../ImageUploadField'
 const EditProfile = () => {
-  // const [formData, setFormData] = useState({
-  //   username: '',
-  //   password: '',
-  //   profileImage: '',
-  // })
+  const [formData, setFormData] = useState({
+    username: '',
+    password: '',
+    profileImage: '',
+  })
 
-  // const handleChange = (event) => {
-  //   const newFormData = { ...formData, [event.target.name]: event.target.value }
-  //   setFormData(newFormData)
-  // }
+  const handleChange = (event) => {
+    const newFormData = { ...formData, [event.target.name]: event.target.value }
+    setFormData(newFormData)
+  }
   const handleSubmit = async (event) => {
     event.preventDefault()
   }
+
   
   return (
     <form onSubmit={handleSubmit}>
@@ -29,6 +31,13 @@ const EditProfile = () => {
           </span>
         </div>
         <p className="help is-success">This username is available</p>
+      </div>
+
+      <div>
+        <ImageUploadField
+          name="profileImage"
+          handleImageUrl={handleChange}
+        />
       </div>
 
       <div className="field">
