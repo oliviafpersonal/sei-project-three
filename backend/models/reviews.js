@@ -9,7 +9,8 @@ const reviewSchema = new mongoose.Schema({
   text: { type: String, maxlength: 300, default: 'No comments submitted' },
   reviewOwner: { type: mongoose.Schema.Types.ObjectID, ref: 'User' },
   reviewOwnerName: { type: String, ref: 'User' },
-  reviewOwnerImage: { type: String, ref: 'User' }
+  reviewOwnerImage: { type: String, ref: 'User' },
+  pubName: String
 }, {
   timestamps: true
 })

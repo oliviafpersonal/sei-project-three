@@ -18,8 +18,9 @@ export const addReviewtoPub = async (req, res) => {
     if (isEqual(pub.pubOwner, userID)) {
       throw new Error('user is pub owner - cannot review your own pubs')
     } else {
-      const newReview = { ...req.body, reviewOwner: userID, reviewOwnerName: userName, reviewOwnerImage: userImage }
+      const newReview = { ...req.body, reviewOwner: userID, reviewOwnerName: userName, reviewOwnerImage: userImage, pubName: pub.nameOfPub }
       pub.reviews.push(newReview)
+      findUser.userPubReviews.push(newReview)
       await pub.save()
       return res.status(200).json(pub)
     }
