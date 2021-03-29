@@ -13,7 +13,7 @@ const Map = () => {
   const [popup, setPopup] = useState(null)
 
   const apiKey = 'pk.eyJ1IjoiaGZyd2Fyd2ljayIsImEiOiJja21sd2p4cTcwYWZqMndsZXhsdG41aDlqIn0.cjW07TW74R2cD05Hap_eQQ'
-  console.log('popup', popup)
+
   return (
     <div className="map-container"> 
       <ReactMapGL

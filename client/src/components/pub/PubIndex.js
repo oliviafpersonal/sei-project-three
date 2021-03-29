@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react'
 //components
 import Header from '../Header'
 import PubCard from './PubCard'
-import Map from '../Map'
+import Map from '../MapBox'
 
 const PubIndex = () => {
   const [pubs, setPubs] = useState(null)
