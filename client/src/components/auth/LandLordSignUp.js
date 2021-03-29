@@ -33,7 +33,23 @@ const LandLordSignUp = () => {
           <form>
             <input className="input"></input>
             <br />
-            <button className="button">Continue</button>
+
+            <h2>Line 1</h2>
+            <input className="input"></input>
+            <br />
+            <h2>Line 2</h2>
+            <input className="input"></input>
+            <br />
+            <h2>town</h2>
+            <input className="input"></input>
+            <br />
+            <h2>city</h2>
+            <input className="input"></input>
+            <br />
+            <h2>description</h2>
+            <input className="textarea"></input>
+            <br />
+            <button className="landlord-sign-up-button button">Continue</button>
           </form>
         </div>
         <div className="column">
