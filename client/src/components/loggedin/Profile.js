@@ -4,11 +4,9 @@ import React, { useEffect, useState } from 'react'
 import {
   getPayloadFromToken /*, getTokenFromLocalStorage*/
 } from '../../helpers/auth'
-import { convertTimestamp, displayModal } from '../../helpers/helperFunctions'
-import DeleteProfile from '../Modals/Forms/DeleteProfile'
+import { convertTimestamp } from '../../helpers/helperFunctions'
 import EditProfile from '../Modals/Forms/EditProfile'
 import Header from '../Header'
-// import PubComments from '../pub/PubComments'
 import ProfileReviews from './ProfileReviews'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -37,15 +35,7 @@ const Profile = () => {
   }
 
   //console.log('Bearer', getTokenFromLocalStorage())
-  const cancelEdit = (event) => {
-    //do something to clear the form data
-    handleToggleEdit(event)
-  }
 
-  const submitEdit = async (event) => {
-    console.log(event.target)
-    event.preventDefault()
-  }
   // useEffect(() => {
   //   reviews.reverse()
   // }, [user])
@@ -102,7 +92,6 @@ const Profile = () => {
               </div>
               <hr />
               <p>Reviews by you</p>
-              {/* {reviews && <PubComments reviews={reviews} displayNumber={2} />} */}
               {reviews && (
                 <ProfileReviews reviews={reviews} displayNumber={3} />
               )}
@@ -120,8 +109,6 @@ const Profile = () => {
             Delete My Account
           </button>
 
-          {displayModal(isEditActive, EditProfile, handleToggleEdit)}
-          {displayModal(isDeleteActive, DeleteProfile, handleToggleDelete)}
           <section className="account-activity-section">
             <h2>Activity</h2>
             <div className="account-card-sub">
@@ -131,7 +118,6 @@ const Profile = () => {
             <div className="account-card-sub">
               <div className="comments">
                 <h3>Last Review Submitted</h3>
-                {/* {reviews && <PubComments reviews={reviews} displayNumber={2} />} */}
               </div>
             </div>
           </section>

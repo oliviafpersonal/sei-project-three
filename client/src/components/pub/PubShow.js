@@ -16,8 +16,6 @@ import {
 import Header from '../Header'
 import PubComments from './PubComments'
 import { userIsAuthenticated, userIsOwner } from '../../helpers/auth'
-import { displayModal } from '../../helpers/helperFunctions'
-import DisplayAllReviews from '../Modals/DisplayAllReviews'
 
 const PubShow = () => {
   const { id } = useParams()
@@ -293,11 +291,6 @@ const PubShow = () => {
               name="show-reviews-button"
               onClick={handleButtonToggle}
             >{`Show all ${reviews.length} Reviews`}</button>
-            {displayModal(
-              isShowReviewsActive,
-              DisplayAllReviews,
-              handleButtonToggle
-            )}
           </div>
           {userIsAuthenticated() && !userIsOwner(pubOwner) && (
             <>

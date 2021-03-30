@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { useHistory } from 'react-router-dom'
 import { getPayloadFromToken, getTokenFromLocalStorage } from '../../../helpers/auth'
-import { displayModal } from '../../../helpers/helperFunctions'
 import DeleteMessage from '../DeleteMessage'
 
 const DeleteProfile = () => {
@@ -37,7 +36,6 @@ const DeleteProfile = () => {
         <p> WARNING!!! Once your account is deleted, all associated data will be lost. If you are sure you wish to proceed, please click Delete My Account. If not, click the close button on the top right to cancel.</p>
         <button className="button is-danger" onClick={handleDelete}>Delete My Account</button>
 
-        {displayModal(isDeleted, DeleteMessage)}
 
 
       </div>

@@ -1,8 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 import { userIsOwner } from '../../helpers/auth'
-import { convertTimestamp, displayModal } from '../../helpers/helperFunctions'
-import ModalDummy from '../Modals/Forms/ModalDummy'
+import { convertTimestamp } from '../../helpers/helperFunctions'
 
 const PubComments = ({ reviews, displayNumber }) => {
   const [isDeleteActive, setisDeleteActive] = useState(false)
@@ -42,7 +41,6 @@ const PubComments = ({ reviews, displayNumber }) => {
                 <button className="button delete-review" onClick={handleToggle}>
                   Delete Review
                 </button>
-                {displayModal(isDeleteActive, ModalDummy, handleToggle)}
               </>
             )}
           </div>
