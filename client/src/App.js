@@ -19,6 +19,7 @@ import LandLordSignUp from './components/auth/LandLordSignUp'
 import Review from './components/Modals/Forms/Review'
 import EditProfile from './components/Modals/Forms/EditProfile'
 import DeleteProfile from './components/Modals/Forms/DeleteProfile'
+import DeleteComment from './components/Modals/Forms/DeleteComment'
 
 const App = () => {
   return (
@@ -36,6 +37,9 @@ const App = () => {
           </Route>
           <Route exact path="/profile/delete-account/:userID/">
             <DeleteProfile />
+          </Route>
+          <Route exact path="/users/reviews/delete-review/:pubID/:reviewID">
+            <DeleteComment />
           </Route>
           <Route exact path="/">
             <Home />
