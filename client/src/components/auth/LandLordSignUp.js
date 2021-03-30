@@ -9,6 +9,7 @@ import { ImageUploadField } from '../ImageUploadField'
 import drinks from '../../styles/assets/drinks.png'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+//prettier-ignore
 import {
   faDog,
   faChair,
@@ -56,52 +57,36 @@ const LandLordSignUp = () => {
   console.log(formData)
 
   //prettier-ignore
-  // const [errors, setErrors] = useState({
-  //   nameOfPub: '',
-  //   address: {
-  //     line1: '',
-  //     line2: '',
-  //     town: '',
-  //     city: '',
-  //     postCode: '',
-  //   },
-  //   description: '',
-  //   isOutsideSeating: false,
-  //   isPetFriendly: false,
-  //   isFoodServed: false,
-  //   isLiveSports: false,
-  //   image: '',
-  // })
+  const [errors, setErrors] = useState({
+    nameOfPub: '',
+    line1: '',
+    line2: '',
+    town: '',
+    city: '',
+    postCode: '',
+    description: '',
+    isOutsideSeating: false,
+    isPetFriendly: false,
+    isFoodServed: false,
+    isLiveSports: false,
+    image: '',
+  })
 
   const handleChange = (event) => {
     //console.log('event.target.checked', event.target.type)
 
-    console.log(event.target.value)
-    // const value =
-    //   event.target.type === 'checkbox'
-    //     ? event.target.checked
-    //     : event.target.value
+    const value =
+      event.target.type === 'checkbox'
+        ? event.target.checked
+        : event.target.value
 
-    // setFormData({ ...formData, [event.target.name]: value })
-
-    // const addressValues = { ...formData.address, [event.target.name]: value }
-    // setFormData({ ...formData, ...addressValues })
+    setFormData({ ...formData, [event.target.name]: value })
   }
 
-  // const handleAdress = (event) => {
-  //   //console.log('event.target.checked', event.target.type)
-  //   const value =
-  //     event.target.type === 'checkbox'
-  //       ? event.target.checked
-  //       : event.target.value
-  //   const addressValues = { ...formData.address, [event.target.name]: value }
-  //   console.log(addressValues)
-  //   console.log(formData)
-  //   setFormData({ ...formData, ...addressValues })
-  // }
-
   const handleImageUrl = (url) => {
-    setFormData({ ...formData, profileImage: url })
+    console.log('image url', url)
+
+    setFormData({ ...formData, image: 'hello' })
   }
 
   const handleSubmit = async (event) => {
@@ -119,7 +104,7 @@ const LandLordSignUp = () => {
       history.push('/pubs')
     } catch (err) {
       console.log(err.response)
-      //setErrors(err.response.data.errors)
+      // setErrors(err.response.data.errors)
     }
   }
 
