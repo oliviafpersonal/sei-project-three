@@ -26,7 +26,7 @@ const Review = () => {
   //prettier-ignore
   const handleSubmit = async (event) => {
     event.preventDefault()
-    const { data } = await axios.post(`/api/pubs/${id}/reviews`, formData, {
+    await axios.post(`/api/pubs/${id}/reviews`, formData, {
       headers: {
         Authorization: `Bearer ${getTokenFromLocalStorage()}`,
       },
