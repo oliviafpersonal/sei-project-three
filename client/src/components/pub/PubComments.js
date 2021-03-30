@@ -1,13 +1,7 @@
-/* eslint-disable no-unused-vars */
-import React, { useState } from 'react'
-import { userIsOwner } from '../../helpers/auth'
+import React from 'react'
 import { convertTimestamp } from '../../helpers/helperFunctions'
 
 const PubComments = ({ reviews, displayNumber }) => {
-  const [isDeleteActive, setisDeleteActive] = useState(false)
-  const handleToggle = () => {
-    setisDeleteActive(!isDeleteActive)
-  }
   return (
     <div className="grid-container">
       {reviews.splice(0, displayNumber).map((review) => {
@@ -18,7 +12,6 @@ const PubComments = ({ reviews, displayNumber }) => {
           createdAt,
           _id,
           text,
-          reviewOwner,
         } = review
 
         return (
@@ -36,13 +29,6 @@ const PubComments = ({ reviews, displayNumber }) => {
             </div>
 
             <div className="comment"> {text}</div>
-            {userIsOwner(reviewOwner) && (
-              <>
-                <button className="button delete-review" onClick={handleToggle}>
-                  Delete Review
-                </button>
-              </>
-            )}
           </div>
         )
       })}
