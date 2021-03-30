@@ -1,10 +1,12 @@
 /* eslint-disable no-unused-vars */
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useHistory, useParams } from 'react-router'
 import { getTokenFromLocalStorage } from '../../../helpers/auth'
 
 //prettier-ignore
-const Review = ( pubIdForReview ) => {
+const Review = () => {
+  const history = useHistory()
   const [formData, setFormData] = useState({
     subRating: {
       price: 0,
@@ -13,7 +15,8 @@ const Review = ( pubIdForReview ) => {
     },
     text: '',
   })
-  console.log('id>>>>>', pubIdForReview.props)
+  const { id } = useParams()
+  console.log('id>>>>>', id)
   const handleChange = (event) => {
     const newFormData = { ...formData, [event.target.name]: event.target.value }
     console.log(newFormData)
@@ -23,12 +26,12 @@ const Review = ( pubIdForReview ) => {
   //prettier-ignore
   const handleSubmit = async (event) => {
     event.preventDefault()
-    const { data } = await axios.post(`/api/pubs/${pubIdForReview.props}/reviews`, formData, {
+    const { data } = await axios.post(`/api/pubs/${id}/reviews`, formData, {
       headers: {
         Authorization: `Bearer ${getTokenFromLocalStorage()}`,
       },
-      
     })
+    history.push(`/pubs/${id}`)
   }
 
   return (

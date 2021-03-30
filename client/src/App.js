@@ -16,6 +16,7 @@ import BecomeLandlord from './components/auth/BecomeLandlord'
 import Profile from './components/loggedin/Profile'
 import PubIndexCities from './components/pub/PubIndexCities'
 import LandLordSignUp from './components/auth/LandLordSignUp'
+import Review from './components/Modals/Forms/Review'
 
 const App = () => {
   return (
@@ -25,7 +26,9 @@ const App = () => {
           <Route exact path="/pubs">
             <PubIndex />
           </Route>
-
+          <Route exact path="/pubs/:id/submit-review">
+            <Review />
+          </Route>
           <Route exact path="/">
             <Home />
           </Route>

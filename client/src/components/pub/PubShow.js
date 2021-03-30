@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
-import { useParams /*, Link*/ } from 'react-router-dom'
+import { Link, useParams /*, Link*/ } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faStar,
@@ -16,7 +16,6 @@ import {
 import Header from '../Header'
 import PubComments from './PubComments'
 import { userIsAuthenticated, userIsOwner } from '../../helpers/auth'
-import Review from '../Modals/Forms/Review'
 import { displayModal } from '../../helpers/helperFunctions'
 import DisplayAllReviews from '../Modals/DisplayAllReviews'
 
@@ -25,7 +24,6 @@ const PubShow = () => {
   const [isSubmitActive, setIsSubmitActive] = useState(false)
   const [isShowReviewsActive, setIsShowReviewsActive] = useState(false)
   const [pub, setPub] = useState('')
-  const [pubIdForReview, setPubIdForReview] = useState('')
   //prettier-ignore
   const handleButtonToggle = (event) => {
     const buttonName = event.target.name
@@ -56,16 +54,9 @@ const PubShow = () => {
     const getData = async () => {
       const response = await axios.get(`/api/pubs/${id}`)
       setPub(response.data)
-      setPubIdForReview(id)
     }
     getData()
   }, [])
-  
-  
-  const handleToggle = (event) => {
-    event.preventDefault()
-    setIsSubmitActive(!isSubmitActive)
-  }
   
   if (!pub) return null
 
@@ -311,24 +302,15 @@ const PubShow = () => {
           {userIsAuthenticated() && !userIsOwner(pubOwner) && (
             <>
               <div className="reviews-button-container">
-                <button
-                  className="reviews-button button"
-                  name="submit-reviews-button"
-                  onClick={handleToggle}
-                >
-                  Submit a Review
-                </button>
+                <Link to={`/pubs/${id}/submit-review`}>
+                  <button
+                    className="reviews-button button"
+                    name="submit-reviews-button"
+                  >
+                    Submit a Review
+                  </button>
+                </Link>
               </div>
-              {/* <>
-                <div className={`modal ${isSubmitActive && 'is-active'}`}>
-                  <div className="modal-background"></div>
-                  <div className="modal-content">
-                    < Review pubIdForReview={pubIdForReview} />
-                  </div>
-                  <button className="modal-close is-large" onClick={handleToggle} aria-label="close"></button>
-                </div>
-              </> */}
-              {displayModal(isSubmitActive, Review, handleToggle, pubIdForReview)}
             </>
           )}
         </section>
