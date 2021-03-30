@@ -23,7 +23,7 @@ export const addReviewtoPub = async (req, res) => {
         availability: req.body.availability,
         comfortability: req.body.comfortability,
         price: req.body.price
-      }, reviewOwner: userID, reviewOwnerName: userName, reviewOwnerImage: userImage, pubName: pub.nameOfPub, pubID: pub._id }
+      }, reviewOwner: userID, reviewOwnerName: userName, reviewOwnerImage: userImage, pubName: pub.nameOfPub, pubID: pub._id, text: req.body.text }
       pub.reviews.push(newReview)
       findUser.allReviews.push(newReview)
       await pub.save()

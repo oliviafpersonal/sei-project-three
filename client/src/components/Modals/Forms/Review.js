@@ -23,6 +23,7 @@ const Review = () => {
 
   //prettier-ignore
   const handleSubmit = async (event) => {
+    console.log(formData)
     event.preventDefault()
     await axios.post(`/api/pubs/${id}/reviews`, formData, {
       headers: {
@@ -43,9 +44,11 @@ const Review = () => {
             <div className="control">
               <div className="select is-fullwidth">
                 <select onChange={handleChange} name="price">
+                  
+                  <option value="">Choose a rating</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
-                  <option defaultValue="3">3</option>
+                  <option value="3">3</option>
                   <option value="4">4</option>
                   <option value="5">5</option>
                 </select>
@@ -64,9 +67,11 @@ const Review = () => {
             <div className="control">
               <div className="select is-fullwidth">
                 <select onChange={handleChange} name="comfortability">
+                  
+                  <option value="">Choose a rating</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
-                  <option defaultValue="3">3</option>
+                  <option value="3">3</option>
                   <option value="4">4</option>
                   <option value="5">5</option>
                 </select>
@@ -85,9 +90,11 @@ const Review = () => {
             <div className="control">
               <div className="select is-fullwidth">
                 <select onChange={handleChange} name="availability">
+                  
+                  <option value="">Choose a rating</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
-                  <option defaultValue="3">3</option>
+                  <option value="3">3</option>
                   <option value="4">4</option>
                   <option value="5">5</option>
                 </select>
