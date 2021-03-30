@@ -55,7 +55,8 @@ const LandLordSignUp = () => {
     isLiveSports: false,
     image: '',
   })
-  console.log(setFormData)
+  console.log(formData)
+
 
   const [errors, setErrors] = useState({
     nameOfPub: '',
@@ -74,11 +75,22 @@ const LandLordSignUp = () => {
     image: '',
   })
 
+
+
   const handleChange = event => {
-    console.log('event.target.checked', event.target.type)
+    //console.log('event.target.checked', event.target.type)
     const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value
     setFormData({ ...formData, [event.target.name]: value })
   }
+
+  const handleAdress = event => {
+    //console.log('event.target.checked', event.target.type)
+    const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value
+    const addressValues = { ...formData.address, [event.target.name]: value }
+    setFormData({ ...addressValues })
+  }
+
+
 
   const handleImageUrl = url => {
     setFormData({ ...formData, profileImage: url })
@@ -87,6 +99,7 @@ const LandLordSignUp = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
+      //console.log(getTokenFromLocalStorage())
       const response = await axios.post(
         '/api/pubs',
         formData,
@@ -106,17 +119,18 @@ const LandLordSignUp = () => {
 
 
   // console.log(steps, setSteps)
-
-  useEffect(() => {
-    return () => {
-      const hideFooter = () => {
-        const footer = document.querySelector('footer')
-
-        footer.classList.add('hide')
+  /*
+    useEffect(() => {
+      return () => {
+        const hideFooter = () => {
+          const footer = document.querySelector('footer')
+  
+          footer.classList.add('hide')
+        }
+        hideFooter()
       }
-      hideFooter()
-    }
-  }, [])
+    }, [])
+    */
 
   const clickHandler = (e) => {
     e.preventDefault()
@@ -207,6 +221,7 @@ const LandLordSignUp = () => {
 
   return (
     <div className="landlord-sign-container container">
+
       <div className="columns">
         <div className="landlord-sign-up column">
           <h1>Hi, Username! Lets get started Listing your Pub</h1>
@@ -221,42 +236,41 @@ const LandLordSignUp = () => {
                 //<br />
               }
 
-              <div>
-                <h2>Name of Pub</h2>
-                <input className={`input ${errors.nameOfPub ? 'is-danger' : ''}`} name="nameOfPub" value={formData.nameOfPub} onChange={handleChange}></input>
-                {/* {errors.nameOfPub && <p className="help is-danger">{errors.nameOfPub}</p>} */}
-                <br />
-              </div>
 
-              <div>
-                <h2>Line 1</h2>
-                <input className={`input ${errors.line1 ? 'is-danger' : ''}`} name="line1" value={formData.line1} onChange={handleChange}></input>
-                {/* {errors.line1 && <p className="help is-danger">{errors.line1}</p>} */}
-                <br />
-              </div>
+              <h2>Name of Pub</h2>
+              <input className="input" name="nameOfPub" value={formData.nameOfPub} onChange={handleChange}></input>
+              {/* {errors.nameOfPub && (<p className="help is-danger">{errors.nameOfPub}</p>)} */}
+              <br />
+
+              <h2>Line 1</h2>
+              <input className="input" name="line1" value={formData.line1} onChange={handleAdress}></input>
+              {/* {errors.line1 && (<p className="help is-danger">{errors.line1}</p>)} */}
+              <br />
+
 
 
               <h2>Line 2</h2>
-              <input className="input" name="line2" value={formData.line2} onChange={handleChange}></input>
+              <input className="input" name="line2" value={formData.line2} onChange={handleAdress}></input>
               <br />
 
 
               <h2>Town</h2>
-              <input className="input" name="town" value={formData.town} onChange={handleChange}></input>
+              <input className="input" name="town" value={formData.town} onChange={handleAdress}></input>
               <br />
 
               <h2>City</h2>
-              <input className="input" name="city" value={formData.city} onChange={handleChange}></input>
+              <input className="input" name="city" value={formData.city} onChange={handleAdress}></input>
+              {/* {errors.city && (<p className="help is-danger">{errors.city}</p>)} */}
               <br />
 
               <h2>Postcode</h2>
-              <input className={`input ${errors.postCode ? 'is-danger' : ''}`} name="postCode" value={formData.postCode} onChange={handleChange}></input>
-              {/* {errors.postCode && <p className="help is-danger">{errors.postCode}</p>} */}
+              <input className="input" name="postCode" value={formData.postCode} onChange={handleAdress}></input>
+              {/* {errors.postCode && (<p className="help is-danger">{errors.postCode}</p>)} */}
               <br />
 
               <h2>Description</h2>
-              <input className={`input ${errors.description ? 'is-danger' : ''}`} name="description" value={formData.description} onChange={handleChange}></input>
-              {/* {errors.description && <p className="help is-danger">{errors.description}</p>} */}
+              <input className="input" name="description" value={formData.description} onChange={handleChange}></input>
+              {/* {errors.description && (<p className="help is-danger">{errors.description}</p>)} */}
               <br />
 
             </div>

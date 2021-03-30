@@ -33,6 +33,7 @@ const Register = () => {
       console.log(err.response)
       setErrors(err.response.data.errors)
     }
+
   }
 
   return (
@@ -94,9 +95,7 @@ const Register = () => {
                 <label className="label">Password Confirmation</label>
                 <div className="control">
                   <input
-                    className={`input ${
-                      errors.passwordConfirmation ? 'is-danger' : ''
-                    }`}
+                    className={`input ${errors.passwordConfirmation ? 'is-danger' : ''}`}
                     type="password"
                     placeholder="Password Confirmation"
                     name="passwordConfirmation"
