@@ -19,6 +19,7 @@ import LandLordSignUp from './components/auth/LandLordSignUp'
 import Review from './components/Modals/Forms/Review'
 import EditProfile from './components/Modals/Forms/EditProfile'
 import DeleteProfile from './components/Modals/Forms/DeleteProfile'
+import LoginToAddPub from './components/auth/LoginToAddPub'
 
 const App = () => {
   return (
@@ -42,6 +43,9 @@ const App = () => {
           </Route>
           <Route exact path="/login">
             <Login />
+          </Route>
+          <Route exact path="/loginpub">
+            <LoginToAddPub />
           </Route>
           <Route exact path="/signup">
             <Signup />

@@ -28,9 +28,9 @@ const Hamburger = () => {
             aria-haspopup="true"
             aria-controls="dropdown-menu4"
           >
-            <FontAwesomeIcon icon={faBars} />
+            <FontAwesomeIcon icon={faBars} className="fa-1x" />
             <span className="logo-space">
-              <FontAwesomeIcon icon={faUserCircle} />
+              <FontAwesomeIcon icon={faUserCircle} className="fa-2x" />
             </span>
           </button>
         </div>
@@ -50,14 +50,14 @@ const Hamburger = () => {
 
             {userIsAuthenticated() && (
               <>
-                <hr className="dropdown-divider" />
+                {/* <hr className="dropdown-divider" /> */}
                 <Link to={`/profile/${userID}`} className="dropdown-item">
                   Profile
                 </Link>
 
                 <hr className="dropdown-divider" />
                 <div className="dropdown-item stretch">
-                  <a>New Pub Crawl</a>
+                  <a>Saved Pubs</a>
                 </div>
 
                 <hr className="dropdown-divider" />

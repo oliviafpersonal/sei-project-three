@@ -126,6 +126,11 @@ header {
   outline: none;
   background: none;
 }
+.search-divider {
+  border-left: 1px solid rgb(220, 220, 220);
+  height: 3vh;
+  margin-top: 0.6rem;
+}
 
 .location {
   display: flex;
@@ -259,7 +264,7 @@ h3 {
 
 footer {
   margin-top: 2.5rem;
-  background-color: #f7f7f7 !important;
+  background-color: #f6f7fb !important;
   border-top: 1px solid #dddddd !important;
   padding: 2rem;
   bottom: 0;
@@ -284,6 +289,7 @@ footer {
   border-radius: 10px;
   margin-top: 0.8rem;
   z-index: 1000 !important;
+  width: 15rem;
 }
 
 // * pub card
