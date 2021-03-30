@@ -8,11 +8,9 @@ import { getTokenFromLocalStorage } from '../../../helpers/auth'
 const Review = () => {
   const history = useHistory()
   const [formData, setFormData] = useState({
-    subRating: {
-      price: 0,
-      availability: 0,
-      comfortability: 0,
-    },
+    price: 0,
+    availability: 0,
+    comfortability: 0,
     text: '',
   })
   const { id } = useParams()
