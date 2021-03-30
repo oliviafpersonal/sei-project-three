@@ -10,27 +10,26 @@ const PubComments = ({ reviews, displayNumber }) => {
     setisDeleteActive(!isDeleteActive)
   }
   return (
-    <div className="grid-container">
+    <div className="profile-comment-container">
       {reviews.splice(0, displayNumber).map((review) => {
+        console.log(review)
         //prettier-ignore
         const {
-          reviewOwnerImage,
-          reviewOwnerName,
+          //prettier-ignore
+          // reviewOwnerName,
           createdAt,
           _id,
           text,
           reviewOwner,
+          pubName,
         } = review
 
         return (
-          <div key={_id}>
-            <div className="review-details-container">
-              <div className="review-image">
-                <img src={reviewOwnerImage}></img>
-              </div>
+          <div className="profile-comment " key={_id}>
+            <div className="profile-review-details-container">
               <div>
                 <div>
-                  <b>{reviewOwnerName}</b>
+                  <b>{pubName}</b>
                 </div>
                 <div className="review-date">{convertTimestamp(createdAt)}</div>
               </div>

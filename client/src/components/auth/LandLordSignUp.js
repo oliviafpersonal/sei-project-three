@@ -38,7 +38,7 @@ import {
 const LandLordSignUp = () => {
   // const [steps, setSteps] = useState('')
   const history = useHistory()
-
+  //prettier-ignore
   const [formData, setFormData] = useState({
     nameOfPub: '',
     address: {
@@ -57,7 +57,7 @@ const LandLordSignUp = () => {
   })
   console.log(formData)
 
-
+  //prettier-ignore
   const [errors, setErrors] = useState({
     nameOfPub: '',
     address: {
@@ -75,24 +75,34 @@ const LandLordSignUp = () => {
     image: '',
   })
 
-
-
-  const handleChange = event => {
+  const handleChange = (event) => {
     //console.log('event.target.checked', event.target.type)
-    const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value
-    setFormData({ ...formData, [event.target.name]: value })
+
+    console.log(event.target.value)
+    // const value =
+    //   event.target.type === 'checkbox'
+    //     ? event.target.checked
+    //     : event.target.value
+
+    // setFormData({ ...formData, [event.target.name]: value })
+
+    // const addressValues = { ...formData.address, [event.target.name]: value }
+    // setFormData({ ...formData, ...addressValues })
   }
 
-  const handleAdress = event => {
-    //console.log('event.target.checked', event.target.type)
-    const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value
-    const addressValues = { ...formData.address, [event.target.name]: value }
-    setFormData({ ...addressValues })
-  }
+  // const handleAdress = (event) => {
+  //   //console.log('event.target.checked', event.target.type)
+  //   const value =
+  //     event.target.type === 'checkbox'
+  //       ? event.target.checked
+  //       : event.target.value
+  //   const addressValues = { ...formData.address, [event.target.name]: value }
+  //   console.log(addressValues)
+  //   console.log(formData)
+  //   setFormData({ ...formData, ...addressValues })
+  // }
 
-
-
-  const handleImageUrl = url => {
+  const handleImageUrl = (url) => {
     setFormData({ ...formData, profileImage: url })
   }
 
@@ -100,15 +110,13 @@ const LandLordSignUp = () => {
     event.preventDefault()
     try {
       //console.log(getTokenFromLocalStorage())
-      const response = await axios.post(
-        '/api/pubs',
-        formData,
-        {
-          headers: {
-            Authorization: `Bearer ${getTokenFromLocalStorage()}`,
-          },
-        }
-      )
+      //prettier-ignore
+      const response = await axios.post('/api/pubs', formData, {
+        headers: {
+          Authorization: `Bearer ${getTokenFromLocalStorage()}`,
+        },
+      })
+      console.log(response)
       clickHandlerTwo()
       history.push('/pubs')
     } catch (err) {
@@ -116,7 +124,6 @@ const LandLordSignUp = () => {
       setErrors(err.response.data.errors)
     }
   }
-
 
   // console.log(steps, setSteps)
   /*
@@ -151,7 +158,6 @@ const LandLordSignUp = () => {
     nextStep.classList.remove('hide')
     nextButton.classList.remove('hide')
     nextBackButton.classList.remove('hide')
-
   }
 
   const backOne = (e) => {
@@ -221,7 +227,6 @@ const LandLordSignUp = () => {
 
   return (
     <div className="landlord-sign-container container">
-
       <div className="columns">
         <div className="landlord-sign-up column">
           <h1>Hi, Username! Lets get started Listing your Pub</h1>
@@ -231,48 +236,79 @@ const LandLordSignUp = () => {
             <div className="step-one">
               <b>STEP 1</b>
               <h2>Where is your Pub located?</h2>
-              {//<br />
+              {
+                //<br />
                 //<input className="input"></input>
                 //<br />
               }
 
-
               <h2>Name of Pub</h2>
-              <input className="input" name="nameOfPub" value={formData.nameOfPub} onChange={handleChange}></input>
+              <input
+                className="input"
+                name="nameOfPub"
+                value={formData.nameOfPub}
+                onChange={handleChange}
+              ></input>
               {/* {errors.nameOfPub && (<p className="help is-danger">{errors.nameOfPub}</p>)} */}
               <br />
 
               <h2>Line 1</h2>
-              <input className="input" name="line1" value={formData.line1} onChange={handleAdress}></input>
+              <input
+                className="input"
+                name="line1"
+                value={formData.line1}
+                onChange={handleChange}
+              ></input>
               {/* {errors.line1 && (<p className="help is-danger">{errors.line1}</p>)} */}
               <br />
 
-
-
               <h2>Line 2</h2>
-              <input className="input" name="line2" value={formData.line2} onChange={handleAdress}></input>
+              <input
+                className="input"
+                name="line2"
+                value={formData.line2}
+                onChange={handleChange}
+              ></input>
               <br />
 
-
               <h2>Town</h2>
-              <input className="input" name="town" value={formData.town} onChange={handleAdress}></input>
+              <input
+                className="input"
+                name="town"
+                value={formData.town}
+                onChange={handleChange}
+              ></input>
               <br />
 
               <h2>City</h2>
-              <input className="input" name="city" value={formData.city} onChange={handleAdress}></input>
+              <input
+                className="input"
+                name="city"
+                value={formData.city}
+                onChange={handleChange}
+              ></input>
               {/* {errors.city && (<p className="help is-danger">{errors.city}</p>)} */}
               <br />
 
               <h2>Postcode</h2>
-              <input className="input" name="postCode" value={formData.postCode} onChange={handleAdress}></input>
+              <input
+                className="input"
+                name="postCode"
+                value={formData.postCode}
+                onChange={handleChange}
+              ></input>
               {/* {errors.postCode && (<p className="help is-danger">{errors.postCode}</p>)} */}
               <br />
 
               <h2>Description</h2>
-              <input className="input" name="description" value={formData.description} onChange={handleChange}></input>
+              <input
+                className="input"
+                name="description"
+                value={formData.description}
+                onChange={handleChange}
+              ></input>
               {/* {errors.description && (<p className="help is-danger">{errors.description}</p>)} */}
               <br />
-
             </div>
             <div className="form-nav">
               <div className="back-one back-button">
@@ -297,7 +333,13 @@ const LandLordSignUp = () => {
                 </div>
                 <div className="feature-text">
                   <p>Is your pub dog friendly ?</p>
-                  <input type="checkbox" className="checkbox" name="isPetFriendly" checked={formData.isPetFriendly} onChange={handleChange} />
+                  <input
+                    type="checkbox"
+                    className="checkbox"
+                    name="isPetFriendly"
+                    checked={formData.isPetFriendly}
+                    onChange={handleChange}
+                  />
                 </div>
               </div>
               <div className="feature-checkbox">
@@ -306,7 +348,13 @@ const LandLordSignUp = () => {
                 </div>
                 <div className="feature-text">
                   <p>Do you have outdoor seating at your pub ?</p>
-                  <input type="checkbox" className="checkbox" name="isOutsideSeating" checked={formData.isOutsideSeating} onChange={handleChange} />
+                  <input
+                    type="checkbox"
+                    className="checkbox"
+                    name="isOutsideSeating"
+                    checked={formData.isOutsideSeating}
+                    onChange={handleChange}
+                  />
                 </div>
               </div>
               <div className="feature-checkbox">
@@ -315,7 +363,13 @@ const LandLordSignUp = () => {
                 </div>
                 <div className="feature-text">
                   <p>Do you serve food at your pub ?</p>
-                  <input type="checkbox" className="checkbox" name="isFoodServed" checked={formData.isFoodServed} onChange={handleChange} />
+                  <input
+                    type="checkbox"
+                    className="checkbox"
+                    name="isFoodServed"
+                    checked={formData.isFoodServed}
+                    onChange={handleChange}
+                  />
                 </div>
               </div>
               <div className="feature-checkbox">
@@ -324,7 +378,13 @@ const LandLordSignUp = () => {
                 </div>
                 <div className="feature-text">
                   <p>Do you your show live sports at your pub?</p>
-                  <input type="checkbox" className="checkbox" name="isLiveSports" checked={formData.isLiveSports} onChange={handleChange} />
+                  <input
+                    type="checkbox"
+                    className="checkbox"
+                    name="isLiveSports"
+                    checked={formData.isLiveSports}
+                    onChange={handleChange}
+                  />
                 </div>
               </div>
             </div>
@@ -345,11 +405,7 @@ const LandLordSignUp = () => {
               <b>STEP 3</b>
               <h2>Lets see what your pub looks like?</h2>
               <br />
-              <ImageUploadField
-                name="image"
-                handleImageUrl={handleImageUrl}
-
-              />
+              <ImageUploadField name="image" handleImageUrl={handleImageUrl} />
             </div>
             <div className="form-nav">
               <div className="hide backthree back-button">
