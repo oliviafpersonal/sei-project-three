@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { useHistory } from 'react-router-dom'
-import { ImageUploadField } from '../ImageUploadField'
+import Header from '../Header'
 
-const Signup = () => {
+//prettier-ignore
+const Register = () => {
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -11,6 +11,7 @@ const Signup = () => {
     passwordConfirmation: '',
   })
 
+  //prettier-ignore
   const [errors, setErrors] = useState({
     username: '',
     email: '',
@@ -18,111 +19,106 @@ const Signup = () => {
     passwordConfirmation: '',
   })
 
-  const history = useHistory()
-
-  const handleChange = event => {
+  const handleChange = (event) => {
     const newFormData = { ...formData, [event.target.name]: event.target.value }
     setFormData(newFormData)
   }
-  const handleSubmit = async event => {
+
+  const handleSubmit = async (event) => {
     event.preventDefault()
     try {
       const response = await axios.post('/api/register', formData)
       console.log(response)
-      history.push('/login')
     } catch (err) {
       console.log(err.response)
       setErrors(err.response.data.errors)
     }
   }
 
-  const [imageData, setImageData] = useState({
-    profileImage: '',
-  })
-  console.log(setImageData)
-
-  const handleImageUrl = url => {
-    setImageData({ ...imageData, profileImage: url })
-  }
-
-
   return (
-    <section className="section">
-      <div className="container">
-        <div className="columns">
-          <form className="column is-half is-offset-one-quarter box" onSubmit={handleSubmit}>
-            <div className="field">
-              <label className="label">Username</label>
-              <div className="control">
-                <input
-                  className={`input ${errors.username ? 'is-danger' : ''}`}
-                  placeholder="Username"
-                  name="username"
-                  value={formData.username}
-                  onChange={handleChange}
-                />
-              </div>
-              {errors.username && <p className="help is-danger">{errors.username}</p>}
-            </div>
-            <div className="field">
-              <label className="label">Email</label>
-              <div className="control">
-                <input
-                  className={`input ${errors.email ? 'is-danger' : ''}`}
-                  placeholder="Email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                />
-              </div>
-              {errors.email && <p className="help is-danger">{errors.email}</p>}
-            </div>
-            <div className="field">
-              <label className="label">Password</label>
-              <div className="control">
-                <input
-                  className={`input ${errors.password ? 'is-danger' : ''}`}
-                  type="password"
-                  placeholder="Password"
-                  name="password"
-                  value={formData.password}
-                  onChange={handleChange}
-                />
-              </div>
-              {errors.password && <p className="help is-danger">{errors.password}</p>}
-            </div>
-            <div className="field">
-              <label className="label">Password Confirmation</label>
-              <div className="control">
-                <input
-                  className={`input ${errors.passwordConfirmation ? 'is-danger' : ''}`}
-                  type="password"
-                  placeholder="Password Confirmation"
-                  name="passwordConfirmation"
-                  value={formData.passwordConfirmation}
-                  onChange={handleChange}
-                />
-              </div>
-              {errors.passwordConfirmation && <p className="help is-danger">{errors.passwordConfirmation}</p>}
-            </div>
-            <div>
-              <p>Upload Profile Picture:</p>
-              <ImageUploadField
-                value={imageData.profileImage}
-                name="profileImage"
-                handleImageUrl={handleImageUrl}
-              />
-            </div>
+    <>
+      <Header />
 
-
-            <div className="field">
-              <button type="submit" className="button is-fullwidth">Register Me!</button>
-            </div>
-          </form>
+      <section className="section">
+        <div className="container">
+          <div className="columns">
+            <form
+              className="column is-half is-offset-one-quarter box"
+              onSubmit={handleSubmit}
+            >
+              <div className="field">
+                <label className="label">Username</label>
+                <div className="control">
+                  <input
+                    className={`input ${errors.username ? 'is-danger' : ''}`}
+                    placeholder="Username"
+                    name="username"
+                    value={formData.username}
+                    onChange={handleChange}
+                  />
+                </div>
+                {errors.username && (
+                  <p className="help is-danger">username error</p>
+                )}
+              </div>
+              <div className="field">
+                <label className="label">Email</label>
+                <div className="control">
+                  <input
+                    className={`input ${errors.email ? 'is-danger' : ''}`}
+                    placeholder="Email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                  />
+                </div>
+                {errors.email && <p className="help is-danger">email error</p>}
+              </div>
+              <div className="field">
+                <label className="label">Password</label>
+                <div className="control">
+                  <input
+                    className={`input ${errors.password ? 'is-danger' : ''}`}
+                    type="password"
+                    placeholder="Password"
+                    name="password"
+                    value={formData.password}
+                    onChange={handleChange}
+                  />
+                </div>
+                {errors.password && (
+                  <p className="help is-danger">password error</p>
+                )}
+              </div>
+              <div className="field">
+                <label className="label">Password Confirmation</label>
+                <div className="control">
+                  <input
+                    className={`input ${
+                      errors.passwordConfirmation ? 'is-danger' : ''
+                    }`}
+                    type="password"
+                    placeholder="Password Confirmation"
+                    name="passwordConfirmation"
+                    value={formData.passwordConfirmation}
+                    onChange={handleChange}
+                  />
+                </div>
+                {errors.passwordConfirmation && (
+                  <p className="help is-danger">password confirmation error</p>
+                )}
+              </div>
+              <div className="field">
+                <button type="submit" className="button is-fullwidth">
+                  Register Me!
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
-    </section >
+      </section>
+    </>
   )
 }
 
-export default Signup
+export default Register
