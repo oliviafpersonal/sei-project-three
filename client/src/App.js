@@ -17,6 +17,8 @@ import Profile from './components/loggedin/Profile'
 import PubIndexCities from './components/pub/PubIndexCities'
 import LandLordSignUp from './components/auth/LandLordSignUp'
 import Review from './components/Modals/Forms/Review'
+import EditProfile from './components/Modals/Forms/EditProfile'
+import DeleteProfile from './components/Modals/Forms/DeleteProfile'
 
 const App = () => {
   return (
@@ -28,6 +30,12 @@ const App = () => {
           </Route>
           <Route exact path="/pubs/:id/submit-review">
             <Review />
+          </Route>
+          <Route exact path="/profile/:userID/edit">
+            <EditProfile />
+          </Route>
+          <Route exact path="/profile/:userID/delete-account">
+            <DeleteProfile />
           </Route>
           <Route exact path="/">
             <Home />
@@ -54,7 +62,7 @@ const App = () => {
           <Route exact path="/landlord/signup">
             <LandLordSignUp />
           </Route>
-          <Route exact path="/profile">
+          <Route exact path="/profile/:userID">
             <Profile />
           </Route>
         </Switch>

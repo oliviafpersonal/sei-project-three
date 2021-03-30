@@ -2,11 +2,11 @@ import React, { useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import { Link, useHistory, useLocation } from 'react-router-dom'
-import { userIsAuthenticated } from '../helpers/auth'
+import { getPayloadFromToken, userIsAuthenticated } from '../helpers/auth'
 
 const Hamburger = () => {
   const history = useHistory()
-
+  const userID = getPayloadFromToken().sub
   const clickHandler = (e) => {
     e.currentTarget.classList.toggle('is-active')
   }
@@ -51,7 +51,7 @@ const Hamburger = () => {
             {userIsAuthenticated() && (
               <>
                 <hr className="dropdown-divider" />
-                <Link to="/profile" className="dropdown-item">
+                <Link to={`/profile/${userID}`} className="dropdown-item">
                   Profile
                 </Link>
 
