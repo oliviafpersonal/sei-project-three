@@ -32,24 +32,24 @@ const Home = () => {
       <main>
         <div className="content-container">
           <div className="pubs-heading">
-            <h1>Pubs Nearby</h1>
+            <h1>Top Locations</h1>
           </div>
           <div className="columns">
             <div className="column">
               <Link to="/pubs/filter-pubs/london">
-                <img src="https://www.telegraphmoorgate.co.uk/-/media/sites/microsites/t/the-telegraph-_-p112/images/2019-ray/drink-gallery/01-telegraph-17092019-93.ashx?w=1024"></img>
+                <img src="https://images.pexels.com/photos/1578332/pexels-photo-1578332.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"></img>
                 <p>London</p>
               </Link>
             </div>
             <div className="column">
               <Link to="/pubs/filter-pubs/manchester">
-                <img src="https://static.standard.co.uk/s3fs-public/thumbnails/image/2018/12/06/11/the-old-bank-of-england-15.jpg?width=990"></img>
+                <img src="https://www.prolificnorth.co.uk/sites/default/files/styles/lightbox_large/public/images/news/manchester-cityscape0.jpg?itok=VjQDdTYJ"></img>
                 <p>Manchester</p>
               </Link>
             </div>
             <div className="column">
               <Link to="/pubs/filter-pubs/cardiff">
-                <img src="https://static.standard.co.uk/s3fs-public/thumbnails/image/2020/02/11/13/ship-shovell-pub.jpg?width=1368"></img>
+                <img src="https://d4drivers.uk/wp-content/uploads/2020/03/Cardiff.jpg"></img>
                 <p>Cardiff</p>
               </Link>
             </div>

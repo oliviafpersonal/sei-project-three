@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { Link, useParams /*, Link*/ } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+//prettier-ignore
 import {
   faStar,
   faHeart,
@@ -47,7 +48,6 @@ const PubShow = () => {
     pubOwner,
   } = pub
 
-  
   useEffect(() => {
     const getData = async () => {
       const response = await axios.get(`/api/pubs/${id}`)
@@ -55,7 +55,7 @@ const PubShow = () => {
     }
     getData()
   }, [])
-  
+
   if (!pub) return null
 
   console.log(pub.reviews.length)
@@ -63,11 +63,7 @@ const PubShow = () => {
   return (
     <>
       <Header />
-      {console.log('reviews in pubshow', reviews)}
-      {/* {console.log(
-        'typeofe averag>>>>',
-        typeof averageRatings.averageComfortability === 'string'
-      )} */}
+
       <div className="pub-show-container">
         <div className="section">
           <div className="columns">
@@ -224,7 +220,12 @@ const PubShow = () => {
                         className="slider"
                         id="myRange"
                       ></progress>
-                      <p> {averageRatings.averageAvailability}</p>
+                      <p>
+                        {' '}
+                        {typeof averageRatings.averageAvailability === 'string'
+                          ? averageRatings.averageAvailability
+                          : averageRatings.averageAvailability.toFixed(1)}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -250,7 +251,12 @@ const PubShow = () => {
                         className="slider"
                         id="myRange"
                       ></progress>
-                      <p>{averageRatings.averageComfortability}</p>
+                      <p>
+                        {typeof averageRatings.averageComfortability ===
+                        'string'
+                          ? averageRatings.averageComfortability
+                          : averageRatings.averageComfortability.toFixed(1)}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -274,7 +280,12 @@ const PubShow = () => {
                         className="slider"
                         id="myRange"
                       ></progress>
-                      <p> {averageRatings.averagePrice}</p>
+
+                      <p>
+                        {typeof averageRatings.averagePrice === 'string'
+                          ? averageRatings.averagePrice
+                          : averageRatings.averagePrice.toFixed(1)}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -292,6 +303,8 @@ const PubShow = () => {
               onClick={handleButtonToggle}
             >{`Show all ${reviews.length} Reviews`}</button>
           </div>
+          <hr />
+
           {userIsAuthenticated() && !userIsOwner(pubOwner) && (
             <>
               <div className="reviews-button-container">
@@ -308,6 +321,7 @@ const PubShow = () => {
           )}
         </section>
         <hr />
+        <br />
       </div>
     </>
   )
