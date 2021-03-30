@@ -11,11 +11,12 @@ import ProfileReviews from './ProfileReviews'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
 
 const Profile = () => {
   const [user, setUser] = useState({})
-  const [isEditActive, setIsEditActive] = useState(false)
-  const [isDeleteActive, setIsDeleteActive] = useState(false)
+  // const [isEditActive, setIsEditActive] = useState(false)
+  // const [isDeleteActive, setIsDeleteActive] = useState(false)
 
   const userID = getPayloadFromToken().sub
 
@@ -27,12 +28,12 @@ const Profile = () => {
     getUser()
   }, [])
 
-  const handleToggleEdit = () => {
-    setIsEditActive(!isEditActive)
-  }
-  const handleToggleDelete = () => {
-    setIsDeleteActive(!isDeleteActive)
-  }
+  // const handleToggleEdit = () => {
+  //   setIsEditActive(!isEditActive)
+  // }
+  // const handleToggleDelete = () => {
+  //   setIsDeleteActive(!isDeleteActive)
+  // }
 
   //console.log('Bearer', getTokenFromLocalStorage())
 
@@ -48,6 +49,7 @@ const Profile = () => {
     email,
     createdAt,
     allReviews: reviews,
+    _id,
   } = user
 
   return (
@@ -64,8 +66,6 @@ const Profile = () => {
                   src={profileImage}
                   alt="user profile image"
                 />
-
-                {EditProfile()}
               </div>
             </div>
 
@@ -74,13 +74,13 @@ const Profile = () => {
                 <h2>{`Hi, i'm ${username}`}</h2>
                 <p>{`Joined in ${convertTimestamp(createdAt)} `}</p>
               </div>
-              <div
-                className="edit-profile-button"
-                name="edit-profile"
-                onClick={handleToggleEdit}
-              >
-                Edit My Profile
-              </div>
+              <Link to={`/profile/${_id}/edit`}>
+                <div
+                  className="edit-profile-button"
+                  name="edit-profile">
+                  Edit My Profile
+                </div>
+              </Link>
               <div className="card-rating">
                 <div className="rating-star2">
                   <FontAwesomeIcon icon={faStar} className="fa-1x" />
@@ -101,13 +101,13 @@ const Profile = () => {
           <div>Email</div>
           <p>{email}</p>
 
-          <button
-            className="delete-account-button"
-            name="delete-profile"
-            onClick={handleToggleDelete}
-          >
-            Delete My Account
-          </button>
+          <Link to={`/profile/delete-account/${_id}`}>
+            <button
+              className="delete-account-button"
+              name="delete-profile">
+              Delete My Account
+            </button>
+          </Link>
 
           <section className="account-activity-section">
             <h2>Activity</h2>

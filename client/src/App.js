@@ -34,7 +34,7 @@ const App = () => {
           <Route exact path="/profile/:userID/edit">
             <EditProfile />
           </Route>
-          <Route exact path="/profile/:userID/delete-account">
+          <Route exact path="/profile/delete-account/:userID/">
             <DeleteProfile />
           </Route>
           <Route exact path="/">
