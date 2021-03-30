@@ -25,7 +25,7 @@ const PubShow = () => {
   const [isSubmitActive, setIsSubmitActive] = useState(false)
   const [isShowReviewsActive, setIsShowReviewsActive] = useState(false)
   const [pub, setPub] = useState('')
-
+  const [pubIdForReview, setPubIdForReview] = useState('')
   //prettier-ignore
   const handleButtonToggle = (event) => {
     const buttonName = event.target.name
@@ -51,30 +51,34 @@ const PubShow = () => {
     pubOwner,
   } = pub
 
-  console.log(pub)
-
+  
   useEffect(() => {
     const getData = async () => {
       const response = await axios.get(`/api/pubs/${id}`)
       setPub(response.data)
+      setPubIdForReview(id)
     }
     getData()
   }, [])
-
+  
+  
   const handleToggle = (event) => {
     event.preventDefault()
     setIsSubmitActive(!isSubmitActive)
   }
-
+  
   if (!pub) return null
+
+  console.log(pub.reviews.length)
+
   return (
     <>
       <Header />
-
-      {console.log(
+      {console.log('reviews in pubshow', reviews)}
+      {/* {console.log(
         'typeofe averag>>>>',
         typeof averageRatings.averageComfortability === 'string'
-      )}
+      )} */}
       <div className="pub-show-container">
         <div className="section">
           <div className="columns">
@@ -315,7 +319,16 @@ const PubShow = () => {
                   Submit a Review
                 </button>
               </div>
-              {displayModal(isSubmitActive, Review, handleToggle)}
+              {/* <>
+                <div className={`modal ${isSubmitActive && 'is-active'}`}>
+                  <div className="modal-background"></div>
+                  <div className="modal-content">
+                    < Review pubIdForReview={pubIdForReview} />
+                  </div>
+                  <button className="modal-close is-large" onClick={handleToggle} aria-label="close"></button>
+                </div>
+              </> */}
+              {displayModal(isSubmitActive, Review, handleToggle, pubIdForReview)}
             </>
           )}
         </section>

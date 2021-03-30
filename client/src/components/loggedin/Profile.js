@@ -88,23 +88,23 @@ const Profile = () => {
         <div className="account-card-sub">
           <div className="comments">
             <h3>Last Review Submitted</h3>
-            {reviews && <PubComments reviews={reviews} displayNumber={2} />}
+            {reviews && <PubComments reviews={reviews} displayNumber={6} />}
           </div>
         </div>
       </section>
-      {isLandlord &&
-        <>
-          <section className="account-favourites-section">
-            <h2>Favourites</h2>
-          </section>
-          <section className="account-pub-crawls">
-            <h2>Saved Crawls</h2>
-          </section>
-          <section className="account-owned-pubs">
-            <h2>Your Pubs</h2>
-          </section>
-        </>
-      }
+      <>
+        <section className="account-favourites-section">
+          <h2>Favourites</h2>
+        </section>
+        <section className="account-pub-crawls">
+          <h2>Saved Crawls</h2>
+        </section>
+        {isLandlord &&
+              <section className="account-owned-pubs">
+                <h2>Your Pubs</h2>
+              </section>
+        }
+      </>
 
     </>
   )

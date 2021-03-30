@@ -21,13 +21,15 @@ export const convertTimestamp = (timestamp) => {
   return (months[newDate.getMonth()] + ' ' + newDate.getFullYear())
 }
 
-export const displayModal = (toggle, Component, toggleController) => {
+export const displayModal = (toggle, Component, toggleController, props) => {
   return (
     <>
       <div className={`modal ${toggle && 'is-active'}`}>
         <div className="modal-background"></div>
         <div className="modal-content">
-          < Component />
+          {!props ? 
+            <Component /> :
+            < Component props={props} />}
         </div>
         <button className="modal-close is-large" onClick={toggleController} aria-label="close"></button>
       </div>

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { getTokenFromLocalStorage } from '../../../helpers/auth'
 
 //prettier-ignore
-const Review = ({ id }) => {
+const Review = ( pubIdForReview ) => {
   const [formData, setFormData] = useState({
     subRating: {
       price: 0,
@@ -13,7 +13,7 @@ const Review = ({ id }) => {
     },
     text: '',
   })
-  console.log('id>>>>>', id)
+  console.log('id>>>>>', pubIdForReview.props)
   const handleChange = (event) => {
     const newFormData = { ...formData, [event.target.name]: event.target.value }
     console.log(newFormData)
@@ -23,7 +23,7 @@ const Review = ({ id }) => {
   //prettier-ignore
   const handleSubmit = async (event) => {
     event.preventDefault()
-    const { data } = await axios.post('/api/pubs/6061f6f5e08107d8cee386db/reviews', formData, {
+    const { data } = await axios.post(`/api/pubs/${pubIdForReview.props}/reviews`, formData, {
       headers: {
         Authorization: `Bearer ${getTokenFromLocalStorage()}`,
       },
