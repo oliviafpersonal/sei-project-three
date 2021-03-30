@@ -55,6 +55,7 @@ const LandLordSignUp = () => {
   console.log(setFormData)
 
   const handleChange = event => {
+    console.log('event.target.checked', event.target.type)
     const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value
     setFormData({ ...formData, [event.target.name]: value })
   }
