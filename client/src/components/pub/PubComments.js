@@ -12,7 +12,15 @@ const PubComments = ({ reviews, displayNumber }) => {
   return (
     <div className="grid-container">
       {reviews.splice(0, displayNumber).map((review) => {
-        const { reviewOwnerImage, reviewOwnerName, createdAt, _id, text, reviewOwner } = review
+        //prettier-ignore
+        const {
+          reviewOwnerImage,
+          reviewOwnerName,
+          createdAt,
+          _id,
+          text,
+          reviewOwner,
+        } = review
 
         return (
           <div key={_id}>
@@ -24,21 +32,19 @@ const PubComments = ({ reviews, displayNumber }) => {
                 <div>
                   <b>{reviewOwnerName}</b>
                 </div>
-                <div className="review-date">
-                  {convertTimestamp(createdAt)}
-                </div>
+                <div className="review-date">{convertTimestamp(createdAt)}</div>
               </div>
             </div>
 
             <div className="comment"> {text}</div>
-            {
-              userIsOwner(reviewOwner) &&
+            {userIsOwner(reviewOwner) && (
               <>
-                <button className="delete-review" onClick={handleToggle}>Delete Review</button>
+                <button className="button delete-review" onClick={handleToggle}>
+                  Delete Review
+                </button>
                 {displayModal(isDeleteActive, ModalDummy, handleToggle)}
               </>
-              
-            }
+            )}
           </div>
         )
       })}
