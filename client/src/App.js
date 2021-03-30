@@ -19,6 +19,7 @@ import LandLordSignUp from './components/auth/LandLordSignUp'
 import Review from './components/Modals/Forms/Review'
 import EditProfile from './components/Modals/Forms/EditProfile'
 import DeleteProfile from './components/Modals/Forms/DeleteProfile'
+import DeleteReview from './components/Modals/DeleteReview'
 
 
 const App = () => {
@@ -52,6 +53,9 @@ const App = () => {
           </Route>
           <Route exact path="/pubs/:id">
             <PubShow />
+          </Route>
+          <Route exact path ="/pubs/:pubID/reviews-delete/:reviewID">
+            <DeleteReview/>
           </Route>
           <Route exact path="/pubs/filter-pubs/:city">
             <PubIndexCities />
