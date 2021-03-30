@@ -16,7 +16,7 @@ const Header = () => {
   })
   const history = useHistory()
   const [pubs, setPubs] = useState(null)
-  
+
   useEffect(async () => {
     const getData = async () => {
       const response = await axios.get('/api/pubs')
@@ -26,14 +26,15 @@ const Header = () => {
     getData()
   }, [])
 
-
   const handleChange = (event) => {
-    const newEventValues = { ...eventValues, [event.target.name]: event.target.value }
-    
-    console.log('🚀 ~ file: Header.js ~ line 33 ~ handleChange ~ newEventValues', newEventValues)
+    const newEventValues = {
+      ...eventValues,
+      [event.target.name]: event.target.value,
+    }
+
     setEventValues(newEventValues)
   }
-  
+
   const navigateToFiltered = (city) => {
     history.push(`/pubs/filter-pubs/${city}`)
   }
@@ -46,8 +47,9 @@ const Header = () => {
     const pubsResult = eventValues.searchPubs
     const cityResult = eventValues.searchCity
     if (cityResult === '' && pubsResult === '') return null
-    if (cityResult !== '' && pubsResult !== '') window.alert('please enter a search in one field only')
-    if ( pubsResult === '') navigateToFiltered(cityResult)
+    if (cityResult !== '' && pubsResult !== '')
+      window.alert('please enter a search in one field only')
+    if (pubsResult === '') navigateToFiltered(cityResult)
     if (cityResult === '') {
       const lowerCaseName = pubsResult.toLowerCase()
       const namesIndex = namesArray.indexOf(lowerCaseName)
@@ -55,15 +57,11 @@ const Header = () => {
       if (!pubID) window.alert('cannot find pub, please check spelling')
       else return navigateToSearched(pubID)
     }
-    
-    
-    
   }
   if (!pubs) return null
-  const namesArray = pubs.map(pubs => pubs.nameOfPub.toLowerCase())
-  const idArray = pubs.map(pubs => pubs._id)
-  console.log('🚀 ~ file: Header.js ~ line 45 ~ Header ~ idArray', idArray)
-  console.log('🚀 ~ file: Header.js ~ line 44 ~ Header ~ namesArray', namesArray)
+  const namesArray = pubs.map((pubs) => pubs.nameOfPub.toLowerCase())
+  const idArray = pubs.map((pubs) => pubs._id)
+
   return (
     <>
       <section className="hero is-large header-style">
@@ -94,15 +92,18 @@ const Header = () => {
                 <label className="location-label">Location</label>
                 <input
                   placeholder="Where are you drinking?"
-                  className="search-input" name="searchCity"
+                  className="search-input"
+                  name="searchCity"
                   onChange={handleChange}
                 ></input>
               </div>
+              <div className="search-divider"></div>
               <div className="location">
                 <label className="location-label">Search Pubs</label>
                 <input
                   placeholder="Got a specific pub in mind?"
-                  className="search-input" name="searchPubs"
+                  className="search-input"
+                  name="searchPubs"
                   onChange={handleChange}
                 ></input>
               </div>

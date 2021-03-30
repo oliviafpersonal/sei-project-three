@@ -22,15 +22,31 @@ const Footer = () => {
             <p>
               <b>COMMUNITY</b>
             </p>
+            <ul>
+              <li>Diversity & Belonging</li>
+              <li>Accessibility</li>
+              <li>Pubhub Associates</li>
+              <li>Frontline Pubs</li>
+              <li>Guest Referrals</li>
+              <li>Pubhub.co.uk</li>
+            </ul>
           </div>
           <div className="column">
             <p>
-              <Link to="/landlord">
-                <b>LANDLORD</b>
-              </Link>
+              <b>LANDLORD</b>
             </p>
+
+            <ul>
+              {' '}
+              <Link to="/landlord">
+                <li>Become a landlord</li>
+              </Link>
+              <li>Referrals</li>
+            </ul>
           </div>
         </div>
+        <hr />
+        <p>© 2021 Pubhub, Inc.</p>
       </div>
     </footer>
   )

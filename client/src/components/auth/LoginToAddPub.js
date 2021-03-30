@@ -21,16 +21,21 @@ const Login = () => {
     event.preventDefault()
     const response = await axios.post('/api/login', formData)
     window.localStorage.setItem('token', response.data.token)
-    history.push('/')
+    history.push('/landlord/signup')
     console.log(response)
   }
 
   return (
     <>
       <Header />
+
       <section className="section">
         <div className="container">
           <div className="columns">
+            <div className="column">
+              <h1>Log in to Add your first pub</h1>
+            </div>
+
             <form
               className="box column is-half is-offset-one-quarter"
               onSubmit={handleSubmit}
