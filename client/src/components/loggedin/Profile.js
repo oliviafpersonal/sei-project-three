@@ -68,12 +68,16 @@ const Profile = () => {
           <div className="columns">
             <div className="column">
               {' '}
-              <img
-                className="profile-image"
-                src={profileImage}
-                alt="user profile image"
-              />
+              <div className="profile-box">
+                <img
+                  className="profile-image"
+                  src={profileImage}
+                  alt="user profile image"
+                />
+                {EditProfile()}
+              </div>
             </div>
+
             <div className="column">
               <div className="username">
                 <h2>{`Hi, i'm ${username}`}</h2>
@@ -99,7 +103,7 @@ const Profile = () => {
               <p>Reviews by you</p>
               {/* {reviews && <PubComments reviews={reviews} displayNumber={2} />} */}
               {reviews && (
-                <ProfileReviews reviews={reviews} displayNumber={2} />
+                <ProfileReviews reviews={reviews} displayNumber={3} />
               )}
             </div>
           </div>

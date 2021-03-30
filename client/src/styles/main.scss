@@ -664,6 +664,15 @@ h2 {
   font-weight: 600;
 }
 
+.profile-box {
+  border: 1px solid rgb(213, 213, 213);
+  border-radius: 10px;
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem;
+}
+
 // * mobile optimisation
 
 @media only screen and (max-width: 765px) {
