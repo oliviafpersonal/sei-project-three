@@ -19,8 +19,6 @@ const Hamburger = () => {
   const location = useLocation()
   useEffect(() => {}, [location.pathname])
 
-
-
   return (
     <>
       <div className="dropdown is-right" onClick={clickHandler}>
@@ -38,37 +36,36 @@ const Hamburger = () => {
         </div>
         <div className="dropdown-menu" id="dropdown-menu1" role="menu">
           <div className="dropdown-content dropdown-shape">
-            { !userIsAuthenticated() &&
+            {!userIsAuthenticated() && (
               <>
                 <Link to="/login" className="dropdown-item">
-              Login
+                  Login
                 </Link>
 
                 <Link to="/signup" className="dropdown-item">
-                Register
+                  Register
                 </Link>
               </>
-            }
+            )}
 
+            {userIsAuthenticated() && (
+              <>
+                <hr className="dropdown-divider" />
+                <Link to="/profile" className="dropdown-item">
+                  Profile
+                </Link>
 
-            {userIsAuthenticated() && 
-            <>
-              <hr className="dropdown-divider" />
-              <Link to="/profile" className="dropdown-item">
-                Profile
-              </Link>
-            
-              <hr className="dropdown-divider" />
-              <div className="dropdown-item stretch">
-                <a>New Pub Crawl</a>
-              </div>
+                <hr className="dropdown-divider" />
+                <div className="dropdown-item stretch">
+                  <a>New Pub Crawl</a>
+                </div>
 
-              <hr className="dropdown-divider" />
-              <div className="dropdown-item" onClick={handleLogout}>
-                <a>Logout</a>
-              </div>
-            </>
-            }
+                <hr className="dropdown-divider" />
+                <div className="dropdown-item" onClick={handleLogout}>
+                  <a>Logout</a>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>
