@@ -54,9 +54,25 @@ const LandLordSignUp = () => {
     isFoodServed: false,
     isLiveSports: false,
     image: '',
-    isLandlord: true,
   })
   console.log(setFormData)
+
+  const [errors, setErrors] = useState({
+    nameOfPub: '',
+    address: {
+      line1: '',
+      line2: '',
+      town: '',
+      city: '',
+      postCode: '',
+    },
+    description: '',
+    isOutsideSeating: false,
+    isPetFriendly: false,
+    isFoodServed: false,
+    isLiveSports: false,
+    image: '',
+  })
 
   const handleChange = event => {
     console.log('event.target.checked', event.target.type)
@@ -70,18 +86,22 @@ const LandLordSignUp = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    const response = await axios.post(
-      '/api/pubs',
-      formData,
-      {
-        headers: {
-          Authorization: `Bearer ${getTokenFromLocalStorage()}`,
-        },
-      }
-    )
-    history.push('/pubs')
-    clickHandlerTwo()
-    console.log(response)
+    try {
+      const response = await axios.post(
+        '/api/pubs',
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${getTokenFromLocalStorage()}`,
+          },
+        }
+      )
+      clickHandlerTwo()
+      history.push('/pubs')
+    } catch (err) {
+      console.log(err.response)
+      setErrors(err.response.data.errors)
+    }
   }
 
 
@@ -117,6 +137,7 @@ const LandLordSignUp = () => {
     nextStep.classList.remove('hide')
     nextButton.classList.remove('hide')
     nextBackButton.classList.remove('hide')
+
   }
 
   const backOne = (e) => {
@@ -200,28 +221,44 @@ const LandLordSignUp = () => {
                 //<br />
               }
 
-              <h2>Name of Pub</h2>
-              <input className="input" name="nameOfPub" value={formData.nameOfPub} onChange={handleChange}></input>
-              <br />
+              <div>
+                <h2>Name of Pub</h2>
+                <input className={`input ${errors.nameOfPub ? 'is-danger' : ''}`} name="nameOfPub" value={formData.nameOfPub} onChange={handleChange}></input>
+                {/* {errors.nameOfPub && <p className="help is-danger">{errors.nameOfPub}</p>} */}
+                <br />
+              </div>
 
-              <h2>Line 1</h2>
-              <input className="input" name="line1" value={formData.line1} onChange={handleChange}></input>
-              <br />
+              <div>
+                <h2>Line 1</h2>
+                <input className={`input ${errors.line1 ? 'is-danger' : ''}`} name="line1" value={formData.line1} onChange={handleChange}></input>
+                {/* {errors.line1 && <p className="help is-danger">{errors.line1}</p>} */}
+                <br />
+              </div>
+
+
               <h2>Line 2</h2>
               <input className="input" name="line2" value={formData.line2} onChange={handleChange}></input>
               <br />
+
+
               <h2>Town</h2>
               <input className="input" name="town" value={formData.town} onChange={handleChange}></input>
               <br />
+
               <h2>City</h2>
               <input className="input" name="city" value={formData.city} onChange={handleChange}></input>
               <br />
+
               <h2>Postcode</h2>
-              <input className="input" name="postCode" value={formData.postCode} onChange={handleChange}></input>
+              <input className={`input ${errors.postCode ? 'is-danger' : ''}`} name="postCode" value={formData.postCode} onChange={handleChange}></input>
+              {/* {errors.postCode && <p className="help is-danger">{errors.postCode}</p>} */}
               <br />
+
               <h2>Description</h2>
-              <input className="textarea" name="description" value={formData.description} onChange={handleChange}></input>
+              <input className={`input ${errors.description ? 'is-danger' : ''}`} name="description" value={formData.description} onChange={handleChange}></input>
+              {/* {errors.description && <p className="help is-danger">{errors.description}</p>} */}
               <br />
+
             </div>
             <div className="form-nav">
               <div className="back-one back-button">
