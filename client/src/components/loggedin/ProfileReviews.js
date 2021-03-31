@@ -1,15 +1,12 @@
-/* eslint-disable no-unused-vars */
-import React, { useState } from 'react'
+import React from 'react'
+import { Link } from 'react-router-dom'
 import { userIsOwner } from '../../helpers/auth'
 import { convertTimestamp } from '../../helpers/helperFunctions'
 
-const PubComments = ({ reviews, displayNumber }) => {
-  const [isDeleteActive, setisDeleteActive] = useState(false)
-  const handleToggle = () => {
-    setisDeleteActive(!isDeleteActive)
-  }
+const ProfileReviews = ({ reviews, displayNumber }) => {
   return (
     <div className="profile-comment-container">
+      {console.log('reviews', reviews)}
       {reviews.splice(0, displayNumber).map((review) => {
         console.log(review)
         //prettier-ignore
@@ -17,14 +14,15 @@ const PubComments = ({ reviews, displayNumber }) => {
           //prettier-ignore
           // reviewOwnerName,
           createdAt,
-          _id,
+          _id: reviewID,
           text,
           reviewOwner,
           pubName,
+          pubID,
         } = review
-
+        
         return (
-          <div className="profile-comment " key={_id}>
+          <div className="profile-comment " key={reviewID}>
             <div className="profile-review-details-container">
               <div>
                 <div>
@@ -36,11 +34,11 @@ const PubComments = ({ reviews, displayNumber }) => {
 
             <div className="comment"> {text}</div>
             {userIsOwner(reviewOwner) && (
-              <>
+              <Link to={`/pubs/${pubID}/reviews-delete/${reviewID}`}>
                 <button className="button delete-review">
                   Delete Review
                 </button>
-              </>
+              </Link>
             )}
           </div>
         )
@@ -49,4 +47,4 @@ const PubComments = ({ reviews, displayNumber }) => {
   )
 }
 
-export default PubComments
+export default ProfileReviews

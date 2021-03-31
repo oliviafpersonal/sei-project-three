@@ -51,11 +51,11 @@ const App = () => {
           <Route exact path="/signup">
             <Signup />
           </Route>
-          <Route exact path="/pubs/:id">
-            <PubShow />
-          </Route>
           <Route exact path ="/pubs/:pubID/reviews-delete/:reviewID">
             <DeleteReview/>
+          </Route>
+          <Route exact path="/pubs/:id">
+            <PubShow />
           </Route>
           <Route exact path="/pubs/filter-pubs/:city">
             <PubIndexCities />
