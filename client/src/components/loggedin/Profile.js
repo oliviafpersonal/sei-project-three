@@ -1,9 +1,7 @@
 /*eslint-disable no-unused-vars*/
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import {
-  getPayloadFromToken /*, getTokenFromLocalStorage*/
-} from '../../helpers/auth'
+import { getPayloadFromToken } from '../../helpers/auth'
 import { convertTimestamp } from '../../helpers/helperFunctions'
 import EditProfile from '../Modals/Forms/EditProfile'
 import Header from '../Header'
@@ -14,9 +12,8 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 
 const Profile = () => {
-  const [user, setUser] = useState({})
-  // const [isEditActive, setIsEditActive] = useState(false)
-  // const [isDeleteActive, setIsDeleteActive] = useState(false)
+  const [user, setUser] = useState(null)
+  const [pubs, setPubs] = useState(null)
 
   const userID = getPayloadFromToken().sub
 
@@ -27,6 +24,15 @@ const Profile = () => {
     }
     getUser()
   }, [])
+  useEffect(() => {
+    const getUser = async () => {
+      const { data } = await axios.get('/api/pubs')
+      setPubs(data)
+    }
+    getUser()
+  }, [])
+
+  
 
   // const handleToggleEdit = () => {
   //   setIsEditActive(!isEditActive)
@@ -42,6 +48,7 @@ const Profile = () => {
   // }, [user])
 
   //prettier-ignore
+  if (!user || !pubs) return null
   const {
     isLandlord,
     profileImage,
@@ -49,9 +56,8 @@ const Profile = () => {
     email,
     createdAt,
     allReviews: reviews,
-    _id,
   } = user
-
+  console.log('profile', reviews[0])
   return (
     <>
       <Header />
@@ -74,7 +80,7 @@ const Profile = () => {
                 <h2>{`Hi, i'm ${username}`}</h2>
                 <p>{`Joined in ${convertTimestamp(createdAt)} `}</p>
               </div>
-              <Link to={`/profile/${_id}/edit`}>
+              <Link to={`/profile/${userID}/edit`}>
                 <div
                   className="edit-profile-button"
                   name="edit-profile">
@@ -93,7 +99,7 @@ const Profile = () => {
               <hr />
               <p>Reviews by you</p>
               {reviews && (
-                <ProfileReviews reviews={reviews} displayNumber={3} />
+                <ProfileReviews userID={userID} reviews={reviews} displayNumber={3} />
               )}
             </div>
           </div>
@@ -101,7 +107,7 @@ const Profile = () => {
           <div>Email</div>
           <p>{email}</p>
 
-          <Link to={`/profile/delete-account/${_id}`}>
+          <Link to={`/profile/delete-account/${userID}`}>
             <button
               className="delete-account-button"
               name="delete-profile">
@@ -132,6 +138,19 @@ const Profile = () => {
               </section>
               <section className="account-owned-pubs">
                 <h2>Your Pubs</h2>
+                {pubs
+                  .filter(pub => pub.pubOwner === userID)
+                  .map(pub => {
+                    return (
+                      <>
+                        <div>
+                          <div>{pub.nameOfPub}</div>
+                          <Link to={`/pubs/${pub._id}`}><div><img src={pub.image} alt={`an image for the pub ${pub.name}`}/></div></Link>
+                        </div>
+                      </>
+                    )
+                  })
+                }
               </section>
             </>
           )}
