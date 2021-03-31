@@ -75,11 +75,14 @@ const PubShow = () => {
   }, [id])
   
   if (userIsAuthenticated()) {
+    useEffect(() => {
       const getUser = async () => {
-      const { data } = await axios.get(`/api/users/${getPayloadFromToken().sub}`)
-      setUser(data)
-    }
-    getUser()
+       const { data } = await axios.get(`/api/users/${getPayloadFromToken().sub}`)
+       setUser(data)
+     }
+     getUser()
+      
+    }, [])
   
   const handleRemoveFromFav = async () => {
     try {
