@@ -31,20 +31,13 @@ const Profile = () => {
   //prettier-ignore
   if (!user || !pubs) return null
   console.log('userID', userID)
-  const {
-    isLandlord,
-    username,
-    email,
-    createdAt,
-    profileImage,
-  } = user
-  const reviews =
-    pubs
-      .map(pub => pub.reviews).flat()
-      .filter(review => review.reviewOwner === userID)
+  const { isLandlord, username, email, createdAt, profileImage } = user
+  const reviews = pubs
+    .map((pub) => pub.reviews)
+    .flat()
+    .filter((review) => review.reviewOwner === userID)
 
   console.log('profile', reviews)
-
 
   return (
     <>
@@ -61,6 +54,20 @@ const Profile = () => {
                   src={profileImage}
                 />
 
+                <div>
+                  <b>Email</b>
+                </div>
+                <p>{email}</p>
+                <hr />
+
+                <Link to={`/profile/delete-account/${userID}`}>
+                  <button
+                    className="delete-account-button button"
+                    name="delete-profile"
+                  >
+                    Delete My Account
+                  </button>
+                </Link>
               </div>
             </div>
 
@@ -70,9 +77,7 @@ const Profile = () => {
                 <p>{`Joined in ${convertTimestamp(createdAt)} `}</p>
               </div>
               <Link to={`/profile/${userID}/edit`}>
-                <div
-                  className="edit-profile-button"
-                  name="edit-profile">
+                <div className="edit-profile-button" name="edit-profile">
                   Edit My Profile
                 </div>
               </Link>
@@ -88,34 +93,14 @@ const Profile = () => {
               <hr />
               <p>Reviews by you</p>
               {reviews && (
-                <ProfileReviews userID={userID} reviews={reviews} displayNumber={3} />
+                <ProfileReviews
+                  userID={userID}
+                  reviews={reviews}
+                  displayNumber={3}
+                />
               )}
             </div>
           </div>
-
-          <div>Email</div>
-          <p>{email}</p>
-
-          <Link to={`/profile/delete-account/${userID}`}>
-            <button
-              className="delete-account-button"
-              name="delete-profile">
-              Delete My Account
-            </button>
-          </Link>
-
-          <section className="account-activity-section">
-            <h2>Activity</h2>
-            <div className="account-card-sub">
-              <h2>Last Viewed Pub</h2>
-              <p>use history to display</p>
-            </div>
-            <div className="account-card-sub">
-              <div className="comments">
-                <h3>Last Review Submitted</h3>
-              </div>
-            </div>
-          </section>
 
           {isLandlord && (
             <>
@@ -131,18 +116,24 @@ const Profile = () => {
                   <div className="container">
                     <div id="carousel-demo" className="carousel">
                       {pubs
-                        .filter(pub => pub.pubOwner === userID)
+                        .filter((pub) => pub.pubOwner === userID)
                         .map((pub, index) => {
                           return (
                             <>
                               <div className={`item-${index} column`}>
                                 <div>{pub.nameOfPub}</div>
-                                <Link to={`/pubs/${pub._id}`}><div><img src={pub.image} alt={`an image for the pub ${pub.name}`} /></div></Link>
+                                <Link to={`/pubs/${pub._id}`}>
+                                  <div>
+                                    <img
+                                      src={pub.image}
+                                      alt={`an image for the pub ${pub.name}`}
+                                    />
+                                  </div>
+                                </Link>
                               </div>
                             </>
                           )
-                        })
-                      }
+                        })}
                     </div>
                   </div>
                 </section>

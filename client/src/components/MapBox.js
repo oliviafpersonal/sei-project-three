@@ -7,11 +7,15 @@ import locationData from './data/location'
 
 //prettier-ignore
 const Map = () => {
+
+
+
   const [viewport, setViewport] = useState({
     latitude: 51.509865,
     longitude: -0.118092,
     zoom: 11,
   })
+
 
   const [popup, setPopup] = useState(null)
   const [pubs, setPubs] = useState(null)
