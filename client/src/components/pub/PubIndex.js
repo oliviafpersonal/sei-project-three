@@ -19,7 +19,6 @@ const PubIndex = () => {
     const getData = async () => {
       const response = await axios.get('/api/pubs')
       setPubs(response.data)
-      
     }
     getData()
   }, [])
@@ -165,16 +164,16 @@ const PubIndex = () => {
 
             {
               //prettier-ignore
-              sports ? isSports
+              (sports ? isSports
                 : pets ? isPets
                   : seats ? isSeating
                     : food ? isFood
                       : filterPubs ? isRating
-                        : pubs.map(
-                          (pub) => (
-                            <PubCard key={pub._id} {...pub} />
-                          )
-                        )
+                        : pubs).map(
+                (pub) => (
+                  <PubCard key={pub._id} {...pub} />
+                )
+              )
             }
           </div>
         </div>

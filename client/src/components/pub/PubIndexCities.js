@@ -140,12 +140,12 @@ const PubIndexCities = () => {
             <div className="pub-index-text">
               <p>{`${
                 //prettier-ignore
-                sports ? isSports
+                (sports ? isSports
                   : pets ? isPets
                     : seats ? isSeating
                       : food ? isFood
-                        : pubs
-                          .length
+                        : pubs)
+                  .length
               }+ pubs`}</p>
               <h3>Pubs in {title}</h3>
               <div className="pub-filter-buttons">
@@ -191,16 +191,16 @@ const PubIndexCities = () => {
 
             {
               //prettier-ignore
-              sports ? isSports
+              (sports ? isSports
                 : pets ? isPets
                   : seats ? isSeating
                     : food ? isFood
                       : filterPubs ? isRating
-                        : pubs.map(
-                          (pub) => (
-                            <PubCard key={pub._id} {...pub} />
-                          )
-                        )
+                        : pubs).map(
+                (pub) => (
+                  <PubCard key={pub._id} {...pub} />
+                )
+              )
             }
           </div>
         </div>

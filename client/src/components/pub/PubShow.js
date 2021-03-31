@@ -1,5 +1,4 @@
 /*eslint-disable no-unused-vars, indent*/
-
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
@@ -35,7 +34,18 @@ const PubShow = () => {
   const [pub, setPub] = useState('')
   const [pubs, setPubs] = useState(null)
   const [user, setUser] = useState(null)
-
+  //prettier-ignore
+  // const handleButtonToggle = (event) => {
+  //   const buttonName = event.target.name
+  //   buttonName === 'submit-reviews-button'
+  //     ? setIsSubmitActive(!isSubmitActive)
+  //     : (setIsSubmitActive(false))
+  // }
+  // buttonName === 'show-reviews-button'
+  // ? setIsShowReviewsActive(!isShowReviewsActive)
+  // :
+  // setIsShowReviewsActive(false)
+  // console.log(isShowReviewsActive)
   //prettier-ignore
   const {
     nameOfPub,
@@ -74,7 +84,11 @@ const PubShow = () => {
       behavior: 'auto',
     })
   }, [id])
-
+  //! math.random between 0 and filtered length, * 3, display the pub from filteredPubs at index of the three random numbers
+  // const handleToggle = (event) => {
+  //   event.preventDefault()
+  //   setIsSubmitActive(!isSubmitActive)
+  // }
   const handleSave = async () => {
     try {
       await axios.post(`/api/users/${user._id}/fav-pubs/${id}`)
@@ -92,7 +106,11 @@ const PubShow = () => {
       console.log(error)
     }
   }
-
+  //! math.random between 0 and filtered length, * 3, display the pub from filteredPubs at index of the three random numbers
+  // const handleToggle = (event) => {
+  //   event.preventDefault()
+  // setReviewNumber
+  // }
   if (!pub || !pubs) return null
   ;[5, 9, 45]
   if (!pub || !pubs || !user) return null
@@ -100,7 +118,6 @@ const PubShow = () => {
   const filterPubsByCity = pubs
     .filter((item) => item.address.city === cityToCompare)
     .filter((item) => item.nameOfPub !== pub.nameOfPub)
-
   function getRandom(arr, n) {
     const result = new Array(n)
     let len = arr.length
@@ -127,7 +144,6 @@ const PubShow = () => {
   return (
     <>
       <Header />
-
       <div className="pub-show-container">
         <div className="section">
           <div className="columns">
@@ -172,7 +188,6 @@ const PubShow = () => {
                         <FontAwesomeIcon icon={faUpload} />
                       </span>
                       <p>Share</p>
-
                       {!favPubsIDs.includes(id) && (
                         <>
                           <span className="icon-space">
@@ -388,7 +403,6 @@ const PubShow = () => {
               name="show-reviews-button"
               // onClick={handleButtonToggle}
             >{`Show all ${reviews.length} Reviews`}</button>
-
             {userIsAuthenticated() && !userIsOwner(pubOwner) && (
               <>
                 <Link to={`/pubs/${id}/submit-review`}>
@@ -405,7 +419,6 @@ const PubShow = () => {
         </section>
         <hr />
         {!userIsAuthenticated() && <p>hello</p>}
-
         <h2>More Pubs In {address.city}</h2>
         <br />
         {pub && (
@@ -435,8 +448,9 @@ const PubShow = () => {
         )}
         <hr />
       </div>
+      {/* too many renders on page, cannot test in view */}
+      {/* <MapShow postCode={pub.address.postCode}/> */}
     </>
   )
 }
-
 export default PubShow
