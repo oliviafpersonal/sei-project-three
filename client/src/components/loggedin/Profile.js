@@ -44,11 +44,10 @@ const Profile = () => {
   if (!user || !pubs) return null
   console.log('userID', userID)
   const {
-    isLandlord,
     username,
     email,
     createdAt,
-    favouritePubs,
+
     profileImage,
   } = user
   const reviews = pubs
@@ -140,79 +139,6 @@ const Profile = () => {
               )}
             </div>
           </div>
-
-          {/* 
-          <section className="account-activity-section">
-            <h2>Activity</h2>
-            <div className="account-card-sub">
-              <h2>Last Viewed Pub</h2>
-              <p>use history to display</p>
-            </div>
-            <div className="account-card-sub">
-              <h2>Favourite Pubs</h2>
-              {favouritePubs.map((pub) => {
-                return (
-                  <>
-                    <div className="favourite-pubs">
-                      <div>{pub.nameOfPub}</div>
-                      <Link to={`/pubs/${pub._id}`}>
-                        <div>
-                          <img
-                            src={pub.image}
-                            alt={`an image for the pub ${pub.name}`}
-                          />
-                        </div>
-                      </Link>
-                    </div>
-                  </>
-                )
-              })}
-            </div>
-            <div className="account-card-sub">
-              <div className="comments">
-                <h3>Last Review Submitted</h3>
-              </div>
-            </div>
-          </section> */}
-
-          {isLandlord && (
-            <>
-              <section className="account-favourites-section">
-                <h2>Favourites</h2>
-              </section>
-              <section className="account-pub-crawls">
-                <h2>Saved Crawls</h2>
-              </section>
-              <section className="account-owned-pubs">
-                <h2>Your Pubs</h2>
-                <section className="section">
-                  <div className="container">
-                    <div id="carousel-demo" className="carousel">
-                      {pubs
-                        .filter((pub) => pub.pubOwner === userID)
-                        .map((pub, index) => {
-                          return (
-                            <>
-                              <div className={`item-${index} column`}>
-                                <div>{pub.nameOfPub}</div>
-                                <Link to={`/pubs/${pub._id}`}>
-                                  <div>
-                                    <img
-                                      src={pub.image}
-                                      alt={`an image for the pub ${pub.name}`}
-                                    />
-                                  </div>
-                                </Link>
-                              </div>
-                            </>
-                          )
-                        })}
-                    </div>
-                  </div>
-                </section>
-              </section>
-            </>
-          )}
         </div>
       )}
     </>

@@ -23,6 +23,7 @@ import LoginToAddPub from './components/auth/LoginToAddPub'
 import DeleteReview from './components/Modals/DeleteReview'
 import DeletePub from './components/Modals/DeletePub'
 import EditProfileImage from '../src/components/Modals/Forms/EditProfileImage'
+import LandLordProfile from './components/loggedin/LandlordProfile'
 
 const App = () => {
   return (
@@ -37,6 +38,9 @@ const App = () => {
           </Route>
           <Route exact path="/profile/:userID/edit">
             <EditProfile />
+          </Route>
+          <Route exact path="/landlord-profile/:userID">
+            <LandLordProfile />
           </Route>
           <Route exact path="/profile/:userID/edit-profile-image">
             <EditProfileImage />
