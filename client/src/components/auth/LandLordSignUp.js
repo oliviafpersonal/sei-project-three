@@ -3,7 +3,11 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
-import { getTokenFromLocalStorage } from '../../helpers/auth'
+//prettier-ignore
+import {
+  getPayloadFromToken,
+  getTokenFromLocalStorage
+} from '../../helpers/auth'
 import { ImageUploadField } from '../ImageUploadField'
 
 import drinks from '../../styles/assets/drinks.png'
@@ -37,7 +41,28 @@ import {
 // findAddress()
 
 const LandLordSignUp = () => {
-  // const [steps, setSteps] = useState('')
+  const [user, setUser] = useState({})
+  // const [isEditActive, setIsEditActive] = useState(false)
+  // const [isDeleteActive, setIsDeleteActive] = useState(false)
+
+  const userID = getPayloadFromToken().sub
+
+  useEffect(() => {
+    const getUser = async () => {
+      const { data } = await axios.get(`/api/users/${userID}`)
+      setUser(data)
+    }
+    getUser()
+  }, [])
+
+  //prettier-ignore
+  const {
+
+    username,
+
+
+  } = user
+
   const history = useHistory()
   //prettier-ignore
   const [formData, setFormData] = useState({
@@ -86,7 +111,7 @@ const LandLordSignUp = () => {
   const handleImageUrl = (url) => {
     console.log('image url', url)
 
-    setFormData({ ...formData, image: 'hello' })
+    setFormData({ ...formData, image: url })
   }
 
   const handleSubmit = async (event) => {
@@ -107,20 +132,6 @@ const LandLordSignUp = () => {
       // setErrors(err.response.data.errors)
     }
   }
-
-  // console.log(steps, setSteps)
-  /*
-    useEffect(() => {
-      return () => {
-        const hideFooter = () => {
-          const footer = document.querySelector('footer')
-  
-          footer.classList.add('hide')
-        }
-        hideFooter()
-      }
-    }, [])
-    */
 
   const clickHandler = (e) => {
     e.preventDefault()
@@ -212,7 +223,7 @@ const LandLordSignUp = () => {
     <div className="landlord-sign-container container">
       <div className="columns">
         <div className="landlord-sign-up column">
-          <h1>Hi, Username! Lets get started Listing your Pub</h1>
+          <h1>{`Hi, ${username}! Lets get started Listing your Pub`}</h1>
           <br></br>
 
           <form onSubmit={handleSubmit}>
@@ -388,7 +399,12 @@ const LandLordSignUp = () => {
               <b>STEP 3</b>
               <h2>Lets see what your pub looks like?</h2>
               <br />
-              <ImageUploadField name="image" handleImageUrl={handleImageUrl} />
+              <ImageUploadField
+                value={formData.image}
+                name="image"
+                handleImageUrl={handleImageUrl}
+                formData={formData}
+              />
             </div>
             <div className="form-nav">
               <div className="hide backthree back-button">

@@ -3,7 +3,6 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { getPayloadFromToken, userIsOwner } from '../../helpers/auth'
 import { convertTimestamp } from '../../helpers/helperFunctions'
-import EditProfile from '../Modals/Forms/EditProfile'
 import Header from '../Header'
 import ProfileReviews from './ProfileReviews'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -33,17 +32,21 @@ const Profile = () => {
   console.log('userID', userID)
   const {
     isLandlord,
-    profileImage,
     username,
     email,
     createdAt,
+    favouritePubs,
+    profileImage,
   } = user
-  const reviews = 
-  pubs
-    .map(pub => pub.reviews).flat()
-    .filter(review => review.reviewOwner === userID)
+  const reviews =
+    pubs
+      .map(pub => pub.reviews).flat()
+      .filter(review => review.reviewOwner === userID)
 
+  console.log('profile', user)
   console.log('profile', reviews)
+
+
   return (
     <>
       <Header />
@@ -55,9 +58,10 @@ const Profile = () => {
               <div className="profile-box">
                 <img
                   className="profile-image"
-                  src={profileImage}
                   alt="user profile image"
+                  src={profileImage}
                 />
+
               </div>
             </div>
 
@@ -108,6 +112,22 @@ const Profile = () => {
               <p>use history to display</p>
             </div>
             <div className="account-card-sub">
+              <h2>Favourite Pubs</h2>
+              {
+                favouritePubs.map(pub => {
+                  return (
+                    <>
+                      <div className="favourite-pubs">
+                        <div>{pub.nameOfPub}</div>
+                        <Link to={`/pubs/${pub._id}`}><div><img src={pub.image} alt={`an image for the pub ${pub.name}`}/></div></Link>
+                      </div>
+                    </>
+
+                  )
+                })
+              }
+            </div>
+            <div className="account-card-sub">
               <div className="comments">
                 <h3>Last Review Submitted</h3>
               </div>
@@ -134,7 +154,7 @@ const Profile = () => {
                             <>
                               <div className={`item-${index} column`}>
                                 <div>{pub.nameOfPub}</div>
-                                <Link to={`/pubs/${pub._id}`}><div><img src={pub.image} alt={`an image for the pub ${pub.name}`}/></div></Link>
+                                <Link to={`/pubs/${pub._id}`}><div><img src={pub.image} alt={`an image for the pub ${pub.name}`} /></div></Link>
                               </div>
                             </>
                           )

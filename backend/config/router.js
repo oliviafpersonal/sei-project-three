@@ -2,7 +2,7 @@ import express from 'express'
 import { registerUser, loginUser } from '../controllers/auth.js'
 import { addOnePub, deletePub, getAllPubs, getOnePub, updatePub } from '../controllers/pubs.js'
 import { addReviewtoPub, deletePubReview } from '../controllers/reviews.js'
-import { addOneUser, deleteUser, getAllUsers, getOneUser, updateUser } from '../controllers/user.js'
+import { addOneUser, addPubToFavs, deleteUser, getAllUsers, getOneUser, updateUser } from '../controllers/user.js'
 import { secureRoute } from './secureRoute.js'
 
 
@@ -35,6 +35,10 @@ router.route('/pubs/:id')
 
 router.route('/register')
   .post(registerUser)
+
+router.route('/users/:id/fav-pubs/:pubID')
+  .post(addPubToFavs)
+  //.delete(deletePubFromFavs)
 
 router.route('/login')
   .post(loginUser)

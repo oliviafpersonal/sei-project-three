@@ -2,6 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBeer } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
+import { userIsAuthenticated } from '../../helpers/auth'
 import 'animate.css'
 
 const BecomeLandlord = () => {
@@ -21,11 +22,22 @@ const BecomeLandlord = () => {
             <br />
             <h1>List your Pub on Pubhub and earn up to £200 a month*</h1>
             <br />
-            <Link to={'/landlord/signup'}>
-              <button className="landlord-get-started button">
-                Get Started
-              </button>
-            </Link>
+
+            {userIsAuthenticated() && (
+              <Link to={'/landlord/signup'}>
+                <button className="landlord-get-started button">
+                  Get Started
+                </button>
+              </Link>
+            )}
+            {!userIsAuthenticated() && (
+              <Link to={'/loginpub'}>
+                <button className="landlord-get-started button">
+                  Login to Get Started
+                </button>
+              </Link>
+            )}
+
             <br />
             <p>How we estimate your earnings potential</p>
           </div>

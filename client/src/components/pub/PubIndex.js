@@ -29,7 +29,7 @@ const PubIndex = () => {
     setPets(false)
     setSports(false)
     setFood(false)
-    setFilterPubs(false)  
+    setFilterPubs(false)
   }
   const handleFood = () => {
     if (!food) {
@@ -93,14 +93,6 @@ const PubIndex = () => {
     }
   }
 
-  // const [searchTeam, setSearchTeam] = useState('')
-  // useEffect(() => {
-  //   const filteredArray = teams.filter((team) => {
-  //     return team.name.toLowerCase().includes(filterValue.toLowerCase())
-  //   })
-  //   setSearchTeam(filteredArray)
-  // }, [filterValue])
-
   if (!pubs) return null
 
   const isSeating = pubs.filter((pub) => pub.isOutsideSeating === true)
@@ -110,11 +102,6 @@ const PubIndex = () => {
   const isRating = pubs.sort((a, b) => {
     return b - a
   })
-  console.log('🚀 ~ file: PubIndex.js ~ line 115 ~ isRating ~ isRating', isRating)
-  console.log(
-    '🚀 ~ file: PubIndex.js ~ line 115 ~ isRating ~ isRating',
-    isRating
-  )
 
   return (
     <>
