@@ -29,8 +29,7 @@ const PubIndex = () => {
     setPets(false)
     setSports(false)
     setFood(false)
-    setFilterPubs(false)
-    console.log('first log>>>>', seats)
+    setFilterPubs(false)  
   }
   const handleFood = () => {
     if (!food) {
@@ -39,14 +38,12 @@ const PubIndex = () => {
       setSports(false)
       setSeats(false)
       setFilterPubs(false)
-      console.log('first log>>>>', food)
     } else {
       setFood(false)
       setPets(false)
       setSports(false)
       setSeats(false)
       setFilterPubs(false)
-      console.log('second log>>>>', food)
     }
   }
 
@@ -57,14 +54,12 @@ const PubIndex = () => {
       setSports(false)
       setFood(false)
       setFilterPubs(false)
-      console.log('first log>>>>', pets)
     } else {
       setPets(false)
       setSeats(false)
       setSports(false)
       setFood(false)
       setFilterPubs(false)
-      console.log('second log>>>>', pets)
     }
   }
   const handleSports = () => {
@@ -74,14 +69,12 @@ const PubIndex = () => {
       setSeats(false)
       setFood(false)
       setFilterPubs(false)
-      console.log('first log>>>>', sports)
     } else {
       setSports(false)
       setPets(false)
       setSeats(false)
       setFood(false)
       setFilterPubs(false)
-      console.log('second log>>>>', sports)
     }
   }
   const handleFilter = () => {
@@ -91,14 +84,12 @@ const PubIndex = () => {
       setPets(false)
       setSeats(false)
       setFood(false)
-      console.log('first log>>>>', filterPubs)
     } else {
       setFilterPubs(false)
       setSports(false)
       setPets(false)
       setSeats(false)
       setFood(false)
-      console.log('second log>>>>', filterPubs)
     }
   }
 
@@ -119,6 +110,7 @@ const PubIndex = () => {
   const isRating = pubs.sort((a, b) => {
     return b - a
   })
+  console.log('🚀 ~ file: PubIndex.js ~ line 115 ~ isRating ~ isRating', isRating)
   console.log(
     '🚀 ~ file: PubIndex.js ~ line 115 ~ isRating ~ isRating',
     isRating

@@ -1,22 +1,18 @@
 /*eslint-disable no-unused-vars*/
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import {
-  getPayloadFromToken /*, getTokenFromLocalStorage*/
-} from '../../helpers/auth'
+import { getPayloadFromToken, userIsOwner } from '../../helpers/auth'
 import { convertTimestamp } from '../../helpers/helperFunctions'
 import EditProfile from '../Modals/Forms/EditProfile'
 import Header from '../Header'
 import ProfileReviews from './ProfileReviews'
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 
 const Profile = () => {
-  const [user, setUser] = useState({})
-  // const [isEditActive, setIsEditActive] = useState(false)
-  // const [isDeleteActive, setIsDeleteActive] = useState(false)
+  const [user, setUser] = useState(null)
+  const [pubs, setPubs] = useState(null)
 
   const userID = getPayloadFromToken().sub
 
@@ -25,33 +21,29 @@ const Profile = () => {
       const { data } = await axios.get(`/api/users/${userID}`)
       setUser(data)
     }
+    const getPubs = async () => {
+      const { data } = await axios.get('/api/pubs')
+      setPubs(data)
+    }
     getUser()
+    getPubs()
   }, [])
-
-  // const handleToggleEdit = () => {
-  //   setIsEditActive(!isEditActive)
-  // }
-  // const handleToggleDelete = () => {
-  //   setIsDeleteActive(!isDeleteActive)
-  // }
-
-  //console.log('Bearer', getTokenFromLocalStorage())
-
-  // useEffect(() => {
-  //   reviews.reverse()
-  // }, [user])
-
   //prettier-ignore
+  if (!user || !pubs) return null
+  console.log('userID', userID)
   const {
     isLandlord,
     profileImage,
     username,
     email,
     createdAt,
-    allReviews: reviews,
-    _id,
   } = user
+  const reviews = 
+  pubs
+    .map(pub => pub.reviews).flat()
+    .filter(review => review.reviewOwner === userID)
 
+  console.log('profile', reviews)
   return (
     <>
       <Header />
@@ -74,7 +66,7 @@ const Profile = () => {
                 <h2>{`Hi, i'm ${username}`}</h2>
                 <p>{`Joined in ${convertTimestamp(createdAt)} `}</p>
               </div>
-              <Link to={`/profile/${_id}/edit`}>
+              <Link to={`/profile/${userID}/edit`}>
                 <div
                   className="edit-profile-button"
                   name="edit-profile">
@@ -93,7 +85,7 @@ const Profile = () => {
               <hr />
               <p>Reviews by you</p>
               {reviews && (
-                <ProfileReviews reviews={reviews} displayNumber={3} />
+                <ProfileReviews userID={userID} reviews={reviews} displayNumber={3} />
               )}
             </div>
           </div>
@@ -101,7 +93,7 @@ const Profile = () => {
           <div>Email</div>
           <p>{email}</p>
 
-          <Link to={`/profile/delete-account/${_id}`}>
+          <Link to={`/profile/delete-account/${userID}`}>
             <button
               className="delete-account-button"
               name="delete-profile">
@@ -132,6 +124,25 @@ const Profile = () => {
               </section>
               <section className="account-owned-pubs">
                 <h2>Your Pubs</h2>
+                <section className="section">
+                  <div className="container">
+                    <div id="carousel-demo" className="carousel">
+                      {pubs
+                        .filter(pub => pub.pubOwner === userID)
+                        .map((pub, index) => {
+                          return (
+                            <>
+                              <div className={`item-${index} column`}>
+                                <div>{pub.nameOfPub}</div>
+                                <Link to={`/pubs/${pub._id}`}><div><img src={pub.image} alt={`an image for the pub ${pub.name}`}/></div></Link>
+                              </div>
+                            </>
+                          )
+                        })
+                      }
+                    </div>
+                  </div>
+                </section>
               </section>
             </>
           )}
