@@ -265,8 +265,8 @@ h3 {
 
 footer {
   margin-top: 2.5rem;
-  background-color: #f6f7fb !important;
-  border-top: 1px solid #dddddd !important;
+  // background-color: #f6f7fb !important;
+  border-top: 1px solid #efecec !important;
   padding: 2rem;
   bottom: 0;
 
@@ -713,6 +713,25 @@ h2 {
 .crumb-arrow {
   color: rgb(191, 191, 191);
   font-size: 1.4em;
+}
+
+// * upload button
+
+::-webkit-file-upload-button {
+  /* chrome and edge */
+  display: inline-block;
+  margin: 0rem 1rem 0rem 0rem;
+  padding: 0.5em 0.5em;
+  padding: 0.19rem 0.5rem;
+  -webkit-appearance: button;
+  text-align: center;
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid rgb(215, 214, 214);
+
+  background: none;
+  white-space: nowrap;
+  cursor: pointer;
 }
 
 // * mobile optimisation

@@ -3,15 +3,28 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { getPayloadFromToken, userIsOwner } from '../../helpers/auth'
 import { convertTimestamp } from '../../helpers/helperFunctions'
-import Header from '../Header'
-import ProfileReviews from './ProfileReviews'
+
+//icons
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 
+// components
+
+import EditProfile from '../Modals/Forms/EditProfile'
+import Header from '../Header'
+import ProfileReviews from './ProfileReviews'
+
 const Profile = () => {
   const [user, setUser] = useState(null)
   const [pubs, setPubs] = useState(null)
+
+  const [detailShow, setDetailShow] = useState(false)
+
+  const editShow = () => {
+    !detailShow ? setDetailShow(true) : setDetailShow(false)
+  }
 
   const userID = getPayloadFromToken().sub
 
@@ -60,7 +73,15 @@ const Profile = () => {
                   alt="user profile image"
                   src={profileImage}
                 />
-
+                <Link to={`/profile/${userID}/edit-profile-image`}>
+                  <div
+                    className="edit-profile-button"
+                    name="edit-profile-image"
+                  >
+                    Change Image
+                  </div>
+                </Link>
+                <hr />
                 <div>
                   <b>Email</b>
                 </div>
@@ -83,11 +104,22 @@ const Profile = () => {
                 <h2>{`Hi, i'm ${username}`}</h2>
                 <p>{`Joined in ${convertTimestamp(createdAt)} `}</p>
               </div>
-              <Link to={`/profile/${userID}/edit`}>
+              {/* <Link to={`/profile/${userID}/edit`}>
                 <div className="edit-profile-button" name="edit-profile">
                   Edit My Profile
                 </div>
-              </Link>
+              </Link> */}
+
+              <div
+                className="edit-profile-button"
+                name="edit-account"
+                onClick={editShow}
+              >
+                Edit Account Details
+              </div>
+              <hr />
+              {detailShow && <EditProfile />}
+
               <div className="card-rating">
                 <div className="rating-star2">
                   <FontAwesomeIcon icon={faStar} className="fa-1x" />
@@ -109,15 +141,7 @@ const Profile = () => {
             </div>
           </div>
 
-          <div>Email</div>
-          <p>{email}</p>
-
-          <Link to={`/profile/delete-account/${userID}`}>
-            <button className="delete-account-button" name="delete-profile">
-              Delete My Account
-            </button>
-          </Link>
-
+          {/* 
           <section className="account-activity-section">
             <h2>Activity</h2>
             <div className="account-card-sub">
@@ -149,7 +173,7 @@ const Profile = () => {
                 <h3>Last Review Submitted</h3>
               </div>
             </div>
-          </section>
+          </section> */}
 
           {isLandlord && (
             <>
