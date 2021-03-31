@@ -17,11 +17,12 @@ import Profile from './components/loggedin/Profile'
 import PubIndexCities from './components/pub/PubIndexCities'
 import LandLordSignUp from './components/auth/LandLordSignUp'
 import Review from './components/Modals/Forms/Review'
-import EditProfile from './components/Modals/Forms/EditProfile'
+import EditProfile from '../src/components/Modals/Forms/EditProfile'
 import DeleteProfile from './components/Modals/Forms/DeleteProfile'
 import LoginToAddPub from './components/auth/LoginToAddPub'
 import DeleteReview from './components/Modals/DeleteReview'
 import DeletePub from './components/Modals/DeletePub'
+import EditProfileImage from '../src/components/Modals/Forms/EditProfileImage'
 
 const App = () => {
   return (
@@ -36,6 +37,9 @@ const App = () => {
           </Route>
           <Route exact path="/profile/:userID/edit">
             <EditProfile />
+          </Route>
+          <Route exact path="/profile/:userID/edit-profile-image">
+            <EditProfileImage />
           </Route>
           <Route exact path="/profile/delete-account/:userID/">
             <DeleteProfile />

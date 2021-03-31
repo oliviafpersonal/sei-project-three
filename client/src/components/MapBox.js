@@ -63,7 +63,7 @@ const Map = () => {
                       latitude={popup.latitude}
                       longitude={popup.longitude}
                       closeOnClick={true}
-                      onClose={() => setPopup(null)}
+                      onClick={() => setPopup(null)}
                     >
                       <div>{popup.name}</div>
                     </Popup>

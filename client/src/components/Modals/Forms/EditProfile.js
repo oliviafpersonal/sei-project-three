@@ -2,8 +2,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { useHistory, useParams } from 'react-router'
 import { getTokenFromLocalStorage } from '../../../helpers/auth'
-import { ImageUploadField } from '../../ImageUploadField'
-
+// import { ImageUploadField } from '../../ImageUploadField'
 
 const EditProfile = () => {
   const { userID } = useParams()
@@ -16,9 +15,9 @@ const EditProfile = () => {
     profileImage: '',
   })
 
-  const handleImageUrl = url => {
-    setFormData({ ...formData, profileImage: url })
-  }
+  // const handleImageUrl = url => {
+  //   setFormData({ ...formData, profileImage: url })
+  // }
 
   const handleChange = (event) => {
     const newFormData = { ...formData, [event.target.name]: event.target.value }
@@ -33,7 +32,7 @@ const EditProfile = () => {
         Authorization: `Bearer ${getTokenFromLocalStorage()}`,
       },
     })
-    handleImageUrl()
+    // handleImageUrl()
     history.push(`/profile/${userID}`)
   }
   const handleCancel = () => {
@@ -44,7 +43,13 @@ const EditProfile = () => {
       <div className="field">
         <label className="label">Username: </label>
         <div className="control has-icons-left has-icons-right">
-          <input className="input is-success" type="text" placeholder="Text input" name="username" onChange={handleChange} />
+          <input
+            className="input "
+            type="text"
+            placeholder="Enter the same or different username"
+            name="username"
+            onChange={handleChange}
+          />
           <span className="icon is-small is-left">
             <i className="fas fa-user"></i>
           </span>
@@ -52,16 +57,17 @@ const EditProfile = () => {
             <i className="fas fa-check"></i>
           </span>
         </div>
-        <p className="help is-success">This username is available</p>
+        {/* <p className="help is-success">This username is available</p> */}
       </div>
       <div className="field">
         <label className="label">Email: </label>
         <div className="control has-icons-left has-icons-right">
           <input
-            className="input is-danger"
+            className="input"
             type="email"
             placeholder="Enter your new email"
-            name="email" onChange={handleChange}
+            name="email"
+            onChange={handleChange}
           />
           <span className="icon is-small is-left">
             <i className="fas fa-envelope"></i>
@@ -70,17 +76,18 @@ const EditProfile = () => {
             <i className="fas fa-exclamation-triangle"></i>
           </span>
         </div>
-        <p className="help is-danger">This email is invalid</p>
+        {/* <p className="help is-danger">This email is invalid</p> */}
       </div>
 
       <div className="field">
         <label className="label">Password</label>
         <div className="control has-icons-left has-icons-right">
           <input
-            className="input is-danger"
+            className="input"
             type="password"
             placeholder="Enter your new password"
-            name="password" onChange={handleChange}
+            name="password"
+            onChange={handleChange}
           />
           <span className="icon is-small is-left">
             <i className="fas fa-envelope"></i>
@@ -89,16 +96,17 @@ const EditProfile = () => {
             <i className="fas fa-exclamation-triangle"></i>
           </span>
         </div>
-        <p className="help is-danger">Must enter password</p>
+        {/* <p className="help is-danger">Must enter password</p> */}
       </div>
       <div className="field">
         <label className="label">Confirm Password</label>
         <div className="control has-icons-left has-icons-right">
           <input
-            className="input is-danger"
+            className="input"
             type="password"
             placeholder="Passwords must match"
-            name="passwordConfirmation" onChange={handleChange}
+            name="passwordConfirmation"
+            onChange={handleChange}
           />
           <span className="icon is-small is-left">
             <i className="fas fa-envelope"></i>
@@ -107,22 +115,19 @@ const EditProfile = () => {
             <i className="fas fa-exclamation-triangle"></i>
           </span>
         </div>
-        <p className="help is-danger">Must enter password</p>
+        {/* <p className="help is-danger">Must enter password</p> */}
       </div>
-
-      <ImageUploadField
-        value={formData.profileImage}
-        name="profileImage"
-        handleImageUrl={handleImageUrl}
-        formData={formData}
-      />
 
       <div className="field is-grouped">
         <div className="control">
-          <button className="button is-link" type="submit">Submit</button>
+          <button className="button " type="submit">
+            Submit
+          </button>
         </div>
         <div className="control">
-          <button className="button is-link" type="button" onClick={handleCancel}>Cancel</button>
+          <button className="button " type="button" onClick={handleCancel}>
+            Cancel
+          </button>
         </div>
       </div>
     </form>
