@@ -8,8 +8,6 @@ const uploadPreset = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
 
 export const ImageUploadField = ({ handleImageUrl, value }) => {
 
-  //const [loading, setLoading] = useState(false)
-  //const [image, setImage] = useState('')
 
   const handleUpload = async (event) => {
     try {
@@ -24,8 +22,6 @@ export const ImageUploadField = ({ handleImageUrl, value }) => {
       return err.message
     }
 
-    // setImage(res.secure_url)
-    // setLoading(false)
   }
 
   return (
@@ -34,11 +30,7 @@ export const ImageUploadField = ({ handleImageUrl, value }) => {
         <div>
           <img src={value} alt="image" />
         </div>
-      ) : (
-        <>
-          <input className="input" type="file" onChange={handleUpload} />
-        </>
-      )}
+      ) : (<> <input className="input" type="file" onChange={handleUpload} /> </>)}
     </>
   )
 }
