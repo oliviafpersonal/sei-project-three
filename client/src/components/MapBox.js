@@ -1,4 +1,3 @@
-
 /*eslint-disable indent */
 //import { faAddressBook } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
@@ -80,6 +79,9 @@ const Map = () => {
                 <div
                   key={index}
                 >
+                  <Link to={`/pubs/${pub.id}`}>
+                    
+                    {popup &&
                     
                   {popup &&
                     
@@ -88,7 +90,7 @@ const Map = () => {
                       latitude={popup.latitude}
                       longitude={popup.longitude}
                       closeOnClick={true}
-                      onClose={() => setPopup(null)}
+                      onClick={() => setPopup(null)}
                     >
                       <div>{popup.name}</div>
                     </Popup>
