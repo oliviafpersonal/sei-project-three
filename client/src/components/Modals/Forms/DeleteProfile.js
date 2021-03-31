@@ -25,6 +25,7 @@ const DeleteProfile = () => {
   }
   const handleLogout = () => {
     window.localStorage.removeItem('token')
+    window.alert('Your Account has been deleted')
     history.push('/')
   }
 

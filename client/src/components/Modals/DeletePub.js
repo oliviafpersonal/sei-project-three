@@ -18,6 +18,7 @@ const DeletePub = () => {
         Authorization: `Bearer ${getTokenFromLocalStorage()}`,
       },
     })
+    window.alert('Your Pub has been deleted')
     history.push(`/profile/${userID}`)
 
   }

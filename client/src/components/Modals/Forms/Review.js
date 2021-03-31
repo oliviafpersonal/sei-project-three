@@ -11,7 +11,7 @@ const Review = () => {
     price: 0,
     availability: 0,
     comfortability: 0,
-    text: '',
+    text: 'No comment added',
   })
   const { id } = useParams()
   console.log('id>>>>>', id)
