@@ -20,19 +20,25 @@ import PubComments from './PubComments'
 import { userIsAuthenticated, userIsOwner } from '../../helpers/auth'
 const PubShow = () => {
   const { id } = useParams()
-  const [isSubmitActive, setIsSubmitActive] = useState(false)
-  const [isShowReviewsActive, setIsShowReviewsActive] = useState(false)
+  // const [reviewNumber, setReviewNumber] = useState(6)
+  // const [isShowReviewsActive, setIsShowReviewsActive] = useState(false)
   const [pub, setPub] = useState('')
   const [pubs, setPubs] = useState(null)
   //prettier-ignore
-  const handleButtonToggle = (event) => {
-    const buttonName = event.target.name
-    buttonName === 'show-reviews-button'
-      ? setIsShowReviewsActive(!isShowReviewsActive)
-      : buttonName === 'submit-reviews-button'
-        ? setIsSubmitActive(!isSubmitActive)
-        : (setIsSubmitActive(false), setIsShowReviewsActive(false))
-  }
+  // const handleButtonToggle = (event) => {
+  //   const buttonName = event.target.name
+  //   buttonName === 'submit-reviews-button'
+  //     ? setIsSubmitActive(!isSubmitActive)
+  //     : (setIsSubmitActive(false))
+  // }
+
+  // buttonName === 'show-reviews-button'
+  // ? setIsShowReviewsActive(!isShowReviewsActive)
+  // :
+
+  // setIsShowReviewsActive(false)
+
+  // console.log(isShowReviewsActive)
   //prettier-ignore
   const {
     nameOfPub,
@@ -64,33 +70,36 @@ const PubShow = () => {
       behavior: 'auto',
     })
   }, [id])
-  //! math.random between 0 and filtered length, * 3, display the pub from filteredPubs at index of the three random numbers
+
   // const handleToggle = (event) => {
   //   event.preventDefault()
-  //   setIsSubmitActive(!isSubmitActive)
+  // setReviewNumber
   // }
-  ;[5, 9, 45]
+
   if (!pub || !pubs) return null
   const cityToCompare = pub.address.city
   const filterPubsByCity = pubs
     .filter((item) => item.address.city === cityToCompare)
     .filter((item) => item.nameOfPub !== pub.nameOfPub)
-  const citiesToDisplay = filterPubsByCity.slice(0, 4)
-  console.log(
-    '🚀 ~ file: PubShow.js ~ line 85 ~ PubShow ~ citiesToDisplay',
-    citiesToDisplay
-  )
-  // const location = useLocation()
-  // useEffect(() => {}, [location.pathname])
+
+  function getRandom(arr, n) {
+    const result = new Array(n)
+    let len = arr.length
+    const taken = new Array(len)
+    if (n > len)
+      throw new RangeError('getRandom: more elements taken than available')
+    while (n--) {
+      var x = Math.floor(Math.random() * len)
+      result[n] = arr[x in taken ? taken[x] : x]
+      taken[x] = --len in taken ? taken[len] : len
+    }
+    return result
+  }
 
   return (
     <>
       <Header />
-      {console.log('reviews in pubshow', reviews)}
-      {/* {console.log(
-        'typeofe averag>>>>',
-        typeof averageRatings.averageComfortability === 'string'
-      )} */}
+
       <div className="pub-show-container">
         <div className="section">
           <div className="columns">
@@ -342,12 +351,11 @@ const PubShow = () => {
             <button
               className="reviews-button button"
               name="show-reviews-button"
-              onClick={handleButtonToggle}
+              // onClick={handleButtonToggle}
             >{`Show all ${reviews.length} Reviews`}</button>
-          </div>
-          {userIsAuthenticated() && !userIsOwner(pubOwner) && (
-            <>
-              <div className="reviews-button-container">
+
+            {userIsAuthenticated() && !userIsOwner(pubOwner) && (
+              <>
                 <Link to={`/pubs/${id}/submit-review`}>
                   <button
                     className="reviews-button button"
@@ -356,21 +364,21 @@ const PubShow = () => {
                     Submit a Review
                   </button>
                 </Link>
-              </div>
-            </>
-          )}
+              </>
+            )}
+          </div>
         </section>
         <hr />
         {!userIsAuthenticated() && <p>hello</p>}
-        <hr />
+
         <h2>More Pubs In {address.city}</h2>
         <br />
         {pub && (
           <div className="columns is-multiline">
-            {citiesToDisplay.map((pub) => {
+            {getRandom(filterPubsByCity, 8).map((pub) => {
               return (
                 <div
-                  key={pub}
+                  key={pub._id}
                   className="column is-one-quarter-desktop is-one-third-tablet"
                 >
                   <Link to={`/pubs/${pub.id}`}>
@@ -390,6 +398,7 @@ const PubShow = () => {
             })}
           </div>
         )}
+        <hr />
       </div>
     </>
   )

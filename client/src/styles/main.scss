@@ -489,12 +489,14 @@ progress[value]::-webkit-progress-value {
 }
 .reviews-button-container {
   margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 .reviews-button {
   font-weight: 700;
   padding: 1.5rem 2rem;
   border-radius: 10px;
+  margin-right: 1rem;
 }
 .reviews-button:hover {
   background: #f0f0f0;
@@ -502,6 +504,10 @@ progress[value]::-webkit-progress-value {
 
 .delete-review {
   margin-top: 1rem;
+}
+
+.card-image img {
+  height: 15vh;
 }
 
 // * login
