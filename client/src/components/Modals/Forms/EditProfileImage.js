@@ -58,6 +58,7 @@ const EditProfileImage = () => {
               </p>
               <br />
             </div>
+            <hr />
             <form onSubmit={handleSubmit}>
               <ImageUploadField
                 value={formData.profileImage}

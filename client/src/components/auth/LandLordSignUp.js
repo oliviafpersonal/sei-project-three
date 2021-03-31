@@ -1,6 +1,7 @@
 /*eslint-disable no-unused-vars*/
 
 import React, { useEffect, useState } from 'react'
+
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 //prettier-ignore
@@ -64,6 +65,23 @@ const LandLordSignUp = () => {
   } = user
 
   const history = useHistory()
+
+  // const handleImageUrl = url => {
+  //   setFormData({ ...formData, profileImage: url })
+  // }
+
+  const handleUserSubmit = async () => {
+    await axios.put(
+      `/api/users/${userID}`,
+      { isLandlord: true },
+      {
+        headers: {
+          Authorization: `Bearer ${getTokenFromLocalStorage()}`,
+        },
+      }
+    )
+  }
+
   //prettier-ignore
   const [formData, setFormData] = useState({
     nameOfPub: '',
@@ -116,6 +134,7 @@ const LandLordSignUp = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
+    await handleUserSubmit()
     try {
       //console.log(getTokenFromLocalStorage())
       //prettier-ignore
@@ -125,7 +144,7 @@ const LandLordSignUp = () => {
         },
       })
       console.log(response)
-      clickHandlerTwo()
+
       history.push('/pubs')
     } catch (err) {
       console.log(err.response)

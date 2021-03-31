@@ -6,6 +6,7 @@ import { getTokenFromLocalStorage } from '../../../helpers/auth'
 
 const EditProfile = () => {
   const { userID } = useParams()
+
   const history = useHistory()
   //prettier-ignore
   const [formData, setFormData] = useState({
