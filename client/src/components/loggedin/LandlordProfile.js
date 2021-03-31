@@ -30,6 +30,9 @@ const Profile = () => {
     getUser()
     getPubs()
   }, [])
+
+  console.log(pubs)
+
   //prettier-ignore
   if (!user || !pubs) return null
   console.log('userID', userID)
