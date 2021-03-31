@@ -1,3 +1,4 @@
+// import { isEqual } from 'lodash.js'
 import Pub from '../models/pub.js'
 import User from '../models/user.js'
 
@@ -79,18 +80,18 @@ export const addPubToFavs = async (req, res) => {
   }  
 }
 
-export const deletePubFromFavs = async (req, res) => {
-  try {
-    const userID = req.params.id
-    const findUser = await User.findById(userID)
-    if (!findUser) throw new Error('No User exists with that ID')
-    const pubID = req.params.pubID
-    const position = req.body.pubId
-    findUser.favouritePubs.slice(position, 1)
-    await findUser.save()
-    return res.status(204).json(findUser.favouritePubs)
-  } catch (err) {
-    console.log(err)
-    return res.status(404).json({ message: err.message })
-  }
-}
+// export const deletePubFromFavs = async (req, res) => {
+//   try {
+//     const userID = req.params.id
+//     const findUser = await User.findById(userID)
+//     if (!findUser) throw new Error('No User exists with that ID')
+//     const pubID = req.params.pubID
+//     const favPub = Pub.findById(pubID)
+//     await findUser.favouritePubs.filter(pub => isEqual(pub, favPub))
+//     await findUser.save()
+//     return res.status(204).json('deleted pub')
+//   } catch (err) {
+//     console.log(err)
+//     return res.status(404).json({ message: err.message })
+//   }
+// }
