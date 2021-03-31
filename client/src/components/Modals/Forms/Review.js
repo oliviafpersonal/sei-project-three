@@ -46,27 +46,6 @@ const Review = () => {
   }
 
   return (
-<<<<<<< HEAD
-    <form onSubmit={handleSubmit}>
-      <div className="field is-horizontal">
-        <div className="field-label is-normal">
-          <label className="label">Price</label>
-        </div>
-        <div className="field-body">
-          <div className="field is-narrow">
-            <div className="control">
-              <div className="select is-fullwidth">
-                <select onChange={handleChange} name="price">
-                  
-                  <option value="">Choose a rating</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
-              </div>
-=======
     <>
       <Header />
       <div className="submit-review-container">
@@ -78,53 +57,9 @@ const Review = () => {
               <hr/>
               <p>Input your ratings and your review of the pub based on your experience</p>
               <br/>
->>>>>>> review-style
             </div>
             
 
-<<<<<<< HEAD
-      <div className="field is-horizontal">
-        <div className="field-label is-normal">
-          <label className="label">Comfortability</label>
-        </div>
-        <div className="field-body">
-          <div className="field is-narrow">
-            <div className="control">
-              <div className="select is-fullwidth">
-                <select onChange={handleChange} name="comfortability">
-                  
-                  <option value="">Choose a rating</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="field is-horizontal">
-        <div className="field-label is-normal">
-          <label className="label">Availability</label>
-        </div>
-        <div className="field-body">
-          <div className="field is-narrow">
-            <div className="control">
-              <div className="select is-fullwidth">
-                <select onChange={handleChange} name="availability">
-                  
-                  <option value="">Choose a rating</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
-              </div>
-=======
             <div className="review-box">
               <form onSubmit={handleSubmit}>
                 <div className="field is-horizontal">
@@ -136,9 +71,10 @@ const Review = () => {
                       <div className="control">
                         <div className="select is-fullwidth">
                           <select onChange={handleChange} name="price">
+                            <option value="">Choose a rating</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
-                            <option defaultValue="3">3</option>
+                            <option value="3">3</option>
                             <option value="4">4</option>
                             <option value="5">5</option>
                           </select>
@@ -157,9 +93,10 @@ const Review = () => {
                       <div className="control">
                         <div className="select is-fullwidth">
                           <select onChange={handleChange} name="comfortability">
+                            <option value="">Choose a rating</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
-                            <option defaultValue="3">3</option>
+                            <option value="3">3</option>
                             <option value="4">4</option>
                             <option value="5">5</option>
                           </select>
@@ -178,9 +115,10 @@ const Review = () => {
                       <div className="control">
                         <div className="select is-fullwidth">
                           <select onChange={handleChange} name="availability">
+                            <option value="">Choose a rating</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
-                            <option defaultValue="3">3</option>
+                            <option value="3">3</option>
                             <option value="4">4</option>
                             <option value="5">5</option>
                           </select>
@@ -221,7 +159,6 @@ const Review = () => {
                   </div>
                 </div>
               </form>
->>>>>>> review-style
             </div>
           </div>
           <div className="column">

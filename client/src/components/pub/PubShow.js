@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { Link, useParams /*, Link*/ } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 //prettier-ignore
 import {
@@ -10,9 +10,7 @@ import {
   faDog,
   faChair,
   faUtensils,
-  faFutbol,
-  faTrash,
-  faPencilAlt
+  faFutbol
 } from '@fortawesome/free-solid-svg-icons'
 
 //components
@@ -25,10 +23,6 @@ const PubShow = () => {
   const [isSubmitActive, setIsSubmitActive] = useState(false)
   const [isShowReviewsActive, setIsShowReviewsActive] = useState(false)
   const [pub, setPub] = useState('')
-  const [pubs, setPubs] = useState(null)
-  
-
-
   //prettier-ignore
   const handleButtonToggle = (event) => {
     const buttonName = event.target.name
@@ -38,6 +32,7 @@ const PubShow = () => {
         ? setIsSubmitActive(!isSubmitActive)
         : (setIsSubmitActive(false), setIsShowReviewsActive(false))
   }
+  console.log(id)
   //prettier-ignore
   const {
     nameOfPub,
@@ -58,43 +53,7 @@ const PubShow = () => {
       const response = await axios.get(`/api/pubs/${id}`)
       setPub(response.data)
     }
-    const getPubs = async () => {
-      const { data } = await axios.get('/api/pubs')
-      setPubs(data)
-    }
     getData()
-    getPubs()
-    window.scroll({
-      top: 100,
-      left: 100,
-      behavior: 'auto',
-    })
-
-  }, [id])
-  //! math.random between 0 and filtered length, * 3, display the pub from filteredPubs at index of the three random numbers 
-  const handleToggle = (event) => {
-    event.preventDefault()
-    setIsSubmitActive(!isSubmitActive)
-  }
-  [5,9,45]
-
-  
-  if (!pub || !pubs) return null
-  const cityToCompare = pub.address.city
-  const filterPubsByCity = pubs
-    .filter(item => item.address.city === cityToCompare)
-    .filter(item => item.nameOfPub !== pub.nameOfPub)
-  
-  const citiesToDisplay = filterPubsByCity.slice(0,4)
-  console.log('🚀 ~ file: PubShow.js ~ line 85 ~ PubShow ~ citiesToDisplay', citiesToDisplay)
-
-  // const location = useLocation()
-  // useEffect(() => {}, [location.pathname])
-  
-  return (
-    <>
-      <Header />
-      {console.log(
   }, [])
 
   if (!pub) return null
@@ -128,36 +87,16 @@ const PubShow = () => {
               <div className="share-options">
                 <div></div>
                 <div className="share-align">
-                  
-                  {userIsOwner(pubOwner) ?
-                    <>
-
-                      <span className="icon-space">
-                        <FontAwesomeIcon icon={faPencilAlt} />
-                      </span>
-                      <Link to={`/pubs/${id}/edit`}>
-                        <p>Edit</p>
-                      </Link>
-
-                      <span className="icon-space">
-                        <FontAwesomeIcon icon={faTrash} />
-                      </span>
-                      <Link to={`/pubs/${id}/delete`}>
-                        <p>Delete</p>
-                      </Link>
-                    </>
-                    :
-                    <>
-                      <span className="icon-space">
-                        <FontAwesomeIcon icon={faUpload} />
-                      </span>
-                      <p>Share</p>
-                      <span className="icon-space">
-                        <FontAwesomeIcon icon={faHeart} />
-                      </span>
-                      <p>Save</p>
-                    </>
-                  }
+                  <p>
+                    <span className="icon-space">
+                      <FontAwesomeIcon icon={faUpload} />
+                    </span>
+                    Share
+                  </p>
+                  <span className="icon-space">
+                    <FontAwesomeIcon icon={faHeart} />
+                  </span>
+                  <p>Save</p>
                 </div>
               </div>
             </div>
@@ -382,40 +321,7 @@ const PubShow = () => {
           )}
         </section>
         <hr />
-<<<<<<< HEAD
-
-        {!userIsAuthenticated() && <p>hello</p>} 
-        <hr />
-        <h2>More Pubs In {address.city}</h2>
         <br />
-        {pub && (
-          <div className="columns is-multiline">
-            {citiesToDisplay.map(pub =>{
-              return (
-                <div
-                  key={pub}
-                  className="column is-one-quarter-desktop is-one-third-tablet"
-                >
-                  <Link to={`/pubs/${pub.id}`}>
-                    <div className="card">
-                      <div className="card-image ">
-                        <figure className="image resize image-is-1by1">
-                          <img src={pub.image} alt={pub.nameOfPub} />
-                        </figure>
-                      </div>
-                      <div className="card-header ">
-                        <div className="card-header-title">{pub.nameOfPub}</div>
-                      </div>
-                    </div>
-                  </Link>
-                </div>
-              )
-            })}
-          </div>
-        )} 
-=======
-        <br />
->>>>>>> review-style
       </div>
     </>
   )

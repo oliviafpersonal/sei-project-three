@@ -19,13 +19,9 @@ import LandLordSignUp from './components/auth/LandLordSignUp'
 import Review from './components/Modals/Forms/Review'
 import EditProfile from './components/Modals/Forms/EditProfile'
 import DeleteProfile from './components/Modals/Forms/DeleteProfile'
-<<<<<<< HEAD
 import LoginToAddPub from './components/auth/LoginToAddPub'
-=======
 import DeleteReview from './components/Modals/DeleteReview'
 import DeletePub from './components/Modals/DeletePub'
->>>>>>> b4d9c901e413ba4784173d3db796b4dba4587d47
-
 
 const App = () => {
   return (
@@ -44,9 +40,10 @@ const App = () => {
           <Route exact path="/profile/delete-account/:userID/">
             <DeleteProfile />
           </Route>
-          <Route exact path="/users/reviews/delete-review/:pubID/:reviewID">
-            
-          </Route>
+          <Route
+            exact
+            path="/users/reviews/delete-review/:pubID/:reviewID"
+          ></Route>
           <Route exact path="/pubs/:pubID/delete">
             <DeletePub />
           </Route>
@@ -62,8 +59,8 @@ const App = () => {
           <Route exact path="/signup">
             <Signup />
           </Route>
-          <Route exact path ="/pubs/:pubID/reviews-delete/:reviewID">
-            <DeleteReview/>
+          <Route exact path="/pubs/:pubID/reviews-delete/:reviewID">
+            <DeleteReview />
           </Route>
           <Route exact path="/pubs/:id">
             <PubShow />

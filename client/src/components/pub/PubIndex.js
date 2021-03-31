@@ -29,11 +29,7 @@ const PubIndex = () => {
     setPets(false)
     setSports(false)
     setFood(false)
-<<<<<<< HEAD
-    setFilterPubs(false)  
-=======
     setFilterPubs(false)
->>>>>>> review-style
   }
   const handleFood = () => {
     if (!food) {
@@ -106,14 +102,6 @@ const PubIndex = () => {
   const isRating = pubs.sort((a, b) => {
     return b - a
   })
-<<<<<<< HEAD
-  console.log('🚀 ~ file: PubIndex.js ~ line 115 ~ isRating ~ isRating', isRating)
-  console.log(
-    '🚀 ~ file: PubIndex.js ~ line 115 ~ isRating ~ isRating',
-    isRating
-  )
-=======
->>>>>>> review-style
 
   return (
     <>
