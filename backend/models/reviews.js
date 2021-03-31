@@ -10,7 +10,8 @@ const reviewSchema = new mongoose.Schema({
   reviewOwner: { type: mongoose.Schema.Types.ObjectID, ref: 'User' },
   reviewOwnerName: { type: String, ref: 'User' },
   reviewOwnerImage: { type: String, ref: 'User' },
-  pubName: String
+  pubName: String,
+  pubID: String
 }, {
   timestamps: true
 })

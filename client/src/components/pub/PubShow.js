@@ -9,17 +9,15 @@ import {
   faDog,
   faChair,
   faUtensils,
-  faFutbol
+  faFutbol,
+  faTrash,
+  faPencilAlt
 } from '@fortawesome/free-solid-svg-icons'
 
 //components
 import Header from '../Header'
 import PubComments from './PubComments'
 import { userIsAuthenticated, userIsOwner } from '../../helpers/auth'
-import Review from '../Modals/Forms/Review'
-import { displayModal } from '../../helpers/helperFunctions'
-import DisplayAllReviews from '../Modals/DisplayAllReviews'
-
 
 const PubShow = () => {
   const { id } = useParams()
@@ -30,11 +28,13 @@ const PubShow = () => {
   
 
 
+  //prettier-ignore
   const handleButtonToggle = (event) => {
     const buttonName = event.target.name
-    buttonName === 'show-reviews-button' ? setIsShowReviewsActive(!isShowReviewsActive)
-      : buttonName === 'submit-reviews-button' ?
-        setIsSubmitActive(!isSubmitActive)
+    buttonName === 'show-reviews-button'
+      ? setIsShowReviewsActive(!isShowReviewsActive)
+      : buttonName === 'submit-reviews-button'
+        ? setIsSubmitActive(!isSubmitActive)
         : (setIsSubmitActive(false), setIsShowReviewsActive(false))
   }
   //prettier-ignore
@@ -52,8 +52,7 @@ const PubShow = () => {
     pubOwner,
   } = pub
 
-  console.log(pub)
-
+  
   useEffect(() => {
     const getData = async () => {
       const response = await axios.get(`/api/pubs/${id}`)
@@ -96,9 +95,20 @@ const PubShow = () => {
     <>
       <Header />
       {console.log(
+  }, [])
+  
+  if (!pub) return null
+
+  console.log(pub.reviews.length)
+
+  return (
+    <>
+      <Header />
+      {console.log('reviews in pubshow', reviews)}
+      {/* {console.log(
         'typeofe averag>>>>',
         typeof averageRatings.averageComfortability === 'string'
-      )}
+      )} */}
       <div className="pub-show-container">
         <div className="section">
           <div className="columns">
@@ -122,16 +132,36 @@ const PubShow = () => {
               <div className="share-options">
                 <div></div>
                 <div className="share-align">
-                  <p>
-                    <span className="icon-space">
-                      <FontAwesomeIcon icon={faUpload} />
-                    </span>
-                    Share
-                  </p>
-                  <span className="icon-space">
-                    <FontAwesomeIcon icon={faHeart} />
-                  </span>
-                  <p>Save</p>
+                  
+                  {userIsOwner(pubOwner) ?
+                    <>
+
+                      <span className="icon-space">
+                        <FontAwesomeIcon icon={faPencilAlt} />
+                      </span>
+                      <Link to={`/pubs/${id}/edit`}>
+                        <p>Edit</p>
+                      </Link>
+
+                      <span className="icon-space">
+                        <FontAwesomeIcon icon={faTrash} />
+                      </span>
+                      <Link to={`/pubs/${id}/delete`}>
+                        <p>Delete</p>
+                      </Link>
+                    </>
+                    :
+                    <>
+                      <span className="icon-space">
+                        <FontAwesomeIcon icon={faUpload} />
+                      </span>
+                      <p>Share</p>
+                      <span className="icon-space">
+                        <FontAwesomeIcon icon={faHeart} />
+                      </span>
+                      <p>Save</p>
+                    </>
+                  }
                 </div>
               </div>
             </div>
@@ -317,17 +347,26 @@ const PubShow = () => {
             <PubComments reviews={reviews} displayNumber={6} />
           </div>
           <div className="reviews-button-container">
-            <button className="reviews-button button" name="show-reviews-button" onClick={handleButtonToggle}>{`Show all ${reviews.length} Reviews`}</button> 
-            {displayModal(isShowReviewsActive, DisplayAllReviews, handleButtonToggle)}
+            <button
+              className="reviews-button button"
+              name="show-reviews-button"
+              onClick={handleButtonToggle}
+            >{`Show all ${reviews.length} Reviews`}</button>
           </div>
-          {userIsAuthenticated() && !userIsOwner(pubOwner) &&
+          {userIsAuthenticated() && !userIsOwner(pubOwner) && (
             <>
               <div className="reviews-button-container">
-                <button className="reviews-button button" name="submit-reviews-button" onClick={handleToggle}>Submit a Review</button>
+                <Link to={`/pubs/${id}/submit-review`}>
+                  <button
+                    className="reviews-button button"
+                    name="submit-reviews-button"
+                  >
+                    Submit a Review
+                  </button>
+                </Link>
               </div>
-              { displayModal(isSubmitActive, Review, handleToggle) }
             </>
-          }
+          )}
         </section>
         <hr />
 

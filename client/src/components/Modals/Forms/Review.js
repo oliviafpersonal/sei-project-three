@@ -1,19 +1,20 @@
 /* eslint-disable no-unused-vars */
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useHistory, useParams } from 'react-router'
 import { getTokenFromLocalStorage } from '../../../helpers/auth'
 
 //prettier-ignore
-const Review = ({ id }) => {
+const Review = () => {
+  const history = useHistory()
   const [formData, setFormData] = useState({
-    subRating: {
-      price: 0,
-      availability: 0,
-      comfortability: 0,
-    },
-    text: '',
+    price: 0,
+    availability: 0,
+    comfortability: 0,
+    text: 'No comment added',
   })
-
+  const { id } = useParams()
+  console.log('id>>>>>', id)
   const handleChange = (event) => {
     const newFormData = { ...formData, [event.target.name]: event.target.value }
     console.log(newFormData)
@@ -22,12 +23,14 @@ const Review = ({ id }) => {
 
   //prettier-ignore
   const handleSubmit = async (event) => {
+    console.log(formData)
     event.preventDefault()
-    const { data } = await axios.post(`/api/pubs/${id}/reviews`, formData, {
+    await axios.post(`/api/pubs/${id}/reviews`, formData, {
       headers: {
         Authorization: `Bearer ${getTokenFromLocalStorage()}`,
       },
     })
+    history.push(`/pubs/${id}`)
   }
 
   return (
@@ -41,9 +44,11 @@ const Review = ({ id }) => {
             <div className="control">
               <div className="select is-fullwidth">
                 <select onChange={handleChange} name="price">
+                  
+                  <option value="">Choose a rating</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
-                  <option defaultValue="3">3</option>
+                  <option value="3">3</option>
                   <option value="4">4</option>
                   <option value="5">5</option>
                 </select>
@@ -62,9 +67,11 @@ const Review = ({ id }) => {
             <div className="control">
               <div className="select is-fullwidth">
                 <select onChange={handleChange} name="comfortability">
+                  
+                  <option value="">Choose a rating</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
-                  <option defaultValue="3">3</option>
+                  <option value="3">3</option>
                   <option value="4">4</option>
                   <option value="5">5</option>
                 </select>
@@ -83,9 +90,11 @@ const Review = ({ id }) => {
             <div className="control">
               <div className="select is-fullwidth">
                 <select onChange={handleChange} name="availability">
+                  
+                  <option value="">Choose a rating</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
-                  <option defaultValue="3">3</option>
+                  <option value="3">3</option>
                   <option value="4">4</option>
                   <option value="5">5</option>
                 </select>

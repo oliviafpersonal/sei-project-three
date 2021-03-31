@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useHistory } from 'react-router-dom'
+import { getPayloadFromToken } from '../../helpers/auth'
 
 //prettier-ignore
 const Login = () => {
@@ -20,7 +21,8 @@ const Login = () => {
     event.preventDefault()
     const response = await axios.post('/api/login', formData)
     window.localStorage.setItem('token', response.data.token)
-    history.push('/profile')
+    const userID = getPayloadFromToken().sub
+    history.push(`/profile/${userID}`)
     console.log(response)
   }
 

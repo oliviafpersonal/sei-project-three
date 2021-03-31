@@ -14,7 +14,20 @@ export const addOnePub = async (req, res) => {
     if (!findUser.isLandlord) { 
       throw new  Error('Only Landlords can add pubs')
     } else console.log('>>>>>>>> user is a landlord, access approved')
-    const newPub = { ...req.body, id: req._id }
+    const newPub = { nameOfPub: req.body.nameOfPub,
+      address: {
+        line1: req.body.line1,
+        line2: req.body.line2,
+        town: req.body.town,
+        city: req.body.city,
+        postCode: req.body.postCode
+      },
+      description: req.body.description,
+      isOutsideSeating: req.body.isOutsideSeating,
+      isPetFriendly: req.body.isPetFriendly,
+      isFoodServed: req.body.isFoodServed,
+      isLiveSports: req.body.isLiveSports,
+      image: req.body.image, id: req._id }
     //console.log('🚀 ~ file: pubs.js ~ line 14 ~ addOnePub ~ newPub', newPub)
     const pubToAdd = await Pub.create(newPub)
     return res.status(201).json(pubToAdd)

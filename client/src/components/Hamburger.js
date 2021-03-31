@@ -2,11 +2,11 @@ import React, { useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import { Link, useHistory, useLocation } from 'react-router-dom'
-import { userIsAuthenticated } from '../helpers/auth'
+import { getPayloadFromToken, userIsAuthenticated } from '../helpers/auth'
 
 const Hamburger = () => {
   const history = useHistory()
-
+  const userID = getPayloadFromToken().sub
   const clickHandler = (e) => {
     e.currentTarget.classList.toggle('is-active')
   }
@@ -18,8 +18,6 @@ const Hamburger = () => {
 
   const location = useLocation()
   useEffect(() => {}, [location.pathname])
-
-
 
   return (
     <>
@@ -38,37 +36,36 @@ const Hamburger = () => {
         </div>
         <div className="dropdown-menu" id="dropdown-menu1" role="menu">
           <div className="dropdown-content dropdown-shape">
-            { !userIsAuthenticated() &&
+            {!userIsAuthenticated() && (
               <>
                 <Link to="/login" className="dropdown-item">
-              Login
+                  Login
                 </Link>
 
                 <Link to="/signup" className="dropdown-item">
-                Register
+                  Register
                 </Link>
               </>
-            }
+            )}
 
+            {userIsAuthenticated() && (
+              <>
+                <hr className="dropdown-divider" />
+                <Link to={`/profile/${userID}`} className="dropdown-item">
+                  Profile
+                </Link>
 
-            {userIsAuthenticated() && 
-            <>
-              <hr className="dropdown-divider" />
-              <Link to="/profile" className="dropdown-item">
-                Profile
-              </Link>
-            
-              <hr className="dropdown-divider" />
-              <div className="dropdown-item stretch">
-                <a>New Pub Crawl</a>
-              </div>
+                <hr className="dropdown-divider" />
+                <div className="dropdown-item stretch">
+                  <a>New Pub Crawl</a>
+                </div>
 
-              <hr className="dropdown-divider" />
-              <div className="dropdown-item" onClick={handleLogout}>
-                <a>Logout</a>
-              </div>
-            </>
-            }
+                <hr className="dropdown-divider" />
+                <div className="dropdown-item" onClick={handleLogout}>
+                  <a>Logout</a>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>

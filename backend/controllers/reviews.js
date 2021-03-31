@@ -18,7 +18,12 @@ export const addReviewtoPub = async (req, res) => {
     if (isEqual(pub.pubOwner, userID)) {
       throw new Error('user is pub owner - cannot review your own pubs')
     } else {
-      const newReview = { ...req.body, reviewOwner: userID, reviewOwnerName: userName, reviewOwnerImage: userImage, pubName: pub.nameOfPub }
+      // spreading in the data changed as react doesn't like state of nested objects
+      const newReview = { subRating: {
+        availability: req.body.availability,
+        comfortability: req.body.comfortability,
+        price: req.body.price
+      }, reviewOwner: userID, reviewOwnerName: userName, reviewOwnerImage: userImage, pubName: pub.nameOfPub, pubID: pub._id, text: req.body.text }
       pub.reviews.push(newReview)
       findUser.allReviews.push(newReview)
       await pub.save()
@@ -44,10 +49,11 @@ export const deletePubReview = async (req, res) => {
     if (!pub) throw new Error('Show not found')
     const reviewToDelete = pub.reviews.id(reviewId) 
     if (!reviewToDelete) throw new Error('Comment not found')
-    if (!reviewToDelete.owner.equals(userID)) throw new Error('Unauthorized')
+    if (!reviewToDelete.reviewOwner.equals(userID)) throw new Error('Unauthorized')
     await reviewToDelete.remove()
     await pub.save()
-    return res.status(204).json()
+    console.log('✅succesfully deleted')
+    return res.status(204).json('✅succesfully deleted')
   } catch (err) {
     console.log(err)
     return res.status(404).json({ message: err.message })
