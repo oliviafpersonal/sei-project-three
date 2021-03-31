@@ -6,7 +6,6 @@ import { convertTimestamp } from '../../helpers/helperFunctions'
 import EditProfile from '../Modals/Forms/EditProfile'
 import Header from '../Header'
 import ProfileReviews from './ProfileReviews'
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
@@ -32,7 +31,7 @@ const Profile = () => {
     getUser()
   }, [])
 
-  
+
 
   // const handleToggleEdit = () => {
   //   setIsEditActive(!isEditActive)

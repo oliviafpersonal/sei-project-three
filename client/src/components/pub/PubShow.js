@@ -9,7 +9,9 @@ import {
   faDog,
   faChair,
   faUtensils,
-  faFutbol
+  faFutbol,
+  faTrash,
+  faPencilAlt
 } from '@fortawesome/free-solid-svg-icons'
 
 //components
@@ -91,16 +93,36 @@ const PubShow = () => {
               <div className="share-options">
                 <div></div>
                 <div className="share-align">
-                  <p>
-                    <span className="icon-space">
-                      <FontAwesomeIcon icon={faUpload} />
-                    </span>
-                    Share
-                  </p>
-                  <span className="icon-space">
-                    <FontAwesomeIcon icon={faHeart} />
-                  </span>
-                  <p>Save</p>
+                  
+                  {userIsOwner(pubOwner) ?
+                    <>
+
+                      <span className="icon-space">
+                        <FontAwesomeIcon icon={faPencilAlt} />
+                      </span>
+                      <Link to={`/pubs/${id}/edit`}>
+                        <p>Edit</p>
+                      </Link>
+
+                      <span className="icon-space">
+                        <FontAwesomeIcon icon={faTrash} />
+                      </span>
+                      <Link to={`/pubs/${id}/delete`}>
+                        <p>Delete</p>
+                      </Link>
+                    </>
+                    :
+                    <>
+                      <span className="icon-space">
+                        <FontAwesomeIcon icon={faUpload} />
+                      </span>
+                      <p>Share</p>
+                      <span className="icon-space">
+                        <FontAwesomeIcon icon={faHeart} />
+                      </span>
+                      <p>Save</p>
+                    </>
+                  }
                 </div>
               </div>
             </div>

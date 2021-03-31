@@ -20,6 +20,7 @@ import Review from './components/Modals/Forms/Review'
 import EditProfile from './components/Modals/Forms/EditProfile'
 import DeleteProfile from './components/Modals/Forms/DeleteProfile'
 import DeleteReview from './components/Modals/DeleteReview'
+import DeletePub from './components/Modals/DeletePub'
 
 
 const App = () => {
@@ -41,6 +42,9 @@ const App = () => {
           </Route>
           <Route exact path="/users/reviews/delete-review/:pubID/:reviewID">
             
+          </Route>
+          <Route exact path="/pubs/:pubID/delete">
+            <DeletePub />
           </Route>
           <Route exact path="/">
             <Home />
