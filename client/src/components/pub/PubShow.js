@@ -72,11 +72,10 @@ const PubShow = () => {
 
   }, [id])
   //! math.random between 0 and filtered length, * 3, display the pub from filteredPubs at index of the three random numbers 
-  const handleToggle = (event) => {
-    event.preventDefault()
-    setIsSubmitActive(!isSubmitActive)
-  }
-  [5,9,45]
+  // const handleToggle = (event) => {
+  //   event.preventDefault()
+  //   setIsSubmitActive(!isSubmitActive)
+  // }
 
   
   if (!pub || !pubs) return null
@@ -90,16 +89,6 @@ const PubShow = () => {
 
   // const location = useLocation()
   // useEffect(() => {}, [location.pathname])
-  
-  return (
-    <>
-      <Header />
-      {console.log(
-  }, [])
-  
-  if (!pub) return null
-
-  console.log(pub.reviews.length)
 
   return (
     <>
@@ -403,5 +392,6 @@ const PubShow = () => {
     </>
   )
 }
+
 
 export default PubShow
