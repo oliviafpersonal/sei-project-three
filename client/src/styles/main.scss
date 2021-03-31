@@ -715,6 +715,84 @@ h2 {
   font-size: 1.4em;
 }
 
+// * Login and sign up
+
+.login-box {
+  border: 1px solid rgb(213, 213, 213);
+  border-radius: 10px;
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.login-container {
+  margin-top: 15vh;
+  margin-bottom: 10vh;
+}
+
+.login-input-box {
+  border: 1px solid rgb(189, 189, 189);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 0.7rem 5rem;
+  -webkit-appearance: none;
+  text-align: center;
+  justify-content: center;
+
+  display: flex;
+}
+.login-input-box-pass {
+  border: 1px solid rgb(189, 189, 189);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top: none;
+  padding: 0.7rem 5rem;
+  -webkit-appearance: none;
+  text-align: center;
+  justify-content: center;
+
+  display: flex;
+}
+
+.login-input-box-pass:hover {
+  border: 1px solid #000000;
+}
+.login-input-box:hover {
+  border: 1px solid #000000;
+}
+
+.login-input {
+  border: none;
+  padding: 0.5rem 1rem;
+  -webkit-appearance: none;
+  margin-right: 4rem;
+  text-align: left;
+  width: 25rem;
+}
+.login-input:focus {
+  border: none;
+
+  -webkit-appearance: none;
+  outline: none;
+}
+
+.login-button {
+  background: radial-gradient(
+    circle at top left,
+    rgb(58, 99, 81),
+    rgb(59, 137, 103)
+  );
+  border-radius: 10px;
+  color: white;
+  padding: 1.3rem 0rem;
+}
+.login-button:hover {
+  color: white;
+}
+
 // * Delete styles
 
 .delete-button {
