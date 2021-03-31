@@ -1,7 +1,11 @@
+/*eslint-disable no-unused-vars, indent*/
+
+
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { LandLordSignUp } from '../auth/LandLordSignUp'
 //prettier-ignore
 /*eslint-disable no-unused-vars */
 import {
@@ -321,7 +325,7 @@ const PubShow = () => {
                         max="5"
                         value={
                           typeof averageRatings.averageComfortability ===
-                          'string'
+                            'string'
                             ? 0
                             : averageRatings.averageComfortability.toFixed(1)
                         }
@@ -330,7 +334,7 @@ const PubShow = () => {
                       ></progress>
                       <p>
                         {typeof averageRatings.averageComfortability ===
-                        'string'
+                          'string'
                           ? averageRatings.averageComfortability
                           : averageRatings.averageComfortability.toFixed(1)}
                       </p>

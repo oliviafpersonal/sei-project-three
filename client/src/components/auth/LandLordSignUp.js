@@ -57,10 +57,10 @@ const LandLordSignUp = () => {
 
   //prettier-ignore
   const {
-  
+
     username,
- 
- 
+
+
   } = user
 
   const history = useHistory()
@@ -111,7 +111,7 @@ const LandLordSignUp = () => {
   const handleImageUrl = (url) => {
     console.log('image url', url)
 
-    setFormData({ ...formData, image: 'hello' })
+    setFormData({ ...formData, image: url })
   }
 
   const handleSubmit = async (event) => {
@@ -399,7 +399,12 @@ const LandLordSignUp = () => {
               <b>STEP 3</b>
               <h2>Lets see what your pub looks like?</h2>
               <br />
-              <ImageUploadField name="image" handleImageUrl={handleImageUrl} />
+              <ImageUploadField
+                value={formData.image}
+                name="image"
+                handleImageUrl={handleImageUrl}
+                formData={formData}
+              />
             </div>
             <div className="form-nav">
               <div className="hide backthree back-button">
