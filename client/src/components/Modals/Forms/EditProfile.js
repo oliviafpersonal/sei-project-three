@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { useHistory, useParams } from 'react-router'
 import { getTokenFromLocalStorage } from '../../../helpers/auth'
+import { ImageUploadField } from '../../ImageUploadField'
 
 
 const EditProfile = () => {
@@ -12,7 +13,12 @@ const EditProfile = () => {
     username: '',
     password: '',
     passwordConfirmation: '',
+    profileImage: '',
   })
+
+  const handleImageUrl = url => {
+    setFormData({ ...formData, profileImage: url })
+  }
 
   const handleChange = (event) => {
     const newFormData = { ...formData, [event.target.name]: event.target.value }
@@ -27,6 +33,7 @@ const EditProfile = () => {
         Authorization: `Bearer ${getTokenFromLocalStorage()}`,
       },
     })
+    handleImageUrl()
     history.push(`/profile/${userID}`)
   }
   const handleCancel = () => {
@@ -37,7 +44,7 @@ const EditProfile = () => {
       <div className="field">
         <label className="label">Username: </label>
         <div className="control has-icons-left has-icons-right">
-          <input className="input is-success" type="text" placeholder="Text input" name="username" onChange={handleChange}/>
+          <input className="input is-success" type="text" placeholder="Text input" name="username" onChange={handleChange} />
           <span className="icon is-small is-left">
             <i className="fas fa-user"></i>
           </span>
@@ -46,7 +53,7 @@ const EditProfile = () => {
           </span>
         </div>
         <p className="help is-success">This username is available</p>
-      </div> 
+      </div>
       <div className="field">
         <label className="label">Email: </label>
         <div className="control has-icons-left has-icons-right">
@@ -103,6 +110,13 @@ const EditProfile = () => {
         <p className="help is-danger">Must enter password</p>
       </div>
 
+      <ImageUploadField
+        value={formData.profileImage}
+        name="profileImage"
+        handleImageUrl={handleImageUrl}
+        formData={formData}
+      />
+
       <div className="field is-grouped">
         <div className="control">
           <button className="button is-link" type="submit">Submit</button>
@@ -110,7 +124,7 @@ const EditProfile = () => {
         <div className="control">
           <button className="button is-link" type="button" onClick={handleCancel}>Cancel</button>
         </div>
-      </div> 
+      </div>
     </form>
   )
 }
