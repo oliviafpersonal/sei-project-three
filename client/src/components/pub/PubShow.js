@@ -35,21 +35,7 @@ const PubShow = () => {
   const [pub, setPub] = useState('')
   const [pubs, setPubs] = useState(null)
   const [user, setUser] = useState(null)
-  //prettier-ignore
-  // const handleButtonToggle = (event) => {
-  //   const buttonName = event.target.name
-  //   buttonName === 'submit-reviews-button'
-  //     ? setIsSubmitActive(!isSubmitActive)
-  //     : (setIsSubmitActive(false))
-  // }
 
-  // buttonName === 'show-reviews-button'
-  // ? setIsShowReviewsActive(!isShowReviewsActive)
-  // :
-
-  // setIsShowReviewsActive(false)
-
-  // console.log(isShowReviewsActive)
   //prettier-ignore
   const {
     nameOfPub,
@@ -89,12 +75,6 @@ const PubShow = () => {
     })
   }, [id])
 
-  //! math.random between 0 and filtered length, * 3, display the pub from filteredPubs at index of the three random numbers
-  // const handleToggle = (event) => {
-  //   event.preventDefault()
-  //   setIsSubmitActive(!isSubmitActive)
-  // }
-
   const handleSave = async () => {
     try {
       await axios.post(`/api/users/${user._id}/fav-pubs/${id}`)
@@ -112,12 +92,6 @@ const PubShow = () => {
       console.log(error)
     }
   }
-
-  //! math.random between 0 and filtered length, * 3, display the pub from filteredPubs at index of the three random numbers
-  // const handleToggle = (event) => {
-  //   event.preventDefault()
-  // setReviewNumber
-  // }
 
   if (!pub || !pubs) return null
   ;[5, 9, 45]
