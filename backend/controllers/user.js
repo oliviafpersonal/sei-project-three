@@ -1,3 +1,4 @@
+import Pub from '../models/pub.js'
 import User from '../models/user.js'
 
 export const getAllUsers = async (req, res) => {
@@ -62,3 +63,34 @@ export const updateUser = async (req, res) => {
   }
 }
 
+export const addPubToFavs = async (req, res) => {
+  try {
+    const userID = req.params.id
+    const findUser = await User.findById(userID)
+    if (!findUser) throw new Error('No User exists with that ID')
+    const pubID = req.params.pubID
+    const pub = await Pub.findById(pubID)
+    findUser.favouritePubs.push(pub)
+    await findUser.save()
+    return res.status(200).json(findUser.favouritePubs)
+  } catch (error) {
+    console.log(error)
+    return res.status(404).json({ message: error.message })
+  }  
+}
+
+export const deletePubFromFavs = async (req, res) => {
+  try {
+    const userID = req.params.id
+    const findUser = await User.findById(userID)
+    if (!findUser) throw new Error('No User exists with that ID')
+    const pubID = req.params.pubID
+    const position = req.body.pubId
+    findUser.favouritePubs.slice(position, 1)
+    await findUser.save()
+    return res.status(204).json(findUser.favouritePubs)
+  } catch (err) {
+    console.log(err)
+    return res.status(404).json({ message: err.message })
+  }
+}
