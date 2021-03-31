@@ -1,7 +1,11 @@
+/*eslint-disable no-unused-vars, indent*/
+
+
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { LandLordSignUp } from '../auth/LandLordSignUp'
 //prettier-ignore
 import {
   faStar,
@@ -64,12 +68,12 @@ const PubShow = () => {
       behavior: 'auto',
     })
   }, [id])
-  //! math.random between 0 and filtered length, * 3, display the pub from filteredPubs at index of the three random numbers
-  // const handleToggle = (event) => {
-  //   event.preventDefault()
-  //   setIsSubmitActive(!isSubmitActive)
-  // }
-  ;[5, 9, 45]
+    //! math.random between 0 and filtered length, * 3, display the pub from filteredPubs at index of the three random numbers
+    // const handleToggle = (event) => {
+    //   event.preventDefault()
+    //   setIsSubmitActive(!isSubmitActive)
+    // }
+    ;[5, 9, 45]
   if (!pub || !pubs) return null
   const cityToCompare = pub.address.city
   const filterPubsByCity = pubs
@@ -130,17 +134,17 @@ const PubShow = () => {
                       </Link>
                     </>
                   ) : (
-                    <>
-                      <span className="icon-space">
-                        <FontAwesomeIcon icon={faUpload} />
-                      </span>
-                      <p>Share</p>
-                      <span className="icon-space">
-                        <FontAwesomeIcon icon={faHeart} />
-                      </span>
-                      <p>Save</p>
-                    </>
-                  )}
+                      <>
+                        <span className="icon-space">
+                          <FontAwesomeIcon icon={faUpload} />
+                        </span>
+                        <p>Share</p>
+                        <span className="icon-space">
+                          <FontAwesomeIcon icon={faHeart} />
+                        </span>
+                        <p>Save</p>
+                      </>
+                    )}
                 </div>
               </div>
             </div>
@@ -286,7 +290,7 @@ const PubShow = () => {
                         max="5"
                         value={
                           typeof averageRatings.averageComfortability ===
-                          'string'
+                            'string'
                             ? 0
                             : averageRatings.averageComfortability.toFixed(1)
                         }
@@ -295,7 +299,7 @@ const PubShow = () => {
                       ></progress>
                       <p>
                         {typeof averageRatings.averageComfortability ===
-                        'string'
+                          'string'
                           ? averageRatings.averageComfortability
                           : averageRatings.averageComfortability.toFixed(1)}
                       </p>
