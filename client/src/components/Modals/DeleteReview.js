@@ -19,25 +19,22 @@ const DeleteReview = () => {
         Authorization: `Bearer ${getTokenFromLocalStorage()}`,
       },
     })
-    history.push('/')
-    handleLogout()
+    window.alert('your review has been deleted')
+    history.push(`/profile/${userID}`)
   }
 
 
   const handleCancel = () => {
     history.push(`/profile/${userID}`)
   }
-  const handleLogout = () => {
-    window.localStorage.removeItem('token')
-    history.push(`/profile/${userID}`)
-  }
+
 
 
   return (
     <>
       <div className="notification is-danger is-light">
-        <p> WARNING!!! Once your account is deleted, all associated data will be lost. If you are sure you wish to proceed, please click Delete My Account. If not, click cancel to return to you profile page.</p>
-        <button className="button is-danger" onClick={handleDelete}>Delete My Account</button>
+        <p> WARNING!!! If you delete this review it is gone for good. If you are sure you wish to proceed, please click Delete Review. If not, click cancel to return to you profile page.</p>
+        <button className="button is-danger" onClick={handleDelete}>Delete Review</button>
         <button className="button is-danger is-outlined" onClick={handleCancel}>Cancel</button>
       </div>
     </>

@@ -42,7 +42,6 @@ const Header = () => {
   }
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log(eventValues)
     const pubsResult = eventValues.searchPubs
     const cityResult = eventValues.searchCity
     if (cityResult === '' && pubsResult === '') return null
