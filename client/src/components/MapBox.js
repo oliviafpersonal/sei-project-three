@@ -1,5 +1,5 @@
 
-  /*eslint-disable indent */
+/*eslint-disable indent */
 //import { faAddressBook } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
@@ -80,10 +80,10 @@ const Map = () => {
                 <div
                   key={index}
                 >
-                  <Link to={`/pubs/${pub.id}`}>
                     
-                    {popup &&
+                  {popup &&
                     
+                    <Link to={`/pubs/${pub.id}`}>
                     <Popup
                       latitude={popup.latitude}
                       longitude={popup.longitude}
@@ -92,8 +92,8 @@ const Map = () => {
                     >
                       <div>{popup.name}</div>
                     </Popup>
-                    }
                   </Link>
+                    }
                 </div>
               )
             })}

@@ -63,13 +63,10 @@ const PubShow = () => {
       const { data } = await axios.get('/api/pubs')
       setPubs(data)
     }
-    const getUser = async () => {
-      const { data } = await axios.get(`/api/users/${getPayloadFromToken().sub}`)
-      setUser(data)
-    }
+  
     getData()
     getPubs()
-    getUser()
+    
     window.scroll({
       top: 100,
       left: 100,
@@ -77,6 +74,25 @@ const PubShow = () => {
     })
   }, [id])
   
+  if (userIsAuthenticated()) {
+      const getUser = async () => {
+      const { data } = await axios.get(`/api/users/${getPayloadFromToken().sub}`)
+      setUser(data)
+    }
+    getUser()
+  
+  const handleRemoveFromFav = async () => {
+    try {
+      await axios.delete(`/api/users/${user._id}/fav-pubs/${id}`)
+      window.alert('add to favourites')
+    } catch (error) {
+      console.log(error)
+    }
+  }  
+
+  if (!user) return null
+
+  }
   const handleSave = async () => {
     try {
       await axios.post(`/api/users/${user._id}/fav-pubs/${id}`)
@@ -86,23 +102,13 @@ const PubShow = () => {
       console.log(error)
     }
   }
-  const handleRemoveFromFav = async () => {
-    try {
-      await axios.delete(`/api/users/${user._id}/fav-pubs/${id}`)
-      window.alert('add to favourites')
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-
   //! math.random between 0 and filtered length, * 3, display the pub from filteredPubs at index of the three random numbers
   // const handleToggle = (event) => {
   //   event.preventDefault()
   //   setIsSubmitActive(!isSubmitActive)
   // }
-  ;[5, 9, 45]
-  if (!pub || !pubs || !user) return null
+
+  if (!pub || !pubs) return null
   const cityToCompare = pub.address.city
   const filterPubsByCity = pubs
     .filter((item) => item.address.city === cityToCompare)
@@ -114,8 +120,7 @@ const PubShow = () => {
   )
   // const location = useLocation()
   // useEffect(() => {}, [location.pathname])
-  //? need to conditionally render the save button as a remove button where the user already has the pub in favs. however can't us includes() on objects. instad mapping to get array of favpubs ids and 
-  const favPubsIDs = user.favouritePubs.map(pub => pub._id)
+
 
   return (
     <>
@@ -148,7 +153,8 @@ const PubShow = () => {
               <div className="share-options">
                 <div></div>
                 <div className="share-align">
-                  {userIsOwner(pubOwner) ? (
+                  {userIsAuthenticated() &&
+                  (userIsOwner(pubOwner) ? (
                     <>
                       <span className="icon-space">
                         <FontAwesomeIcon icon={faPencilAlt} />
@@ -169,17 +175,21 @@ const PubShow = () => {
                         <FontAwesomeIcon icon={faUpload} />
                       </span>
                       <p>Share</p>
-                      
-                      { !favPubsIDs.includes(id) &&
+                        {/* //? need to conditionally render the save button as a remove button where the user already has the pub in favs. however can't us includes() on objects. instad mapping to get array of favpubs ids and  */}
+
+                      { !user.favouritePubs
+                      .map(pub => pub._id)
+                      .includes(id) &&
                         <>
                           <span className="icon-space">
                             <FontAwesomeIcon icon={faHeart} />
                           </span> 
-                          <button onClick={handleSave}><p>Save</p></button>
+                          <a onClick={handleSave}><p>Save</p></a>
                         </>
                       }
                     </>
-                  )}
+                  ))
+                  }
                 </div>
               </div>
             </div>
@@ -400,7 +410,6 @@ const PubShow = () => {
           )}
         </section>
         <hr />
-        {!userIsAuthenticated() && <p>hello</p>}
         <hr />
         <h2>More Pubs In {address.city}</h2>
         <br />
