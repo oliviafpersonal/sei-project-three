@@ -32,18 +32,21 @@ const Profile = () => {
   console.log('userID', userID)
   const {
     isLandlord,
-    profileImage,
     username,
     email,
     createdAt,
     favouritePubs,
+    profileImage,
   } = user
-  const reviews = 
-  pubs
-    .map(pub => pub.reviews).flat()
-    .filter(review => review.reviewOwner === userID)
+  const reviews =
+    pubs
+      .map(pub => pub.reviews).flat()
+      .filter(review => review.reviewOwner === userID)
 
   console.log('profile', user)
+  console.log('profile', reviews)
+
+
   return (
     <>
       <Header />
@@ -55,9 +58,10 @@ const Profile = () => {
               <div className="profile-box">
                 <img
                   className="profile-image"
-                  src={profileImage}
                   alt="user profile image"
+                  src={profileImage}
                 />
+
               </div>
             </div>
 
@@ -150,7 +154,7 @@ const Profile = () => {
                             <>
                               <div className={`item-${index} column`}>
                                 <div>{pub.nameOfPub}</div>
-                                <Link to={`/pubs/${pub._id}`}><div><img src={pub.image} alt={`an image for the pub ${pub.name}`}/></div></Link>
+                                <Link to={`/pubs/${pub._id}`}><div><img src={pub.image} alt={`an image for the pub ${pub.name}`} /></div></Link>
                               </div>
                             </>
                           )
