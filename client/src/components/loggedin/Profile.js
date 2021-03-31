@@ -138,19 +138,25 @@ const Profile = () => {
               </section>
               <section className="account-owned-pubs">
                 <h2>Your Pubs</h2>
-                {pubs
-                  .filter(pub => pub.pubOwner === userID)
-                  .map(pub => {
-                    return (
-                      <>
-                        <div>
-                          <div>{pub.nameOfPub}</div>
-                          <Link to={`/pubs/${pub._id}`}><div><img src={pub.image} alt={`an image for the pub ${pub.name}`}/></div></Link>
-                        </div>
-                      </>
-                    )
-                  })
-                }
+                <section className="section">
+                  <div className="container">
+                    <div id="carousel-demo" className="carousel">
+                      {pubs
+                        .filter(pub => pub.pubOwner === userID)
+                        .map((pub, index) => {
+                          return (
+                            <>
+                              <div className={`item-${index}`}>
+                                <div>{pub.nameOfPub}</div>
+                                <Link to={`/pubs/${pub._id}`}><div><img src={pub.image} alt={`an image for the pub ${pub.name}`}/></div></Link>
+                              </div>
+                            </>
+                          )
+                        })
+                      }
+                    </div>
+                  </div>
+                </section>
               </section>
             </>
           )}
