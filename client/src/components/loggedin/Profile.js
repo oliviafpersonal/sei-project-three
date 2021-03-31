@@ -3,7 +3,6 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { getPayloadFromToken, userIsOwner } from '../../helpers/auth'
 import { convertTimestamp } from '../../helpers/helperFunctions'
-import EditProfile from '../Modals/Forms/EditProfile'
 import Header from '../Header'
 import ProfileReviews from './ProfileReviews'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -31,12 +30,20 @@ const Profile = () => {
   //prettier-ignore
   if (!user || !pubs) return null
   console.log('userID', userID)
-  const { isLandlord, username, email, createdAt, profileImage } = user
+  const {
+    isLandlord,
+    username,
+    email,
+    createdAt,
+    favouritePubs,
+    profileImage,
+  } = user
   const reviews = pubs
     .map((pub) => pub.reviews)
     .flat()
     .filter((review) => review.reviewOwner === userID)
 
+  console.log('profile', user)
   console.log('profile', reviews)
 
   return (
@@ -101,6 +108,48 @@ const Profile = () => {
               )}
             </div>
           </div>
+
+          <div>Email</div>
+          <p>{email}</p>
+
+          <Link to={`/profile/delete-account/${userID}`}>
+            <button className="delete-account-button" name="delete-profile">
+              Delete My Account
+            </button>
+          </Link>
+
+          <section className="account-activity-section">
+            <h2>Activity</h2>
+            <div className="account-card-sub">
+              <h2>Last Viewed Pub</h2>
+              <p>use history to display</p>
+            </div>
+            <div className="account-card-sub">
+              <h2>Favourite Pubs</h2>
+              {favouritePubs.map((pub) => {
+                return (
+                  <>
+                    <div className="favourite-pubs">
+                      <div>{pub.nameOfPub}</div>
+                      <Link to={`/pubs/${pub._id}`}>
+                        <div>
+                          <img
+                            src={pub.image}
+                            alt={`an image for the pub ${pub.name}`}
+                          />
+                        </div>
+                      </Link>
+                    </div>
+                  </>
+                )
+              })}
+            </div>
+            <div className="account-card-sub">
+              <div className="comments">
+                <h3>Last Review Submitted</h3>
+              </div>
+            </div>
+          </section>
 
           {isLandlord && (
             <>

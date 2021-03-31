@@ -1,8 +1,12 @@
+/*eslint-disable no-unused-vars, indent*/
+
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { LandLordSignUp } from '../auth/LandLordSignUp'
 //prettier-ignore
+/*eslint-disable no-unused-vars */
 import {
   faStar,
   faHeart,
@@ -12,18 +16,25 @@ import {
   faUtensils,
   faFutbol,
   faTrash,
-  faPencilAlt
+  faPencilAlt,
+  faBan
 } from '@fortawesome/free-solid-svg-icons'
 //components
 import Header from '../Header'
 import PubComments from './PubComments'
-import { userIsAuthenticated, userIsOwner } from '../../helpers/auth'
+//prettier-ignore
+import {
+  getPayloadFromToken,
+  userIsAuthenticated,
+  userIsOwner
+} from '../../helpers/auth'
 const PubShow = () => {
   const { id } = useParams()
   // const [reviewNumber, setReviewNumber] = useState(6)
   // const [isShowReviewsActive, setIsShowReviewsActive] = useState(false)
   const [pub, setPub] = useState('')
   const [pubs, setPubs] = useState(null)
+  const [user, setUser] = useState(null)
   //prettier-ignore
   // const handleButtonToggle = (event) => {
   //   const buttonName = event.target.name
@@ -62,8 +73,15 @@ const PubShow = () => {
       const { data } = await axios.get('/api/pubs')
       setPubs(data)
     }
+    const getUser = async () => {
+      const { data } = await axios.get(
+        `/api/users/${getPayloadFromToken().sub}`
+      )
+      setUser(data)
+    }
     getData()
     getPubs()
+    getUser()
     window.scroll({
       top: 100,
       left: 100,
@@ -71,12 +89,39 @@ const PubShow = () => {
     })
   }, [id])
 
+  //! math.random between 0 and filtered length, * 3, display the pub from filteredPubs at index of the three random numbers
+  // const handleToggle = (event) => {
+  //   event.preventDefault()
+  //   setIsSubmitActive(!isSubmitActive)
+  // }
+
+  const handleSave = async () => {
+    try {
+      await axios.post(`/api/users/${user._id}/fav-pubs/${id}`)
+      window.alert('add to favourites')
+      window.location.reload()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  const handleRemoveFromFav = async () => {
+    try {
+      await axios.delete(`/api/users/${user._id}/fav-pubs/${id}`)
+      window.alert('add to favourites')
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  //! math.random between 0 and filtered length, * 3, display the pub from filteredPubs at index of the three random numbers
   // const handleToggle = (event) => {
   //   event.preventDefault()
   // setReviewNumber
   // }
 
   if (!pub || !pubs) return null
+  ;[5, 9, 45]
+  if (!pub || !pubs || !user) return null
   const cityToCompare = pub.address.city
   const filterPubsByCity = pubs
     .filter((item) => item.address.city === cityToCompare)
@@ -95,6 +140,15 @@ const PubShow = () => {
     }
     return result
   }
+  const citiesToDisplay = filterPubsByCity.slice(0, 4)
+  console.log(
+    '🚀 ~ file: PubShow.js ~ line 85 ~ PubShow ~ citiesToDisplay',
+    citiesToDisplay
+  )
+  // const location = useLocation()
+  // useEffect(() => {}, [location.pathname])
+  //? need to conditionally render the save button as a remove button where the user already has the pub in favs. however can't us includes() on objects. instad mapping to get array of favpubs ids and
+  const favPubsIDs = user.favouritePubs.map((pub) => pub._id)
 
   return (
     <>
@@ -144,10 +198,17 @@ const PubShow = () => {
                         <FontAwesomeIcon icon={faUpload} />
                       </span>
                       <p>Share</p>
-                      <span className="icon-space">
-                        <FontAwesomeIcon icon={faHeart} />
-                      </span>
-                      <p>Save</p>
+
+                      {!favPubsIDs.includes(id) && (
+                        <>
+                          <span className="icon-space">
+                            <FontAwesomeIcon icon={faHeart} />
+                          </span>
+                          <button onClick={handleSave}>
+                            <p>Save</p>
+                          </button>
+                        </>
+                      )}
                     </>
                   )}
                 </div>
@@ -403,4 +464,5 @@ const PubShow = () => {
     </>
   )
 }
+
 export default PubShow
