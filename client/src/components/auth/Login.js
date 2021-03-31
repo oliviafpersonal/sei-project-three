@@ -35,9 +35,8 @@ const Login = () => {
             <div className="columns">
               <div className="column ">
                 <form className="login-box" onSubmit={handleSubmit}>
-                  {/* <div className="field"> */}
-                  {/* <label className="label">Email</label> */}
-                  {/* <div className="control"> */}
+                  <h2>Login here</h2>
+                  <hr />
                   <div className="login-input-box">
                     <input
                       className="login-input"
@@ -47,12 +46,6 @@ const Login = () => {
                       value={formData.email}
                     />
                   </div>
-
-                  {/* </div> */}
-                  {/* </div> */}
-                  {/* <div className="field"> */}
-                  {/* <label className="label">Password</label> */}
-                  {/* <div className="control"> */}
                   <div className="login-input-box-pass">
                     <input
                       onChange={handleChange}

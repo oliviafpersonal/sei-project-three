@@ -78,12 +78,18 @@ const Profile = () => {
                     <section className="section">
                       <div className="container">
                         <div id="carousel-demo" className="carousel">
+                          {pubs.map((pub) => {
+                            console.log(pub.pubOwner)
+                          })}
                           {pubs
                             .filter((pub) => pub.pubOwner === userID)
                             .map((pub, index) => {
                               return (
                                 <>
-                                  <div className={`item-${index} column`}>
+                                  <div
+                                    key={index}
+                                    className={`item-${index} column`}
+                                  >
                                     <div>{pub.nameOfPub}</div>
                                     <Link to={`/pubs/${pub._id}`}>
                                       <div>

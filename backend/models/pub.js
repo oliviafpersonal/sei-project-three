@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 import reviewSchema from './reviews.js'
-import axios from 'axios'
+// import axios from 'axios'
 const pubSchema = new mongoose.Schema(
   {
     nameOfPub: { type: String, required: true },
@@ -9,7 +9,7 @@ const pubSchema = new mongoose.Schema(
       line2: { type: String },
       town: { type: String },
       city: { type: String, required: true },
-      postCode: { type: String, required: true, maxlength: 10 }
+      postCode: { type: String, required: true, maxlength: 10 },
     },
     description: { type: String },
     isOutsideSeating: { type: Boolean, required: true },
@@ -18,7 +18,7 @@ const pubSchema = new mongoose.Schema(
     isLiveSports: { type: Boolean, required: true },
     image: { type: String, default: 'no image provided' },
     pubOwner: { type: mongoose.Schema.Types.ObjectID, ref: 'User' },
-    reviews: [reviewSchema]
+    reviews: [reviewSchema],
   },
   { timestamps: true }
 )
@@ -69,7 +69,7 @@ pubSchema.virtual('averageRatings').get(function () {
     averageOverall: averageTotal(),
     averagePrice: averagePrice(),
     averageAvailability: averageAvailability(),
-    averageComfortability: averageComfortability()
+    averageComfortability: averageComfortability(),
   }
 })
 // pubSchema.virtual('locationCoordinates').get(async function () {
