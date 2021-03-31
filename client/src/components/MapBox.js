@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import ReactMapGL, { Marker, Popup } from 'react-map-gl'
+import { Link } from 'react-router-dom'
 import locationData from './data/location'
 
 //prettier-ignore
@@ -12,8 +14,18 @@ const Map = () => {
   })
 
   const [popup, setPopup] = useState(null)
+  const [pubs, setPubs] = useState(null)
 
   const apiKey = 'pk.eyJ1IjoiaGZyd2Fyd2ljayIsImEiOiJja21sd2p4cTcwYWZqMndsZXhsdG41aDlqIn0.cjW07TW74R2cD05Hap_eQQ'
+
+  useEffect(() => {
+    const getPubs = async () => {
+      const { data } = await axios.get('/api/pubs')
+      setPubs(data)
+    }
+    getPubs()
+  }, [])
+
 
   return (
     <div className="map-container"> 
@@ -30,19 +42,35 @@ const Map = () => {
             <span onClick={() => setPopup(location)}>
               {location.icon}
             </span>
-          </Marker>
+          </Marker>   
         })}
-        {popup &&
-        <Popup
-          latitude={popup.latitude}
-          longitude={popup.longitude}
-          closeOnClick={true}
-          onClose={() => setPopup(null)}
-        >
-          <div>{popup.name}</div>
-        </Popup>
-        }
-
+        {pubs && (
+          <div>
+            {pubs.map((pub, index) => {
+              return (
+                <div
+                  key={index}
+                >
+                  <Link to={`/pubs/${pub.id}`}>
+                    {console.log(pub.id)}
+                    {popup &&
+                    
+                    <Popup
+                      latitude={popup.latitude}
+                      longitude={popup.longitude}
+                      closeOnClick={true}
+                      onClose={() => setPopup(null)}
+                    >
+                      <div>{popup.name}</div>
+                    </Popup>
+                    }
+                  </Link>
+                </div>
+              )
+            })}
+          </div>
+        )}
+        
       </ReactMapGL>
     </div>
   )

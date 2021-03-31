@@ -126,12 +126,18 @@ header {
   outline: none;
   background: none;
 }
+.search-divider {
+  border-left: 1px solid rgb(220, 220, 220);
+  height: 3vh;
+  margin-top: 0.6rem;
+}
 
 .location {
   display: flex;
   flex-direction: column;
   z-index: 6;
   border-radius: 60px;
+
   cursor: pointer;
 }
 .location:hover {
@@ -259,7 +265,7 @@ h3 {
 
 footer {
   margin-top: 2.5rem;
-  background-color: #f7f7f7 !important;
+  background-color: #f6f7fb !important;
   border-top: 1px solid #dddddd !important;
   padding: 2rem;
   bottom: 0;
@@ -284,6 +290,7 @@ footer {
   border-radius: 10px;
   margin-top: 0.8rem;
   z-index: 1000 !important;
+  width: 15rem;
 }
 
 // * pub card
@@ -671,6 +678,35 @@ h2 {
   margin: 0 auto;
   text-align: center;
   padding: 2rem;
+}
+
+// * Submit Review Styling
+
+.submit-review-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.review-box {
+  border: 1px solid rgb(230, 228, 228);
+  padding: 2rem;
+  border-radius: 20px;
+}
+.review-breadcrumb {
+  word-spacing: 0.4rem;
+  color: #4a4a4a;
+}
+.review-breadcrumb a {
+  color: #4a4a4a;
+}
+.review-breadcrumb a:hover {
+  color: #4a4a4a;
+  text-decoration: underline;
+}
+.crumb-arrow {
+  color: rgb(191, 191, 191);
+  font-size: 1.4em;
 }
 
 // * mobile optimisation
