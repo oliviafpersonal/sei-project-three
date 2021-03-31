@@ -208,7 +208,7 @@ const PubShow = () => {
                           </span> 
                           <a onClick={handleSave}><p>Save</p></a>
                         </>
-                      )}
+                      })
                     </>
                   ))
                   }

@@ -79,12 +79,9 @@ const Map = () => {
                 <div
                   key={index}
                 >
-                  <Link to={`/pubs/${pub.id}`}>
-                    
-                    {popup &&
+                
                     
                   {popup &&
-                    
                     <Link to={`/pubs/${pub.id}`}>
                     <Popup
                       latitude={popup.latitude}
