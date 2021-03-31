@@ -4,11 +4,14 @@ import { userIsOwner } from '../../helpers/auth'
 import { convertTimestamp } from '../../helpers/helperFunctions'
 
 const ProfileReviews = ({ reviews, displayNumber }) => {
+
+  
+
   return (
     <div className="profile-comment-container">
       {console.log('reviews', reviews)}
       {reviews.splice(0, displayNumber).map((review) => {
-        console.log(review)
+        // console.log(review)
         //prettier-ignore
         const {
           //prettier-ignore

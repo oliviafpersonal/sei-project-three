@@ -1,7 +1,7 @@
 /*eslint-disable no-unused-vars*/
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { getPayloadFromToken } from '../../helpers/auth'
+import { getPayloadFromToken, userIsOwner } from '../../helpers/auth'
 import { convertTimestamp } from '../../helpers/helperFunctions'
 import EditProfile from '../Modals/Forms/EditProfile'
 import Header from '../Header'
@@ -21,42 +21,29 @@ const Profile = () => {
       const { data } = await axios.get(`/api/users/${userID}`)
       setUser(data)
     }
-    getUser()
-  }, [])
-  useEffect(() => {
-    const getUser = async () => {
+    const getPubs = async () => {
       const { data } = await axios.get('/api/pubs')
       setPubs(data)
     }
     getUser()
+    getPubs()
   }, [])
-
-
-
-  // const handleToggleEdit = () => {
-  //   setIsEditActive(!isEditActive)
-  // }
-  // const handleToggleDelete = () => {
-  //   setIsDeleteActive(!isDeleteActive)
-  // }
-
-  //console.log('Bearer', getTokenFromLocalStorage())
-
-  // useEffect(() => {
-  //   reviews.reverse()
-  // }, [user])
-
   //prettier-ignore
   if (!user || !pubs) return null
+  console.log('userID', userID)
   const {
     isLandlord,
     profileImage,
     username,
     email,
     createdAt,
-    allReviews: reviews,
   } = user
-  console.log('profile', reviews[0])
+  const reviews = 
+  pubs
+    .map(pub => pub.reviews).flat()
+    .filter(review => review.reviewOwner === userID)
+
+  console.log('profile', reviews)
   return (
     <>
       <Header />
@@ -145,7 +132,7 @@ const Profile = () => {
                         .map((pub, index) => {
                           return (
                             <>
-                              <div className={`item-${index}`}>
+                              <div className={`item-${index} column`}>
                                 <div>{pub.nameOfPub}</div>
                                 <Link to={`/pubs/${pub._id}`}><div><img src={pub.image} alt={`an image for the pub ${pub.name}`}/></div></Link>
                               </div>
