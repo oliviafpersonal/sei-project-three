@@ -69,7 +69,7 @@ const PubShow = () => {
       const { data } = await axios.get('/api/pubs')
       setPubs(data)
     }
-    
+
     getData()
     getPubs()
     window.scroll({
@@ -127,9 +127,9 @@ const PubShow = () => {
   // const location = useLocation()
   // useEffect(() => {}, [location.pathname])
   //? need to conditionally render the save button as a remove button where the user already has the pub in favs. however can't us includes() on objects. instad mapping to get array of favpubs ids and
-  let favPubsIDs 
-  
-  !user ? null : favPubsIDs = user.favouritePubs.map((pub) => pub._id)
+  let favPubsIDs
+
+  !user ? null : (favPubsIDs = user.favouritePubs.map((pub) => pub._id))
 
   return (
     <>
@@ -183,17 +183,17 @@ const PubShow = () => {
                           <span className="icon-space">
                             <FontAwesomeIcon icon={faHeart} />
                           </span>
-                            <p onClick={handleSave}>Save</p>
+                          <p onClick={handleSave}>Save</p>
                         </>
                       )}
-                        {favPubsIDs && favPubsIDs.includes(id) &&
+                      {favPubsIDs && favPubsIDs.includes(id) && (
                         <>
                           <span className="icon-space">
                             <FontAwesomeIcon icon={faHeart} />
                           </span>
-                            <p>Saved</p>
+                          <p>Saved</p>
                         </>
-                        }
+                      )}
                     </>
                   )}
                 </div>
@@ -426,7 +426,7 @@ const PubShow = () => {
                   className="column is-one-quarter-desktop is-one-third-tablet"
                 >
                   <Link to={`/pubs/${pub.id}`}>
-                    <div className="card">
+                    <div className="card ">
                       <div className="card-image ">
                         <figure className="image resize image-is-1by1">
                           <img src={pub.image} alt={pub.nameOfPub} />

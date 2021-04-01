@@ -22,6 +22,7 @@ export const addOnePub = async (req, res) => {
         city: req.body.city,
         postCode: req.body.postCode
       },
+      pubOwner: userID,
       description: req.body.description,
       isOutsideSeating: req.body.isOutsideSeating,
       isPetFriendly: req.body.isPetFriendly,
