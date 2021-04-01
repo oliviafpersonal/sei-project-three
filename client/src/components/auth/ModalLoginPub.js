@@ -22,7 +22,7 @@ const LoginModal = () => {
     event.preventDefault()
     const response = await axios.post('/api/login', formData)
     window.localStorage.setItem('token', response.data.token)
-    history.push('/')
+    history.push('/landlord/signup')
     console.log(response)
   }
 

@@ -3,6 +3,8 @@ import axios from 'axios'
 
 import { useHistory } from 'react-router'
 
+import 'animate.css'
+
 //prettier-ignore
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -41,7 +43,7 @@ const Register = () => {
   return (
     <>
       <form
-        className="login-box"
+        className="login-box animate__animated animate__fadeInUp"
         onSubmit={handleSubmit}>
         <h2>Register Here</h2>
         <hr />
