@@ -53,7 +53,7 @@ const Header = () => {
       const lowerCaseName = pubsResult.toLowerCase()
       const namesIndex = namesArray.indexOf(lowerCaseName)
       const pubID = idArray[namesIndex]
-      if (!pubID) window.alert('cannot find pub, please check spelling')
+      if (!pubID) navigateToFiltered(pubID)
       else return navigateToSearched(pubID)
     }
   }
