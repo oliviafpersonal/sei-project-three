@@ -414,7 +414,6 @@ const PubShow = () => {
           </div>
         </section>
         <hr />
-        {!userIsAuthenticated() && <p>hello</p>}
         <h2>More Pubs In {address.city}</h2>
         <br />
         {pub && (
