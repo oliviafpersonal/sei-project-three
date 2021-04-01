@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBeer } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import { userIsAuthenticated } from '../../helpers/auth'
 import 'animate.css'
 
+import Modal from '../Modal'
+import LoginPub from '../auth/ModalLoginPub'
+
 const BecomeLandlord = () => {
+  const login = useRef(null)
+
   return (
     <div>
       <section className="landlord-header-bg hero is-medium">
@@ -31,11 +36,12 @@ const BecomeLandlord = () => {
               </Link>
             )}
             {!userIsAuthenticated() && (
-              <Link to={'/loginpub'}>
-                <button className="landlord-get-started button">
-                  Login to Get Started
-                </button>
-              </Link>
+              <button
+                onClick={() => login.current.open()}
+                className="landlord-get-started button"
+              >
+                Login to Get Started
+              </button>
             )}
 
             <br />
@@ -72,6 +78,9 @@ const BecomeLandlord = () => {
           </div>
         </div>
       </section>
+      <Modal ref={login}>
+        <LoginPub />
+      </Modal>
     </div>
   )
 }

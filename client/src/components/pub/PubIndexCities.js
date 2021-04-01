@@ -4,7 +4,7 @@ import { useParams } from 'react-router'
 import Header from '../Header'
 import PubCard from './PubCard'
 import Map from '../MapBox'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 const PubIndexCities = () => {
   const [filteredByCity, setFilteredByCity] = useState(null)
@@ -148,9 +148,7 @@ const PubIndexCities = () => {
                         : pubs)
                   .length
               }+ pubs`}</p>
-              {pubs.length === 0 && 
-              <p>{'We couldn\'t find what you were looking for... try looking at'} <Link to="/pubs"><a className="link-to-index">all of our listed Pubs</a></Link></p>}
-              <h3>Pubs in {title}</h3>
+              <h2>Pubs in {title}</h2>
               <div className="pub-filter-buttons">
                 <button
                   className="pub-filter-button button"
