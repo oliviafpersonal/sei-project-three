@@ -150,7 +150,7 @@ const PubIndexCities = () => {
               }+ pubs`}</p>
               {pubs.length === 0 && 
               <p>{'We couldn\'t find what you were looking for... try looking at'} <Link to="/pubs"><a className="link-to-index">all of our listed Pubs</a></Link></p>}
-              <h2>Pubs in {title}</h2>
+              { pubs.length === 0 ? null : <h2>Pubs in {title}</h2>}
               <div className="pub-filter-buttons">
                 <button
                   className="pub-filter-button button"
@@ -208,7 +208,7 @@ const PubIndexCities = () => {
           </div>
         </div>
         <div className="column is-two-thirds">
-          {!pubs.length === 0 && <Map />}
+          { pubs.length === 0 ? null : <Map /> }
         </div>
       </div>
     </>
