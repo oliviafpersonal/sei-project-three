@@ -120,7 +120,7 @@ const PubIndex = () => {
                           : pubs
                 ).length
               }+ pubs`}</p>
-              <h2>Pubs in London</h2>
+              <h2>All Pubs</h2>
               <div className="pub-filter-buttons">
                 <button
                   className="pub-filter-button button"
@@ -177,7 +177,7 @@ const PubIndex = () => {
             }
           </div>
         </div>
-        <div className="column is-two-thirds">
+        <div className="mobile-map column is-two-thirds">
           <Map />
         </div>
       </div>

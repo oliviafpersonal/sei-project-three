@@ -4,6 +4,7 @@ import { useParams } from 'react-router'
 import Header from '../Header'
 import PubCard from './PubCard'
 import Map from '../MapBox'
+import { Link } from 'react-router-dom'
 // import { Link } from 'react-router-dom'
 
 const PubIndexCities = () => {
@@ -145,10 +146,19 @@ const PubIndexCities = () => {
                   : pets ? isPets
                     : seats ? isSeating
                       : food ? isFood
-                        : pubs)
-                  .length
+                        : pubs).length
               }+ pubs`}</p>
-              <h2>Pubs in {title}</h2>
+              {pubs.length === 0 && (
+                <p>
+                  {
+                    'We did not find what you were looking for... try looking at'
+                  }{' '}
+                  <Link to="/pubs">
+                    <a className="link-to-index">all of our listed Pubs</a>
+                  </Link>
+                </p>
+              )}
+              {pubs.length === 0 ? null : <h2>Pubs in {title}</h2>}
               <div className="pub-filter-buttons">
                 <button
                   className="pub-filter-button button"
@@ -197,12 +207,14 @@ const PubIndexCities = () => {
                   : seats ? isSeating
                     : food ? isFood
                       : filterPubs ? isRating
-                        : pubs)
-                .map(pub => <PubCard key={pub._id} {...pub} />)
+                        : pubs).map(
+                (pub) => 
+                  <PubCard key={pub._id} {...pub} />
+              )
             }
           </div>
         </div>
-        <div className="column is-two-thirds">
+        <div className="mobile-map column is-two-thirds">
           {pubs.length === 0 ? null : <Map />}
         </div>
       </div>
