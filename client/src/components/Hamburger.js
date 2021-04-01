@@ -54,6 +54,12 @@ const Hamburger = () => {
                 <Link to={`/profile/${userID}`} className="dropdown-item">
                   Profile
                 </Link>
+                <Link
+                  to={`/landlord-profile/${userID}`}
+                  className="dropdown-item"
+                >
+                  Landlord Profile
+                </Link>
 
                 <hr className="dropdown-divider" />
                 <div className="dropdown-item stretch">

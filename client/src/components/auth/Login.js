@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 
 import Header from '../Header'
+import Clink from '../../styles/assets/clink.png'
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -28,47 +29,61 @@ const Login = () => {
   return (
     <>
       <Header />
-      <section className="section">
-        <div className="container">
-          <div className="columns">
-            <form
-              className="box column is-half is-offset-one-quarter"
-              onSubmit={handleSubmit}
-            >
-              <div className="field">
-                <label className="label">Email</label>
-                <div className="control">
-                  <input
-                    className="input"
-                    placeholder="Email"
-                    name="email"
-                    onChange={handleChange}
-                    value={formData.email}
-                  />
-                </div>
+      <div className="login-container">
+        <section className="section">
+          <div className="container">
+            <div className="columns">
+              <div className="column ">
+                <form className="login-box" onSubmit={handleSubmit}>
+                  {/* <div className="field"> */}
+                  {/* <label className="label">Email</label> */}
+                  {/* <div className="control"> */}
+                  <div className="login-input-box">
+                    <input
+                      className="login-input"
+                      placeholder="Email"
+                      name="email"
+                      onChange={handleChange}
+                      value={formData.email}
+                    />
+                  </div>
+
+                  {/* </div> */}
+                  {/* </div> */}
+                  {/* <div className="field"> */}
+                  {/* <label className="label">Password</label> */}
+                  {/* <div className="control"> */}
+                  <div className="login-input-box-pass">
+                    <input
+                      onChange={handleChange}
+                      className="login-input"
+                      type="password"
+                      placeholder="Password"
+                      name="password"
+                      value={formData.password}
+                    />
+                  </div>
+
+                  {/* </div> */}
+                  {/* </div> */}
+                  <div className="field">
+                    <hr />
+                    <button
+                      type="submit"
+                      className="button login-button is-fullwidth "
+                    >
+                      Log Me In!
+                    </button>
+                  </div>
+                </form>
               </div>
-              <div className="field">
-                <label className="label">Password</label>
-                <div className="control">
-                  <input
-                    onChange={handleChange}
-                    className="input"
-                    type="password"
-                    placeholder="Password"
-                    name="password"
-                    value={formData.password}
-                  />
-                </div>
+              <div className="column">
+                <img src={Clink}></img>
               </div>
-              <div className="field">
-                <button type="submit" className="button is-fullwidth ">
-                  Log Me In!
-                </button>
-              </div>
-            </form>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </>
   )
 }

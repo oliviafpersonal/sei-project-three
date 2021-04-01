@@ -4,9 +4,6 @@ import { userIsOwner } from '../../helpers/auth'
 import { convertTimestamp } from '../../helpers/helperFunctions'
 
 const ProfileReviews = ({ reviews, displayNumber }) => {
-
-  
-
   return (
     <div className="profile-comment-container">
       {reviews.splice(0, displayNumber).map((review) => {
@@ -22,7 +19,9 @@ const ProfileReviews = ({ reviews, displayNumber }) => {
           pubName,
           pubID,
         } = review
-        {console.log('test', review)}
+        {
+          console.log('test', review)
+        }
         return (
           <div className="profile-comment " key={reviewID}>
             <div className="profile-review-details-container">
@@ -37,9 +36,11 @@ const ProfileReviews = ({ reviews, displayNumber }) => {
             <div className="comment"> {text}</div>
             {userIsOwner(reviewOwner) && (
               <Link to={`/pubs/${pubID}/reviews-delete/${reviewID}`}>
-                <button className="button delete-review">
-                  Delete Review
-                </button>
+                <div>
+                  <button className="button delete-review">
+                    Delete Review
+                  </button>
+                </div>
               </Link>
             )}
           </div>

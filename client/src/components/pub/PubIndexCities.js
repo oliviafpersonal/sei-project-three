@@ -145,7 +145,8 @@ const PubIndexCities = () => {
                   : pets ? isPets
                     : seats ? isSeating
                       : food ? isFood
-                        : pubs).length
+                        : pubs)
+                  .length
               }+ pubs`}</p>
               {pubs.length === 0 && 
               <p>{'We couldn\'t find what you were looking for... try looking at'} <Link to="/pubs"><a className="link-to-index">all of our listed Pubs</a></Link></p>}
@@ -198,11 +199,8 @@ const PubIndexCities = () => {
                   : seats ? isSeating
                     : food ? isFood
                       : filterPubs ? isRating
-                        : pubs).map(
-                (pub) => 
-                  <PubCard key={pub._id} {...pub} />
-              )
-                        
+                        : pubs)
+                .map(pub => <PubCard key={pub._id} {...pub} />)
             }
           </div>
         </div>
