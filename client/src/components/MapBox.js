@@ -1,4 +1,4 @@
-/*eslint-disable indent */
+/*eslint-disable indent,  no-unused-vars*/
 //import { faAddressBook } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
@@ -42,7 +42,6 @@ const Map = () => {
       })
     }
   }
-
   useEffect(() => {
     viewportParams(city)
   }, [])
@@ -55,50 +54,48 @@ const Map = () => {
   }, [])
   if (!pubs) return null
 
+  
+
+  const pubsWithLocation = pubs.map(pub => {
+    for (let i = 0; i < locationData.length; i++) {
+      if (locationData[i].name === pub.nameOfPub) {
+        pub.longitude = locationData[i].longitude
+        pub.latitude = locationData[i].latitude
+      }
+    }
+    return pub
+  })
+  console.log('pubswith location', pubsWithLocation)
   return (
     <div className="map-container"> 
       <ReactMapGL
-        mapboxApiAccessToken={apiKey}
-        height='100vh'
-        width='120vh'
+        mapboxApiAccessToken= {apiKey}
+        height='100%'
+        width='100%'
         mapStyle='mapbox://styles/mapbox/streets-v11'
         {...viewport}
         onViewportChange={(viewport) => setViewport(viewport)}
       >
-        {locationData.map((location, index) => {
-          return <Marker key={index} longitude={location.longitude} latitude={location.latitude}>
-            <span onClick={() => setPopup(location)}>
-              {location.icon}
+        {pubsWithLocation.map(pub => {
+          return <Marker key={pub.id} longitude={pub.longitude} latitude={pub.latitude}>
+            <span onClick={() => setPopup(pub)}>
+              {'🍺'}
             </span>
-          </Marker>   
+          </Marker>
         })}
-        {pubs && (
-          <div>
-            {pubs.map((pub, index) => {
-              return (
-                <div
-                  key={index}
-                >
-                
-                    
-                  {popup &&
-                    <Link to={`/pubs/${pub.id}`}>
-                    <Popup
-                      latitude={popup.latitude}
-                      longitude={popup.longitude}
-                      closeOnClick={true}
-                      onClick={() => setPopup(null)}
-                    >
-                      <div>{popup.name}</div>
-                    </Popup>
-                  </Link>
-                    }
-                </div>
-              )
-            })}
-          </div>
-        )}
-        
+        {popup &&
+        <Link to={`/pubs/${popup._id}`}>
+          <Popup
+            latitude={popup.latitude}
+            longitude={popup.longitude}
+            closeOnClick={false}
+            onClose={() => setPopup(null)}
+          >
+            <div>{popup.nameOfPub}</div>
+          </Popup>
+        </Link>
+        }
+
       </ReactMapGL>
     </div>
   )

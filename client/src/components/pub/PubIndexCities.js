@@ -205,7 +205,7 @@ const PubIndexCities = () => {
           </div>
         </div>
         <div className="column is-two-thirds">
-          {!pubs.length === 0 && <Map />}
+          {pubs.length === 0 ? null : <Map />}
         </div>
       </div>
     </>
