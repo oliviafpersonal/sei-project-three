@@ -74,11 +74,12 @@ const Map = () => {
         onViewportChange={(viewport) => setViewport(viewport)}
       >
         {pubsWithLocation.map(pub => {
-          return <Marker key={pub.id} longitude={pub.longitude} latitude={pub.latitude}>
-            <span onClick={() => setPopup(pub)}>
-              {'🍺'}
-            </span>
-          </Marker>
+          return (!pub.longitude || !pub.latitude) ? null :
+            <Marker key={pub.id} longitude={pub.longitude} latitude={pub.latitude}>
+              <span onClick={() => setPopup(pub)}>
+                {'🍺'}
+              </span>
+            </Marker>
         })}
         {popup &&
         <Link to={`/pubs/${popup._id}`}>
