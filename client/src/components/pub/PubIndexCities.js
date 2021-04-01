@@ -148,9 +148,17 @@ const PubIndexCities = () => {
                       : food ? isFood
                         : pubs).length
               }+ pubs`}</p>
-              {pubs.length === 0 && 
-              <p>{'We couldn\'t find what you were looking for... try looking at'} <Link to="/pubs"><a className="link-to-index">all of our listed Pubs</a></Link></p>}
-              { pubs.length === 0 ? null : <h2>Pubs in {title}</h2>}
+              {pubs.length === 0 && (
+                <p>
+                  {
+                    'We did not find what you were looking for... try looking at'
+                  }{' '}
+                  <Link to="/pubs">
+                    <a className="link-to-index">all of our listed Pubs</a>
+                  </Link>
+                </p>
+              )}
+              {pubs.length === 0 ? null : <h2>Pubs in {title}</h2>}
               <div className="pub-filter-buttons">
                 <button
                   className="pub-filter-button button"
@@ -203,12 +211,11 @@ const PubIndexCities = () => {
                 (pub) => 
                   <PubCard key={pub._id} {...pub} />
               )
-                        
             }
           </div>
         </div>
-        <div className="column is-two-thirds">
-          { pubs.length === 0 ? null : <Map /> }
+        <div className="mobile-map column is-two-thirds">
+          {pubs.length === 0 ? null : <Map />}
         </div>
       </div>
     </>

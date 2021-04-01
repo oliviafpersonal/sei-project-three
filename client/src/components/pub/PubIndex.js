@@ -177,7 +177,7 @@ const PubIndex = () => {
             }
           </div>
         </div>
-        <div className="column is-two-thirds">
+        <div className="mobile-map column is-two-thirds">
           <Map />
         </div>
       </div>
