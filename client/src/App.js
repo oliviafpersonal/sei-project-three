@@ -80,8 +80,7 @@ const App = () => {
           <Route exact path="/pubs/filter-pubs/:city">
             <PubIndexCities />
           </Route>
-          <Route exact path="/savedpubs">
-            ( not sure what end point this should be)
+          <Route exact path="/users/saved-pubs">
             <PubSaved />
           </Route>
           <Route exact path="/landlord">

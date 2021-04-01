@@ -40,10 +40,6 @@ export const addReviewtoPub = async (req, res) => {
 export const deletePubReview = async (req, res) => {
   try {
     const userID = req.currentUser._id
-    const findUser = await User.findById(userID)
-    if (findUser.isLandlord) { 
-      throw new  Error('user is a Landlord, Landlords cannot remmove pub reviews')
-    } else console.log('user is not a landlord, access approved')
     const { id, reviewId } = req.params 
     const pub = await Pub.findById(id)
     if (!pub) throw new Error('Show not found')
