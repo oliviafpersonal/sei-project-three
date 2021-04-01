@@ -1,5 +1,3 @@
-/*eslint-disable indent,  no-unused-vars*/
-//import { faAddressBook } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import ReactMapGL, { Marker, Popup } from 'react-map-gl'
@@ -19,7 +17,6 @@ const Map = () => {
   
   const apiKey = 'pk.eyJ1IjoiaGZyd2Fyd2ljayIsImEiOiJja21sd2p4cTcwYWZqMndsZXhsdG41aDlqIn0.cjW07TW74R2cD05Hap_eQQ'
   
-  console.log('>>>>>>>i am the params', city)
 
   const viewportParams = (params) =>{
     if (params === 'london') {
