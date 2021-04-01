@@ -147,7 +147,7 @@ const PubIndexCities = () => {
                         : pubs)
                   .length
               }+ pubs`}</p>
-              <h3>Pubs in {title}</h3>
+              <h2>Pubs in {title}</h2>
               <div className="pub-filter-buttons">
                 <button
                   className="pub-filter-button button"

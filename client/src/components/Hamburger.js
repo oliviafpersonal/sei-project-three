@@ -1,8 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import { Link, useHistory, useLocation } from 'react-router-dom'
 import { getPayloadFromToken, userIsAuthenticated } from '../helpers/auth'
+import Modal from './Modal'
+import Login from './auth/ModalLogin'
+import Register from './auth/ModalRegister'
 
 const Hamburger = () => {
   const history = useHistory()
@@ -18,6 +21,9 @@ const Hamburger = () => {
 
   const location = useLocation()
   useEffect(() => {}, [location.pathname])
+
+  const modal = useRef(null)
+  const register = useRef(null)
 
   return (
     <>
@@ -38,12 +44,17 @@ const Hamburger = () => {
           <div className="dropdown-content dropdown-shape">
             {!userIsAuthenticated() && (
               <>
-                <Link to="/login" className="dropdown-item">
+                {/* <Link to="/login" className="dropdown-item">
                   Login
+                </Link> */}
+                <Link className="dropdown-item">
+                  <div onClick={() => modal.current.open()}>Login</div>
                 </Link>
-
-                <Link to="/signup" className="dropdown-item">
+                {/* <Link to="/signup" className="dropdown-item">
                   Register
+                </Link> */}
+                <Link className="dropdown-item">
+                  <div onClick={() => register.current.open()}>Register</div>
                 </Link>
               </>
             )}
@@ -75,6 +86,12 @@ const Hamburger = () => {
           </div>
         </div>
       </div>
+      <Modal ref={modal}>
+        <Login />
+      </Modal>
+      <Modal ref={register}>
+        <Register />
+      </Modal>
     </>
   )
 }

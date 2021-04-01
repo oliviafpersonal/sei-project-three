@@ -24,6 +24,7 @@ import DeleteReview from './components/Modals/DeleteReview'
 import DeletePub from './components/Modals/DeletePub'
 import EditProfileImage from '../src/components/Modals/Forms/EditProfileImage'
 import LandLordProfile from './components/loggedin/LandlordProfile'
+import ModalRegister from './components/auth/ModalRegister'
 
 const App = () => {
   return (
@@ -66,6 +67,9 @@ const App = () => {
           </Route>
           <Route exact path="/signup">
             <Signup />
+          </Route>
+          <Route exact path="/signup-modal">
+            <ModalRegister />
           </Route>
           <Route exact path="/pubs/:pubID/reviews-delete/:reviewID">
             <DeleteReview />
