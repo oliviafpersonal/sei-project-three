@@ -73,9 +73,13 @@ const Hamburger = () => {
                 </Link>
 
                 <hr className="dropdown-divider" />
-                <div className="dropdown-item stretch">
-                  <a>Saved Pubs</a>
-                </div>
+
+                <Link
+                  to={`/profile/${userID}/saved-pubs`}
+                  className="dropdown-item"
+                >
+                  Saved Pubs
+                </Link>
 
                 <hr className="dropdown-divider" />
                 <div className="dropdown-item" onClick={handleLogout}>

@@ -51,7 +51,7 @@ const Profile = () => {
       {user && (
         <div className="profile-container">
           <div className="columns">
-            <div className="column">
+            {/* <div className="column">
               {' '}
               <div className="profile-box">
                 <img
@@ -62,7 +62,7 @@ const Profile = () => {
 
                 <hr />
               </div>
-            </div>
+            </div> */}
 
             <div className="column">
               <div className="username">
@@ -74,10 +74,9 @@ const Profile = () => {
               {isLandlord && (
                 <>
                   <section className="account-owned-pubs">
-                    <b>Your Pubs</b>
                     <section className="section">
                       <div className="container">
-                        <div id="carousel-demo" className="carousel">
+                        <div className="columns is-multiline">
                           {pubs.map((pub) => {
                             console.log(pub.pubOwner)
                           })}
@@ -87,6 +86,29 @@ const Profile = () => {
                               return (
                                 <>
                                   <div
+                                    key={pub._id}
+                                    className="column is-one-quarter-desktop is-one-third-tablet"
+                                  >
+                                    <div className="owned-pubs">
+                                      <div className="owned-pubs card-image ">
+                                        <figure className="image resize image-is-1by1">
+                                          <Link to={`/pubs/${pub._id}`}>
+                                            <img
+                                              src={pub.image}
+                                              alt={pub.nameOfPub}
+                                            />
+                                          </Link>
+                                        </figure>
+                                      </div>
+                                      <div className="card-header ">
+                                        <div className="card-header-title">
+                                          {pub.nameOfPub}
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  {/* <div
                                     key={index}
                                     className={`item-${index} column`}
                                   >
@@ -99,7 +121,7 @@ const Profile = () => {
                                         />
                                       </div>
                                     </Link>
-                                  </div>
+                                  </div> */}
                                 </>
                               )
                             })}

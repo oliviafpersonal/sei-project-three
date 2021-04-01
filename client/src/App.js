@@ -40,6 +40,9 @@ const App = () => {
           <Route exact path="/profile/:userID/edit">
             <EditProfile />
           </Route>
+          <Route exact path="/profile/:userID/saved-pubs">
+            <PubSaved />
+          </Route>
           <Route exact path="/landlord-profile/:userID">
             <LandLordProfile />
           </Route>

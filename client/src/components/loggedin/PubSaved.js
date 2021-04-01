@@ -20,31 +20,33 @@ const PubSaved = () => {
     getData()
   }, [])
 
-
-  if (!user) return null 
+  if (!user) return null
   console.log(user.favouritePubs)
   return (
     <>
-      
       <Header />
       <div className="submit-review-container">
         <div className="columns">
           <div className="column is-two-thirds">
             <div className="submit-review-details">
               {/* <div className="review-breadcrumb"><b> <Link to={`/pubs/${_id}`}>Pub</Link> <span className="crumb-arrow">{'>'} </span> {'Submit Review'}</b></div> */}
-              <h2>Submit your review of the pub</h2>
-              <hr/>
-              <p>Input your ratings and your review of the pub based on your experience</p>
-              <br/>
+              <h2>Your Favourite pubs</h2>
+              <hr />
+              <p>A collection of all of your favourite pubs</p>
+              <br />
             </div>
-            {user.favouritePubs.map(pub => {
+            {user.favouritePubs.map((pub) => {
               const { image, nameOfPub, _id } = pub
               return (
                 <div key={_id} className="column">
                   <div className="columns">
                     <div className="column">
                       <Link to={`/pubs/${_id}`}>
-                        <img className="pubcard-image" src={image} alt={nameOfPub} />
+                        <img
+                          className="pubcard-image"
+                          src={image}
+                          alt={nameOfPub}
+                        />
                       </Link>
                     </div>
                     <div className="column">
@@ -53,20 +55,11 @@ const PubSaved = () => {
                   </div>
                 </div>
               )
-            })
-            }
+            })}
           </div>
-          <div className="column">
-        
-          </div>
-  
-  
+          <div className="column"></div>
         </div>
-  
-  
       </div>
-  
-
     </>
   )
 }
