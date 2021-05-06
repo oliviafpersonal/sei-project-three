@@ -16,6 +16,10 @@
   "scripts": {
     "serve": "npx nodemon index.js",
     "seed": "node db/seeds.js",
-    "ss": "npx nodemon index.js && yarn node db/seeds.js "
+    "ss": "npx nodemon index.js && yarn node db/seeds.js ",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   }
 }
