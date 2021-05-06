@@ -23,7 +23,6 @@ const Login = () => {
     const response = await axios.post('/api/login', formData)
     window.localStorage.setItem('token', response.data.token)
     history.push('/')
-    console.log(response)
   }
 
   return (
@@ -57,8 +56,6 @@ const Login = () => {
                     />
                   </div>
 
-                  {/* </div> */}
-                  {/* </div> */}
                   <div className="field">
                     <hr />
                     <button

@@ -44,15 +44,9 @@ const Hamburger = () => {
           <div className="dropdown-content dropdown-shape">
             {!userIsAuthenticated() && (
               <>
-                {/* <Link to="/login" className="dropdown-item">
-                  Login
-                </Link> */}
                 <Link className="dropdown-item">
                   <div onClick={() => modal.current.open()}>Login</div>
                 </Link>
-                {/* <Link to="/signup" className="dropdown-item">
-                  Register
-                </Link> */}
                 <Link className="dropdown-item">
                   <div onClick={() => register.current.open()}>Register</div>
                 </Link>
@@ -61,7 +55,6 @@ const Hamburger = () => {
 
             {userIsAuthenticated() && (
               <>
-                {/* <hr className="dropdown-divider" /> */}
                 <Link to={`/profile/${userID}`} className="dropdown-item">
                   Profile
                 </Link>

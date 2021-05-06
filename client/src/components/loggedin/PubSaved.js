@@ -21,7 +21,7 @@ const PubSaved = () => {
   }, [])
 
   if (!user) return null
-  console.log(user.favouritePubs)
+
   return (
     <>
       <Header />

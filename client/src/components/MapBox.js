@@ -15,7 +15,7 @@ const Map = () => {
     zoom: 10.5,
   })
   
-  const apiKey = 'pk.eyJ1IjoiaGZyd2Fyd2ljayIsImEiOiJja21sd2p4cTcwYWZqMndsZXhsdG41aDlqIn0.cjW07TW74R2cD05Hap_eQQ'
+  const apiKey = process.env.REACT_APP_MAPBOX_KEY
   
 
   const viewportParams = (params) =>{
@@ -35,6 +35,12 @@ const Map = () => {
       setViewport({
         latitude: 51.481583,
         longitude: -3.179090,
+        zoom: 11,
+      })
+    } else if (params === 'leeds') {
+      setViewport({
+        latitude: 53.801277,
+        longitude: -1.548567,
         zoom: 11,
       })
     }

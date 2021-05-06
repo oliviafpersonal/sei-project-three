@@ -42,7 +42,7 @@ const Profile = () => {
   }, [])
   //prettier-ignore
   if (!user || !pubs) return null
-  console.log('userID', userID)
+
   const {
     username,
     email,

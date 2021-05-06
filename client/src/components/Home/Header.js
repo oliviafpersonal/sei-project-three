@@ -21,7 +21,6 @@ const Header = () => {
     const getData = async () => {
       const response = await axios.get('/api/pubs')
       setPubs(response.data)
-      console.log(setPubs)
     }
     getData()
   }, [])

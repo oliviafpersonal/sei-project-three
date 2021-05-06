@@ -1,3 +1,4 @@
+/*eslint-disable no-unused-vars*/
 import React, { useState } from 'react'
 import axios from 'axios'
 
@@ -31,7 +32,6 @@ const Register = () => {
     event.preventDefault()
     try {
       const response = await axios.post('/api/register', formData)
-      console.log(response)
       history.push('/login')
     } catch (err) {
       console.log(err.response)
@@ -47,7 +47,6 @@ const Register = () => {
         onSubmit={handleSubmit}>
         <h2>Register Here</h2>
         <hr />
-       
         <div className="login-input-box">
           <input
             className={`login-input ${errors.username ? 'is-danger' : ''}`}

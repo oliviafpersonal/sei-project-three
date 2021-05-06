@@ -22,29 +22,8 @@ import {
   faFutbol
 } from '@fortawesome/free-solid-svg-icons'
 
-// const { Client } = require('@ideal-postcodes/core-axios')
-// const client = new Client({ api_key: 'ak_kmtc4fdm8RWTEGal0A9zsXeRXQm0s' })
-
-// const findAddress = async () => {
-//   const { IdpcRequestFailedError } = Client.errors
-
-//   try {
-//     const address = await client.lookupAddress({ query: 'N13 4NT' })
-//     console.log(address)
-//   } catch (error) {
-//     if (error instanceof IdpcRequestFailedError) {
-//       // IdpcRequestFailedError indicates a 402 response code
-//       // Possibly the key balance has been depleted
-//     }
-//   }
-// }
-
-// findAddress()
-
 const LandLordSignUp = () => {
   const [user, setUser] = useState({})
-  // const [isEditActive, setIsEditActive] = useState(false)
-  // const [isDeleteActive, setIsDeleteActive] = useState(false)
 
   const userID = getPayloadFromToken().sub
 
@@ -65,10 +44,6 @@ const LandLordSignUp = () => {
   } = user
 
   const history = useHistory()
-
-  // const handleImageUrl = url => {
-  //   setFormData({ ...formData, profileImage: url })
-  // }
 
   const handleUserSubmit = async () => {
     await axios.put(
@@ -116,8 +91,6 @@ const LandLordSignUp = () => {
   })
 
   const handleChange = (event) => {
-    //console.log('event.target.checked', event.target.type)
-
     const value =
       event.target.type === 'checkbox'
         ? event.target.checked
@@ -136,19 +109,16 @@ const LandLordSignUp = () => {
     event.preventDefault()
     await handleUserSubmit()
     try {
-      //console.log(getTokenFromLocalStorage())
       //prettier-ignore
       const response = await axios.post('/api/pubs', formData, {
         headers: {
           Authorization: `Bearer ${getTokenFromLocalStorage()}`,
         },
       })
-      console.log(response)
 
       history.push('/pubs')
     } catch (err) {
       console.log(err.response)
-      // setErrors(err.response.data.errors)
     }
   }
 
@@ -249,11 +219,6 @@ const LandLordSignUp = () => {
             <div className="step-one">
               <b>STEP 1</b>
               <h2>Where is your Pub located?</h2>
-              {
-                //<br />
-                //<input className="input"></input>
-                //<br />
-              }
 
               <h2>Name of Pub</h2>
               <input

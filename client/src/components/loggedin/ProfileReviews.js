@@ -7,8 +7,6 @@ const ProfileReviews = ({ reviews, displayNumber }) => {
   return (
     <div className="profile-comment-container">
       {reviews.splice(0, displayNumber).map((review) => {
-        // console.log(review)
-        //prettier-ignore
         const {
           //prettier-ignore
           // reviewOwnerName,
@@ -19,9 +17,6 @@ const ProfileReviews = ({ reviews, displayNumber }) => {
           pubName,
           pubID,
         } = review
-        {
-          console.log('test', review)
-        }
         return (
           <div className="profile-comment " key={reviewID}>
             <div className="profile-review-details-container">
