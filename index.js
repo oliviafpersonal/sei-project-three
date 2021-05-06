@@ -3,6 +3,9 @@ import mongoose from 'mongoose'
 import { dbURI, port } from './config/environment.js'
 import router from './config/router.js'
 
+import path from 'path'
+const __dirname = path.resolve()
+
 const app = express()
 
 app.use((req, _res, next) => {
