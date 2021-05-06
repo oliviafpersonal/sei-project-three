@@ -18,7 +18,7 @@ const pubSchema = new mongoose.Schema(
     isLiveSports: { type: Boolean, required: true },
     image: { type: String, default: 'no image provided' },
     pubOwner: { type: mongoose.Schema.Types.ObjectID, ref: 'User' },
-    reviews: [reviewSchema],
+    reviews: [reviewSchema]
   },
   { timestamps: true }
 )
@@ -26,14 +26,8 @@ pubSchema.set('toJSON', { virtuals: true })
 pubSchema.virtual('averageRatings').get(function () {
   const review = this.reviews
   function averageTotal() {
-    const ratingsArray = review.map((rating) => {
-      return rating.overallRating
-    })
-    const sum = ratingsArray.reduce((acc, curr) => {
-      return acc + curr
-    }, 0)
-    const average = sum / ratingsArray.length
-    return !average ? 'Not Rated' : average
+    const sum = averageAvailability() + averageComfortability() + averagePrice()
+    return sum / 3
   }
   function averagePrice() {
     const priceArray = review.map((rating) => {
