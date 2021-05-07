@@ -3,10 +3,10 @@ import React, { useEffect, useState } from 'react'
 import ReactMapGL, { Marker, Popup } from 'react-map-gl'
 import { Link, useParams } from 'react-router-dom'
 import locationData from './data/location'
-import 'mapbox-gl/dist/mapbox-gl.css'
-import mapboxgl from 'mapbox-gl'
+// import 'mapbox-gl/dist/mapbox-gl.css'
+// import mapboxgl from 'mapbox-gl'
 
-mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default
+// mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default
 
 //prettier-ignore
 const Map = () => {
