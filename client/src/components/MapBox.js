@@ -17,7 +17,7 @@ const Map = () => {
   
   const apiKey = process.env.REACT_APP_MAPBOX_KEY
   
-  console.log(apiKey)
+
 
   const viewportParams = (params) =>{
     if (params === 'london') {
