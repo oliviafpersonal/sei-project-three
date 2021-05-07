@@ -22,12 +22,11 @@ const EditProfile = () => {
 
   const handleChange = (event) => {
     const newFormData = { ...formData, [event.target.name]: event.target.value }
-    console.log(newFormData)
     setFormData(newFormData)
   }
   const handleSubmit = async (event) => {
     event.preventDefault()
-    console.log(formData)
+
     await axios.put(`/api/users/${userID}`, formData, {
       headers: {
         Authorization: `Bearer ${getTokenFromLocalStorage()}`,

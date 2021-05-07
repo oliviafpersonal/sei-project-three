@@ -28,11 +28,9 @@ const Register = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
-      const response = await axios.post('/api/register', formData)
-      console.log(response)
+      await axios.post('/api/register', formData)
       history.push('/login')
     } catch (err) {
-      console.log(err.response)
       setErrors(err.response.data.errors)
     }
 

@@ -25,7 +25,7 @@ const EditProfileImage = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    console.log(formData)
+
     await axios.put(`/api/users/${userID}`, formData, {
       headers: {
         Authorization: `Bearer ${getTokenFromLocalStorage()}`,

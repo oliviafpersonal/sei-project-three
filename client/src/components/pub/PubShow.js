@@ -120,10 +120,7 @@ const PubShow = () => {
     return result
   }
   const citiesToDisplay = filterPubsByCity.slice(0, 4)
-  console.log(
-    '🚀 ~ file: PubShow.js ~ line 85 ~ PubShow ~ citiesToDisplay',
-    citiesToDisplay
-  )
+
   // const location = useLocation()
   // useEffect(() => {}, [location.pathname])
   //? need to conditionally render the save button as a remove button where the user already has the pub in favs. however can't us includes() on objects. instad mapping to get array of favpubs ids and
@@ -145,10 +142,10 @@ const PubShow = () => {
                 </div>
                 <p>{averageRatings.averageOverall}</p>
                 <p className="address">
-                  {`${address.line1} 
-                    ${address.line2} 
-                    ${address.town} 
-                    ${address.city} 
+                  {`${address.line1}
+                    ${address.line2}
+                    ${address.town}
+                    ${address.city}
                     ${address.postCode}`}
                 </p>
               </div>

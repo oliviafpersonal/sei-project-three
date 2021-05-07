@@ -11,8 +11,6 @@ const DeleteReview = () => {
   const userID = getTokenFromLocalStorage().sub
   const { pubID, reviewID } = useParams()
 
-  console.log('pubID', pubID)
-  console.log('reviewid', reviewID)
 
   const handleDelete = async (event) => {
     event.preventDefault()

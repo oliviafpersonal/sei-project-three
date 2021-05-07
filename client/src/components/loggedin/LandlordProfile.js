@@ -31,20 +31,14 @@ const Profile = () => {
     getPubs()
   }, [])
 
-  console.log(pubs)
 
   //prettier-ignore
   if (!user || !pubs) return null
-  console.log('userID', userID)
   const { isLandlord, username, createdAt, profileImage } = user
   const reviews = pubs
     .map((pub) => pub.reviews)
     .flat()
     .filter((review) => review.reviewOwner === userID)
-
-  console.log('profile', user)
-  console.log('profile', reviews)
-
   return (
     <>
       <Header />
@@ -77,9 +71,6 @@ const Profile = () => {
                     <section className="section">
                       <div className="container">
                         <div className="columns is-multiline">
-                          {pubs.map((pub) => {
-                            console.log(pub.pubOwner)
-                          })}
                           {pubs
                             .filter((pub) => pub.pubOwner === userID)
                             .map((pub, index) => {

@@ -55,9 +55,6 @@ const Profile = () => {
     .flat()
     .filter((review) => review.reviewOwner === userID)
 
-  console.log('profile', user)
-  console.log('profile', reviews)
-
   return (
     <>
       <Header />

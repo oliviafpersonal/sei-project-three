@@ -27,7 +27,6 @@ reviewSchema
       return acc + curr
     }, 0)
     const average = sum / ratingsArray.length
-    //console.log('average>>>>>>>>>>>>', average)
     return !average ? 'Not Rated' : average
   })
 

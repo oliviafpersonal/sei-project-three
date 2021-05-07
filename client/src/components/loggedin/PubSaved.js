@@ -11,7 +11,6 @@ const PubSaved = () => {
 
   const userID = getPayloadFromToken().sub
 
-  console.log(userID)
   useEffect(() => {
     const getData = async () => {
       const { data } = await axios.get(`/api/users/${userID}`)
