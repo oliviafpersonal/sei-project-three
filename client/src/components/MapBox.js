@@ -17,6 +17,7 @@ const Map = () => {
   
   const apiKey = process.env.REACT_APP_MAPBOX_KEY
   
+  console.log(apiKey)
 
   const viewportParams = (params) =>{
     if (params === 'london') {
@@ -68,7 +69,7 @@ const Map = () => {
     }
     return pub
   })
-  console.log('pubswith location', pubsWithLocation)
+  
   return (
     <div className="map-container"> 
       <ReactMapGL
