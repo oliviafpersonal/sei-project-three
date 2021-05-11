@@ -7,21 +7,9 @@ export const addReviewtoPub = async (req, res) => {
     const userID = req.currentUser._id
     const userName = req.currentUser.username
     const userImage = req.currentUser.profileImage
-<<<<<<< HEAD
-    console.log(
-      '🚀 ~ file: reviews.js ~ line 9 ~ addReviewtoPub ~ userName',
-      userName
-    )
     const findUser = await User.findById(userID)
     if (findUser.isLandlord && !findUser.isUser)
       throw new Error('user is a Landlord, Landlords cannot review pubs')
-    else if (findUser.isLandlord && findUser.isUser)
-      console.log('user is both Landlord and User, access approved')
-    else console.log('user is not a landlord,  access approved')
-=======
-    const findUser = await User.findById(userID)
-    if (findUser.isLandlord && !findUser.isUser) throw new  Error('user is a Landlord, Landlords cannot review pubs')
->>>>>>> ad180ae7692ad9756ceb9faf86ea8d47ed449c98
     const { id } = req.params
     const pub = await Pub.findById(id)
     if (!pub) throw new Error('Cannot find pub')
@@ -52,10 +40,6 @@ export const addReviewtoPub = async (req, res) => {
     return res.status(404).json({ message: err.message })
   }
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> ad180ae7692ad9756ceb9faf86ea8d47ed449c98
 
 export const deletePubReview = async (req, res) => {
   try {
@@ -80,15 +64,10 @@ export const updatePubReview = async (req, res) => {
     const userID = req.currentUser._id
     const findUser = await User.findById(userID)
     if (findUser.isLandlord) {
-<<<<<<< HEAD
       throw new Error(
         'user is a Landlord, Landlords cannot remmove pub reviews'
       )
-    } else console.log('user is not a landlord, access approved')
-=======
-      throw new  Error('user is a Landlord, Landlords cannot remmove pub reviews')
     }
->>>>>>> ad180ae7692ad9756ceb9faf86ea8d47ed449c98
 
     const { id } = req.params
     const pubToUpdate = await Pub.findById(id)
