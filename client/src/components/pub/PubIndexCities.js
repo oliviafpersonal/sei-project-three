@@ -23,7 +23,6 @@ const PubIndexCities = () => {
     const getData = async () => {
       const response = await axios.get('/api/pubs')
       setFilteredByCity(response.data)
-      console.log(setFilteredByCity)
     }
     getData()
   }, [])
@@ -35,10 +34,8 @@ const PubIndexCities = () => {
       setSports(false)
       setFood(false)
       setFilterPubs(false)
-      console.log('first log>>>>', seats)
     } else {
       setSeats(false)
-      console.log('second log>>>>', seats)
     }
   }
   const handleFood = () => {
@@ -48,14 +45,12 @@ const PubIndexCities = () => {
       setSports(false)
       setSeats(false)
       setFilterPubs(false)
-      console.log('first log>>>>', food)
     } else {
       setFood(false)
       setPets(false)
       setSports(false)
       setSeats(false)
       setFilterPubs(false)
-      console.log('second log>>>>', food)
     }
   }
 
@@ -66,14 +61,12 @@ const PubIndexCities = () => {
       setSports(false)
       setFood(false)
       setFilterPubs(false)
-      console.log('first log>>>>', pets)
     } else {
       setPets(false)
       setSeats(false)
       setSports(false)
       setFood(false)
       setFilterPubs(false)
-      console.log('second log>>>>', pets)
     }
   }
   const handleSports = () => {
@@ -83,14 +76,12 @@ const PubIndexCities = () => {
       setSeats(false)
       setFood(false)
       setFilterPubs(false)
-      console.log('first log>>>>', sports)
     } else {
       setSports(false)
       setPets(false)
       setSeats(false)
       setFood(false)
       setFilterPubs(false)
-      console.log('second log>>>>', sports)
     }
   }
   const handleFilter = () => {
@@ -100,19 +91,16 @@ const PubIndexCities = () => {
       setPets(false)
       setSeats(false)
       setFood(false)
-      console.log('first log>>>>', filterPubs)
     } else {
       setFilterPubs(false)
       setSports(false)
       setPets(false)
       setSeats(false)
       setFood(false)
-      console.log('second log>>>>', filterPubs)
     }
   }
 
   if (!filteredByCity) return null
-  console.log('filteredByCity list>>>>', filteredByCity)
   const pubs = filteredByCity.filter((pub) => {
     const cityToCompare = city.toLowerCase()
     const pubCity = pub.address.city.toLowerCase()
@@ -127,10 +115,6 @@ const PubIndexCities = () => {
   const isRating = pubs.sort((a, b) => {
     return b - a
   })
-  console.log(
-    '🚀 ~ file: PubIndex.js ~ line 115 ~ isRating ~ isRating',
-    isRating
-  )
 
   return (
     <>
@@ -208,7 +192,7 @@ const PubIndexCities = () => {
                     : food ? isFood
                       : filterPubs ? isRating
                         : pubs).map(
-                (pub) => 
+                (pub) =>
                   <PubCard key={pub._id} {...pub} />
               )
             }

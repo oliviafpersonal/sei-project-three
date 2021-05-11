@@ -72,7 +72,6 @@ const LandLordSignUp = () => {
     isLiveSports: false,
     image: '',
   })
-  console.log(formData)
 
   //prettier-ignore
   const [errors, setErrors] = useState({
@@ -99,9 +98,7 @@ const LandLordSignUp = () => {
     setFormData({ ...formData, [event.target.name]: value })
   }
 
-  const handleImageUrl = (url) => {
-    console.log('image url', url)
-
+  const handleImageUrl = (url) =>
     setFormData({ ...formData, image: url })
   }
 

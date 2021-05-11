@@ -9,7 +9,7 @@ const DeletePub = () => {
   const history = useHistory()
   const { pubID } = useParams()
   const userID = getTokenFromLocalStorage().sub
-  console.log('pubID', pubID)
+
 
   const handleDelete = async (event) => {
     event.preventDefault()

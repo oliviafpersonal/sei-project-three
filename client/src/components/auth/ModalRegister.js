@@ -34,7 +34,6 @@ const Register = () => {
       const response = await axios.post('/api/register', formData)
       history.push('/login')
     } catch (err) {
-      console.log(err.response)
       setErrors(err.response.data.errors)
     }
 
@@ -55,7 +54,7 @@ const Register = () => {
             value={formData.username}
             onChange={handleChange}
           />
-      
+
           {errors.username && (
             <p className="help is-danger">username error</p>
           )}
@@ -78,7 +77,7 @@ const Register = () => {
             name="password"
             value={formData.password}
             onChange={handleChange}
-          /> 
+          />
           {errors.password && (
             <p className="help is-danger">password error</p>
           )}
@@ -91,7 +90,7 @@ const Register = () => {
             name="passwordConfirmation"
             value={formData.passwordConfirmation}
             onChange={handleChange}
-          />       
+          />
           {errors.passwordConfirmation && (
             <p className="help is-danger">password confirmation error</p>
           )}
@@ -103,8 +102,8 @@ const Register = () => {
           </button>
         </div>
       </form>
-        
-   
+
+
     </>
   )
 }

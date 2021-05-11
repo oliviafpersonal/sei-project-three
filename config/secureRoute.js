@@ -7,11 +7,11 @@ export const secureRoute = async (req, res, next) => {
     if (!req.headers.authorization) throw new Error('Missing header')
 
     const token = req.headers.authorization.replace('Bearer ', '')
-    
+
     const payload = jwt.verify(token, secret)
-    //console.log('PAYLOAD >>>', payload)
+
     const userToVerify = await User.findById(payload.sub)
-    //console.log('USER TO VERIFY', userToVerify)
+
 
     if (!userToVerify) throw new Error('User not found')
 
@@ -19,7 +19,6 @@ export const secureRoute = async (req, res, next) => {
 
     next()
   } catch (err) {
-    console.log(err)
     return res.status(401).json({ message: 'Unauthorized' })
   }
 }

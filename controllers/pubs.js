@@ -4,16 +4,15 @@ import User from '../models/user.js'
 
 export const getAllPubs = async (req, res) => {
   const pubs = await Pub.find()
-  //console.log('🚀 ~ file: pubs.js ~ line 6 ~ getAllPubs ~ pubs', pubs)
   return res.status(200).json(pubs)
 }
 export const addOnePub = async (req, res) => {
   try {
     const userID = req.currentUser._id
     const findUser = await User.findById(userID)
-    if (!findUser.isLandlord) { 
+    if (!findUser.isLandlord) {
       throw new  Error('Only Landlords can add pubs')
-    } else console.log('>>>>>>>> user is a landlord, access approved')
+    }
     const newPub = { nameOfPub: req.body.nameOfPub,
       address: {
         line1: req.body.line1,
@@ -29,12 +28,9 @@ export const addOnePub = async (req, res) => {
       isFoodServed: req.body.isFoodServed,
       isLiveSports: req.body.isLiveSports,
       image: req.body.image, id: req._id }
-    //console.log('🚀 ~ file: pubs.js ~ line 14 ~ addOnePub ~ newPub', newPub)
     const pubToAdd = await Pub.create(newPub)
     return res.status(201).json(pubToAdd)
   } catch (error) {
-    console.log('failed to add pub')
-    console.log(error)
     return res.status(422).json(error)
   }
 }
@@ -48,8 +44,6 @@ export const getOnePub = async (req, res) => {
     }
     return res.status(200).json(singlePub)
   } catch (err) {
-    console.log('🆘 Something went wrong')
-    console.log(err)
     return res.status(404).json({ message: err.message })
   }
 }
@@ -59,10 +53,10 @@ export const deletePub = async (req, res) => {
   try {
     const userID = req.currentUser._id
     const findUser = await User.findById(userID)
-    if (!findUser.isLandlord) { 
+    if (!findUser.isLandlord) {
       throw new  Error('Only Landlords can update pubs')
-    } else console.log('>>>>>>>>>>> user is a landlord, access approved')
-    const { id } = req.params 
+    }
+    const { id } = req.params
     const pubToDelete = await Pub.findById(id)
     if (!pubToDelete) {
       throw new Error('no pub exists with this id')
@@ -70,7 +64,6 @@ export const deletePub = async (req, res) => {
     await pubToDelete.remove()
     return res.status(200).json({ message: 'its all gone' })
   } catch (err) {
-    console.log(err)
     return res.status(404).json({ message: err.message })
   }
 }
@@ -79,9 +72,9 @@ export const updatePub = async (req, res) => {
   try {
     const userID = req.currentUser._id
     const findUser = await User.findById(userID)
-    if (!findUser.isLandlord) { 
+    if (!findUser.isLandlord) {
       throw new  Error('Only Landlords can update pubs')
-    } else console.log('user is a landlord, access approved')
+    }
     const { id } = req.params
     const pubToUpdate = await Pub.findById(id)
     if (!pubToUpdate) {
@@ -91,7 +84,6 @@ export const updatePub = async (req, res) => {
     await pubToUpdate.save()
     return res.status(202).json(pubToUpdate)
   } catch (err) {
-    console.log(err)
     return res.status(404).json({ message: err.message })
   }
 }

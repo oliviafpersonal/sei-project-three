@@ -19,29 +19,25 @@ const Review = () => {
     text: 'No comment added',
   })
   const { id } = useParams()
-  console.log('id>>>>>', id)
   const handleChange = (event) => {
     const newFormData = { ...formData, [event.target.name]: event.target.value }
-    console.log(newFormData)
     setFormData(newFormData)
   }
 
   //prettier-ignore
   const handleSubmit = async (event) => {
-    console.log(formData)
     event.preventDefault()
     try {
-      const response = await axios.post(`/api/pubs/${id}/reviews`, formData, {
+      await axios.post(`/api/pubs/${id}/reviews`, formData, {
         headers: {
           Authorization: `Bearer ${getTokenFromLocalStorage()}`,
         },
       })
-      console.log(response)
       history.push(`/pubs/${id}`)
     } catch (err){
       console.log(err.message)
     }
-    
+
 
   }
 
@@ -58,7 +54,7 @@ const Review = () => {
               <p>Input your ratings and your review of the pub based on your experience</p>
               <br/>
             </div>
-            
+
 
             <div className="review-box">
               <form onSubmit={handleSubmit}>
@@ -162,7 +158,7 @@ const Review = () => {
             </div>
           </div>
           <div className="column">
-            
+
           </div>
 
 
@@ -170,10 +166,10 @@ const Review = () => {
 
 
       </div>
-     
+
     </>
   )
-  
+
 }
 
 export default Review

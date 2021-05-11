@@ -21,9 +21,9 @@ const startServer = async () => {
       useCreateIndex: true,
       useUnifiedTopology: true
     })
-    console.log('THE DATABASE IS CONNECTED!!!!!')
+
   } catch (error) {
-    console.log('something has gone wrong. see below for info')
+
     console.log(error)
   }
   app.listen(port, () => console.log(`express is running on port ${port}`))
