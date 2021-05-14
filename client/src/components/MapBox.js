@@ -4,7 +4,6 @@ import ReactMapGL, { Marker, Popup } from 'react-map-gl'
 import { Link, useParams } from 'react-router-dom'
 import locationData from './data/location'
 
-
 //prettier-ignore
 const Map = () => {
   const [popup, setPopup] = useState(null)
@@ -39,7 +38,7 @@ const Map = () => {
         longitude: -3.179090,
         zoom: 11,
       })
-    } else if (params === 'leeds') {
+    } else if (params === 'leeds' || params === 'Leeds') {
       setViewport({
         latitude: 53.801277,
         longitude: -1.548567,
