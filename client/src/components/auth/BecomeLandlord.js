@@ -22,7 +22,7 @@ const BecomeLandlord = () => {
           </div>
         </Link>
         <div className="landlord-hero-body hero-body">
-          <div className="animate__animated animate__fadeInUp">
+          <div className="animat  e__animated animate__fadeInUp">
             <h2>BECOME A LANDLORD</h2>
             <br />
             <h1>List your Pub on Pubhub and earn up to £200 a month*</h1>
