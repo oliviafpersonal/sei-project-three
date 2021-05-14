@@ -720,7 +720,7 @@ Javascript
  }, [])
 ```
 
-#### Key Learnings & Known Bugs
+## Key Learnings & Known Bugs
 
 Bugs:
 
