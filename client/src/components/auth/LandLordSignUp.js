@@ -98,7 +98,7 @@ const LandLordSignUp = () => {
     setFormData({ ...formData, [event.target.name]: value })
   }
 
-  const handleImageUrl = (url) =>
+  const handleImageUrl = (url) => {
     setFormData({ ...formData, image: url })
   }
 
