@@ -720,13 +720,23 @@ Javascript
  }, [])
 ```
 
+#### Wins and Challenges:
+
+##### Challenges:
+
+One of the main challenges with this project was the shear size and complexity. It was the largest project I have ever worked on. With many pages and views that needed to be thought out in terms of user flow and how data was shared across all pages. This complexity often led to unforeseen small bugs when introducing new code whilst working in a team. Meaning sometimes it was hard to identify what was causing the problem without proper communication.
+
+##### Wins:
+
+Despite the complexity we were able to iron out a lot of the small bugs caused by miscommunication and make an app that generally works quite well.
+
 ## Key Learnings & Known Bugs
 
-Bugs:
+##### Bugs:
 
 Currently, our search bar makes a request for all pubs on page load of the home page, causing a slow initial load of the site. We need to refactor this to only make the request on submit and make the filtering at the same time. The mapbox integration is not currently responsive and would take some figuring out to make it do so. Currently when you resize the page it stays the same size as the initial viewport. The ratings, filter button does not currently work properly and does something unknown.
 
-Learnings:
+##### Learnings:
 
 Overall I learned more doing this project than I had ever done before, it was by far the largest and most complicated project I have ever undertaken.
 
