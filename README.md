@@ -680,7 +680,7 @@ Javascript
 
 #### Profile
 
-<img width="964" alt="edit-profile" src="https://lh3.googleusercontent.com/DHPaEIeFHByKMRvVH7B9E6nsADtCkrYtgXCnluzqZCas5kw3N2_2sCGHl9qEBEk_DiRt4idmDKyg5vlivv6ij7mFHKt_DHS12bD2sJ6gnudZYl7shNaR6o0rLLj6e6C-BHxZEHV3">
+<img width="964" alt="profile" src="https://lh3.googleusercontent.com/DHPaEIeFHByKMRvVH7B9E6nsADtCkrYtgXCnluzqZCas5kw3N2_2sCGHl9qEBEk_DiRt4idmDKyg5vlivv6ij7mFHKt_DHS12bD2sJ6gnudZYl7shNaR6o0rLLj6e6C-BHxZEHV3">
 The profile page is relatively simple; the user profile information is displayed on the page making a get request to the user end point, using the user id taken from the JWT token.
 
 Using the same methodology to also display the reviews a user has made in a separate component which is also called on the page.
@@ -689,7 +689,7 @@ The user profile also has the ability to change the profile image using the clou
 
 I created a form to change the user details using a put request, that is hidden and unhidden using state, setting it to True and False respectively to conditionally render it.
 
-<img width="964" alt="favourite-pubs" src="https://lh4.googleusercontent.com/n3iSgUs8XR1zgD-2ZjwwkuWaFKrGLW-hO3P-g683W176r-1m_JIqRU-nuRrVduUlJ-fl5qaATCJlBfAkWq-39B9svgPLB9Lo2ZOq-5F7">
+<img width="964" alt="edit-profile" src="https://lh5.googleusercontent.com/Nn7ALhL43QahzqYjQYbV5363-W4W8zjODXvHYlKTdVRXr5Gx6hUiBOkv9aUPBypSxaBxjnW2RnbNfK_y9WhBj3d3lCAIJlAxIYaJS1qS">
 
 ```
 Javascript
@@ -705,7 +705,7 @@ Javascript
 
 ##### Saved Pubs & Landlord Profile
 
-<img width="964" alt="become-landlord" src="https://lh3.googleusercontent.com/vBRmZKMMh6pOP0KyZ-Q5TBQ8jeIosYTxGlGMsoYNL4zm_Z8W1tWrCxBFVGmGT_5kzNCfAN00nJltDR2b2T0SpZZSfFTc8gEncQtb0-zg">
+<img width="964" alt="saved-pubs" src="https://lh4.googleusercontent.com/n3iSgUs8XR1zgD-2ZjwwkuWaFKrGLW-hO3P-g683W176r-1m_JIqRU-nuRrVduUlJ-fl5qaATCJlBfAkWq-39B9svgPLB9Lo2ZOq-5F7">
 
 Both the saved pubs and landlord profiles are very similar pages, making a get request to the user endpoint and mapping through the saved pubs array and owned pubs arrays respectively.
 
