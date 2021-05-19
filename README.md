@@ -47,6 +47,10 @@ For our project we built a clone of airbnb but for Pubs, called Pubhub. Our appl
 - Eslint
 - Photoshop
 
+##### Deployed Project:
+
+https://pubhub-new.herokuapp.com/
+
 ##### Approach:
 
 As we were building a clone of Airbnb, we decided to screenshot all of the flows on the Airbnb website, both logged in and out. We then added each screenshot to a slideshow and annotated each one to figure out all the functionality we needed to cover for our MVP.
