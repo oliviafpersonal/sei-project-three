@@ -585,7 +585,7 @@ I created the entire page and made a conditionally rendered button that checks t
 
 ##### Landlords sign up.
 
-<img width="964" alt="become-landlord" src="https://lh5.googleusercontent.com/oSo-YTEGpwf8YOHeDKmHfr_IWIz1Nvr35JWKidgMi1_0teJXJuc-r2HVH8YrIyxZ6UZXdJLOdG6BVU99iHoNa3tT6K0R3TjWcjnihrMn">
+<!-- <img width="964" alt="become-landlord" src="https://lh5.googleusercontent.com/oSo-YTEGpwf8YOHeDKmHfr_IWIz1Nvr35JWKidgMi1_0teJXJuc-r2HVH8YrIyxZ6UZXdJLOdG6BVU99iHoNa3tT6K0R3TjWcjnihrMn"> -->
 
 As long as the user is logged in, they can access the form to register their pub and become a landlord. We created a form that retrieved the address of the pub and the variables and used the Cloudinary Api to upload an image of the pub.
 
@@ -678,7 +678,7 @@ The user profile also has the ability to change the profile image using the clou
 
 I created a form to change the user details using a PUT request, that is hidden and unhidden using state, setting it to True and False respectively to conditionally render it.
 
-<img width="964" alt="edit-profile" src="https://lh5.googleusercontent.com/Nn7ALhL43QahzqYjQYbV5363-W4W8zjODXvHYlKTdVRXr5Gx6hUiBOkv9aUPBypSxaBxjnW2RnbNfK_y9WhBj3d3lCAIJlAxIYaJS1qS">
+<!-- <img width="964" alt="edit-profile" src="https://lh5.googleusercontent.com/Nn7ALhL43QahzqYjQYbV5363-W4W8zjODXvHYlKTdVRXr5Gx6hUiBOkv9aUPBypSxaBxjnW2RnbNfK_y9WhBj3d3lCAIJlAxIYaJS1qS"> -->
 
 ```Javascript
  const [detailShow, setDetailShow] = useState(false)
@@ -693,7 +693,7 @@ I created a form to change the user details using a PUT request, that is hidden 
 
 ##### Saved Pubs & Landlord Profile
 
-<img width="964" alt="saved-pubs" src="https://lh4.googleusercontent.com/n3iSgUs8XR1zgD-2ZjwwkuWaFKrGLW-hO3P-g683W176r-1m_JIqRU-nuRrVduUlJ-fl5qaATCJlBfAkWq-39B9svgPLB9Lo2ZOq-5F7">
+<!-- <img width="964" alt="saved-pubs" src="https://lh4.googleusercontent.com/n3iSgUs8XR1zgD-2ZjwwkuWaFKrGLW-hO3P-g683W176r-1m_JIqRU-nuRrVduUlJ-fl5qaATCJlBfAkWq-39B9svgPLB9Lo2ZOq-5F7"> -->
 
 Both the saved pubs and landlord profiles are very similar pages, making a get request to the user endpoint and mapping through the saved pubs array and owned pubs arrays respectively.
 
