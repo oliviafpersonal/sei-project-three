@@ -65,10 +65,9 @@ Based on our screenshots and notes, as well as our mockup we transferred all the
 
 ##### Backend Set up
 
-Across the project, we worked either on our own or in pairs depending on what was being done and merged the code together using branches on Git. However as an initial step we set up much of the boilerplate backend views/controllers and models together. We eventually created models for the User, to enable registration and login, and eventually store other information such as, whether they were a landlord or not, if it was their first time, an array of pubs favourited, all Reviews they gave of pubs. And also models for the reviews themselves as well as the pubs themselves, each with interdependent relationships such as owner.
+Across the project, we worked either on our own or in pairs depending on what was being done and merged the code together using branches on Git. However as an initial step we set up much of the boilerplate backend views/controllers and models together. We eventually created models for the User, to enable registration and login, and eventually store other information such as, whether they were a landlord or not, if it was their first time, favourited pubs, and all Reviews they gave of pubs. And also models for the reviews themselves as well as the pubs themselves, each with interdependent relationships such as owner.
 
-```
-Javascript
+```Javascript
 const userSchema = new mongoose.Schema({
  username: { type: String, required: true, unique: true, maxlength: 40 },
  email: { type: String, required: true, unique: true },
@@ -110,12 +109,13 @@ I then added the general layout of the non functional homepage below where the h
 
 I then spent some time creating the hamburger navigation menu. This was created with a combination of Bulma classes, custom CSS modification and vanilla javascript to add an event listener. The end result is a dropdown menu that looks very similar to airbnb. I put this in it’s own React component to use in different headers later on.
 
+```Javascript
 const clickHandler = (e) => { e.currentTarget.classList.toggle('is-active') }
+```
 
 The contents of the dropdown was made to change depending on whether or not a user was authenticated and conditionally rendered based on this.
 
-```
-Javascript
+```Javascript
 <>
      <div className="dropdown is-right" onClick={clickHandler}>
        <div className="dropdown-trigger">
@@ -182,10 +182,9 @@ Javascript
    </>
 ```
 
-I used a lot of this rendering across the site using this helper function which gets the payload from the JWT token created at Login and then checks the expiry.
+I used a lot of this rendering across the site using this helper function, which gets the payload from the JWT token created at Login and then checks the expiry.
 
-```
-Javascript
+```Javascript
 export const userIsAuthenticated = () => {
  const payload = getPayloadFromToken()
  if (!payload) return false
@@ -194,9 +193,9 @@ export const userIsAuthenticated = () => {
 }
 ```
 
-Later on I added the Login and registration forms as components into a React Modal using React Portals and useRef() hook to reference the modals.
+Later on I added the Login and registration forms as components into a React Modal using React Portals and the useRef() hook to reference the modals.
 
-Again trying to mirror the aesthetic and functionality of the real airbnb website.
+Once again trying to mirror the aesthetic and functionality of the real airbnb website.
 
 <img width="964" alt="hamburger-nav" src="https://lh5.googleusercontent.com/naxrbk4BA4f9fjWrB9xQ6YLD4NcI1x0oGxGvHvLmc-yHjOIG_kjjHrGSk_6a0ANHjY9DdY3M8TIOlJLZt_zYVShAksm5AX6-aDId4E31VeZO1cqtzOLIW1GM7Vqc91DoCt03yvoP">
 
@@ -206,8 +205,7 @@ Again trying to mirror the aesthetic and functionality of the real airbnb websit
 
 Next I created the large hero section and the custom search bar to match Airbnb’s. I got it to overlap the hero section using Absolute positioning and Z-Index.
 
-```
-Javascript
+```CSS
 .search-bar {
  padding: 0.5rem 0.5rem;
  width: 40%;
@@ -228,8 +226,7 @@ Once the HTML and CSS was completed. Together with my teammate Jessie, we added 
 
 We did this by using a useEffect() to track state to see if a search was being made and then making a get request using Axios to our api/pubs endpoint based on search parameters entered in either the city search or pub search and then pushed the user to the relevant route.
 
-```
-Javascript
+```Javascript
  const navigateToFiltered = (city) => {
    history.push(`/pubs/filter-pubs/${city}`)
  }
@@ -258,8 +255,7 @@ Javascript
 
 We noticed the Airbnb homepage had a sticky header so we created our own too, we did this by creating a separate sticky header component and then making it show and unshow using css classes and JavaScript and then wrapping this in a useEffect().
 
-```
-Javascript
+```Javascript
 useEffect(() => {
    const header = document.querySelector('.myHeader')
    const sticky = header.offsetTop
@@ -290,8 +286,7 @@ Above this I added the filter controls and text that dynamically updated how man
 
 In terms of the flow, once a search was made a user is pushed to the pub index page. The page makes a request for all of the pubs in the database and then filters them based one whichever city is in the url Params. It is then further filtered by using the filter controls and a ternary operator on the mapped pubs.
 
-```
-Javascript
+```Javascript
  if (!filteredByCity) return null
  const pubs = filteredByCity.filter((pub) => {
    const cityToCompare = city.toLowerCase()
@@ -322,14 +317,13 @@ Javascript
 ##### Pub Detail Page
 
 <img width="964" alt="detail-page" src="https://lh4.googleusercontent.com/HG_TI9fuJSe78BxQeIL7p2uFSdrqSHLI6CU1L8qGKKYwcjkZWu9TrJP9XIVFOc7t-zAqzmiC6pscckyBLw-wnCGmA6oPc_bSNzVeo4yaj0oEdNHUc-WvoxzhyOSXf_Vs0wU3zP9Z">
-For the detail page once again I imported the Header component and then created two columns and then another two columns underneath.
+For the detail page, once again I imported the Header component and then created two columns and then another two columns underneath.
 
-To get the data I made an axios get request to the pubs api and got the pub in question using useParams and passed this through into the request. I then set the data to state and accessed the information across the page such as the Title, Address, Rating, Image, Description and the conditionally rendered whether or not it was Dog Friendly, had Outdoor seating, if Food was served or if Sports were shown.
+To retreive the data I then made an axios GET request to the pubs api and by selecting the pub in question through useParams, I then passed this through into the request. I then set the data to state and accessed the information across the page, such as the Title, Address, Rating, Image, Description. Next I conditionally rendered whether or not it was Dog Friendly, had Outdoor seating, if Food was served or if Sports were shown.
 
 We then also integrated the ability to save a pub and conditionally rendered it to show differently if it was already favorited.
 
-```
-Javascript
+```Javascript
 <div className="share-align">
                  {userIsOwner(pubOwner) ? (
                    <>
@@ -376,10 +370,9 @@ Javascript
 ##### Reviews
 
 <img width="964" alt="detail-page" src="https://lh6.googleusercontent.com/IbmOd15wPwhO8a6S1w-zpop0umuKpbFEkpr7ny_fiaKOSyLGCnVzkFX-3eKgrnj4tcwYscjZO-02NEGaUjWKUoRMw9r6vmcM1KIRFpF-vuYUFZOnVq2e2MGe0Bsw7PBida_-M384">
-Underneath this section we created the Reviews area again mimicking Airbnb. The average rating is calculated and added to the model using a virtual field allowing us to easily display it on the front end across the different pages. We also included the total number of reviews on each pub.
+Underneath this section we created the Reviews area, again mimicking Airbnb. The average rating was calculated and added to the model using a virtual field allowing us to easily display it on the front end across the different pages. We also included the total number of reviews on each pub.
 
-```
-Javascript
+```Javascript
 reviewSchema
  .virtual('overallRating')
  .get(function() {
@@ -394,8 +387,7 @@ reviewSchema
 
 Underneath we displayed the average sub ratings given to each pub and displayed it using a progress bar.
 
-```
-Javascript
+```Javascript
 <div className="range">
                      <progress
                        type="range"
@@ -422,10 +414,9 @@ To prevent the bars from breaking we first check to see if the number is a strin
 
 ##### Comments
 
-Next we map through the comments array and display each comment made with the owner name, image and timestamp. To convert the timestamp from the Unix Timestamp to a string we created a helper function that converts it into a readable date format, find which month it is and then selects the corresponding string from the array and then string interpolates the year on the end from newDate.
+Next we map through the comments array and display each comment made with the owner name, image and timestamp. To convert the timestamp from the Unix Timestamp coming from the backend, to a string, we created a helper function that converts it into a readable date format, then finds which month it is and then selects the corresponding string from the array and then string interpolates the year on to the end from newDate.
 
-```
-Javascript
+```Javascript
     <div className="review-date">{convertTimestamp(createdAt)}</div>
 
 export const convertTimestamp = (timestamp) => {
@@ -455,8 +446,7 @@ export const convertTimestamp = (timestamp) => {
 <img width="964" alt="detail-page" src="https://lh6.googleusercontent.com/e4CAxMxEk8DSw5XdIlPzoZZxEZ6BcZCHtBBn3WgXz8HTDyY_vhtsqWh0VntWie7-yfwmAxK_DnRBD6WnAhI7o3SQiUMajwSQI6TO4daGkUDMJR5xIG6A_s3q_9VDG2qfqtJJ_5qc">
 To submit a review we created a separate page which gives you a dropdown list to rate each parameter out of 5 and then leave a comment. Once submitted it takes the user back to the pub detail page. Taking the form data and setting it to state, with some default values in place, and then posts it to the pub's reviews endpoint using a post request. Then on successful submission it uses useHistory to push the user back to the Pub.
 
-```
-Javascript
+```Javascript
 
 const history = useHistory()
  const [formData, setFormData] = useState({
@@ -491,8 +481,7 @@ const history = useHistory()
 
 In the backend we added conditions so that if a user is a landlord and also owns the pubs, they can not leave a comment, edit or delete them.
 
-```
-Javascript
+```Javascript
 
 try {
    const userID = req.currentUser._id
@@ -509,8 +498,7 @@ try {
    } else {
 ```
 
-```
-Javascript
+```Javascript
 export const updatePubReview = async (req, res) => {
  try {
    const userID = req.currentUser._id
@@ -540,8 +528,7 @@ export const updatePubReview = async (req, res) => {
 <img width="964" alt="more-pubs" src="https://lh6.googleusercontent.com/hqB1rb4qUiibZ8df7B3pJs0gr7s_qkLMZguvmDNK7_byC0cnlVPmKcAjeW5oweCoE_mk1-ZIawgWLePlbRClFdVJjl11r871QU0seoyguX2WG3wmT36gqQKaAYFX7_2Gx54b9Bfs">
 At the very bottom of the pub detail page, we added more pubs in the same city, to do this we filter through the mapped pubs array by city and run this through the getRandom algorithm to randomise each element in the array.
 
-```
-Javascript
+```Javascript
  const cityToCompare = pub.address.city
  const filterPubsByCity = pubs
    .filter((item) => item.address.city === cityToCompare)
@@ -578,8 +565,7 @@ We created the Become a Landlord holding page to highlight the benefits of becom
 
 I created the entire page and made a conditionally rendered button that checks to see if a user is authenticated. If they are not it loads the login modal and then once they are logged in allows them to access the Landlord sign up form.
 
-```
-Javascript
+```Javascript
            {userIsAuthenticated() && (
              <Link to={'/landlord/signup'}>
                <button className="landlord-get-started button">
@@ -601,12 +587,11 @@ Javascript
 
 <img width="964" alt="become-landlord" src="https://lh5.googleusercontent.com/oSo-YTEGpwf8YOHeDKmHfr_IWIz1Nvr35JWKidgMi1_0teJXJuc-r2HVH8YrIyxZ6UZXdJLOdG6BVU99iHoNa3tT6K0R3TjWcjnihrMn">
 
-As long as the user is now logged in they can access the form to register their pub and become a landlord. We created a form that retrieved the address of the pub and the variables and used the Cloudinary Api to upload an image of the pub.
+As long as the user is logged in, they can access the form to register their pub and become a landlord. We created a form that retrieved the address of the pub and the variables and used the Cloudinary Api to upload an image of the pub.
 
 We also made a request when this is the first pub being registered to enable isLandlord on the user model. Allowing the user to become a Landlord.
 
-```
-Javascript
+```Javascript
  const handleUserSubmit = async () => {
    await axios.put(
      `/api/users/${userID}`,
@@ -687,16 +672,15 @@ Javascript
 <img width="964" alt="profile" src="https://lh3.googleusercontent.com/DHPaEIeFHByKMRvVH7B9E6nsADtCkrYtgXCnluzqZCas5kw3N2_2sCGHl9qEBEk_DiRt4idmDKyg5vlivv6ij7mFHKt_DHS12bD2sJ6gnudZYl7shNaR6o0rLLj6e6C-BHxZEHV3">
 The profile page is relatively simple; the user profile information is displayed on the page making a get request to the user end point, using the user id taken from the JWT token.
 
-Using the same methodology to also display the reviews a user has made in a separate component which is also called on the page.
+Using the same methodology to also display the reviews a user has made, we also created a separate component which is also called on the page to do so for the profile.
 
 The user profile also has the ability to change the profile image using the cloudinary API.
 
-I created a form to change the user details using a put request, that is hidden and unhidden using state, setting it to True and False respectively to conditionally render it.
+I created a form to change the user details using a PUT request, that is hidden and unhidden using state, setting it to True and False respectively to conditionally render it.
 
 <img width="964" alt="edit-profile" src="https://lh5.googleusercontent.com/Nn7ALhL43QahzqYjQYbV5363-W4W8zjODXvHYlKTdVRXr5Gx6hUiBOkv9aUPBypSxaBxjnW2RnbNfK_y9WhBj3d3lCAIJlAxIYaJS1qS">
 
-```
-Javascript
+```Javascript
  const [detailShow, setDetailShow] = useState(false)
 
  const editShow = () => {
@@ -744,6 +728,6 @@ Currently, our search bar makes a request for all pubs on page load of the home 
 
 Overall I learned more doing this project than I had ever done before, it was by far the largest and most complicated project I have ever undertaken.
 
-I learned a tremendous amount about authentication, conditional rendering, writing purpose built backends to suit the front end. I also learnt new React concepts such as React Portals, and hooks such as useRef().
+I learned a tremendous amount about authentication, conditional rendering, writing purpose built backends to suit the front end. I also learnt new React concepts such as React Portals, and hooks such as useRef(). I also learned a lot about Git and how to use it effectively as part of a collaborative work flow. Particually the benefits of branches, and how to manage merge conflicts.
 
 The power of good research, planning and organisation were critical to the success of this project and it made working in a team a real pleasure. Especially since we learnt to use Git branches collaboratively for the first time at the start of the project.
