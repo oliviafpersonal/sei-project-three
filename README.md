@@ -17,16 +17,16 @@ For the third Project on our Software Engineering Immersive Course at General As
 
 The Remote nature of the course was a great opportunity to work collaboratively as a group using tools such as Slack, Zoom, Trello and Github.
 
-For our project we built a clone of airbnb but for Pubs, called Pubhub. Our application which closely mimicked the functionality and user interface of airbnb but tailored towards Pubs.
+For our project we built a clone of Airbnb but for Pubs, called Pubhub. Our application which closely mimicked the functionality and user interface of Airbnb but tailored towards Pubs.
 
-##### Brief
+## Brief
 
 - To build a full-stack application, making our own back end and front end.
 - To use an Express API to serve data from a Mongo database.
 - To build the frontend using React to consume the API.
 - The API should have multiple relationships and CRUD functionality for at least a couple of models.
 
-##### Technologies Used
+## Technologies Used
 
 - HTML5
 - CSS3/ SASS
@@ -47,11 +47,11 @@ For our project we built a clone of airbnb but for Pubs, called Pubhub. Our appl
 - Eslint
 - Photoshop
 
-##### Deployed Project:
+## Deployed Project:
 
 https://pubhub-new.herokuapp.com/
 
-##### Approach:
+## Approach:
 
 As we were building a clone of Airbnb, we decided to screenshot all of the flows on the Airbnb website, both logged in and out. We then added each screenshot to a slideshow and annotated each one to figure out all the functionality we needed to cover for our MVP.
 
@@ -107,7 +107,7 @@ I then added the general layout of the non functional homepage below where the h
 
 ##### Hamburger
 
-I then spent some time creating the hamburger navigation menu. This was created with a combination of Bulma classes, custom CSS modification and vanilla javascript to add an event listener. The end result is a dropdown menu that looks very similar to airbnb. I put this in it’s own React component to use in different headers later on.
+I then spent some time creating the hamburger navigation menu. This was created with a combination of Bulma classes, custom CSS modification and vanilla JavaScript to add an event listener. The end result is a dropdown menu that looks very similar to Airbnb. I put this in it’s own React component to use in different headers later on.
 
 ```Javascript
 const clickHandler = (e) => { e.currentTarget.classList.toggle('is-active') }
@@ -195,7 +195,7 @@ export const userIsAuthenticated = () => {
 
 Later on I added the Login and registration forms as components into a React Modal using React Portals and the useRef() hook to reference the modals.
 
-Once again trying to mirror the aesthetic and functionality of the real airbnb website.
+Once again trying to mirror the aesthetic and functionality of the real Airbnb website.
 
 <img width="964" alt="hamburger-nav" src="https://lh5.googleusercontent.com/naxrbk4BA4f9fjWrB9xQ6YLD4NcI1x0oGxGvHvLmc-yHjOIG_kjjHrGSk_6a0ANHjY9DdY3M8TIOlJLZt_zYVShAksm5AX6-aDId4E31VeZO1cqtzOLIW1GM7Vqc91DoCt03yvoP">
 
@@ -224,7 +224,7 @@ Next I created the large hero section and the custom search bar to match Airbnb�
 
 Once the HTML and CSS was completed. Together with my teammate Jessie, we added the search functionality to the bar.
 
-We did this by using a useEffect() to track state to see if a search was being made and then making a get request using Axios to our api/pubs endpoint based on search parameters entered in either the city search or pub search and then pushed the user to the relevant route.
+We did this by using a useEffect() to track state to see if a search was being made and then making a GET request using Axios to our api/pubs endpoint based on search parameters entered in either the city search or pub search and then pushed the user to the relevant route.
 
 ```Javascript
  const navigateToFiltered = (city) => {
@@ -253,7 +253,7 @@ We did this by using a useEffect() to track state to see if a search was being m
 
 ##### Sticky Header
 
-We noticed the Airbnb homepage had a sticky header so we created our own too, we did this by creating a separate sticky header component and then making it show and unshow using css classes and JavaScript and then wrapping this in a useEffect().
+We noticed the Airbnb homepage had a sticky header so we created our own too. We did this by creating a separate sticky header component and then making it show and unshow using css classes and JavaScript and then wrapping this in a useEffect().
 
 ```Javascript
 useEffect(() => {
@@ -276,13 +276,11 @@ useEffect(() => {
 ##### Pub Index
 
 <img width="964" alt="hamburger-nav" src="https://lh4.googleusercontent.com/aUXs_413Jy5DGcCEpC9OTYdWWNa8fOm3XPGEMGJ704Oe7QZg5o1qwTunPJeBoAghGRVF32X-MPeqQs5VGKfNqaPoCn4GpMcOk9zESg03m7L-g_i6136liZ56YUxJo1jno0mqfqaf">
-Next I created the pub index user interface to match that of Airbnb to close detail. I did this by using the reusable <Header /> component. Followed by two Bulma columns.
-
-I initially left the right column empty, but this was later filled in by using the Mapbox Api to display the pubs that were searched for using Params and making requests to the pubs endpoint.
+Next I created the pub index user interface to match that of Airbnb to close detail. I did this by using the reusable Header component. Followed by two Bulma columns. I initially left the right column empty, but this was later filled in by using the Mapbox Api to display the pubs that were searched for using Params and making requests to the pubs endpoint.
 
 The left column was used to display searched pubs in card format just like Airbnb. Displaying the pub image, name, description and average rating.
 
-Above this I added the filter controls and text that dynamically updated how many search results were returned by the initial search and filter.
+Above this, I added the filter controls and text that dynamically updated how many search results were returned by the initial search and filter.
 
 In terms of the flow, once a search was made a user is pushed to the pub index page. The page makes a request for all of the pubs in the database and then filters them based one whichever city is in the url Params. It is then further filtered by using the filter controls and a ternary operator on the mapped pubs.
 
@@ -321,7 +319,7 @@ For the detail page, once again I imported the Header component and then created
 
 To retreive the data I then made an axios GET request to the pubs api and by selecting the pub in question through useParams, I then passed this through into the request. I then set the data to state and accessed the information across the page, such as the Title, Address, Rating, Image, Description. Next I conditionally rendered whether or not it was Dog Friendly, had Outdoor seating, if Food was served or if Sports were shown.
 
-We then also integrated the ability to save a pub and conditionally rendered it to show differently if it was already favorited.
+We then also integrated the ability to save a pub and conditionally rendered it to show differently if it was already favourited.
 
 ```Javascript
 <div className="share-align">
@@ -410,11 +408,11 @@ Underneath we displayed the average sub ratings given to each pub and displayed 
                    </div>
 ```
 
-To prevent the bars from breaking we first check to see if the number is a string, indicating it has not been rated yet, if so we display the string if not we display the integer fixed to one decimal place.
+To prevent the bars from breaking the ternary statement checkedto see if the number is a string, indicating it has not been rated yet, if so it then displayed the string, if not it displayed the integer fixed to one decimal place.
 
 ##### Comments
 
-Next we map through the comments array and display each comment made with the owner name, image and timestamp. To convert the timestamp from the Unix Timestamp coming from the backend, to a string, we created a helper function that converts it into a readable date format, then finds which month it is and then selects the corresponding string from the array and then string interpolates the year on to the end from newDate.
+Next we map through the comments array and displayed each comment made with the owner name, image and timestamp. To convert the timestamp from the Unix Timestamp coming from the backend, in to a string, we created a helper function that converts it into a readable date format, then finds which month it is in and then selects the corresponding string from the array and then string interpolates the year on to the end from newDate.
 
 ```Javascript
     <div className="review-date">{convertTimestamp(createdAt)}</div>
@@ -526,7 +524,7 @@ export const updatePubReview = async (req, res) => {
 ##### More Pubs
 
 <img width="964" alt="more-pubs" src="https://lh6.googleusercontent.com/hqB1rb4qUiibZ8df7B3pJs0gr7s_qkLMZguvmDNK7_byC0cnlVPmKcAjeW5oweCoE_mk1-ZIawgWLePlbRClFdVJjl11r871QU0seoyguX2WG3wmT36gqQKaAYFX7_2Gx54b9Bfs">
-At the very bottom of the pub detail page, we added more pubs in the same city, to do this we filter through the mapped pubs array by city and run this through the getRandom algorithm to randomise each element in the array.
+At the very bottom of the pub detail page, we added more pubs in the same city, to do this we filtered through the mapped pubs array by city and run this through the getRandom algorithm to randomise each element in the array.
 
 ```Javascript
  const cityToCompare = pub.address.city
@@ -559,9 +557,9 @@ At the very bottom of the pub detail page, we added more pubs in the same city, 
 
 <img width="964" alt="become-landlord" src="https://lh5.googleusercontent.com/RFXEftSo1a54HNs7_ztltXo-9dj7d3sT6B8drXxpUeprzNO2xWgYKe1A4pMl_kZN_vipkA_egv5oa3xU_gQUQBCTL2vblOVfDDmmmF8MctxeqT8JLnIB8IMpVQlEI8oseFU-BXZJ">
 
-To mimic airbnb’s user flow of signing up to become a host, we decided to do the same for our user flow of becoming a Pub Landlord. To become a landlord, we required the user to first register as a user of the app.
+To mimic Airbnb’s user flow of signing up to become a host, we decided to do the same for our user flow of becoming a Pub Landlord. To become a landlord, we required the user to first register as a user of the app.
 
-We created the Become a Landlord holding page to highlight the benefits of becoming a landlord the same way airbnb does for hosts.
+We created the Become a Landlord holding page to highlight the benefits of becoming a landlord the same way Airbnb does for hosts.
 
 I created the entire page and made a conditionally rendered button that checks to see if a user is authenticated. If they are not it loads the login modal and then once they are logged in allows them to access the Landlord sign up form.
 
@@ -670,7 +668,7 @@ We also made a request when this is the first pub being registered to enable isL
 #### Profile
 
 <img width="964" alt="profile" src="https://lh3.googleusercontent.com/DHPaEIeFHByKMRvVH7B9E6nsADtCkrYtgXCnluzqZCas5kw3N2_2sCGHl9qEBEk_DiRt4idmDKyg5vlivv6ij7mFHKt_DHS12bD2sJ6gnudZYl7shNaR6o0rLLj6e6C-BHxZEHV3">
-The profile page is relatively simple; the user profile information is displayed on the page making a get request to the user end point, using the user id taken from the JWT token.
+The profile page is relatively simple; the user profile information is displayed on the page making a GET request to the user end point, using the user id taken from the JWT token.
 
 Using the same methodology to also display the reviews a user has made, we also created a separate component which is also called on the page to do so for the profile.
 
@@ -695,7 +693,7 @@ I created a form to change the user details using a PUT request, that is hidden 
 
 <!-- <img width="964" alt="saved-pubs" src="https://lh4.googleusercontent.com/n3iSgUs8XR1zgD-2ZjwwkuWaFKrGLW-hO3P-g683W176r-1m_JIqRU-nuRrVduUlJ-fl5qaATCJlBfAkWq-39B9svgPLB9Lo2ZOq-5F7"> -->
 
-Both the saved pubs and landlord profiles are very similar pages, making a get request to the user endpoint and mapping through the saved pubs array and owned pubs arrays respectively.
+Both the saved pubs and landlord profiles are very similar pages, making a GET request to the user endpoint and mapping through the saved pubs array and owned pubs arrays respectively.
 
 ```
 Javascript
