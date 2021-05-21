@@ -63,7 +63,7 @@ With this figured out we created some basic wireframes for each view and made so
 
 Based on our screenshots and notes, as well as our mockup we transferred all the tasks that needed to be completed to Trello and worked on them each day individually and together on Zoom.
 
-##### Backend Set up
+## Backend Set up
 
 Across the project, we worked either on our own or in pairs depending on what was being done and merged the code together using branches on Git. However as an initial step we set up much of the boilerplate backend views/controllers and models together. We eventually created models for the User, to enable registration and login, and eventually store other information such as, whether they were a landlord or not, if it was their first time, favourited pubs, and all Reviews they gave of pubs. And also models for the reviews themselves as well as the pubs themselves, each with interdependent relationships such as owner.
 
@@ -91,7 +91,7 @@ const userSchema = new mongoose.Schema({
 
 Once all the models were in place, two members of the team were tasked with seeding data for the database and adding them using Javascript Object notation which would then be stored as a JSON document on our MongoDB database.
 
-### Front End
+## Front End
 
 Whilst my teammates were either seeding or building more features to the MVC, I took on the role of building out the Front End functionality and styling.
 
