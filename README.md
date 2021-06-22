@@ -8,7 +8,8 @@ This project consisted of creating a Full Stack Application using the MERN stack
 We chose to create a clone of the Airbnb website for pubs throughout the UK called Pubhub. 
 It was required that we use an Express API to serve data from a Mongo database, that we built both the front and back end, the front end was required to be made using React. Finally, it was also required that the API have multiple relationships allowing for the CRUD functionality. 
 
-
+We deployed the app using Heroku. 
+Deployed Project: https://pubhub-new.herokuapp.com/
 
 ### Group Members
 
@@ -16,7 +17,6 @@ It was required that we use an Express API to serve data from a Mongo database, 
 - Atilla Arslan
 - Jessie Edwards
 - Harry Warwick
-
 
 
 ## Technologies Used
@@ -34,27 +34,25 @@ It was required that we use an Express API to serve data from a Mongo database, 
 - Git
 - GitHub
 - Cloudinary
+- Mapbox
 - Google Chrome dev tools
 - Google Sheets
 - VS Code
 - Eslint
 - Photoshop
 
-## Deployed Project:
-
-https://pubhub-new.herokuapp.com/
 
 ## Approach:
 
-As we were building a clone of Airbnb, we decided to screenshot all of the flows on the Airbnb website, both logged in and out. We then added each screenshot to a slideshow and annotated each one to figure out all the functionality we needed to cover for our MVP.
+Once we had decided it would be a good idea to make a clone of a website, Airbnb seemed like a good choice as it is an easy to use website that most people know about. To make it a more exciting project, we decided to instead base the app on pubs.
 
-With this figured out we created some basic wireframes for each view and made some estimations for our component structure of our React App. We then created a mockup of the home page, helping set the colour scheme and logo for the app also.
+To begin with, I went through the entire Airbnb website, screenshoting each flow with a user being both logged in and out in order to gain a better understanding of our aim and also in order to create a more comprehensive plan. Once these were all annotated, we created a Trello board in order to remain organised and have a clear idea of what needed to be done and by when. 
+
 
 <img width="964" alt="home-screenshot" src="https://lh5.googleusercontent.com/YeMqJI7uMU_K3wZbDkX0PHhv5uv1ovoNPoFW-LElHcHKtFr3dkHdEX4stiYmBo1h19Uun6XQ8EBO_IDsTSnE7gj7T7DlMHLVb0CDdrjf2Y_hxv9dGoxRAfG-hvOtUvMgxjIb-ERD">
 
 <img width="964" alt="mock-up" src="https://lh5.googleusercontent.com/5zaA5WvT1IbnfMZHK6Al6fbRvfR6i0lsExWIOedDtSMZswccoppno7ab8W0B3NLKpTfptIFo6UsRHq4dJqKxNcCWd3PG780haLKAwLMKk1htuAKFLhcvoJ6UHJV1nGfqQEriBjrW">
 
-Based on our screenshots and notes, as well as our mockup we transferred all the tasks that needed to be completed to Trello and worked on them each day individually and together on Zoom.
 
 ## Backend Set up
 
