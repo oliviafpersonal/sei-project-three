@@ -1,30 +1,23 @@
-# General Assembly Project Three - Pubhub
+# Pubhub
 
-### Timeframe
 
-10 days
+This project consisted of creating a Full Stack Application using the MERN stack with CRUD capabilities in a 10 day time frame in a pre assigned group. 
+
+## Overview
+
+We chose to create a clone of the Airbnb website for pubs throughout the UK called Pubhub. 
+It was required that we use an Express API to serve data from a Mongo database, that we built both the front and back end, the front end was required to be made using React. Finally, it was also required that the API have multiple relationships allowing for the CRUD functionality. 
+
+
 
 ### Group Members
 
+- Olivia Flynn
 - Atilla Arslan
 - Jessie Edwards
 - Harry Warwick
-- Olivia Flynn
 
-## Project Overview
 
-For the third Project on our Software Engineering Immersive Course at General Assembly, we were tasked with building a Full Stack Application using the MERN stack, within 10 days in a group of pre-assigned members.
-
-The Remote nature of the course was a great opportunity to work collaboratively as a group using tools such as Slack, Zoom, Trello and Github.
-
-For our project we built a clone of Airbnb but for Pubs, called Pubhub. Our application which closely mimicked the functionality and user interface of Airbnb but tailored towards Pubs.
-
-## Brief
-
-- To build a full-stack application, making our own back end and front end.
-- To use an Express API to serve data from a Mongo database.
-- To build the frontend using React to consume the API.
-- The API should have multiple relationships and CRUD functionality for at least a couple of models.
 
 ## Technologies Used
 
