@@ -98,6 +98,21 @@ Once we had created all of our backend models, myself and another team member sp
 Throughout the project I worked on small tasks on the front end with particular emphasis on writing the authentication post requests in order to allow users to log in and out of their profile, and allowing them to upload a profile photo using the Cloudinary API. 
 
 
+```Javascript 
+export const ImageUploadField = ({ handleImageUrl, value }) => {
+  const handleUpload = async (event) => {
+    try {
+      const data = new FormData()
+      data.append('file', event.target.files[0])
+      data.append('upload_preset', uploadPreset)
+      const res = await axios.post(uploadUrl, data)
+      handleImageUrl(res.data.url)
+    } catch (err) {
+      console.log(err.message)
+    }
+  }
+```
+
 
 
 ## Wins and Challenges:
