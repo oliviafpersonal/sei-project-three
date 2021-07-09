@@ -46,7 +46,7 @@ Deployed Project: https://pubhub-new.herokuapp.com/
 
 Once we had decided it would be a good idea to make a clone of a website, Airbnb seemed like a good choice as it is an easy to use website that most people know about. To make it a more exciting project, we decided to instead base the app on pubs.
 
-To begin with, I went through the entire Airbnb website, screenshoting each flow with a user being both logged in and out in order to gain a better understanding of our aim and also in order to create a more comprehensive plan. Once these were all annotated, we created a Trello board in order to remain organised and have a clear idea of what needed to be done and by when. 
+To begin with, I went through the entire Airbnb website, and took a screenshot of each step to show the functionality of the website with a user being both logged in and out in order to gain a better understanding of our aim and also in order to create a more comprehensive plan. Once these were all annotated, we created a Trello board in order to remain organised and have a clear idea of what needed to be done and by when. 
 
 
 <img width="964" alt="home-screenshot" src="https://lh5.googleusercontent.com/YeMqJI7uMU_K3wZbDkX0PHhv5uv1ovoNPoFW-LElHcHKtFr3dkHdEX4stiYmBo1h19Uun6XQ8EBO_IDsTSnE7gj7T7DlMHLVb0CDdrjf2Y_hxv9dGoxRAfG-hvOtUvMgxjIb-ERD">
@@ -54,7 +54,7 @@ To begin with, I went through the entire Airbnb website, screenshoting each flow
 <img width="964" alt="mock-up" src="https://lh5.googleusercontent.com/5zaA5WvT1IbnfMZHK6Al6fbRvfR6i0lsExWIOedDtSMZswccoppno7ab8W0B3NLKpTfptIFo6UsRHq4dJqKxNcCWd3PG780haLKAwLMKk1htuAKFLhcvoJ6UHJV1nGfqQEriBjrW">
 
 
-## Backend Set up
+## Backend 
 
 Across the project, we worked either on our own or in pairs depending on what was being done and merged the code together using branches on Git. However as an initial step we set up much of the boilerplate backend views/controllers and models together. We eventually created models for the User, to enable registration and login, and eventually store other information such as, whether they were a landlord or not, if it was their first time, favourited pubs, and all Reviews they gave of pubs. And also models for the reviews themselves as well as the pubs themselves, each with interdependent relationships such as owner.
 
@@ -80,7 +80,7 @@ const userSchema = new mongoose.Schema({
 
 ##### Seeding the Data
 
-Once all the models were in place, two members of the team were tasked with seeding data for the database and adding them using Javascript Object notation which would then be stored as a JSON document on our MongoDB database.
+Once we had created all of our backend models, myself and another team member spent time seeding data for our database and adding them using Javascript Object notation which would then be stored as a JSON document on our MongoDB database.
 
 ## Front End
 
